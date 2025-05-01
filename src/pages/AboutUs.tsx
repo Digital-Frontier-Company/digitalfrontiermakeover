@@ -2,7 +2,7 @@
 import React from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube, BarChart, Brain, Rocket, Target, Globe, Briefcase, FileChart, BuildingOffice, Code, ChartBarSquare } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube, BarChart, Brain, Rocket, Target, Globe, Briefcase, FileText, Building, Code, BarChart2 } from "lucide-react";
 
 const AboutUs = () => {
   return (
@@ -76,7 +76,7 @@ const AboutUs = () => {
               </div>
               
               <div className="flex items-start">
-                <span className="mr-3 mt-1 text-blue-400"><ChartBarSquare size={18} /></span>
+                <span className="mr-3 mt-1 text-blue-400"><BarChart2 size={18} /></span>
                 <div>
                   <p className="font-semibold text-blue-300">Portfolio Optimization in CryptoCurrency Markets</p>
                   <p className="text-slate-300">Using Post-Modern Portfolio Theory (PMPT) to help clients balance risk and reward while considering psychological comfort.</p>
