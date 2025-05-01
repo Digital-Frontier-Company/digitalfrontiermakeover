@@ -13,6 +13,7 @@ import Future from "./pages/Future";
 import KPIs from "./pages/KPIs";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
+import AIBias from "./pages/AIBias";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/future" element={<Future />} />
           <Route path="/kpis" element={<KPIs />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/ai-bias-in-advertising" element={<AIBias />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

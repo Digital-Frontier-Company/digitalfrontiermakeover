@@ -23,6 +23,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     { path: "/sectors", label: "Sectors" },
     { path: "/future", label: "Future Trends" },
     { path: "/kpis", label: "KPIs" },
+    { path: "/ai-bias-in-advertising", label: "AI Bias in Advertising" },
     { path: "/faq", label: "FAQ" },
   ];
 

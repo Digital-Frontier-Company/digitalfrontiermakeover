@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -28,10 +29,10 @@ const Index = () => {
                       <Link to="/technical">How Marketing AI Works</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Evolution</Link>
+                      <Link to="/evolution">Evolution</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Regulations</Link>
+                      <Link to="/regulations">Regulations</Link>
                     </NavigationMenuLink>
                   </div>
                 </NavigationMenuContent>
@@ -41,16 +42,26 @@ const Index = () => {
                 <NavigationMenuContent>
                   <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Sector Spotlights</Link>
+                      <Link to="/sectors">Sector Spotlights</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Future Trends</Link>
+                      <Link to="/future">Future Trends</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">KPIs</Link>
+                      <Link to="/kpis">KPIs</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">FAQ</Link>
+                      <Link to="/faq">FAQ</Link>
+                    </NavigationMenuLink>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Ethics</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid grid-cols-1 gap-3 p-4 w-[250px]">
+                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                      <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                     </NavigationMenuLink>
                   </div>
                 </NavigationMenuContent>
@@ -73,22 +84,25 @@ const Index = () => {
                         <Link to="/technical">How Marketing AI Works</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Evolution</Link>
+                        <Link to="/evolution">Evolution</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Regulations</Link>
+                        <Link to="/regulations">Regulations</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Sector Spotlights</Link>
+                        <Link to="/sectors">Sector Spotlights</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Future Trends</Link>
+                        <Link to="/future">Future Trends</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">KPIs</Link>
+                        <Link to="/kpis">KPIs</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">FAQ</Link>
+                        <Link to="/faq">FAQ</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -202,7 +216,7 @@ const Index = () => {
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-slate-200 mb-3">Explore further:</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Link to="/" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
+                <Link to="/technical" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
                   <div className="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-full mr-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
@@ -211,7 +225,7 @@ const Index = () => {
                   <span>How Marketing AI Works</span>
                 </Link>
                 
-                <Link to="/" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
+                <Link to="/evolution" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
                   <div className="w-10 h-10 flex items-center justify-center bg-purple-500/20 rounded-full mr-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -220,7 +234,7 @@ const Index = () => {
                   <span>The History of AI in Marketing</span>
                 </Link>
                 
-                <Link to="/" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
+                <Link to="/regulations" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
                   <div className="w-10 h-10 flex items-center justify-center bg-green-500/20 rounded-full mr-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -229,13 +243,13 @@ const Index = () => {
                   <span>Regulations & Governance</span>
                 </Link>
                 
-                <Link to="/" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
+                <Link to="/ai-bias-in-advertising" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
                   <div className="w-10 h-10 flex items-center justify-center bg-amber-500/20 rounded-full mr-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                     </svg>
                   </div>
-                  <span>Frequently Asked Questions</span>
+                  <span>AI Bias in Advertising</span>
                 </Link>
               </div>
             </div>
