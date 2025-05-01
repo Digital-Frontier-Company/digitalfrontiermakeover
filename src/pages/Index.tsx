@@ -5,15 +5,24 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950">
+    <div className="min-h-screen df-landing-page">
       {/* Header */}
       <header className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
-              The Digital Frontier
-            </h1>
-            <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
+          <div className="mb-4 md:mb-0 flex items-center">
+            <Link to="/">
+              <img 
+                src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
+                alt="Digital Frontier Company" 
+                className="h-12 mr-3" 
+              />
+            </Link>
+            <div>
+              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
+                The Digital Frontier
+              </h1>
+              <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
+            </div>
           </div>
           
           <NavigationMenu className="hidden md:flex">
@@ -112,6 +121,39 @@ const Index = () => {
           </div>
         </div>
       </header>
+
+      {/* HERO SECTION */}
+      <section className="df-hero-section">
+        <div className="container">
+          {/* Digital Frontier Logo */}
+          <div className="text-center mb-5">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" className="df-logo" width="220" />
+          </div>
+
+          <div className="hero-content">
+            <h1>With Answer Engine Optimization, Your Website Isn't Just a Website — It's a <span className="highlight">Money‑Making Machine</span></h1>
+            <h2>Stop paying for pretty pixels. Your site should print money. At Digital Frontier we redesign pages around the only metric that matters—pipeline revenue.</h2>
+            <div className="text-center mt-4">
+              <a href="#contact" className="df-cta-button">Get Your Free Review</a>
+            </div>
+
+            <div className="df-trust-badges">
+              <div className="df-trust-badge">
+                <div className="df-trust-number"><span className="df-stat-counter">200</span>+</div>
+                <div className="df-trust-label">Websites Analyzed</div>
+              </div>
+              <div className="df-trust-badge">
+                <div className="df-trust-number"><span className="df-stat-counter">98</span>%</div>
+                <div className="df-trust-label">Satisfaction Rate</div>
+              </div>
+              <div className="df-trust-badge">
+                <div className="df-trust-number">+<span className="df-stat-counter">85</span>%</div>
+                <div className="df-trust-label">Avg. Traffic Increase</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
       <main className="container mx-auto py-8 px-4 mt-4">
@@ -262,7 +304,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2025 The Digital Frontier - <a href="https://thedigitalfrontier.ai" className="text-blue-400 hover:underline">thedigitalfrontier.ai</a>
+              &copy; 2025 Digital Frontier Company - <a href="https://thedigitalfrontier.ai" className="text-blue-400 hover:underline">thedigitalfrontier.ai</a>
             </p>
             
             <div className="flex space-x-6">

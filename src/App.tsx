@@ -14,6 +14,7 @@ import KPIs from "./pages/KPIs";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import AIBias from "./pages/AIBias";
+import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
 

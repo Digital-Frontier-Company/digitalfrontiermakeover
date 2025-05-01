@@ -32,11 +32,20 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       {/* Header */}
       <header className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
-              The Digital Frontier
-            </h1>
-            <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
+          <div className="mb-4 md:mb-0 flex items-center">
+            <Link to="/">
+              <img 
+                src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
+                alt="Digital Frontier Company" 
+                className="h-12 mr-3" 
+              />
+            </Link>
+            <div>
+              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
+                The Digital Frontier
+              </h1>
+              <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
+            </div>
           </div>
           
           {/* Desktop Navigation */}
@@ -98,7 +107,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2025 The Digital Frontier - <a href="https://thedigitalfrontier.ai" className="text-blue-400 hover:underline">thedigitalfrontier.ai</a>
+              &copy; 2025 Digital Frontier Company - <a href="https://thedigitalfrontier.ai" className="text-blue-400 hover:underline">thedigitalfrontier.ai</a>
             </p>
             
             <div className="flex space-x-6">
