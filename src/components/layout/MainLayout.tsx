@@ -1,8 +1,7 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, X, Youtube, TikTok, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -31,13 +30,19 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Facebook size={20} />
               </a>
               <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="X (Twitter)">
-                <X size={20} />
+                <Twitter size={20} />
               </a>
               <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="YouTube">
                 <Youtube size={20} />
               </a>
               <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="TikTok">
-                <TikTok size={20} />
+                {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                  <path d="M15 8c0 1 1 2 2 2h-2"></path>
+                  <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
+                  <path d="M15 12v8"></path>
+                </svg>
               </a>
               <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
@@ -109,13 +114,19 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Facebook size={18} />
               </a>
               <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="X (Twitter)">
-                <X size={18} />
+                <Twitter size={18} />
               </a>
               <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="YouTube">
                 <Youtube size={18} />
               </a>
               <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="TikTok">
-                <TikTok size={18} />
+                {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                  <path d="M15 8c0 1 1 2 2 2h-2"></path>
+                  <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
+                  <path d="M15 12v8"></path>
+                </svg>
               </a>
             </div>
             
@@ -181,13 +192,19 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Facebook size={18} />
               </a>
               <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <X size={18} />
+                <Twitter size={18} />
               </a>
               <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
                 <Youtube size={18} />
               </a>
               <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <TikTok size={18} />
+                {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                  <path d="M15 8c0 1 1 2 2 2h-2"></path>
+                  <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
+                  <path d="M15 12v8"></path>
+                </svg>
               </a>
               <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
                 <Instagram size={18} />
