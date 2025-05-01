@@ -78,9 +78,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Digital Marketing</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px]">
+                    <div className="grid grid-cols-1 gap-3 p-4 w-[300px]">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ad-funnel-blueprint">Ad Funnel Blueprint</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/generative-engine-optimization">Generative Engine Optimization</Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -166,6 +169,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ad-funnel-blueprint">Ad Funnel Blueprint</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/generative-engine-optimization">Generative Engine Optimization</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/sectors">Sector Spotlights</Link>
