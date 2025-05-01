@@ -17,6 +17,7 @@ import AIBias from "./pages/AIBias";
 import AboutUs from "./pages/AboutUs";
 import AdFunnelBlueprint from "./pages/AdFunnelBlueprint";
 import GenerativeEngineOptimization from "./pages/GenerativeEngineOptimization";
+import Contact from "./pages/Contact";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/ad-funnel-blueprint" element={<AdFunnelBlueprint />} />
           <Route path="/generative-engine-optimization" element={<GenerativeEngineOptimization />} />
+          <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
