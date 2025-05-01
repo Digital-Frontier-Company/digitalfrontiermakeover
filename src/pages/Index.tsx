@@ -1,7 +1,9 @@
+
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 const Index = () => {
   // Use the FAQ toggle hook
@@ -41,6 +43,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIALS SECTION - Added below the hero section */}
+      <TestimonialsSection />
 
       {/* SMART MARKETING SECTION */}
       <section className="df-smart-marketing">
