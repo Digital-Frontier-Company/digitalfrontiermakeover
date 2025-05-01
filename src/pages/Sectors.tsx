@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { ShoppingCart, BanknotesIcon, HeartPulse, MessageSquare, Briefcase } from "lucide-react";
+import { ShoppingCart, Banknote, HeartPulse, MessageSquare, Briefcase } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Sectors = () => {
@@ -133,7 +133,7 @@ const Sectors = () => {
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-500/20 rounded-md">
-                      <BanknotesIcon className="h-6 w-6 text-green-400" />
+                      <Banknote className="h-6 w-6 text-green-400" />
                     </div>
                     <CardTitle className="text-xl text-slate-100">Financial Services & Fintech</CardTitle>
                   </div>
