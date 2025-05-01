@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon } from "lucide-react";
+import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon, ArrowRight } from "lucide-react";
 
 const GenerativeEngineOptimization = () => {
   const location = useLocation();
@@ -51,13 +51,28 @@ const GenerativeEngineOptimization = () => {
     { month: 'Jun', improvement: 90 },
   ];
 
+  // Sample data for SEO vs AEO vs GEO comparison
+  const optimizationComparisonData = [
+    { name: 'Search Visibility', seo: 80, aeo: 60, geo: 50 },
+    { name: 'Direct Traffic', seo: 70, aeo: 40, geo: 30 },
+    { name: 'AI Citations', seo: 20, aeo: 70, geo: 90 },
+    { name: 'Conversion Rate', seo: 60, aeo: 65, geo: 75 },
+    { name: 'Content ROI', seo: 50, aeo: 60, geo: 85 },
+  ];
+
   return (
     <PageLayout
       title="Generative Engine Optimization"
       subtitle="That Makes AI Engines Quote You First"
       currentPath={location.pathname}
     >
-      <section className="mb-12">
+      {/* Hero Image Section */}
+      <section className="mb-12 text-center">
+        <img 
+          src="/lovable-uploads/7856abf2-126d-4fbb-87da-fe5143707423.png" 
+          alt="SEO-AEO-GEO Blog Optimizer" 
+          className="w-full max-w-3xl mx-auto rounded-lg shadow-xl mb-6" 
+        />
         <h2 className="text-2xl font-bold mb-4 text-slate-100">Understanding GEO: The Next Frontier</h2>
         <p className="text-slate-300 mb-4">
           Generative Engine Optimization (GEO) is the emerging practice of optimizing content 
@@ -69,6 +84,59 @@ const GenerativeEngineOptimization = () => {
           Our data-driven approach ensures your content isn't just found—it's quoted, referenced, and 
           prioritized by leading AI engines, driving visibility in this new paradigm of content discovery.
         </p>
+      </section>
+
+      {/* 5-Step Framework Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-slate-100">Our 5-Step GEO Framework</h2>
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          <img 
+            src="/lovable-uploads/3b21fa11-2a1d-4153-98dd-07178e0da505.png" 
+            alt="5-Step GEO Framework" 
+            className="w-full max-w-md rounded-lg shadow-lg border border-slate-700" 
+          />
+          <div className="space-y-4">
+            <div className="bg-slate-800/40 p-4 rounded-lg">
+              <h3 className="text-xl font-semibold text-purple-400 flex items-center gap-2">
+                <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">1</span>
+                Entity Audit
+              </h3>
+              <p className="text-slate-300 ml-10">We comprehensively map every brand, product, expert, and FAQ into structured schemas that AI engines can easily process.</p>
+            </div>
+            
+            <div className="bg-slate-800/40 p-4 rounded-lg">
+              <h3 className="text-xl font-semibold text-purple-400 flex items-center gap-2">
+                <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">2</span>
+                RAG-Ready Content
+              </h3>
+              <p className="text-slate-300 ml-10">We format your content with question-first headers and concise answer blocks (≤50 words) to maximize citation potential.</p>
+            </div>
+            
+            <div className="bg-slate-800/40 p-4 rounded-lg">
+              <h3 className="text-xl font-semibold text-purple-400 flex items-center gap-2">
+                <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">3</span>
+                Vector Friendliness
+              </h3>
+              <p className="text-slate-300 ml-10">We optimize your content structure by chunking pages under 800 tokens and strategically embedding them for AI retrieval.</p>
+            </div>
+            
+            <div className="bg-slate-800/40 p-4 rounded-lg">
+              <h3 className="text-xl font-semibold text-purple-400 flex items-center gap-2">
+                <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">4</span>
+                LLM Sentiment Tracking
+              </h3>
+              <p className="text-slate-300 ml-10">We implement weekly bot prompting to gauge tone and citation frequency across major AI platforms.</p>
+            </div>
+            
+            <div className="bg-slate-800/40 p-4 rounded-lg">
+              <h3 className="text-xl font-semibold text-purple-400 flex items-center gap-2">
+                <span className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">5</span>
+                Zero-Click KPI Loop
+              </h3>
+              <p className="text-slate-300 ml-10">We measure AI citations, not just clicks, through comprehensive dashboards that track your content's performance.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Performance Comparison Card */}
@@ -101,6 +169,56 @@ const GenerativeEngineOptimization = () => {
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* SEO vs AEO vs GEO Comparison Chart */}
+      <Card className="mb-8 border-slate-800 bg-slate-900/80">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <ChartLineIcon className="h-5 w-5 text-purple-400" />
+            Optimization Strategy Comparison
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="mb-4 text-slate-300">SEO vs AEO vs GEO: Performance Across Key Metrics</p>
+          <div className="h-[300px] w-full">
+            <ChartContainer config={{
+              seo: { color: "#22c55e" },
+              aeo: { color: "#3b82f6" },
+              geo: { color: "#8B5CF6" },
+            }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={optimizationComparisonData}
+                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                  <XAxis dataKey="name" stroke="#9F9EA1" />
+                  <YAxis stroke="#9F9EA1" />
+                  <Tooltip content={<ChartTooltipContent />} />
+                  <Legend />
+                  <Bar dataKey="seo" fill="#22c55e" name="SEO" />
+                  <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
+                  <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartContainer>
+          </div>
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+            <div className="p-3 bg-green-900/20 border border-green-800/30 rounded-lg">
+              <h4 className="font-semibold text-green-400 mb-1">SEO</h4>
+              <p className="text-slate-300">Traditional search engine optimization focused on Google rankings and organic traffic.</p>
+            </div>
+            <div className="p-3 bg-blue-900/20 border border-blue-800/30 rounded-lg">
+              <h4 className="font-semibold text-blue-400 mb-1">AEO</h4>
+              <p className="text-slate-300">Answer Engine Optimization targeting featured snippets and voice search results.</p>
+            </div>
+            <div className="p-3 bg-purple-900/20 border border-purple-800/30 rounded-lg">
+              <h4 className="font-semibold text-purple-400 mb-1">GEO</h4>
+              <p className="text-slate-300">Generative Engine Optimization for maximum AI quotability and citation.</p>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -319,12 +437,125 @@ const GenerativeEngineOptimization = () => {
         </Card>
       </div>
       
+      {/* Benefits Section with Gradients */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-slate-100">Benefits of GEO</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-xl bg-gradient-to-br from-purple-900/40 to-indigo-900/40 border border-purple-800/30">
+            <div className="text-purple-400 mb-3 text-3xl font-bold">01</div>
+            <h3 className="text-xl font-semibold mb-2 text-white">Zero-Click Visibility</h3>
+            <p className="text-slate-300">Gain visibility without requiring users to click through to your website, expanding your content's reach.</p>
+          </div>
+          
+          <div className="p-6 rounded-xl bg-gradient-to-br from-fuchsia-900/40 to-purple-900/40 border border-fuchsia-800/30">
+            <div className="text-fuchsia-400 mb-3 text-3xl font-bold">02</div>
+            <h3 className="text-xl font-semibold mb-2 text-white">Authority Positioning</h3>
+            <p className="text-slate-300">Establish your brand as the authoritative source that AI engines trust and quote ahead of competitors.</p>
+          </div>
+          
+          <div className="p-6 rounded-xl bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-800/30">
+            <div className="text-blue-400 mb-3 text-3xl font-bold">03</div>
+            <h3 className="text-xl font-semibold mb-2 text-white">Future-Proof Strategy</h3>
+            <p className="text-slate-300">Adapt to the shifting search landscape where AI-mediated content discovery is becoming increasingly dominant.</p>
+          </div>
+        </div>
+      </section>
+      
+      {/* Comparison Table */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-slate-100">GEO vs. Traditional Optimization</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-slate-800/50">
+                <th className="p-3 text-left text-slate-300 border-b border-slate-700">Feature</th>
+                <th className="p-3 text-left text-slate-300 border-b border-slate-700">Traditional SEO</th>
+                <th className="p-3 text-left text-purple-300 border-b border-slate-700">GEO Strategy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="hover:bg-slate-800/20">
+                <td className="p-3 border-b border-slate-800 font-medium">Primary Target</td>
+                <td className="p-3 border-b border-slate-800">Search Engine Rankings</td>
+                <td className="p-3 border-b border-slate-800">AI Citations & Quotes</td>
+              </tr>
+              <tr className="hover:bg-slate-800/20">
+                <td className="p-3 border-b border-slate-800 font-medium">Content Format</td>
+                <td className="p-3 border-b border-slate-800">Keyword-optimized content</td>
+                <td className="p-3 border-b border-slate-800">Entity-rich, factual, structured</td>
+              </tr>
+              <tr className="hover:bg-slate-800/20">
+                <td className="p-3 border-b border-slate-800 font-medium">Success Metric</td>
+                <td className="p-3 border-b border-slate-800">Clicks & Traffic</td>
+                <td className="p-3 border-b border-slate-800">Citation Frequency & Position</td>
+              </tr>
+              <tr className="hover:bg-slate-800/20">
+                <td className="p-3 border-b border-slate-800 font-medium">User Journey</td>
+                <td className="p-3 border-b border-slate-800">SERP → Website</td>
+                <td className="p-3 border-b border-slate-800">AI Response → Brand Recognition</td>
+              </tr>
+              <tr className="hover:bg-slate-800/20">
+                <td className="p-3 font-medium">Technical Focus</td>
+                <td className="p-3">Site speed, backlinks, metadata</td>
+                <td className="p-3">Vector embeddings, entity relationships</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      {/* Case Studies Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-6 text-slate-100">Case Studies</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="border-slate-800 bg-slate-900/80">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-purple-900/30 p-3 rounded-lg">
+                  <ChartBarIcon className="h-8 w-8 text-purple-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-slate-100">E-commerce Product Descriptions</h3>
+                  <p className="text-slate-300 mb-3">
+                    A leading e-commerce retailer saw a 215% increase in AI-driven product mentions after implementing our GEO strategy across 5,000+ product descriptions.
+                  </p>
+                  <div className="flex items-center">
+                    <span className="text-purple-400 font-semibold">Read Case Study</span>
+                    <ArrowRight className="h-4 w-4 ml-1 text-purple-400" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border-slate-800 bg-slate-900/80">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-blue-900/30 p-3 rounded-lg">
+                  <ChartLineIcon className="h-8 w-8 text-blue-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-slate-100">Financial Services Knowledge Base</h3>
+                  <p className="text-slate-300 mb-3">
+                    A financial services provider increased their citation rate in AI responses by 340% after restructuring their knowledge base using our GEO framework.
+                  </p>
+                  <div className="flex items-center">
+                    <span className="text-blue-400 font-semibold">Read Case Study</span>
+                    <ArrowRight className="h-4 w-4 ml-1 text-blue-400" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+      
       {/* CTA Section */}
-      <div className="py-6 px-8 rounded-lg bg-gradient-to-r from-purple-900/50 to-indigo-900/50 border border-purple-800/50 text-center">
+      <div className="py-8 px-8 rounded-lg bg-gradient-to-r from-purple-900/50 to-indigo-900/50 border border-purple-800/50 text-center">
         <h2 className="text-2xl font-bold mb-3 text-white">Ready to Dominate AI Search Results?</h2>
-        <p className="text-slate-300 mb-6">
-          Our GEO specialists can help position your content as the preferred source for AI engines.
-          Contact us for a free quotability analysis of your current content.
+        <p className="text-slate-300 mb-6 max-w-2xl mx-auto">
+          As global brands increasingly hire GEO agencies to counter AI chat's threat to Google dominance, 
+          don't get left behind. Our specialists can help position your content as the preferred source for AI engines.
         </p>
         <button className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md font-medium transition-colors">
           Get Your Free GEO Analysis
