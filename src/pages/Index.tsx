@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -107,6 +106,46 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* CUSTOM ABOUT SECTION */}
+      <div className="hostinger-custom-about">
+        <div className="about-container-inner">
+          <div className="about-content-box">
+            <h2>So What is Digital Frontier Company?</h2>
+
+            <p className="intro-text">We are Engineers of Connection.</p>
+
+            <p>Based in Memphis, TN, we don't just help businesses get noticed—we make sure they get remembered.</p>
+            <p>From SEO and social media to high-converting ad campaigns, we engineer magnetic experiences that pull your audience in and turn them into die-hard customers.</p>
+
+            <h3>SEO & AEO (Answer Engine Optimization)</h3>
+            <p>We don't just boost your rankings—we position your brand as the definitive answer customers are searching for. AI is the new search engine, and we make sure you dominate where AI determines relevancy.</p>
+
+            <h3>Social Media Marketing</h3>
+            <p>Forget generic content—our strategies ignite engagement, build loyalty, and inspire action. We've mastered the art of turning likes into loyalty and conversations into conversions.</p>
+
+            <h3>Smart Tech, Smarter Marketing</h3>
+            <p>AI doesn't replace human creativity—it supercharges it. We leverage AI to analyze data, optimize campaigns, and forecast trends, but at the heart of every strategy is bold, people-driven storytelling.</p>
+            <p>Our approach cuts waste, maximizes ROI, and gives you an unfair edge over your competition.</p>
+
+            <h3>Your Growth is Our Mission</h3>
+            <p>At Digital Frontier, we ask just one question:</p>
+            <p><em>Are you satisfied with your current brand impact and the stories people share about your business?</em></p>
+            <p>If the answer was yes, let's be honest—you wouldn't be reading this.</p>
+            <p>Whether you're a startup ready to disrupt or an established brand looking to dominate, we scale your business with speed, precision, and vision tailored uniquely to your brand.</p>
+
+            <h3>Ready to Own Your Digital Space?</h3>
+            <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk.</p>
+            <p>Click below, and let's build something legendary.</p>
+
+            <div className="button-placeholder">
+              <Link to="/contact" className="df-cta-button">Let's Talk Growth</Link>
+            </div>
+
+            <p className="final-tagline">Digital Frontier—Marketing That Actually Works.</p>
+          </div>
+        </div>
+      </div>
 
       {/* REVENUE ENGINE SECTION */}
       <section className="df-revenue-engine">
