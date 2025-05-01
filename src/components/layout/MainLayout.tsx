@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { Facebook, X, Youtube, TikTok, Instagram, Linkedin } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -21,69 +22,103 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 className="h-12 mr-3" 
               />
             </Link>
-            <div>
-              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
-                The Digital Frontier
-              </h1>
-              <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
-            </div>
           </div>
           
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Explore Topics</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Home</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/about-us">About Us</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/technical">How Marketing AI Works</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/evolution">Evolution</Link>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Industry</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/sectors">Sector Spotlights</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/future">Future Trends</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/kpis">KPIs</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/faq">FAQ</Link>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Ethics</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-1 gap-3 p-4 w-[250px]">
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <div className="flex items-center space-x-3">
+            {/* Social Media Icons */}
+            <div className="hidden md:flex items-center space-x-3 mr-6">
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Facebook">
+                <Facebook size={20} />
+              </a>
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="X (Twitter)">
+                <X size={20} />
+              </a>
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="YouTube">
+                <Youtube size={20} />
+              </a>
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="TikTok">
+                <TikTok size={20} />
+              </a>
+              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Instagram">
+                <Instagram size={20} />
+              </a>
+              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
+                <Linkedin size={20} />
+              </a>
+            </div>
+            
+            <NavigationMenu className="hidden md:flex">
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Explore Topics</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/">Home</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/about-us">About Us</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/technical">How Marketing AI Works</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/evolution">Evolution</Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Industry</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/sectors">Sector Spotlights</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/future">Future Trends</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/kpis">KPIs</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/faq">FAQ</Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Ethics</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px]">
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
 
           {/* Mobile Menu */}
           <div className="md:hidden">
+            {/* Mobile social icons */}
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Facebook">
+                <Facebook size={18} />
+              </a>
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="X (Twitter)">
+                <X size={18} />
+              </a>
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="YouTube">
+                <Youtube size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="TikTok">
+                <TikTok size={18} />
+              </a>
+            </div>
+            
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -139,6 +174,28 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <p className="text-slate-400 mb-4 md:mb-0">
               &copy; 2025 Digital Frontier Company LLC - All rights reserved. <a href="mailto:info@digitalfrontier.app" className="text-blue-400 hover:underline">info@digitalfrontier.app</a>
             </p>
+            
+            {/* Social Media Icons in Footer */}
+            <div className="flex flex-wrap justify-center space-x-4 mb-4 md:mb-0">
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <Facebook size={18} />
+              </a>
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <X size={18} />
+              </a>
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <Youtube size={18} />
+              </a>
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <TikTok size={18} />
+              </a>
+              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
+                <Linkedin size={18} />
+              </a>
+            </div>
             
             <div className="flex space-x-6">
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
