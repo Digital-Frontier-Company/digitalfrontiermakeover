@@ -1,127 +1,15 @@
 
 import { Link } from "react-router-dom";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useEffect } from "react";
+import MainLayout from "@/components/layout/MainLayout";
+import useFaqToggle from "@/hooks/useFaqToggle";
 
 const Index = () => {
+  // Use the FAQ toggle hook
+  useFaqToggle();
+
   return (
-    <div className="min-h-screen df-landing-page">
-      {/* Header */}
-      <header className="container mx-auto py-6 px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0 flex items-center">
-            <Link to="/">
-              <img 
-                src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
-                alt="Digital Frontier Company" 
-                className="h-12 mr-3" 
-              />
-            </Link>
-            <div>
-              <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
-                The Digital Frontier
-              </h1>
-              <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
-            </div>
-          </div>
-          
-          <NavigationMenu className="hidden md:flex">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Explore Topics</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Home</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/technical">How Marketing AI Works</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/evolution">Evolution</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/regulations">Regulations</Link>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Industry</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/sectors">Sector Spotlights</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/future">Future Trends</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/kpis">KPIs</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/faq">FAQ</Link>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Ethics</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid grid-cols-1 gap-3 p-4 w-[250px]">
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
-                    </NavigationMenuLink>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          {/* Mobile Menu */}
-          <div className="md:hidden">
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Menu</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-2 p-4 w-[200px]">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Home</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/technical">How Marketing AI Works</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/evolution">Evolution</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/regulations">Regulations</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/sectors">Sector Spotlights</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/future">Future Trends</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/kpis">KPIs</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/faq">FAQ</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-        </div>
-      </header>
-
+    <MainLayout>
       {/* HERO SECTION */}
       <section className="df-hero-section">
         <div className="container">
@@ -155,173 +43,225 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="container mx-auto py-8 px-4 mt-4">
-        <div className="max-w-4xl mx-auto bg-slate-900/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-slate-800 shadow-lg">
-          <article>
-            <div className="mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-100 mb-3">
-                The High-Stakes Ethics of AI-Powered Marketing in 2025
-              </h2>
-              <p className="text-slate-400 italic">Published: May 1, 2025</p>
-            </div>
-            
-            <Tabs defaultValue="executive" className="mb-12">
-              <TabsList className="bg-slate-800/50">
-                <TabsTrigger value="executive">Executive Snapshot</TabsTrigger>
-                <TabsTrigger value="benefits">Benefits</TabsTrigger>
-                <TabsTrigger value="pitfalls">Ethical Pitfalls</TabsTrigger>
-              </TabsList>
-              
-              {/* Executive Snapshot */}
-              <TabsContent value="executive" className="mt-6 text-slate-300">
-                <div className="p-5 bg-gradient-to-br from-slate-800/50 to-indigo-900/30 rounded-lg">
-                  <h3 className="text-2xl font-bold text-blue-400 mb-4">Executive Snapshot</h3>
-                  <p className="mb-4">By 2025, AI is a cornerstone of marketing, boosting ROI but raising ethical concerns around trust, bias, and regulation. Responsible AI strategies are crucial.</p>
-                  
-                  <h4 className="text-xl font-semibold text-slate-200 mb-2">Key Takeaways:</h4>
-                  <ul className="space-y-2 list-disc pl-5">
-                    <li>
-                      <span className="font-semibold text-blue-300">Personalization & ROI:</span> AI drives hyper-personalized content and efficiency.
-                    </li>
-                    <li>
-                      <span className="font-semibold text-blue-300">Ethical Pitfalls:</span> Bias, lack of transparency, and data misuse erode trust. Consumer trust lags behind marketer optimism.
-                    </li>
-                    <li>
-                      <span className="font-semibold text-blue-300">Regulations & Reputation:</span> Global rules like the EU AI Act and consumer scrutiny demand ethical frameworks.
-                    </li>
-                  </ul>
-                  <p className="mt-4">Success requires balancing innovation with responsibility.</p>
-                </div>
-              </TabsContent>
-              
-              {/* Benefits */}
-              <TabsContent value="benefits" className="mt-6 text-slate-300">
-                <div className="p-5 bg-gradient-to-br from-slate-800/50 to-indigo-900/30 rounded-lg">
-                  <h3 className="text-2xl font-bold text-blue-400 mb-4">The Bottom-Line Benefits (Why Ethics Matter)</h3>
-                  <p className="mb-4">
-                    AI supercharges marketing via efficiency, scale, hyper-personalization, better decision-making, and innovative experiences. However, these benefits are only sustainable if consumer trust is maintained.
-                  </p>
-                  <ul className="space-y-2 mb-4">
-                    <li className="p-3 bg-slate-800/40 rounded-md">Ethical personalization respects privacy.</li>
-                    <li className="p-3 bg-slate-800/40 rounded-md">Data-driven decisions need checks for bias.</li>
-                    <li className="p-3 bg-slate-800/40 rounded-md">Transparency about AI use is key.</li>
-                    <li className="p-3 bg-slate-800/40 rounded-md">Investing in ethical oversight protects ROI.</li>
-                    <li className="p-3 bg-slate-800/40 rounded-md">Ethical practices build brand loyalty and a competitive edge.</li>
-                  </ul>
-                </div>
-              </TabsContent>
-              
-              {/* Ethical Pitfalls */}
-              <TabsContent value="pitfalls" className="mt-6 text-slate-300">
-                <div className="p-5 bg-gradient-to-br from-slate-800/50 to-indigo-900/30 rounded-lg">
-                  <h3 className="text-2xl font-bold text-blue-400 mb-4">Ethical Pitfalls of AI-Powered Marketing</h3>
-                  <p className="mb-4">AI reflects human biases at scale. Major issues include:</p>
-                  
-                  <div className="space-y-4">
-                    <div className="p-4 bg-slate-800/40 rounded-md border-l-4 border-red-500">
-                      <h4 className="text-lg font-semibold text-white mb-1">Bias and Discrimination</h4>
-                      <p>Algorithms can unfairly target or exclude groups (e.g., digital redlining, biased job ads). Mitigation involves diverse data and testing.</p>
-                    </div>
-                    
-                    <div className="p-4 bg-slate-800/40 rounded-md border-l-4 border-orange-500">
-                      <h4 className="text-lg font-semibold text-white mb-1">Privacy and Data Misuse</h4>
-                      <p>AI can infer sensitive data, raising privacy concerns. GDPR and other laws mandate consent and careful handling. A privacy-by-design approach is vital.</p>
-                    </div>
-                    
-                    <div className="p-4 bg-slate-800/40 rounded-md border-l-4 border-yellow-500">
-                      <h4 className="text-lg font-semibold text-white mb-1">Lack of Transparency ("Black Box")</h4>
-                      <p>Uninterpretable AI decisions erode trust. Disclosing AI-generated content is becoming expected and legally required. Transparency boosts trust.</p>
-                    </div>
-                    
-                    <div className="p-4 bg-slate-800/40 rounded-md border-l-4 border-green-500">
-                      <h4 className="text-lg font-semibold text-white mb-1">Misinformation and Content Integrity</h4>
-                      <p>Generative AI can produce errors ("hallucinations") or biased/offensive content. Fact-checking and human oversight are crucial.</p>
-                    </div>
-                    
-                    <div className="p-4 bg-slate-800/40 rounded-md border-l-4 border-blue-500">
-                      <h4 className="text-lg font-semibold text-white mb-1">Accountability Gaps</h4>
-                      <p>Responsibility lies with the deployer, not the algorithm. Governance frameworks are needed.</p>
-                    </div>
-                    
-                    <div className="p-4 bg-slate-800/40 rounded-md border-l-4 border-purple-500">
-                      <h4 className="text-lg font-semibold text-white mb-1">Consumer Trust Erosion</h4>
-                      <p>All pitfalls damage trust, the core currency. Skepticism is high. Openness can rebuild trust.</p>
-                    </div>
-                  </div>
-                  
-                  <p className="mt-4">Proactive ethical management is essential to avoid legal/reputational damage.</p>
-                </div>
-              </TabsContent>
-            </Tabs>
-            
-            <div className="mt-8">
-              <h3 className="text-xl font-semibold text-slate-200 mb-3">Explore further:</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Link to="/technical" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
-                  <div className="w-10 h-10 flex items-center justify-center bg-blue-500/20 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                    </svg>
-                  </div>
-                  <span>How Marketing AI Works</span>
-                </Link>
-                
-                <Link to="/evolution" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
-                  <div className="w-10 h-10 flex items-center justify-center bg-purple-500/20 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <span>The History of AI in Marketing</span>
-                </Link>
-                
-                <Link to="/regulations" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
-                  <div className="w-10 h-10 flex items-center justify-center bg-green-500/20 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <span>Regulations & Governance</span>
-                </Link>
-                
-                <Link to="/ai-bias-in-advertising" className="p-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-lg flex items-center transition-colors">
-                  <div className="w-10 h-10 flex items-center justify-center bg-amber-500/20 rounded-full mr-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                    </svg>
-                  </div>
-                  <span>AI Bias in Advertising</span>
-                </Link>
+      {/* SMART MARKETING SECTION */}
+      <section className="df-smart-marketing">
+        <div className="container">
+          <div className="text-center mb-5">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
+            <h2>Smart Marketing Built for Speed, Scale, and Survival</h2>
+          </div>
+
+          <div className="intro-text" style={{ maxWidth: "800px", margin: "0 auto 30px", textAlign: "center" }}>
+            <p>We're not another digital marketing agency tossing generic playbooks. We are The Digital Frontier Company, a crew of engineers, analysts, and creative killers who live to squeeze more money out of your pipeline.</p>
+            <p>Here's what Digital Frontier Marketing includes:</p>
+          </div>
+
+          <div className="df-service-list">
+            <div className="df-service-item">
+              <div className="bullet">•</div>
+              <div className="content">
+                <span className="service-title">Answer Engine Optimization (AEO):</span>
+                <span className="service-description">Get found on AI-driven engines like ChatGPT, Google's SGE, and Bing Copilot.</span>
               </div>
             </div>
-          </article>
-        </div>
-      </main>
 
-      {/* Footer */}
-      <footer className="mt-12 py-8 border-t border-slate-800 bg-slate-900/80">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2025 Digital Frontier Company - <a href="https://thedigitalfrontier.ai" className="text-blue-400 hover:underline">thedigitalfrontier.ai</a>
-            </p>
-            
-            <div className="flex space-x-6">
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
-                Terms of Use
-              </a>
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
-                Contact
-              </a>
+            <div className="df-service-item">
+              <div className="bullet">•</div>
+              <div className="content">
+                <span className="service-title">AI-Powered Automation:</span>
+                <span className="service-description">Workflows that respond to leads instantly. Bots that never sleep. Follow-ups that never miss.</span>
+              </div>
+            </div>
+
+            <div className="df-service-item">
+              <div className="bullet">•</div>
+              <div className="content">
+                <span className="service-title">Performance SEO:</span>
+                <span className="service-description">Not fluff. Not theory. SEO that ranks and banks.</span>
+              </div>
+            </div>
+
+            <div className="df-service-item">
+              <div className="bullet">•</div>
+              <div className="content">
+                <span className="service-title">Full Funnel Ads:</span>
+                <span className="service-description">From scroll-stopping Meta creatives to zero-click Google Search dominance.</span>
+              </div>
+            </div>
+
+            <div className="df-service-item">
+              <div className="bullet">•</div>
+              <div className="content">
+                <span className="service-title">Sales-Focused Email Sequences:</span>
+                <span className="service-description">We write, build, and automate the follow-up.</span>
+              </div>
+            </div>
+
+            <div className="df-service-item">
+              <div className="bullet">•</div>
+              <div className="content">
+                <span className="service-title">Digital Consulting for SaaS & B2B:</span>
+                <span className="service-description">Deep strategy for scaling tech products and recurring revenue models.</span>
+              </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+
+      {/* REVENUE ENGINE SECTION */}
+      <section className="df-revenue-engine">
+        <div className="container">
+          <div className="row" style={{ alignItems: "center" }}>
+            <div className="col-lg-6">
+              <div className="df-neon-border mt-3 mb-5 mb-lg-3">
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Digital Frontier Data Dashboard" className="img-fluid p-2" style={{ borderRadius: "10px" }} />
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <h2 style={{ fontSize: "32px", fontWeight: 700, marginBottom: "20px" }}>Turn Your Brand into a Revenue Engine</h2>
+              <div className="imagine-text">
+                <p style={{ fontSize: "18px", color: "#e0e0e0", marginBottom: "15px" }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
+              </div>
+              <div className="content-text">
+                <p style={{ fontSize: "16px", color: "#cccccc", marginBottom: "15px" }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
+                <p style={{ fontSize: "16px", color: "#cccccc", marginBottom: 0 }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT YOU'LL GAIN SECTION */}
+      <section className="df-what-youll-gain">
+        <div className="container">
+          <div className="text-center mb-5">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
+            <h2 className="section-title" style={{ fontSize: "36px", fontWeight: 700, marginBottom: "15px" }}>What You'll <span>Gain</span></h2>
+            <p className="section-subtitle" style={{ fontSize: "18px", color: "#e0e0e0", maxWidth: "700px", margin: "0 auto" }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
+          </div>
+
+          <div className="row">
+            <div className="col-md-6 col-lg-3 mb-4">
+              <div className="df-gain-card">
+                <div className="icon" style={{ fontSize: "40px" }}>🔍</div>
+                <h3>SEO Analysis</h3>
+                <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
+              </div>
+            </div>
+
+            <div className="col-md-6 col-lg-3 mb-4">
+              <div className="df-gain-card">
+                <div className="icon" style={{ fontSize: "40px" }}>📈</div>
+                <h3>Conversion Insights</h3>
+                <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
+              </div>
+            </div>
+
+            <div className="col-md-6 col-lg-3 mb-4">
+              <div className="df-gain-card">
+                <div className="icon" style={{ fontSize: "40px" }}>🔄</div>
+                <h3>Competitor Analysis</h3>
+                <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
+              </div>
+            </div>
+
+            <div className="col-md-6 col-lg-3 mb-4">
+              <div className="df-gain-card">
+                <div className="icon" style={{ fontSize: "40px" }}>📋</div>
+                <h3>Action Plan</h3>
+                <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="df-faq-section" id="faq">
+        <div className="container">
+          <div className="text-center mb-5">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
+            <h2>Frequently asked questions</h2>
+          </div>
+
+          <div className="df-faq-container">
+            <div className="df-faq-item">
+              <div className="df-faq-question">How is Digital Frontier different from other digital marketing agencies?</div>
+              <div className="df-faq-answer">Most agencies sell services. We sell outcomes. Every campaign we build is tied to revenue, not vanity metrics. We don't hand off checklists—we execute strategies that scale.</div>
+            </div>
+
+            <div className="df-faq-item">
+              <div className="df-faq-question">What's Answer Engine Optimization (AEO), and why does it matter?</div>
+              <div className="df-faq-answer">AEO is the future of SEO. Instead of just ranking on Google, AEO helps you show up in AI-generated answers across search engines and voice assistants. It's where high-intent users go first.</div>
+            </div>
+
+            <div className="df-faq-item">
+              <div className="df-faq-question">Can I use Digital Frontier for just one service (like SEO or ads)?</div>
+              <div className="df-faq-answer">Yes, but we'll still audit your entire system. Why? Because ads don't work if your funnel's broken. SEO won't help if your site doesn't convert. Everything is connected—we treat it that way.</div>
+            </div>
+
+            <div className="df-faq-item">
+              <div className="df-faq-question">Do you work with local businesses or just SaaS companies?</div>
+              <div className="df-faq-answer">Both. We've scaled local eCommerce brands, service pros, and global SaaS startups. If your business runs on digital, we can build your frontier.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="df-final-cta">
+        <div className="container">
+          <div className="text-center mb-4">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" width="120" className="mb-4" />
+          </div>
+          <h2>Ready to Own Your Digital Space?</h2>
+          <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk. Click below, and let's build something legendary.</p>
+          <div className="text-center">
+            <a href="#contact" className="df-yellow-cta-button">Join Now</a>
+          </div>
+          <p className="tagline mt-4">Digital Frontier—Marketing That Actually Works.</p>
+        </div>
+      </section>
+
+      {/* Add a "Learn More" section linking to other pages */}
+      <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-slate-100 mb-8">Explore Digital Frontier</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link to="/technical" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h3 className="text-xl font-bold text-blue-400 mb-2">Technical Breakdown</h3>
+              <p className="text-slate-300">Understand how modern AI marketing tools work and how they can transform your business.</p>
+            </Link>
+            
+            <Link to="/evolution" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h3 className="text-xl font-bold text-blue-400 mb-2">Evolution of AI Marketing</h3>
+              <p className="text-slate-300">Trace the history of AI in marketing from early automation to today's sophisticated systems.</p>
+            </Link>
+            
+            <Link to="/regulations" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h3 className="text-xl font-bold text-blue-400 mb-2">Regulations & Compliance</h3>
+              <p className="text-slate-300">Navigate the complex legal landscape of AI-powered marketing and advertising.</p>
+            </Link>
+            
+            <Link to="/sectors" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h3 className="text-xl font-bold text-blue-400 mb-2">Sector Spotlights</h3>
+              <p className="text-slate-300">See how different industries are leveraging AI marketing for competitive advantage.</p>
+            </Link>
+            
+            <Link to="/future" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h3 className="text-xl font-bold text-blue-400 mb-2">Future Trends</h3>
+              <p className="text-slate-300">Get ahead of the curve with insights into emerging AI marketing technologies.</p>
+            </Link>
+            
+            <Link to="/ai-bias-in-advertising" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h3 className="text-xl font-bold text-blue-400 mb-2">AI Bias in Advertising</h3>
+              <p className="text-slate-300">Understand the ethical implications of AI in advertising and how to address bias.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </MainLayout>
   );
 };
 
