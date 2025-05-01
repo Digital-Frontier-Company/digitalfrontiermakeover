@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 export interface FAQItem {
   question: string;
