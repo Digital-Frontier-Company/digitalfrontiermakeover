@@ -2,7 +2,7 @@
 import React from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Youtube, BarChart, Brain, Rocket, Target, Globe, Briefcase, FileChart, BuildingOffice, Code, ChartBarSquare } from "lucide-react";
 
 const AboutUs = () => {
   return (
@@ -38,6 +38,66 @@ const AboutUs = () => {
 
             <p className="mb-4">Today, under David's leadership, Digital Frontier stands at the forefront of Answer Engine Optimization and 
               AI-driven marketing solutions, helping businesses across various sectors navigate the rapidly evolving digital landscape.</p>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-bold mb-3 text-blue-400 flex items-center">
+              <span className="mr-2 bg-slate-800/60 p-2 rounded-full"><BarChart size={20} className="text-blue-400" /></span>
+              Data-Driven Insights
+            </h3>
+            <p className="mb-4 pl-10">Utilizing analytics to guide decisions, ensuring smart moves that maximize your marketing efforts.</p>
+            
+            <h3 className="text-xl font-bold mb-3 text-blue-400 flex items-center">
+              <span className="mr-2 bg-slate-800/60 p-2 rounded-full"><Target size={20} className="text-blue-400" /></span>
+              Enhanced Strategies
+            </h3>
+            <p className="mb-4 pl-10">We provide tailored strategies that elevate your brand presence and engagement in a competitive market.</p>
+          </div>
+
+          <div className="bg-slate-900/40 p-6 rounded-xl mb-8 border border-slate-700/50">
+            <h3 className="text-xl font-bold mb-4 text-center text-blue-400">Digital Frontier's Solution</h3>
+            <p className="mb-4">Our expertise spans:</p>
+            
+            <div className="space-y-4 pl-4">
+              <div className="flex items-start">
+                <span className="mr-3 mt-1 text-blue-400"><Code size={18} /></span>
+                <div>
+                  <p className="font-semibold text-blue-300">AI Integration</p>
+                  <p className="text-slate-300">Deploying intelligent tools to streamline processes in real estate, finance, and cryptocurrency.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <span className="mr-3 mt-1 text-blue-400"><Globe size={18} /></span>
+                <div>
+                  <p className="font-semibold text-blue-300">Digital Marketing and Social Media</p>
+                  <p className="text-slate-300">Crafting campaigns that resonate, leveraging platforms like Facebook, Instagram, and LinkedIn to build authentic connections and measurable results.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <span className="mr-3 mt-1 text-blue-400"><ChartBarSquare size={18} /></span>
+                <div>
+                  <p className="font-semibold text-blue-300">Portfolio Optimization in CryptoCurrency Markets</p>
+                  <p className="text-slate-300">Using Post-Modern Portfolio Theory (PMPT) to help clients balance risk and reward while considering psychological comfort.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <p className="mb-4">Our ultimate ambition is to serve businesses across all industries, offering consultation and tailored solutions for any market. To maximize our impact and deepen our understanding of audience needs, we are focusing initially on the real estate sector and our AEO Software. These areas represents a unique opportunity to create meaningful change, applying our expertise to help real estate professionals unlock new possibilities and achieve their goals.</p>
+            
+            <p className="mb-4">Digital Frontier's mission is to lead a new paradigm in technology and marketing. While we aim to expand across all sectors, our initial focus on real estate allows us to refine our approach, ensuring we deliver unmatched value. As we grow, our vision remains steadfast: to empower businesses with tools and strategies that balance innovation with humanity.</p>
+            
+            <p className="mb-4">Our approach is grounded in listening and understanding. Whether through a social media campaign, a digital ad strategy, or an AI-driven solution, we start every project by asking: "How can we amplify your vision?" This commitment to partnership ensures that our clients' goals become the core of our innovations.</p>
+          </div>
+          
+          <div className="bg-gradient-to-b from-slate-800/40 to-slate-900/40 rounded-xl p-6 border border-slate-700/50 mb-8">
+            <h3 className="text-xl font-bold mb-3 text-center text-blue-400 flex items-center justify-center">
+              <Globe size={20} className="mr-2" /> What is Our Vision for the Future?
+            </h3>
+            <p className="mb-4">From Memphis to the global digital landscape, Digital Frontier is at the forefront of technological transformation. With a strong foundation in social media strategy, digital marketing, and advanced analytics, we've built a company that understands both the art and science of business success.</p>
           </div>
 
           <div className="df-gain-card mb-6">
