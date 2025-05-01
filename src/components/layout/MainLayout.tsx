@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -108,6 +108,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Ethics</NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -117,6 +118,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                {/* Add Contact as a standalone item */}
+                <NavigationMenuItem>
+                  <Link to="/contact" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                    <Mail className="h-4 w-4 mr-2" />
+                    Contact Us
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
@@ -188,6 +197,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                       </NavigationMenuLink>
+                      {/* Add Contact to mobile menu */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/contact" className="flex items-center">
+                          <Mail className="h-4 w-4 mr-2" />
+                          Contact Us
+                        </Link>
+                      </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -243,9 +259,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Terms of Use
               </a>
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <Link to="/contact" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
         </div>

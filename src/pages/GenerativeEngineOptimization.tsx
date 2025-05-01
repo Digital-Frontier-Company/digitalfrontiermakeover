@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -7,6 +6,7 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon, ArrowRight } from "lucide-react";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 const GenerativeEngineOptimization = () => {
   const location = useLocation();
@@ -58,6 +58,30 @@ const GenerativeEngineOptimization = () => {
     { name: 'AI Citations', seo: 20, aeo: 70, geo: 90 },
     { name: 'Conversion Rate', seo: 60, aeo: 65, geo: 75 },
     { name: 'Content ROI', seo: 50, aeo: 60, geo: 85 },
+  ];
+
+  // GEO FAQ questions and answers
+  const geoFaqs: FAQItem[] = [
+    {
+      question: "What's the fastest GEO win?",
+      answer: "The fastest GEO win is adding FAQPage schema and 40-word answers to top blog posts. Chatbots can scrape and start citing these within weeks, giving you quick visibility in AI-generated responses."
+    },
+    {
+      question: "Do backlinks still matter?",
+      answer: "Yes, but clear entities and passage-level relevance now outrank raw link volume. While traditional backlinks remain important for SEO, GEO prioritizes content quality, factual accuracy, and structured data that helps AI engines understand your content."
+    },
+    {
+      question: "How soon can I see results?",
+      answer: "Brands tracking with our platform typically report new AI citations in 4-6 weeks post-implementation. The timeline varies depending on content quality, update frequency, and the competitive landscape of your industry."
+    },
+    {
+      question: "What's the difference between SEO and GEO?",
+      answer: "SEO (Search Engine Optimization) focuses on ranking in traditional search engines like Google, while GEO (Generative Engine Optimization) aims to get your content cited and quoted in AI responses from tools like ChatGPT, Claude, and Bard."
+    },
+    {
+      question: "Which industries benefit most from GEO?",
+      answer: "Industries with complex products or services that people frequently ask questions about benefit most, including finance, healthcare, technology, travel, and e-commerce. However, any business providing factual information can leverage GEO effectively."
+    }
   ];
 
   return (
@@ -440,6 +464,13 @@ const GenerativeEngineOptimization = () => {
           </CardContent>
         </Card>
       </div>
+      
+      {/* FAQ Section with JSON-LD Schema */}
+      <FAQSection 
+        title="Frequently Asked Questions About GEO" 
+        faqs={geoFaqs} 
+        className="mb-16"
+      />
       
       {/* Benefits Section with Gradients - Added additional spacing */}
       <section className="mb-24">

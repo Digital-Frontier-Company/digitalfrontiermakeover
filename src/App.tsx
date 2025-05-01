@@ -20,6 +20,8 @@ import GenerativeEngineOptimization from "./pages/GenerativeEngineOptimization";
 import Contact from "./pages/Contact";
 import "./styles/digitalFrontier.css";
 
+// This route configuration is already set up correctly with Contact included
+
 const queryClient = new QueryClient();
 
 const App = () => (
