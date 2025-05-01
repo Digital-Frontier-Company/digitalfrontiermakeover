@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,6 +50,13 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Digital Frontier brand palette */
+    --df-dark-blue: #000033;
+    --df-black-blue: #000014;
+    --df-blue: #0066FF;
+    --df-bright-blue: #00BFFF;
+    --df-light-blue: #00BFFF;
   }
 
   .dark {
@@ -97,5 +105,441 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
   }
+}
+
+/* Digital Frontier Classes */
+
+/* Layout wrappers */
+.df-landing-page {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  background: var(--df-black-blue);
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.df-hero-section {
+  padding: 80px 0;
+  background: var(--df-black-blue);
+  position: relative;
+  overflow: hidden;
+}
+.df-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 70%; height: 100%;
+  background: radial-gradient(circle,
+              rgba(0,229,255,0.1) 0%,
+              rgba(0,14,41,0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+.df-hero-section h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+.df-hero-section h1 .highlight {
+  color: var(--df-light-blue);
+  text-shadow: 0 0 10px rgba(0,229,255,.5);
+}
+.df-hero-section h2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  color: #e0e0e0;
+  text-align: center;
+  position: relative;
+}
+
+/* Logo */
+.df-logo { 
+  max-width: 200px; 
+  margin: 0 auto 30px; 
+  position: relative; 
+  display:block; 
+}
+.df-logo-glow { 
+  position: absolute; 
+  inset: 0; 
+  filter: blur(10px); 
+  opacity:.5; 
+  z-index:-1; 
+}
+
+/* CTA Buttons */
+.df-cta-button, .df-yellow-cta-button {
+  font-weight: 600;
+  padding: 15px 30px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  border: none;
+  transition: all .3s ease;
+}
+.df-cta-button {
+  background: linear-gradient(90deg, var(--df-blue) 0%, var(--df-bright-blue) 100%);
+  box-shadow: 0 0 15px rgba(0,191,255,.5);
+}
+.df-cta-button::before, .df-yellow-cta-button::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  transform: rotate(45deg);
+  background: linear-gradient(45deg,
+              transparent,
+              rgba(255,255,255,.1),
+              transparent);
+  transition: all .6s ease;
+}
+.df-cta-button:hover {
+  background: linear-gradient(90deg, var(--df-bright-blue) 0%, var(--df-light-blue) 100%);
+  box-shadow: 0 0 20px rgba(0,229,255,.7);
+  transform: translateY(-2px);
+}
+.df-cta-button:hover::before { left: 100%; }
+
+.df-yellow-cta-button {
+  background: linear-gradient(90deg, #FFEE00 0%, #FFD700 100%);
+  box-shadow: 0 0 15px rgba(255,238,0,.5);
+}
+.df-yellow-cta-button:hover {
+  background: linear-gradient(90deg, #FFD700 0%, #FFC800 100%);
+  box-shadow: 0 0 20px rgba(255,238,0,.7);
+  transform: translateY(-2px);
+}
+.df-yellow-cta-button:hover::before { left: 100%; }
+
+/* Contact Form */
+.df-contact-form {
+  background: rgba(255,255,255,.05);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(10px);
+}
+.df-contact-form input, .df-contact-form select, .df-contact-form textarea {
+  margin-bottom: 15px;
+  padding: 12px 15px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 4px;
+  background: rgba(0,0,0,.2);
+  color: #fff;
+}
+.df-contact-form input::placeholder, .df-contact-form textarea::placeholder {
+  color: rgba(255,255,255,.5);
+}
+.df-contact-form label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+  color: var(--df-bright-blue);
+}
+
+/* Trust Badges */
+.df-trust-badges { 
+  display:flex; 
+  justify-content:center; 
+  flex-wrap:wrap; 
+  gap:25px; 
+  margin-top:40px; 
+}
+.df-trust-badge { 
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  text-align:center; 
+}
+.df-trust-number { 
+  font-size:36px; 
+  font-weight:700; 
+  color:#fff; 
+  margin-bottom:5px; 
+}
+.df-trust-label { 
+  font-size:14px; 
+  color:rgba(255,255,255,.7); 
+}
+
+/* Counter animation */
+.df-stat-counter { 
+  display:inline-block; 
+  animation:countUp 2s ease-out forwards; 
+}
+@keyframes countUp {
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Gain Cards */
+.df-gain-card {
+  padding: 30px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(0,229,255,.1);
+  border-radius: 8px;
+  height: 100%;
+  overflow: hidden;
+  transition: all .3s ease;
+  position: relative;
+}
+.df-gain-card::before {
+  content:'';
+  position:absolute; 
+  inset:0;
+  background:linear-gradient(135deg, rgba(0,229,255,.05) 0%, transparent 100%);
+  z-index:-1;
+}
+.df-gain-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.2),
+    0 0 15px rgba(0,229,255,.2);
+  border-color: rgba(0,229,255,.3);
+}
+.df-gain-card .icon {
+  color: var(--df-light-blue);
+  font-size: 36px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0,229,255,.5);
+}
+.df-gain-card h3 { 
+  font-size:20px; 
+  margin-bottom:15px; 
+  color:#fff; 
+}
+.df-gain-card p { 
+  color:rgba(255,255,255,.7); 
+  font-size:14px; 
+}
+
+/* Service List */
+.df-smart-marketing {
+  background: linear-gradient(180deg, var(--df-black-blue) 0%, var(--df-dark-blue) 100%);
+  padding: 80px 0;
+  position: relative;
+  color: #fff;
+}
+.df-service-list { 
+  max-width:900px; 
+  margin:0 auto; 
+  position:relative; 
+  z-index:1; 
+}
+.df-service-item {
+  display:flex; 
+  align-items:flex-start;
+  margin-bottom:30px; 
+  padding:10px;
+  border-radius:6px; 
+  transition:all .3s ease;
+}
+.df-service-item:hover {
+  background: rgba(0,229,255,.05);
+  transform: translateX(5px);
+}
+.df-service-item .bullet, .df-service-item .service-title {
+  color: var(--df-light-blue);
+  text-shadow: 0 0 5px rgba(0,229,255,.5);
+}
+.df-service-item .bullet { 
+  font-size:24px; 
+  margin-right:15px; 
+  flex-shrink:0; 
+}
+.df-service-item .service-title { 
+  font-weight:700; 
+  margin-right:8px; 
+}
+
+/* Neon border utility */
+.df-neon-border { 
+  position:relative; 
+  border-radius:12px; 
+  overflow:hidden; 
+}
+.df-neon-border::before {
+  content:''; 
+  position:absolute; 
+  inset:-2px;
+  border-radius:12px;
+  background:linear-gradient(45deg, var(--df-light-blue), var(--df-blue), var(--df-light-blue));
+  animation:border-glow 3s linear infinite;
+  z-index:-1;
+}
+@keyframes border-glow {
+  0%{background-position:0 0; opacity:.7;}
+  50%{background-position:100% 0; opacity:.9;}
+  100%{background-position:0 0; opacity:.7;}
+}
+
+/* FAQ Section */
+.df-faq-section, .df-revenue-engine, .df-final-cta { 
+  background:#000014; 
+  color:#fff; 
+  position:relative; 
+}
+.df-faq-section { 
+  padding:60px 0; 
+}
+.df-faq-section::before {
+  content:''; 
+  position:absolute; 
+  bottom:0; right:0;
+  width:40%; height:40%;
+  background:radial-gradient(circle, rgba(0,149,255,.1) 0%, rgba(0,14,41,0) 70%);
+  pointer-events:none; 
+  z-index:0; 
+}
+.df-faq-section h2 { 
+  font-size:36px; 
+  margin-bottom:40px; 
+  text-align:center; 
+  position:relative; 
+}
+.df-faq-container { 
+  display:grid; 
+  grid-template-columns:1fr 1fr; 
+  gap:40px; 
+  max-width:1200px; 
+  margin:0 auto; 
+}
+.df-faq-item { 
+  border:none; 
+  margin-bottom:30px; 
+}
+.df-faq-question { 
+  font-size:20px; 
+  font-weight:700; 
+  text-align:center; 
+  margin-bottom:15px; 
+  cursor:pointer; 
+}
+.df-faq-question.active { 
+  color:var(--df-bright-blue); 
+}
+.df-faq-answer { 
+  font-size:16px; 
+  line-height:1.6; 
+  display:none; 
+  text-align:center; 
+  color:rgba(255,255,255,.8); 
+}
+
+/* Final CTA */
+.df-final-cta { 
+  padding:80px 0; 
+  text-align:center; 
+  overflow:hidden; 
+}
+.df-final-cta::before, .df-final-cta::after {
+  content:''; 
+  position:absolute; 
+  width:200px; 
+  height:200px; 
+  pointer-events:none; 
+  z-index:0;
+  background:radial-gradient(circle, rgba(0,149,255,.15) 0%, rgba(0,14,41,0) 70%);
+}
+.df-final-cta::before { 
+  top:-50px; 
+  left:-50px; 
+  background:radial-gradient(circle, rgba(0,149,255,.2) 0%, rgba(0,14,41,0) 70%); 
+}
+.df-final-cta::after { 
+  bottom:-50px; 
+  right:-50px; 
+}
+.df-final-cta h2 { 
+  font-size:36px; 
+  margin-bottom:20px; 
+  position:relative; 
+}
+.df-final-cta p { 
+  font-size:18px; 
+  margin:0 auto 30px; 
+  max-width:700px; 
+  position:relative; 
+}
+
+/* Helpers */
+.text-center { 
+  text-align:center; 
+}
+.highlight { 
+  color:var(--df-light-blue); 
+  text-shadow:0 0 10px rgba(0,229,255,.5); 
+}
+.container { 
+  width:100%; 
+  padding:0 15px; 
+  margin:0 auto; 
+  max-width:1140px; 
+}
+.row { 
+  display:flex; 
+  flex-wrap:wrap; 
+  margin:0 -15px; 
+}
+[class*="col-"] { 
+  padding:0 15px; 
+  width:100%; 
+}
+@media(min-width:768px){ 
+  .col-md-6{
+    flex:0 0 50%; 
+    max-width:50%;
+  } 
+}
+@media(min-width:992px){
+  .col-lg-3{
+    flex:0 0 25%; 
+    max-width:25%;
+  }
+  .col-lg-6{
+    flex:0 0 50%; 
+    max-width:50%;
+  }
+}
+.d-none { 
+  display:none; 
+}
+.d-lg-block{ 
+  display:none; 
+}
+@media(min-width:992px){ 
+  .d-lg-block{
+    display:block;
+  } 
+}
+.img-fluid { 
+  max-width:100%; 
+  height:auto; 
+}
+.p-4 { 
+  padding:1.5rem; 
+}
+.mt-3 { 
+  margin-top:1rem; 
+}
+.mt-4 { 
+  margin-top:1.5rem; 
+}
+.mb-4 { 
+  margin-bottom:1.5rem; 
+}
+.mb-5 { 
+  margin-bottom:3rem; 
 }

@@ -9,6 +9,8 @@ import Technical from "./pages/Technical";
 import Evolution from "./pages/Evolution";
 import Regulations from "./pages/Regulations";
 import Sectors from "./pages/Sectors";
+import Future from "./pages/Future";
+import KPIs from "./pages/KPIs";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/evolution" element={<Evolution />} />
           <Route path="/regulations" element={<Regulations />} />
           <Route path="/sectors" element={<Sectors />} />
+          <Route path="/future" element={<Future />} />
+          <Route path="/kpis" element={<KPIs />} />
           <Route path="/faq" element={<FAQ />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
