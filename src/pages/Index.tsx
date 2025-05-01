@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -26,7 +25,7 @@ const Index = () => {
                       <Link to="/">Home</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/">Technical Breakdown</Link>
+                      <Link to="/technical">How Marketing AI Works</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                       <Link to="/">Evolution</Link>
@@ -71,7 +70,7 @@ const Index = () => {
                         <Link to="/">Home</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Technical Breakdown</Link>
+                        <Link to="/technical">How Marketing AI Works</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/">Evolution</Link>
