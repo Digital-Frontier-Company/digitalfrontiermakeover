@@ -39,13 +39,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <Link to="/">Home</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                      <Link to="/about-us">About Us</Link>
+                    </NavigationMenuLink>
+                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                       <Link to="/technical">How Marketing AI Works</Link>
                     </NavigationMenuLink>
                     <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                       <Link to="/evolution">Evolution</Link>
-                    </NavigationMenuLink>
-                    <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                      <Link to="/regulations">Regulations</Link>
                     </NavigationMenuLink>
                   </div>
                 </NavigationMenuContent>
@@ -94,6 +94,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         <Link to="/">Home</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/about-us">About Us</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/technical">How Marketing AI Works</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
@@ -134,7 +137,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2025 Digital Frontier Company - <a href="https://thedigitalfrontier.ai" className="text-blue-400 hover:underline">thedigitalfrontier.ai</a>
+              &copy; 2025 Digital Frontier Company LLC - All rights reserved. <a href="mailto:info@digitalfrontier.app" className="text-blue-400 hover:underline">info@digitalfrontier.app</a>
             </p>
             
             <div className="flex space-x-6">

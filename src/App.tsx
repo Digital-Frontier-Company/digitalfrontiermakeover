@@ -14,6 +14,7 @@ import KPIs from "./pages/KPIs";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import AIBias from "./pages/AIBias";
+import AboutUs from "./pages/AboutUs";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/kpis" element={<KPIs />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/ai-bias-in-advertising" element={<AIBias />} />
+          <Route path="/about-us" element={<AboutUs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
