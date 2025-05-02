@@ -51,7 +51,7 @@ const GenerativeEngineOptimization = () => {
     { month: 'Jun', improvement: 90 },
   ];
 
-  // Sample data for SEO vs AEO vs GEO comparison
+  // Sample data for SEO vs AEO vs GEO comparison - UPDATED to match across pages
   const optimizationComparisonData = [
     { name: 'Search Visibility', seo: 80, aeo: 60, geo: 50 },
     { name: 'Direct Traffic', seo: 70, aeo: 40, geo: 30 },

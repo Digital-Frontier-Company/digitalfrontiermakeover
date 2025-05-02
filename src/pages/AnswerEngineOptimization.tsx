@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -52,13 +51,13 @@ const AnswerEngineOptimization = () => {
     { month: 'Jun', improvement: 92 },
   ];
 
-  // Sample data for SEO vs AEO comparison
+  // Sample data for SEO vs AEO vs GEO comparison - UPDATED to match across pages
   const optimizationComparisonData = [
-    { name: 'Search Visibility', seo: 80, aeo: 60, geo: 40 },
-    { name: 'Zero-Click Results', seo: 30, aeo: 85, geo: 70 },
-    { name: 'Voice Search', seo: 20, aeo: 90, geo: 65 },
-    { name: 'Conversion Rate', seo: 60, aeo: 75, geo: 70 },
-    { name: 'AI Integration', seo: 30, aeo: 80, geo: 90 },
+    { name: 'Search Visibility', seo: 80, aeo: 60, geo: 50 },
+    { name: 'Direct Traffic', seo: 70, aeo: 40, geo: 30 },
+    { name: 'AI Citations', seo: 20, aeo: 70, geo: 90 },
+    { name: 'Conversion Rate', seo: 60, aeo: 65, geo: 75 },
+    { name: 'Content ROI', seo: 50, aeo: 60, geo: 85 },
   ];
 
   // AEO FAQ questions and answers
