@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -70,6 +70,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/evolution">Evolution</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/newsletter" className="flex items-center">
+                          <Newspaper className="h-4 w-4 mr-2" />
+                          Newsletter
+                        </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -139,6 +145,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   <Link to="/contact" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
                     Contact Us
+                  </Link>
+                </NavigationMenuItem>
+
+                {/* Add Newsletter as a standalone item */}
+                <NavigationMenuItem>
+                  <Link to="/newsletter" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                    <Newspaper className="h-4 w-4 mr-2" />
+                    Newsletter
                   </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
@@ -217,6 +231,13 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                       </NavigationMenuLink>
+                      {/* Add Newsletter to mobile menu */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/newsletter" className="flex items-center">
+                          <Newspaper className="h-4 w-4 mr-2" />
+                          Newsletter
+                        </Link>
+                      </NavigationMenuLink>
                       {/* Add Pricing to mobile menu */}
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/pricing" className="flex items-center">
@@ -286,6 +307,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Terms of Use
               </a>
+              {/* Add Newsletter link to footer */}
+              <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center">
+                <Newspaper className="h-4 w-4 mr-1" />
+                Newsletter
+              </Link>
               {/* Add Pricing link to footer */}
               <Link to="/pricing" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Pricing

@@ -21,6 +21,7 @@ import AnswerEngineOptimization from "./pages/AnswerEngineOptimization";
 import Contact from "./pages/Contact";
 import RecommenderSystem from "./pages/RecommenderSystem";
 import Pricing from "./pages/Pricing";
+import Newsletter from "./pages/Newsletter";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-and-digital-marketing" element={<RecommenderSystem />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/newsletter" element={<Newsletter />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
