@@ -181,7 +181,7 @@ const AnswerEngineOptimization = () => {
         </CardHeader>
         <CardContent>
           <p className="mb-8 text-slate-300 text-lg">Traditional SEO vs AEO-Optimized Content Performance in Answer Visibility</p>
-          <div className="h-[400px] w-full">
+          <div className="h-[450px] w-full">
             <ChartContainer config={{
               traditional: { color: "#9F9EA1" },
               aeo: { color: "#3b82f6" },
@@ -189,13 +189,13 @@ const AnswerEngineOptimization = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={comparisonData}
-                  margin={{ top: 30, right: 30, left: 20, bottom: 30 }}
+                  margin={{ top: 50, right: 30, left: 20, bottom: 50 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="month" stroke="#9F9EA1" />
                   <YAxis stroke="#9F9EA1" />
                   <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
+                  <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
                   <Bar dataKey="traditional" fill="#9F9EA1" name="Traditional Content" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO-Optimized" />
                 </BarChart>
@@ -214,8 +214,8 @@ const AnswerEngineOptimization = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs <Link to="/generative-engine-optimization" className="text-purple-400 hover:underline">GEO</Link>: Performance Across Key Metrics</p>
-          <div className="h-[450px] w-full mb-8">
+          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs <Link to="/generative-engine-optimization" className="text-purple-400 hover:underline">GEO</Link>: Performance Across Key Metrics (Logarithmic Scale)</p>
+          <div className="h-[500px] w-full mb-8">
             <ChartContainer config={{
               seo: { color: "#22c55e" },
               aeo: { color: "#3b82f6" },
@@ -224,13 +224,19 @@ const AnswerEngineOptimization = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={optimizationComparisonData}
-                  margin={{ top: 30, right: 30, left: 20, bottom: 30 }}
+                  margin={{ top: 70, right: 30, left: 20, bottom: 70 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="name" stroke="#9F9EA1" />
-                  <YAxis stroke="#9F9EA1" />
+                  <YAxis 
+                    stroke="#9F9EA1" 
+                    scale="log" 
+                    domain={[1, 'auto']} 
+                    allowDataOverflow={true}
+                    tickFormatter={(value) => value.toLocaleString()}
+                  />
                   <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
+                  <Legend wrapperStyle={{ paddingTop: "30px", marginBottom: "10px" }} />
                   <Bar dataKey="seo" fill="#22c55e" name="SEO" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
                   <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
