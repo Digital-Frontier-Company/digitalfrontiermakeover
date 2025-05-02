@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -24,34 +23,36 @@ const RecommenderSystem = () => {
       subtitle="Navigating the Digital Frontier"
       currentPath={location.pathname}
     >
-      {/* Navigation Tabs */}
-      <div className="mb-8 overflow-x-auto">
-        <TabsList className="w-full justify-start h-auto flex-wrap bg-slate-900/30 p-1">
-          {[
-            { id: "introduction", label: "Introduction" },
-            { id: "generalization", label: "Generalization" },
-            { id: "data-efficiency", label: "Data Efficiency" },
-            { id: "ml-automation", label: "ML Automation" },
-            { id: "model-tuning", label: "Model Tuning" },
-            { id: "neural-design", label: "Neural Design" },
-            { id: "fairness-transparency", label: "Fairness" },
-            { id: "case-studies", label: "Case Studies" },
-            { id: "tools-frameworks", label: "Tools" },
-            { id: "future-outlook", label: "Future" }
-          ].map((section) => (
-            <TabsTrigger
-              key={section.id}
-              value={section.id}
-              className={`py-2 px-3 text-sm ${
-                activeSection === section.id ? "bg-blue-600 text-white" : ""
-              }`}
-              onClick={() => scrollToSection(section.id)}
-            >
-              {section.label}
-            </TabsTrigger>
-          ))}
-        </TabsList>
-      </div>
+      {/* Navigation Tabs - Wrapped in Tabs component */}
+      <Tabs value={activeSection} onValueChange={setActiveSection} className="mb-8">
+        <div className="overflow-x-auto">
+          <TabsList className="w-full justify-start h-auto flex-wrap bg-slate-900/30 p-1">
+            {[
+              { id: "introduction", label: "Introduction" },
+              { id: "generalization", label: "Generalization" },
+              { id: "data-efficiency", label: "Data Efficiency" },
+              { id: "ml-automation", label: "ML Automation" },
+              { id: "model-tuning", label: "Model Tuning" },
+              { id: "neural-design", label: "Neural Design" },
+              { id: "fairness-transparency", label: "Fairness" },
+              { id: "case-studies", label: "Case Studies" },
+              { id: "tools-frameworks", label: "Tools" },
+              { id: "future-outlook", label: "Future" }
+            ].map((section) => (
+              <TabsTrigger
+                key={section.id}
+                value={section.id}
+                className={`py-2 px-3 text-sm ${
+                  activeSection === section.id ? "bg-blue-600 text-white" : ""
+                }`}
+                onClick={() => scrollToSection(section.id)}
+              >
+                {section.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+      </Tabs>
 
       {/* Introduction Section */}
       <section id="introduction" className="mb-12">
