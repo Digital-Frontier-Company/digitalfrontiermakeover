@@ -74,6 +74,17 @@ const Contact = () => {
     form.reset();
   }
 
+  // Create ref for the form to enable scrolling
+  const formRef = React.useRef<HTMLDivElement>(null);
+
+  // Effect to handle scrolling to form when coming from other pages
+  React.useEffect(() => {
+    // Check if there's a hash in the URL or if a specific query param exists
+    if (location.hash === "#contact-form" && formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <PageLayout 
       title="Contact Us" 
@@ -93,7 +104,7 @@ const Contact = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Contact form section */}
-        <div className="md:col-span-7">
+        <div className="md:col-span-7" id="contact-form" ref={formRef}>
           <Card className="bg-slate-800/40 border-slate-700 backdrop-blur-sm shadow-xl">
             <CardContent className="pt-6">
               <Form {...form}>

@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -22,7 +23,7 @@ const Index = () => {
             <h1>With Answer Engine Optimization, Your Website Isn't Just a Website — It's a <span className="highlight">Money‑Making Machine</span></h1>
             <h2>Stop paying for pretty pixels. Your site should print money. At Digital Frontier we redesign pages around the only metric that matters—pipeline revenue.</h2>
             <div className="text-center mt-4">
-              <a href="#contact" className="df-cta-button">Get Your Free Review</a>
+              <Link to="/contact" className="df-cta-button">Get Your Free Review</Link>
             </div>
 
             <div className="df-trust-badges">
@@ -268,7 +269,7 @@ const Index = () => {
           <h2>Ready to Own Your Digital Space?</h2>
           <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk. Click below, and let's build something legendary.</p>
           <div className="text-center">
-            <a href="#contact" className="df-yellow-cta-button">Join Now</a>
+            <Link to="/contact" className="df-yellow-cta-button">Join Now</Link>
           </div>
           <p className="tagline mt-4">Digital Frontier—Marketing That Actually Works.</p>
         </div>
