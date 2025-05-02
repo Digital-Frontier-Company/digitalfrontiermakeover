@@ -20,6 +20,7 @@ import GenerativeEngineOptimization from "./pages/GenerativeEngineOptimization";
 import AnswerEngineOptimization from "./pages/AnswerEngineOptimization";
 import Contact from "./pages/Contact";
 import RecommenderSystem from "./pages/RecommenderSystem";
+import Pricing from "./pages/Pricing";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -46,6 +47,7 @@ const App = () => (
           <Route path="/answer-engine-optimization" element={<AnswerEngineOptimization />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-and-digital-marketing" element={<RecommenderSystem />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

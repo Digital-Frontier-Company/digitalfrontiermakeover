@@ -1,8 +1,7 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -123,7 +122,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 
-                {/* Add Contact as a standalone item */}
+                {/* Add Pricing link with icon */}
+                <NavigationMenuItem>
+                  <Link to="/pricing" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                    <ShoppingCart className="h-4 w-4 mr-2" />
+                    Pricing
+                  </Link>
+                </NavigationMenuItem>
+                
+                {/* Keep Contact as a standalone item */}
                 <NavigationMenuItem>
                   <Link to="/contact" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
                     <Mail className="h-4 w-4 mr-2" />
@@ -203,7 +210,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                       </NavigationMenuLink>
-                      {/* Add Contact to mobile menu */}
+                      {/* Add Pricing to mobile menu */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/pricing" className="flex items-center">
+                          <ShoppingCart className="h-4 w-4 mr-2" />
+                          Pricing
+                        </Link>
+                      </NavigationMenuLink>
+                      {/* Keep Contact in mobile menu */}
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
                         <Link to="/contact" className="flex items-center">
                           <Mail className="h-4 w-4 mr-2" />
@@ -265,6 +279,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Terms of Use
               </a>
+              {/* Add Pricing link to footer */}
+              <Link to="/pricing" className="text-slate-400 hover:text-blue-400 transition-colors">
+                Pricing
+              </Link>
               <Link to="/contact" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Contact
               </Link>
