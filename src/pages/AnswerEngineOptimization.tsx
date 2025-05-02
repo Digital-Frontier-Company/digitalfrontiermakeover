@@ -1,5 +1,6 @@
+
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
@@ -215,7 +216,7 @@ const AnswerEngineOptimization = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs GEO: Performance Across Key Metrics</p>
+          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs <Link to="/generative-engine-optimization" className="text-purple-400 hover:underline">GEO</Link>: Performance Across Key Metrics</p>
           <div className="h-[450px] w-full mb-8">
             <ChartContainer config={{
               seo: { color: "#22c55e" },
@@ -234,7 +235,7 @@ const AnswerEngineOptimization = () => {
                   <Legend wrapperStyle={{ paddingTop: "20px" }} />
                   <Bar dataKey="seo" fill="#22c55e" name="SEO" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
-                  <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
+                  <Bar dataKey="geo" fill="#8B5CF6" name={<Link to="/generative-engine-optimization" className="text-purple-400 hover:underline">GEO</Link>} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -249,8 +250,8 @@ const AnswerEngineOptimization = () => {
               <p className="text-slate-300">Answer Engine Optimization focusing on direct responses to questions via snippets and voice search.</p>
             </div>
             <div className="p-4 bg-purple-900/20 border border-purple-800/30 rounded-lg">
-              <h4 className="font-medium text-purple-400 mb-2">GEO</h4>
-              <p className="text-slate-300">Generative Engine Optimization for AI quotability and citation in large language models.</p>
+              <h4 className="font-medium text-purple-400 mb-2"><Link to="/generative-engine-optimization" className="hover:underline">GEO</Link></h4>
+              <p className="text-slate-300"><Link to="/generative-engine-optimization" className="text-slate-300 hover:underline">Generative Engine Optimization</Link> for AI quotability and citation in large language models.</p>
             </div>
           </div>
         </CardContent>
