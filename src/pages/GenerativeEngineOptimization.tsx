@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -215,7 +216,7 @@ const GenerativeEngineOptimization = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={optimizationComparisonData}
-                  margin={{ top: 30, right: 30, left: 20, bottom: 30 }}
+                  margin={{ top: 50, right: 30, left: 20, bottom: 30 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="name" stroke="#9F9EA1" />
@@ -270,7 +271,7 @@ const GenerativeEngineOptimization = () => {
                 'Lower Positions': { color: "#0EA5E9" },
               }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
+                  <PieChart margin={{ top: 20, right: 0, bottom: 0, left: 0 }}>
                     <Pie
                       data={quoteDistributionData}
                       cx="50%"
@@ -286,7 +287,7 @@ const GenerativeEngineOptimization = () => {
                       ))}
                     </Pie>
                     <Tooltip content={<ChartTooltipContent />} />
-                    <Legend />
+                    <Legend wrapperStyle={{ paddingTop: "5px" }} />
                   </PieChart>
                 </ResponsiveContainer>
               </ChartContainer>
