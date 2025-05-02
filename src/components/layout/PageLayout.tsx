@@ -1,6 +1,6 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import MainLayout from "./MainLayout";
 
 type PageLayoutProps = {
@@ -22,6 +22,31 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     .split("-")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+    
+  // Effect to handle anchor link smooth scrolling
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          // Use smooth scroll behavior
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+    
+    // Run on mount in case of direct anchor link access
+    handleHashChange();
+    
+    // Add listener for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   return (
     <MainLayout>

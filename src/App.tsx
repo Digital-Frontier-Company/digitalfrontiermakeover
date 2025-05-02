@@ -19,6 +19,7 @@ import AdFunnelBlueprint from "./pages/AdFunnelBlueprint";
 import GenerativeEngineOptimization from "./pages/GenerativeEngineOptimization";
 import AnswerEngineOptimization from "./pages/AnswerEngineOptimization";
 import Contact from "./pages/Contact";
+import RecommenderSystem from "./pages/RecommenderSystem";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/generative-engine-optimization" element={<GenerativeEngineOptimization />} />
           <Route path="/answer-engine-optimization" element={<AnswerEngineOptimization />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/ai-and-digital-marketing" element={<RecommenderSystem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
