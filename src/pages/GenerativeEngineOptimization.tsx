@@ -21,36 +21,6 @@ const GenerativeEngineOptimization = () => {
     { month: 'Jun', standard: 45, optimized: 92 },
   ];
 
-  // Sample data for quote distribution chart
-  const quoteDistributionData = [
-    { name: 'First Position', value: 65 },
-    { name: 'Second Position', value: 20 },
-    { name: 'Third Position', value: 10 },
-    { name: 'Lower Positions', value: 5 },
-  ];
-
-  const COLORS = ['#8B5CF6', '#D946EF', '#F97316', '#0EA5E9'];
-
-  // Sample data for optimization factors
-  const factorsData = [
-    { factor: 'Keyword Relevance', impact: 90 },
-    { factor: 'Content Quality', impact: 85 },
-    { factor: 'Semantic Structure', impact: 75 },
-    { factor: 'Technical Optimization', impact: 70 },
-    { factor: 'User Engagement', impact: 65 },
-    { factor: 'Entity Recognition', impact: 60 },
-  ];
-
-  // Sample data for monthly improvement
-  const monthlyImprovementData = [
-    { month: 'Jan', improvement: 15 },
-    { month: 'Feb', improvement: 30 },
-    { month: 'Mar', improvement: 45 },
-    { month: 'Apr', improvement: 60 },
-    { month: 'May', improvement: 75 },
-    { month: 'Jun', improvement: 90 },
-  ];
-
   // Updated data for SEO vs AEO vs GEO comparison based on research
   const optimizationComparisonData = [
     { name: 'Search Visibility (%)', seo: 53, aeo: 41, geo: 46 },
@@ -81,6 +51,36 @@ const GenerativeEngineOptimization = () => {
       question: "Which industries benefit most from GEO?",
       answer: "Industries with complex products or services that people frequently ask questions about benefit most, including finance, healthcare, technology, travel, and e-commerce. However, any business providing factual information can leverage GEO effectively."
     }
+  ];
+
+  // Sample data for quote distribution chart
+  const quoteDistributionData = [
+    { name: 'First Position', value: 65 },
+    { name: 'Second Position', value: 20 },
+    { name: 'Third Position', value: 10 },
+    { name: 'Lower Positions', value: 5 },
+  ];
+
+  const COLORS = ['#8B5CF6', '#D946EF', '#F97316', '#0EA5E9'];
+
+  // Sample data for optimization factors
+  const factorsData = [
+    { factor: 'Keyword Relevance', impact: 90 },
+    { factor: 'Content Quality', impact: 85 },
+    { factor: 'Semantic Structure', impact: 75 },
+    { factor: 'Technical Optimization', impact: 70 },
+    { factor: 'User Engagement', impact: 65 },
+    { factor: 'Entity Recognition', impact: 60 },
+  ];
+
+  // Sample data for monthly improvement
+  const monthlyImprovementData = [
+    { month: 'Jan', improvement: 15 },
+    { month: 'Feb', improvement: 30 },
+    { month: 'Mar', improvement: 45 },
+    { month: 'Apr', improvement: 60 },
+    { month: 'May', improvement: 75 },
+    { month: 'Jun', improvement: 90 },
   ];
 
   return (
@@ -196,7 +196,7 @@ const GenerativeEngineOptimization = () => {
         </CardContent>
       </Card>
 
-      {/* SEO vs AEO vs GEO Comparison Chart - Increased height and spacing */}
+      {/* SEO vs AEO vs GEO Comparison Chart - With Logarithmic Scale */}
       <Card className="mb-32 border-slate-800 bg-slate-900/80">
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-2xl">
@@ -205,7 +205,7 @@ const GenerativeEngineOptimization = () => {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs GEO: Performance Across Key Metrics</p>
+          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs GEO: Performance Across Key Metrics (Logarithmic Scale)</p>
           <div className="h-[450px] w-full mb-8">
             <ChartContainer config={{
               seo: { color: "#22c55e" },
@@ -219,7 +219,13 @@ const GenerativeEngineOptimization = () => {
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="name" stroke="#9F9EA1" />
-                  <YAxis stroke="#9F9EA1" />
+                  <YAxis 
+                    stroke="#9F9EA1" 
+                    scale="log" 
+                    domain={[1, 'auto']} 
+                    allowDataOverflow={true}
+                    tickFormatter={(value) => value.toLocaleString()}
+                  />
                   <Tooltip content={<ChartTooltipContent />} />
                   <Legend wrapperStyle={{ paddingTop: "20px" }} />
                   <Bar dataKey="seo" fill="#22c55e" name="SEO" />
