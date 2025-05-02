@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
@@ -13,12 +14,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       {/* Header */}
       <header className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0 flex items-center">
-            <Link to="/">
+          <div className="mb-4 md:mb-0">
+            <Link to="/" className="flex items-center">
               <img 
                 src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
                 alt="Digital Frontier Company" 
-                className="h-12 mr-3" 
+                className="h-12" 
               />
             </Link>
           </div>
