@@ -17,10 +17,9 @@ import AIBias from "./pages/AIBias";
 import AboutUs from "./pages/AboutUs";
 import AdFunnelBlueprint from "./pages/AdFunnelBlueprint";
 import GenerativeEngineOptimization from "./pages/GenerativeEngineOptimization";
+import AnswerEngineOptimization from "./pages/AnswerEngineOptimization";
 import Contact from "./pages/Contact";
 import "./styles/digitalFrontier.css";
-
-// This route configuration is already set up correctly with Contact included
 
 const queryClient = new QueryClient();
 
@@ -43,6 +42,7 @@ const App = () => (
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/ad-funnel-blueprint" element={<AdFunnelBlueprint />} />
           <Route path="/generative-engine-optimization" element={<GenerativeEngineOptimization />} />
+          <Route path="/answer-engine-optimization" element={<AnswerEngineOptimization />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
