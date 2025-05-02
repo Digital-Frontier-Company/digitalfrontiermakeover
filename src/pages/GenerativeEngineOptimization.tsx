@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -163,7 +162,7 @@ const GenerativeEngineOptimization = () => {
         </div>
       </section>
 
-      {/* Performance Comparison Card - Fixed height and spacing */}
+      {/* Performance Comparison Card - Adjusted height and margins */}
       <Card className="mb-28 border-slate-800 bg-slate-900/80">
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-2xl">
@@ -173,7 +172,7 @@ const GenerativeEngineOptimization = () => {
         </CardHeader>
         <CardContent>
           <p className="mb-8 text-slate-300 text-lg">Standard vs GEO-Optimized Content Performance in AI Quotability</p>
-          <div className="h-[400px] w-full">
+          <div className="h-[450px] w-full">
             <ChartContainer config={{
               standard: { color: "#9F9EA1" },
               optimized: { color: "#8B5CF6" },
@@ -181,13 +180,13 @@ const GenerativeEngineOptimization = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={optimizationData}
-                  margin={{ top: 30, right: 30, left: 20, bottom: 30 }}
+                  margin={{ top: 50, right: 30, left: 20, bottom: 50 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="month" stroke="#9F9EA1" />
                   <YAxis stroke="#9F9EA1" />
                   <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
+                  <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
                   <Bar dataKey="standard" fill="#9F9EA1" name="Standard Content" />
                   <Bar dataKey="optimized" fill="#8B5CF6" name="GEO-Optimized" />
                 </BarChart>
@@ -197,7 +196,7 @@ const GenerativeEngineOptimization = () => {
         </CardContent>
       </Card>
 
-      {/* SEO vs AEO vs GEO Comparison Chart - With Logarithmic Scale */}
+      {/* SEO vs AEO vs GEO Comparison Chart - Adjusted height and margins */}
       <Card className="mb-32 border-slate-800 bg-slate-900/80">
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-2xl">
@@ -207,7 +206,7 @@ const GenerativeEngineOptimization = () => {
         </CardHeader>
         <CardContent>
           <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs GEO: Performance Across Key Metrics (Logarithmic Scale)</p>
-          <div className="h-[450px] w-full mb-8">
+          <div className="h-[500px] w-full mb-8">
             <ChartContainer config={{
               seo: { color: "#22c55e" },
               aeo: { color: "#3b82f6" },
@@ -216,7 +215,7 @@ const GenerativeEngineOptimization = () => {
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={optimizationComparisonData}
-                  margin={{ top: 50, right: 30, left: 20, bottom: 30 }}
+                  margin={{ top: 70, right: 30, left: 20, bottom: 70 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="name" stroke="#9F9EA1" />
@@ -228,7 +227,7 @@ const GenerativeEngineOptimization = () => {
                     tickFormatter={(value) => value.toLocaleString()}
                   />
                   <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "20px" }} />
+                  <Legend wrapperStyle={{ paddingTop: "30px", marginBottom: "10px" }} />
                   <Bar dataKey="seo" fill="#22c55e" name="SEO" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
                   <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
@@ -253,7 +252,7 @@ const GenerativeEngineOptimization = () => {
         </CardContent>
       </Card>
 
-      {/* Tabs for Multiple Chart Views - Increased spacing and fixed heights */}
+      {/* Tabs for Multiple Chart Views - Increased height and margins */}
       <Tabs defaultValue="distribution" className="mb-32">
         <TabsList className="grid w-full grid-cols-3 mb-6">
           <TabsTrigger value="distribution" className="text-base py-3">Quote Position</TabsTrigger>
@@ -263,7 +262,7 @@ const GenerativeEngineOptimization = () => {
         
         <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[450px]">
+            <div className="w-full md:w-1/2 h-[500px]">
               <ChartContainer config={{
                 'First Position': { color: "#8B5CF6" },
                 'Second Position': { color: "#D946EF" },
@@ -271,7 +270,7 @@ const GenerativeEngineOptimization = () => {
                 'Lower Positions': { color: "#0EA5E9" },
               }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart margin={{ top: 20, right: 0, bottom: 0, left: 0 }}>
+                  <PieChart margin={{ top: 30, right: 30, bottom: 30, left: 30 }}>
                     <Pie
                       data={quoteDistributionData}
                       cx="50%"
@@ -287,7 +286,7 @@ const GenerativeEngineOptimization = () => {
                       ))}
                     </Pie>
                     <Tooltip content={<ChartTooltipContent />} />
-                    <Legend wrapperStyle={{ paddingTop: "5px" }} />
+                    <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
                   </PieChart>
                 </ResponsiveContainer>
               </ChartContainer>
@@ -322,7 +321,7 @@ const GenerativeEngineOptimization = () => {
 
         <TabsContent value="factors" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[450px]">
+            <div className="w-full md:w-1/2 h-[500px]">
               <ChartContainer config={{
                 impact: { color: "#8B5CF6" },
               }}>
@@ -330,7 +329,7 @@ const GenerativeEngineOptimization = () => {
                   <BarChart
                     layout="vertical"
                     data={factorsData}
-                    margin={{ top: 20, right: 30, left: 150, bottom: 20 }}
+                    margin={{ top: 30, right: 30, left: 150, bottom: 30 }}
                   >
                     <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                     <XAxis type="number" stroke="#9F9EA1" />
@@ -363,20 +362,20 @@ const GenerativeEngineOptimization = () => {
 
         <TabsContent value="improvement" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[450px]">
+            <div className="w-full md:w-1/2 h-[500px]">
               <ChartContainer config={{
                 improvement: { color: "#8B5CF6" },
               }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart
                     data={monthlyImprovementData}
-                    margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+                    margin={{ top: 30, right: 30, left: 20, bottom: 30 }}
                   >
                     <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                     <XAxis dataKey="month" stroke="#9F9EA1" />
                     <YAxis stroke="#9F9EA1" />
                     <Tooltip content={<ChartTooltipContent />} />
-                    <Legend />
+                    <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
                     <Line 
                       type="monotone" 
                       dataKey="improvement" 
