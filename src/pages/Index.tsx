@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -64,7 +63,11 @@ const Index = () => {
             <div className="df-service-item">
               <div className="bullet">•</div>
               <div className="content">
-                <span className="service-title">Answer Engine Optimization (AEO):</span>
+                <span className="service-title">
+                  <Link to="/answer-engine-optimization" className="hover:text-blue-400 transition-colors">
+                    Answer Engine Optimization (AEO):
+                  </Link>
+                </span>
                 <span className="service-description">Get found on AI-driven engines like ChatGPT, Google's SGE, and Bing Copilot.</span>
               </div>
             </div>
@@ -88,7 +91,11 @@ const Index = () => {
             <div className="df-service-item">
               <div className="bullet">•</div>
               <div className="content">
-                <span className="service-title">Full Funnel Ads:</span>
+                <span className="service-title">
+                  <Link to="/ad-funnel-blueprint" className="hover:text-blue-400 transition-colors">
+                    Full Funnel Ads:
+                  </Link>
+                </span>
                 <span className="service-description">From scroll-stopping Meta creatives to zero-click Google Search dominance.</span>
               </div>
             </div>
@@ -273,34 +280,80 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center text-slate-100 mb-8">Explore Digital Frontier</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link to="/technical" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h3 className="text-xl font-bold text-blue-400 mb-2">Technical Breakdown</h3>
-              <p className="text-slate-300">Understand how modern AI marketing tools work and how they can transform your business.</p>
+            {/* Digital Marketing Solutions */}
+            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">Digital Marketing Solutions</h3>
+              <div className="space-y-3">
+                <Link to="/ad-funnel-blueprint" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Ad Funnel Blueprint</h4>
+                  <p className="text-slate-300 text-sm">Optimize your advertising funnel from awareness to conversion with our proven blueprint.</p>
+                </Link>
+                
+                <Link to="/generative-engine-optimization" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Generative Engine Optimization</h4>
+                  <p className="text-slate-300 text-sm">Leverage AI-generated content to boost your visibility and engagement.</p>
+                </Link>
+                
+                <Link to="/answer-engine-optimization" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Answer Engine Optimization</h4>
+                  <p className="text-slate-300 text-sm">Optimize your content to appear in AI-driven answer boxes and voice search results.</p>
+                </Link>
+              </div>
+            </div>
+            
+            {/* AI Marketing Foundations */}
+            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">AI Marketing Foundations</h3>
+              <div className="space-y-3">
+                <Link to="/technical" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Technical Breakdown</h4>
+                  <p className="text-slate-300 text-sm">Understand how modern AI marketing tools work and how they can transform your business.</p>
+                </Link>
+                
+                <Link to="/evolution" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Evolution of AI Marketing</h4>
+                  <p className="text-slate-300 text-sm">Trace the history of AI in marketing from early automation to today's sophisticated systems.</p>
+                </Link>
+                
+                <Link to="/regulations" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Regulations & Compliance</h4>
+                  <p className="text-slate-300 text-sm">Navigate the complex legal landscape of AI-powered marketing and advertising.</p>
+                </Link>
+              </div>
+            </div>
+            
+            {/* Industry Insights */}
+            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">Industry Insights</h3>
+              <div className="space-y-3">
+                <Link to="/sectors" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Sector Spotlights</h4>
+                  <p className="text-slate-300 text-sm">See how different industries are leveraging AI marketing for competitive advantage.</p>
+                </Link>
+                
+                <Link to="/future" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Future Trends</h4>
+                  <p className="text-slate-300 text-sm">Get ahead of the curve with insights into emerging AI marketing technologies.</p>
+                </Link>
+                
+                <Link to="/ai-bias-in-advertising" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
+                  <h4 className="text-lg font-semibold text-blue-300 mb-1">AI Bias in Advertising</h4>
+                  <p className="text-slate-300 text-sm">Understand the ethical implications of AI in advertising and how to address bias.</p>
+                </Link>
+              </div>
+            </div>
+          </div>
+          
+          {/* Additional Resources Row */}
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link to="/about-us" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
+              <h4 className="text-xl font-bold text-blue-300 mb-2">About Digital Frontier</h4>
+              <p className="text-slate-300">Learn more about our team, our mission, and how we're changing the digital marketing landscape.</p>
             </Link>
             
-            <Link to="/evolution" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h3 className="text-xl font-bold text-blue-400 mb-2">Evolution of AI Marketing</h3>
-              <p className="text-slate-300">Trace the history of AI in marketing from early automation to today's sophisticated systems.</p>
-            </Link>
-            
-            <Link to="/regulations" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h3 className="text-xl font-bold text-blue-400 mb-2">Regulations & Compliance</h3>
-              <p className="text-slate-300">Navigate the complex legal landscape of AI-powered marketing and advertising.</p>
-            </Link>
-            
-            <Link to="/sectors" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h3 className="text-xl font-bold text-blue-400 mb-2">Sector Spotlights</h3>
-              <p className="text-slate-300">See how different industries are leveraging AI marketing for competitive advantage.</p>
-            </Link>
-            
-            <Link to="/future" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h3 className="text-xl font-bold text-blue-400 mb-2">Future Trends</h3>
-              <p className="text-slate-300">Get ahead of the curve with insights into emerging AI marketing technologies.</p>
-            </Link>
-            
-            <Link to="/ai-bias-in-advertising" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h3 className="text-xl font-bold text-blue-400 mb-2">AI Bias in Advertising</h3>
-              <p className="text-slate-300">Understand the ethical implications of AI in advertising and how to address bias.</p>
+            <Link to="/contact" className="bg-blue-900/20 p-6 rounded-lg border border-blue-700/30 hover:border-blue-500/50 hover:bg-blue-900/30 transition-all">
+              <h4 className="text-xl font-bold text-blue-300 mb-2">Ready to Transform Your Marketing?</h4>
+              <p className="text-slate-300">Contact us today to discuss how we can help your business thrive in the digital frontier.</p>
             </Link>
           </div>
         </div>

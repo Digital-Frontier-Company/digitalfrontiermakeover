@@ -85,6 +85,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/generative-engine-optimization">Generative Engine Optimization</Link>
                       </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/answer-engine-optimization">Answer Engine Optimization</Link>
+                      </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -181,6 +184,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/generative-engine-optimization">Generative Engine Optimization</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
+                        <Link to="/answer-engine-optimization">Answer Engine Optimization</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/sectors">Sector Spotlights</Link>
