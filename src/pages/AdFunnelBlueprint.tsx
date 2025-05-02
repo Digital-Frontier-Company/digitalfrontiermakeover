@@ -1,7 +1,6 @@
-
 import React, { useState } from "react";
 import PageLayout from "../components/layout/PageLayout";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
@@ -517,15 +516,17 @@ const AdFunnelBlueprint = () => {
           className="mt-16"
         />
 
-        {/* Enhanced CTA Section */}
+        {/* Enhanced CTA Section - Updated with Link to Contact page */}
         <div className="py-12 px-12 rounded-lg bg-gradient-to-r from-blue-900/50 to-purple-900/50 border border-blue-800/50 text-center mt-16 hover:shadow-lg hover:shadow-purple-900/20 transition-all">
           <h2 className="text-3xl font-bold mb-6 text-white">Ready to Transform Your Ad Funnel?</h2>
           <p className="text-slate-300 mb-10 max-w-2xl mx-auto text-lg">
             Integrate AI at every stage of your customer journey to create a more intelligent, adaptive, and results-driven marketing engine.
           </p>
-          <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors text-lg shadow-lg shadow-blue-900/30">
-            Get Your Free Consultation
-          </button>
+          <Link to="/contact#contact-form">
+            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors text-lg shadow-lg shadow-blue-900/30">
+              Get Your Free Consultation
+            </button>
+          </Link>
         </div>
 
         {/* Conclusion section */}
