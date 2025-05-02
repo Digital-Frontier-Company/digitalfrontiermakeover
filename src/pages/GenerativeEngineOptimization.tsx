@@ -51,13 +51,12 @@ const GenerativeEngineOptimization = () => {
     { month: 'Jun', improvement: 90 },
   ];
 
-  // Sample data for SEO vs AEO vs GEO comparison - UPDATED to match across pages
+  // Updated data for SEO vs AEO vs GEO comparison based on research
   const optimizationComparisonData = [
-    { name: 'Search Visibility', seo: 80, aeo: 60, geo: 50 },
-    { name: 'Direct Traffic', seo: 70, aeo: 40, geo: 30 },
-    { name: 'AI Citations', seo: 20, aeo: 70, geo: 90 },
-    { name: 'Conversion Rate', seo: 60, aeo: 65, geo: 75 },
-    { name: 'Content ROI', seo: 50, aeo: 60, geo: 85 },
+    { name: 'Search Visibility (%)', seo: 53, aeo: 41, geo: 46 },
+    { name: 'Direct Traffic (%)', seo: 40, aeo: 0, geo: 45 },
+    { name: 'Conversion Rate (%)', seo: 2.8, aeo: 24, geo: 20 },
+    { name: 'Content ROI (%)', seo: 550, aeo: 400, geo: 400 },
   ];
 
   // GEO FAQ questions and answers

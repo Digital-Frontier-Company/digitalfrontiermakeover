@@ -51,13 +51,12 @@ const AnswerEngineOptimization = () => {
     { month: 'Jun', improvement: 92 },
   ];
 
-  // Sample data for SEO vs AEO vs GEO comparison - UPDATED to match across pages
+  // Updated data for SEO vs AEO vs GEO comparison based on research
   const optimizationComparisonData = [
-    { name: 'Search Visibility', seo: 80, aeo: 60, geo: 50 },
-    { name: 'Direct Traffic', seo: 70, aeo: 40, geo: 30 },
-    { name: 'AI Citations', seo: 20, aeo: 70, geo: 90 },
-    { name: 'Conversion Rate', seo: 60, aeo: 65, geo: 75 },
-    { name: 'Content ROI', seo: 50, aeo: 60, geo: 85 },
+    { name: 'Search Visibility (%)', seo: 53, aeo: 41, geo: 46 },
+    { name: 'Direct Traffic (%)', seo: 40, aeo: 0, geo: 45 },
+    { name: 'Conversion Rate (%)', seo: 2.8, aeo: 24, geo: 20 },
+    { name: 'Content ROI (%)', seo: 550, aeo: 400, geo: 400 },
   ];
 
   // AEO FAQ questions and answers
@@ -249,8 +248,8 @@ const AnswerEngineOptimization = () => {
               <p className="text-slate-300">Answer Engine Optimization focusing on direct responses to questions via snippets and voice search.</p>
             </div>
             <div className="p-4 bg-purple-900/20 border border-purple-800/30 rounded-lg">
-              <h4 className="font-medium text-purple-400 mb-2"><Link to="/generative-engine-optimization" className="hover:underline">GEO</Link></h4>
-              <p className="text-slate-300"><Link to="/generative-engine-optimization" className="text-slate-300 hover:underline">Generative Engine Optimization</Link> for AI quotability and citation in large language models.</p>
+              <h4 className="font-medium text-purple-400 mb-2">GEO</h4>
+              <p className="text-slate-300">Generative Engine Optimization for AI quotability and citation in large language models.</p>
             </div>
           </div>
         </CardContent>
