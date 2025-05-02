@@ -14,7 +14,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       {/* Header */}
       <header className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
+          <div className="mb-4 md:mb-0 md:mr-6 pl-2">
             <Link to="/" className="flex items-center">
               <img 
                 src="/lovable-uploads/c9d38052-a83f-47d4-ab89-a00c237a6ff9.png" 
