@@ -22,6 +22,7 @@ import Contact from "./pages/Contact";
 import RecommenderSystem from "./pages/RecommenderSystem";
 import Pricing from "./pages/Pricing";
 import Newsletter from "./pages/Newsletter";
+import HubSpotSettings from "./components/integration/HubSpotSettings";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/ai-and-digital-marketing" element={<RecommenderSystem />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/admin/hubspot-settings" element={<HubSpotSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

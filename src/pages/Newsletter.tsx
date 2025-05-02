@@ -1,11 +1,77 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "@/components/layout/PageLayout";
 import { useLocation } from "react-router-dom";
+import { submitToHubSpot, initHubSpotTracking } from "@/utils/hubspot";
+import { useToast } from "@/hooks/use-toast";
 
 const Newsletter = () => {
   const location = useLocation();
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subscribeToMarketing: false
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize HubSpot tracking when component mounts
+  useEffect(() => {
+    // Replace 'YOUR_HUBSPOT_ID' with your actual HubSpot ID
+    const cleanup = initHubSpotTracking('YOUR_HUBSPOT_ID');
+    return cleanup;
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [id]: type === 'checkbox' ? checked : value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.email) {
+      toast({
+        title: "Error",
+        description: "Please provide your email address",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      await submitToHubSpot(formData);
+      
+      toast({
+        title: "Success!",
+        description: "Thank you for subscribing to our newsletter!",
+      });
+      
+      // Reset form after successful submission
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subscribeToMarketing: false
+      });
+    } catch (error) {
+      toast({
+        title: "Submission Error",
+        description: "There was a problem submitting your subscription. Please try again.",
+        variant: "destructive",
+      });
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -44,7 +110,7 @@ const Newsletter = () => {
             <h3 className="text-2xl font-semibold mb-4">Subscribe to Our Newsletter</h3>
             <p className="mb-4">Get the latest insights on crypto and macro markets delivered directly to your inbox.</p>
             
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium mb-1">First Name</label>
@@ -53,6 +119,8 @@ const Newsletter = () => {
                     id="firstName" 
                     className="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                     placeholder="Your first name"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
@@ -62,6 +130,8 @@ const Newsletter = () => {
                     id="lastName" 
                     className="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                     placeholder="Your last name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                   />
                 </div>
               </div>
@@ -74,21 +144,30 @@ const Newsletter = () => {
                   className="w-full px-4 py-2 bg-slate-900 border border-slate-700 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-500"
                   placeholder="your.email@example.com"
                   required
+                  value={formData.email}
+                  onChange={handleInputChange}
                 />
               </div>
               
               <div>
                 <label className="flex items-center">
-                  <input type="checkbox" className="mr-2" />
+                  <input 
+                    type="checkbox" 
+                    id="subscribeToMarketing"
+                    checked={formData.subscribeToMarketing}
+                    onChange={handleInputChange}
+                    className="mr-2" 
+                  />
                   <span className="text-sm text-slate-300">I agree to receive marketing communications from Digital Frontier</span>
                 </label>
               </div>
               
               <button 
                 type="submit" 
-                className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-500 transition-colors"
+                className="w-full md:w-auto px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-400 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-500 transition-colors disabled:opacity-70"
+                disabled={isSubmitting}
               >
-                Subscribe Now
+                {isSubmitting ? "Subscribing..." : "Subscribe Now"}
               </button>
             </form>
           </div>
