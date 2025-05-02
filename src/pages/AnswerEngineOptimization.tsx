@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -235,7 +234,7 @@ const AnswerEngineOptimization = () => {
                   <Legend wrapperStyle={{ paddingTop: "20px" }} />
                   <Bar dataKey="seo" fill="#22c55e" name="SEO" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
-                  <Bar dataKey="geo" fill="#8B5CF6" name={<Link to="/generative-engine-optimization" className="text-purple-400 hover:underline">GEO</Link>} />
+                  <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
