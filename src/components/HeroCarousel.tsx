@@ -21,7 +21,7 @@ const HeroCarousel: React.FC = () => {
     type: "text-only"
   }, {
     text: "If you were truly Honest about it. We both know..",
-    highlightText: "YOUR WEBSITE",
+    highlightText: "Your Web-site",
     subText: "could be........ MORE",
     type: "text-with-image",
     imageSrc: "/lovable-uploads/1937a134-56d1-4879-bf22-3c8aaf49e075.png"
@@ -38,22 +38,12 @@ const HeroCarousel: React.FC = () => {
     text: "",
     highlightText: "Money-Printing Machine",
     type: "text-with-image",
-    imageSrc: "/lovable-uploads/3d7bf124-081a-4959-9a39-759c1e0dc150.png"
-  }, {
-    text: "",
-    highlightText: "Money-Printing Machine",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png"
+    imageSrc: "/lovable-uploads/2f2b5241-ae39-428b-a2cb-cc6b0a71a4e9.png"
   }, {
     text: "",
     highlightText: "Money-Printing Machine",
     type: "text-with-image",
     imageSrc: "/lovable-uploads/54e3ff42-70e3-485e-8ade-21a31ebdde42.png"
-  }, {
-    text: "",
-    highlightText: "Money-Printing Machine",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/2f2b5241-ae39-428b-a2cb-cc6b0a71a4e9.png"
   }, {
     text: "Stop paying for pretty pixels.",
     highlightText: "",
