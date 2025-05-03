@@ -96,7 +96,7 @@ const HeroCarousel: React.FC = () => {
                     {slide.text}
                   </h1>}
                 
-                {slide.highlightText && <h1 className="text-5xl md:text-6xl mb-6 text-[var(--df-light-blue)] lg:text-7xl mx-0 my-[32px] px-[9px] py-[9px] font-extrabold border border-black text-cyan-400 capitalize">
+                {slide.highlightText && <h1 className="text-5xl md:text-6xl mb-6 text-[var(--df-light-blue)] lg:text-7xl mx-0 my-[32px] px-[9px] py-[9px] font-extrabold border border-cyan-500 text-cyan-400 capitalize shadow-[0_0_15px_rgba(0,255,255,0.6)] rounded-sm">
                     {slide.highlightText}
                   </h1>}
                 
