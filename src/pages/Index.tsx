@@ -1,9 +1,9 @@
-
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import HeroCarousel from "@/components/HeroCarousel";
 
 const Index = () => {
   // Use the FAQ toggle hook
@@ -11,7 +11,7 @@ const Index = () => {
 
   return (
     <MainLayout>
-      {/* HERO SECTION */}
+      {/* HERO SECTION WITH CAROUSEL */}
       <section className="df-hero-section">
         <div className="container">
           {/* Digital Frontier Logo */}
@@ -19,26 +19,25 @@ const Index = () => {
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" className="df-logo" width="220" />
           </div>
 
-          <div className="hero-content">
-            <h1>With Answer Engine Optimization, Your Website Isn't Just a Website — It's a <span className="highlight">Money‑Making Machine</span></h1>
-            <h2>Stop paying for pretty pixels. Your site should print money. At Digital Frontier we redesign pages around the only metric that matters—pipeline revenue.</h2>
-            <div className="text-center mt-4">
-              <Link to="/contact" className="df-cta-button">Get Your Free Review</Link>
-            </div>
+          {/* Hero Carousel */}
+          <HeroCarousel />
 
-            <div className="df-trust-badges">
-              <div className="df-trust-badge">
-                <div className="df-trust-number"><span className="df-stat-counter">200</span>+</div>
-                <div className="df-trust-label">Websites Analyzed</div>
-              </div>
-              <div className="df-trust-badge">
-                <div className="df-trust-number"><span className="df-stat-counter">98</span>%</div>
-                <div className="df-trust-label">Satisfaction Rate</div>
-              </div>
-              <div className="df-trust-badge">
-                <div className="df-trust-number">+<span className="df-stat-counter">85</span>%</div>
-                <div className="df-trust-label">Avg. Traffic Increase</div>
-              </div>
+          <div className="text-center mt-8">
+            <Link to="/contact" className="df-cta-button">Get Your Free Review</Link>
+          </div>
+
+          <div className="df-trust-badges">
+            <div className="df-trust-badge">
+              <div className="df-trust-number"><span className="df-stat-counter">200</span>+</div>
+              <div className="df-trust-label">Websites Analyzed</div>
+            </div>
+            <div className="df-trust-badge">
+              <div className="df-trust-number"><span className="df-stat-counter">98</span>%</div>
+              <div className="df-trust-label">Satisfaction Rate</div>
+            </div>
+            <div className="df-trust-badge">
+              <div className="df-trust-number">+<span className="df-stat-counter">85</span>%</div>
+              <div className="df-trust-label">Avg. Traffic Increase</div>
             </div>
           </div>
         </div>
@@ -244,7 +243,7 @@ const Index = () => {
 
             <div className="df-faq-item">
               <div className="df-faq-question">What's Answer Engine Optimization (AEO), and why does it matter?</div>
-              <div className="df-faq-answer">AEO is the future of SEO. Instead of just ranking on Google, AEO helps you show up in AI-generated answers across search engines and voice assistants. It's where high-intent users go first.</div>
+              <div className="df-faq-answer">AEO is the future of SEO. Instead of just ranking on Google, AEO helps you show up in AI-driven answers across search engines and voice assistants. It's where high-intent users go first.</div>
             </div>
 
             <div className="df-faq-item">
@@ -275,7 +274,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Add a "Learn More" section linking to other pages */}
+      {/* LEARN MORE SECTION */}
       <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-slate-100 mb-8">Explore Digital Frontier</h2>

@@ -32,25 +32,23 @@
   z-index: 0;
   pointer-events: none;
 }
-.df-hero-section h1 {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #fff;
-  text-align: center;
-  position: relative;
-}
-.df-hero-section h1 .highlight {
-  color: var(--df-light-blue);
-  text-shadow: 0 0 10px rgba(0,229,255,.5);
-}
-.df-hero-section h2 {
-  font-size: 22px;
-  font-weight: 400;
+
+/* Hero Carousel Styles */
+.df-hero-carousel {
   margin-bottom: 30px;
-  color: #e0e0e0;
-  text-align: center;
-  position: relative;
+}
+
+.df-hero-carousel .text-shadow-lg {
+  text-shadow: 0 0 15px rgba(0,229,255,.7);
+}
+
+.df-hero-carousel img {
+  transition: transform 7s ease-out;
+  will-change: transform;
+}
+
+.embla__slide--current img {
+  transform: scale(1.1);
 }
 
 /* ===== LOGO ===== */
