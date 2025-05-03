@@ -4,13 +4,10 @@ import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import HeroCarousel from "@/components/HeroCarousel";
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
-
-  return (
-    <MainLayout>
+  return <MainLayout>
       {/* HERO SECTION WITH CAROUSEL */}
       <section className="df-hero-section">
         <div className="container">
@@ -54,7 +51,11 @@ const Index = () => {
             <h2>Smart Marketing Built for Speed, Scale, and Survival</h2>
           </div>
 
-          <div className="intro-text" style={{ maxWidth: "800px", margin: "0 auto 30px", textAlign: "center" }}>
+          <div className="intro-text" style={{
+          maxWidth: "800px",
+          margin: "0 auto 30px",
+          textAlign: "center"
+        }}>
             <p>We're not another digital marketing agency tossing generic playbooks. We are The Digital Frontier Company, a crew of engineers, analysts, and creative killers who live to squeeze more money out of your pipeline.</p>
             <p>Here's what Digital Frontier Marketing includes:</p>
           </div>
@@ -162,20 +163,40 @@ const Index = () => {
       {/* REVENUE ENGINE SECTION */}
       <section className="df-revenue-engine">
         <div className="container">
-          <div className="row" style={{ alignItems: "center" }}>
+          <div className="row" style={{
+          alignItems: "center"
+        }}>
             <div className="col-lg-6">
               <div className="df-neon-border mt-3 mb-5 mb-lg-3">
-                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" alt="Digital Frontier Data Dashboard" className="img-fluid p-2" style={{ borderRadius: "10px" }} />
+                <img alt="Digital Frontier Data Dashboard" className="img-fluid p-2" style={{
+                borderRadius: "10px"
+              }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
               </div>
             </div>
             <div className="col-lg-6">
-              <h2 style={{ fontSize: "32px", fontWeight: 700, marginBottom: "20px" }}>Turn Your Brand into a Revenue Engine</h2>
+              <h2 style={{
+              fontSize: "32px",
+              fontWeight: 700,
+              marginBottom: "20px"
+            }}>Turn Your Brand into a Revenue Engine</h2>
               <div className="imagine-text">
-                <p style={{ fontSize: "18px", color: "#e0e0e0", marginBottom: "15px" }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
+                <p style={{
+                fontSize: "18px",
+                color: "#e0e0e0",
+                marginBottom: "15px"
+              }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
               </div>
               <div className="content-text">
-                <p style={{ fontSize: "16px", color: "#cccccc", marginBottom: "15px" }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
-                <p style={{ fontSize: "16px", color: "#cccccc", marginBottom: 0 }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
+                <p style={{
+                fontSize: "16px",
+                color: "#cccccc",
+                marginBottom: "15px"
+              }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
+                <p style={{
+                fontSize: "16px",
+                color: "#cccccc",
+                marginBottom: 0
+              }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
               </div>
             </div>
           </div>
@@ -187,14 +208,25 @@ const Index = () => {
         <div className="container">
           <div className="text-center mb-5">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
-            <h2 className="section-title" style={{ fontSize: "36px", fontWeight: 700, marginBottom: "15px" }}>What You'll <span>Gain</span></h2>
-            <p className="section-subtitle" style={{ fontSize: "18px", color: "#e0e0e0", maxWidth: "700px", margin: "0 auto" }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
+            <h2 className="section-title" style={{
+            fontSize: "36px",
+            fontWeight: 700,
+            marginBottom: "15px"
+          }}>What You'll <span>Gain</span></h2>
+            <p className="section-subtitle" style={{
+            fontSize: "18px",
+            color: "#e0e0e0",
+            maxWidth: "700px",
+            margin: "0 auto"
+          }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
           </div>
 
           <div className="row">
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
-                <div className="icon" style={{ fontSize: "40px" }}>🔍</div>
+                <div className="icon" style={{
+                fontSize: "40px"
+              }}>🔍</div>
                 <h3>SEO Analysis</h3>
                 <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
               </div>
@@ -202,7 +234,9 @@ const Index = () => {
 
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
-                <div className="icon" style={{ fontSize: "40px" }}>📈</div>
+                <div className="icon" style={{
+                fontSize: "40px"
+              }}>📈</div>
                 <h3>Conversion Insights</h3>
                 <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
               </div>
@@ -210,7 +244,9 @@ const Index = () => {
 
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
-                <div className="icon" style={{ fontSize: "40px" }}>🔄</div>
+                <div className="icon" style={{
+                fontSize: "40px"
+              }}>🔄</div>
                 <h3>Competitor Analysis</h3>
                 <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
               </div>
@@ -218,7 +254,9 @@ const Index = () => {
 
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
-                <div className="icon" style={{ fontSize: "40px" }}>📋</div>
+                <div className="icon" style={{
+                fontSize: "40px"
+              }}>📋</div>
                 <h3>Action Plan</h3>
                 <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
               </div>
@@ -358,8 +396,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </MainLayout>
-  );
+    </MainLayout>;
 };
-
 export default Index;
