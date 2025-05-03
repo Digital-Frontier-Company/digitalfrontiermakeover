@@ -91,7 +91,7 @@ const HeroCarousel: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent"></div>
                 </div>}
               
-              <div className="relative z-10 flex flex-col items-center justify-center h-[60vh] px-4 text-center">
+              <div className="relative z-10 flex flex-col items-center justify-center h-[60vh] text-center px-[24px]">
                 {slide.text && <h1 className="text-5xl md:text-6xl mb-4 text-white text-center lg:text-4xl font-extrabold">
                     {slide.text}
                   </h1>}
