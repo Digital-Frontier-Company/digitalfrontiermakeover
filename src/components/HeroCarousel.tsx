@@ -14,7 +14,8 @@ interface CarouselSlide {
 const HeroCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true,
-    draggable: false,
+    // Remove 'draggable: false' and replace with 'dragFree: false'
+    dragFree: false,
   });
   const [currentIndex, setCurrentIndex] = useState(0);
 
