@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
@@ -27,29 +26,29 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <div className="flex items-center space-x-3">
             {/* Social Media Icons */}
             <div className="hidden md:flex items-center space-x-3 mr-6">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Facebook">
-                <Facebook size={20} />
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="Facebook">
+                <Facebook size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
               </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="X (Twitter)">
-                <Twitter size={20} />
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="X (Twitter)">
+                <Twitter size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
               </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="YouTube">
-                <Youtube size={20} />
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-red-400/80 hover:text-red-400 transition-all hover:scale-110" aria-label="YouTube">
+                <Youtube size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" />
               </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="TikTok">
-                {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-cyan-400/80 hover:text-cyan-400 transition-all hover:scale-110" aria-label="TikTok">
+                {/* Using a custom TikTok icon with improved styling */}
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
                   <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
                   <path d="M15 8c0 1 1 2 2 2h-2"></path>
                   <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
                   <path d="M15 12v8"></path>
                 </svg>
               </a>
-              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Instagram">
-                <Instagram size={20} />
+              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-purple-400/80 hover:text-purple-400 transition-all hover:scale-110" aria-label="Instagram">
+                <Instagram size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.7)]" />
               </a>
-              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
+              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-blue-500/80 hover:text-blue-500 transition-all hover:scale-110" aria-label="LinkedIn">
+                <Linkedin size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]" />
               </a>
             </div>
             
@@ -167,16 +166,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <div className="md:hidden">
             {/* Mobile social icons */}
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="Facebook">
-                <Facebook size={18} />
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="Facebook">
+                <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
               </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="X (Twitter)">
-                <Twitter size={18} />
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="X (Twitter)">
+                <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
               </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="YouTube">
-                <Youtube size={18} />
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-red-400/80 hover:text-red-400 transition-all hover:scale-110" aria-label="YouTube">
+                <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" />
               </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-blue-400 transition-colors" aria-label="TikTok">
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-cyan-400/80 hover:text-cyan-400 transition-all hover:scale-110" aria-label="TikTok">
                 {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
@@ -272,61 +271,107 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       {/* Main Content */}
       {children}
 
-      {/* Footer */}
-      <footer className="mt-12 py-8 border-t border-slate-800 bg-slate-900/80">
+      {/* Footer - Cleaned up and Enhanced */}
+      <footer className="mt-12 py-10 border-t border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-400 mb-4 md:mb-0">
-              &copy; 2025 Digital Frontier Company LLC - All rights reserved. <a href="mailto:info@digitalfrontier.app" className="text-blue-400 hover:underline">info@digitalfrontier.app</a>
-            </p>
-            
-            {/* Social Media Icons in Footer */}
-            <div className="flex flex-wrap justify-center space-x-4 mb-4 md:mb-0">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <Facebook size={18} />
-              </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <Twitter size={18} />
-              </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <Youtube size={18} />
-              </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
-                  <path d="M15 8c0 1 1 2 2 2h-2"></path>
-                  <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
-                  <path d="M15 12v8"></path>
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <Instagram size={18} />
-              </a>
-              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors">
-                <Linkedin size={18} />
-              </a>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Company Info */}
+            <div>
+              <img 
+                src="/lovable-uploads/c9d38052-a83f-47d4-ab89-a00c237a6ff9.png" 
+                alt="Digital Frontier Company" 
+                className="h-10 mb-4" 
+              />
+              <p className="text-slate-400 mb-4 text-sm">
+                Leading the way in AI-powered marketing solutions and digital transformation strategies.
+              </p>
+              <div className="flex space-x-4">
+                <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
+                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-400/80 hover:text-blue-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   aria-label="Facebook">
+                  <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+                </a>
+                <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
+                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-400/80 hover:text-blue-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   aria-label="X (Twitter)">
+                  <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+                </a>
+                <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer"
+                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-red-400/80 hover:text-red-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   aria-label="YouTube">
+                  <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" />
+                </a>
+                <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer"
+                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400/80 hover:text-cyan-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   aria-label="TikTok">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
+                    <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
+                    <path d="M15 8c0 1 1 2 2 2h-2"></path>
+                    <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
+                    <path d="M15 12v8"></path>
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer"
+                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-purple-400/80 hover:text-purple-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   aria-label="Instagram">
+                  <Instagram size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.7)]" />
+                </a>
+                <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer"
+                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-500/80 hover:text-blue-500 hover:bg-slate-700 transition-all hover:scale-110"
+                   aria-label="LinkedIn">
+                  <Linkedin size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]" />
+                </a>
+              </div>
             </div>
             
-            <div className="flex space-x-6">
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-white font-semibold mb-4 text-lg">Quick Links</h3>
+              <div className="grid grid-cols-2 gap-2">
+                <Link to="/" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Home</Link>
+                <Link to="/about-us" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">About Us</Link>
+                <Link to="/technical" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">How AI Works</Link>
+                <Link to="/evolution" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Evolution</Link>
+                <Link to="/sectors" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Sectors</Link>
+                <Link to="/future" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Future Trends</Link>
+                <Link to="/faq" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">FAQ</Link>
+                <Link to="/pricing" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Pricing</Link>
+              </div>
+            </div>
+            
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-white font-semibold mb-4 text-lg">Contact Us</h3>
+              <a href="mailto:info@digitalfrontier.app" className="text-blue-400 hover:underline flex items-center mb-3 text-sm">
+                <Mail size={16} className="mr-2" />
+                info@digitalfrontier.app
+              </a>
+              <p className="text-slate-400 text-sm">
+                Digital Frontier Company LLC<br />
+                © 2025 - All rights reserved
+              </p>
+            </div>
+          </div>
+          
+          {/* Bottom Footer */}
+          <div className="pt-6 mt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-slate-500 text-xs mb-4 md:mb-0">
+              Harnessing the power of AI for next-generation digital marketing
+            </p>
+            
+            <div className="flex space-x-6 text-xs">
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Privacy Policy
               </a>
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Terms of Use
               </a>
-              {/* Add SEO link to footer */}
               <Link to="/search-engine-optimization" className="text-slate-400 hover:text-blue-400 transition-colors">
                 SEO
               </Link>
-              {/* Add Newsletter link to footer */}
               <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center">
-                <Newspaper className="h-4 w-4 mr-1" />
+                <Newspaper className="h-3 w-3 mr-1" />
                 Newsletter
-              </Link>
-              {/* Add Pricing link to footer */}
-              <Link to="/pricing" className="text-slate-400 hover:text-blue-400 transition-colors">
-                Pricing
               </Link>
               <Link to="/contact" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Contact
