@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper, Link as LinkIcon } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -26,17 +26,25 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <div className="flex items-center space-x-3">
             {/* Social Media Icons */}
             <div className="hidden md:flex items-center space-x-3 mr-6">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="Facebook">
-                <Facebook size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="Facebook">
+                <Facebook size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="X (Twitter)">
-                <Twitter size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="X (Twitter)">
+                <Twitter size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-red-400/80 hover:text-red-400 transition-all hover:scale-110" aria-label="YouTube">
-                <Youtube size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" />
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="YouTube">
+                <Youtube size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-cyan-400/80 hover:text-cyan-400 transition-all hover:scale-110" aria-label="TikTok">
-                {/* Using a custom TikTok icon with improved styling */}
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="TikTok">
+                {/* TikTok icon with consistent styling */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
                   <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
                   <path d="M15 8c0 1 1 2 2 2h-2"></path>
@@ -44,11 +52,15 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   <path d="M15 12v8"></path>
                 </svg>
               </a>
-              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-purple-400/80 hover:text-purple-400 transition-all hover:scale-110" aria-label="Instagram">
-                <Instagram size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.7)]" />
+              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="Instagram">
+                <Instagram size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-blue-500/80 hover:text-blue-500 transition-all hover:scale-110" aria-label="LinkedIn">
-                <Linkedin size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]" />
+              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="LinkedIn">
+                <Linkedin size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
             </div>
             
@@ -166,18 +178,26 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <div className="md:hidden">
             {/* Mobile social icons */}
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="Facebook">
-                <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="Facebook">
+                <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-blue-400/80 hover:text-blue-400 transition-all hover:scale-110" aria-label="X (Twitter)">
-                <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="X (Twitter)">
+                <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-red-400/80 hover:text-red-400 transition-all hover:scale-110" aria-label="YouTube">
-                <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" />
+              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="YouTube">
+                <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
               </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-cyan-400/80 hover:text-cyan-400 transition-all hover:scale-110" aria-label="TikTok">
-                {/* Using a custom TikTok icon placeholder since it's not in lucide-react */}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" 
+                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
+                 aria-label="TikTok">
+                {/* TikTok icon with consistent styling */}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
                   <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
                   <path d="M15 8c0 1 1 2 2 2h-2"></path>
                   <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
@@ -199,7 +219,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         <Link to="/about-us">About Us</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/technical">How Marketing AI Works</Link>
+                        <Link to="/technical">How AI Works</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/evolution">Evolution</Link>
@@ -285,24 +305,24 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <p className="text-slate-400 mb-4 text-sm">
                 Leading the way in AI-powered marketing solutions and digital transformation strategies.
               </p>
-              <div className="flex space-x-4">
+              <div className="flex space-x-3">
                 <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
-                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-400/80 hover:text-blue-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
                    aria-label="Facebook">
-                  <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+                  <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
                 </a>
                 <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
-                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-400/80 hover:text-blue-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
                    aria-label="X (Twitter)">
-                  <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.7)]" />
+                  <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
                 </a>
                 <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer"
-                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-red-400/80 hover:text-red-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
                    aria-label="YouTube">
-                  <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(248,113,113,0.7)]" />
+                  <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
                 </a>
                 <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer"
-                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400/80 hover:text-cyan-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
                    aria-label="TikTok">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
                     <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
@@ -312,14 +332,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   </svg>
                 </a>
                 <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer"
-                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-purple-400/80 hover:text-purple-400 hover:bg-slate-700 transition-all hover:scale-110"
+                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
                    aria-label="Instagram">
-                  <Instagram size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(192,132,252,0.7)]" />
+                  <Instagram size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
                 </a>
                 <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer"
-                   className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-blue-500/80 hover:text-blue-500 hover:bg-slate-700 transition-all hover:scale-110"
+                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
                    aria-label="LinkedIn">
-                  <Linkedin size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]" />
+                  <Linkedin size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
                 </a>
               </div>
             </div>
@@ -328,25 +348,31 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <div>
               <h3 className="text-white font-semibold mb-4 text-lg">Quick Links</h3>
               <div className="grid grid-cols-2 gap-2">
-                <Link to="/" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Home</Link>
-                <Link to="/about-us" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">About Us</Link>
-                <Link to="/technical" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">How AI Works</Link>
-                <Link to="/evolution" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Evolution</Link>
-                <Link to="/sectors" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Sectors</Link>
-                <Link to="/future" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Future Trends</Link>
-                <Link to="/faq" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">FAQ</Link>
-                <Link to="/pricing" className="text-slate-400 hover:text-blue-400 transition-colors text-sm">Pricing</Link>
+                <Link to="/" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Home</Link>
+                <Link to="/about-us" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">About Us</Link>
+                <Link to="/technical" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">How AI Works</Link>
+                <Link to="/evolution" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Evolution</Link>
+                <Link to="/sectors" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Sectors</Link>
+                <Link to="/future" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Future Trends</Link>
+                <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">SEO</Link>
+                <Link to="/faq" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">FAQ</Link>
+                <Link to="/pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Pricing</Link>
+                <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Newsletter</Link>
               </div>
             </div>
             
             {/* Contact Info */}
             <div>
               <h3 className="text-white font-semibold mb-4 text-lg">Contact Us</h3>
-              <a href="mailto:info@digitalfrontier.app" className="text-blue-400 hover:underline flex items-center mb-3 text-sm">
+              <a href="mailto:info@digitalfrontier.app" className="text-cyan-400 hover:underline flex items-center mb-3 text-sm">
                 <Mail size={16} className="mr-2" />
                 info@digitalfrontier.app
               </a>
-              <p className="text-slate-400 text-sm">
+              <Link to="/contact" className="inline-flex items-center px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-md hover:bg-cyan-500/30 transition-colors text-sm">
+                <LinkIcon size={14} className="mr-2" />
+                Get in Touch
+              </Link>
+              <p className="text-slate-400 text-sm mt-4">
                 Digital Frontier Company LLC<br />
                 © 2025 - All rights reserved
               </p>
@@ -360,20 +386,20 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             </p>
             
             <div className="flex space-x-6 text-xs">
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Terms of Use
               </a>
-              <Link to="/search-engine-optimization" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 SEO
               </Link>
-              <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center">
+              <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors flex items-center">
                 <Newspaper className="h-3 w-3 mr-1" />
                 Newsletter
               </Link>
-              <Link to="/contact" className="text-slate-400 hover:text-blue-400 transition-colors">
+              <Link to="/contact" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Contact
               </Link>
             </div>
