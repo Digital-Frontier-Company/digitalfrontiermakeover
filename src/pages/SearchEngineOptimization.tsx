@@ -61,7 +61,6 @@ const SearchEngineOptimization: React.FC = () => {
             "@type": "Article",
             "headline": "Search Engine Optimization - The AI-Powered Semantic Evolution of SEO",
             "description": "Learn how modern SEO has evolved beyond keywords to embrace semantic search and AI-powered strategies.",
-            "image": "https://digitalfrontier.app/lovable-uploads/66696ff5-dbeb-4266-8e8e-91cafafbe6e7.png",
             "author": {
               "@type": "Organization",
               "name": "Digital Frontier Company",
@@ -161,26 +160,6 @@ const SearchEngineOptimization: React.FC = () => {
               This shift necessitates optimizing for long-tail, conversational keywords and frequently asked questions (FAQs). Local businesses 
               need to ensure their Google Business Profile is fully up-to-date and accurate, as voice searches often pull information from these listings.
             </p>
-          </div>
-          
-          <div className="relative overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <img 
-                  src="/lovable-uploads/66696ff5-dbeb-4266-8e8e-91cafafbe6e7.png" 
-                  alt="AI-Powered SEO Process" 
-                  className="rounded-lg border border-slate-700 shadow-lg" 
-                />
-              </div>
-              <div>
-                <img 
-                  src="/lovable-uploads/72af43ac-c761-4297-8265-6fc81826e793.png" 
-                  alt="SEO Backlink Profile" 
-                  className="rounded-lg border border-slate-700 shadow-lg" 
-                />
-              </div>
-            </div>
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%] bg-blue-500/5 rounded-full blur-3xl"></div>
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
