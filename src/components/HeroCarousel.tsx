@@ -26,11 +26,11 @@ const HeroCarousel: React.FC = () => {
       type: "text-only",
     },
     {
-      text: "You know your",
-      highlightText: "WEBSITE",
-      subText: "could be... MORE",
+      text: "If you were truly Honest about it. We both know..",
+      highlightText: "YOUR WEBSITE",
+      subText: "could be........ MORE",
       type: "text-with-image",
-      imageSrc: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
+      imageSrc: "/lovable-uploads/1937a134-56d1-4879-bf22-3c8aaf49e075.png"
     },
     {
       text: "How about a",
@@ -145,14 +145,8 @@ const HeroCarousel: React.FC = () => {
                   </h1>
                 )}
                 
-                {slide.subText && index === 1 && (
+                {slide.subText && (
                   <h2 className="text-3xl md:text-4xl lg:text-5xl text-[var(--df-light-blue)] max-w-4xl">
-                    {slide.subText}
-                  </h2>
-                )}
-                
-                {slide.subText && index !== 1 && (
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-200 max-w-3xl">
                     {slide.subText}
                   </h2>
                 )}
