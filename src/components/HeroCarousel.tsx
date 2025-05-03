@@ -92,7 +92,7 @@ const HeroCarousel: React.FC = () => {
                 </div>}
               
               <div className="relative z-10 flex flex-col items-center justify-center h-[60vh] px-4 text-center">
-                {slide.text && <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white text-center">
+                {slide.text && <h1 className="text-5xl md:text-6xl mb-4 text-white text-center lg:text-4xl font-extrabold">
                     {slide.text}
                   </h1>}
                 
@@ -100,7 +100,7 @@ const HeroCarousel: React.FC = () => {
                     {slide.highlightText}
                   </h1>}
                 
-                {slide.subText && <h2 className="text-3xl md:text-4xl lg:text-5xl text-[var(--df-light-blue)] max-w-4xl text-cyan-400">
+                {slide.subText && <h2 className="text-3xl md:text-4xl text-[var(--df-light-blue)] max-w-4xl text-cyan-400 font-extrabold lg:text-xl">
                     {slide.subText}
                   </h2>}
               </div>
