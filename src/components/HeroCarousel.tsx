@@ -21,12 +21,14 @@ const HeroCarousel: React.FC = () => {
 
   const slides: CarouselSlide[] = [
     {
-      text: "Digital Frontier Marketing",
+      text: "Digital Frontier",
+      highlightText: "Marketing",
       type: "text-only",
     },
     {
-      text: "You know your website could be...",
-      highlightText: "more",
+      text: "You know your",
+      highlightText: "WEBSITE",
+      subText: "could be... MORE",
       type: "text-with-image",
       imageSrc: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80"
     },
@@ -39,29 +41,31 @@ const HeroCarousel: React.FC = () => {
       text: "",
       highlightText: "Money-Printing Machine",
       type: "text-with-image",
-      imageSrc: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-      subText: "Luxury yachts on the ocean"
+      imageSrc: "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
     },
     {
       text: "",
       highlightText: "Money-Printing Machine",
       type: "text-with-image",
-      imageSrc: "https://images.unsplash.com/photo-1540962351504-03099e0a754b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-      subText: "Private jets and luxury cars"
+      imageSrc: "/lovable-uploads/3d7bf124-081a-4959-9a39-759c1e0dc150.png",
     },
     {
       text: "",
       highlightText: "Money-Printing Machine",
       type: "text-with-image",
-      imageSrc: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-      subText: "Luxurious Vegas parties"
+      imageSrc: "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
     },
     {
       text: "",
       highlightText: "Money-Printing Machine",
       type: "text-with-image",
-      imageSrc: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
-      subText: "Relaxing island life"
+      imageSrc: "/lovable-uploads/54e3ff42-70e3-485e-8ade-21a31ebdde42.png",
+    },
+    {
+      text: "",
+      highlightText: "Money-Printing Machine",
+      type: "text-with-image",
+      imageSrc: "/lovable-uploads/2f2b5241-ae39-428b-a2cb-cc6b0a71a4e9.png",
     },
     {
       text: "Stop paying for pretty pixels.",
@@ -121,28 +125,34 @@ const HeroCarousel: React.FC = () => {
                 <div className="absolute inset-0 z-0">
                   <img 
                     src={slide.imageSrc} 
-                    alt={slide.subText || "Background"} 
+                    alt="" 
                     className="w-full h-full object-cover opacity-30"
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent"></div>
                 </div>
               )}
               
-              <div className="relative z-10 flex flex-col items-center justify-center h-[50vh] px-4 text-center">
+              <div className="relative z-10 flex flex-col items-center justify-center h-[60vh] px-4 text-center">
                 {slide.text && (
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white">
                     {slide.text}
                   </h1>
                 )}
                 
                 {slide.highlightText && (
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[var(--df-light-blue)] text-shadow-lg">
+                  <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold mb-6 text-[var(--df-light-blue)]">
                     {slide.highlightText}
                   </h1>
                 )}
                 
-                {slide.subText && (
-                  <h2 className="text-xl md:text-2xl lg:text-3xl text-gray-200 max-w-3xl">
+                {slide.subText && index === 1 && (
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl text-[var(--df-light-blue)] max-w-4xl">
+                    {slide.subText}
+                  </h2>
+                )}
+                
+                {slide.subText && index !== 1 && (
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl text-gray-200 max-w-3xl">
                     {slide.subText}
                   </h2>
                 )}
