@@ -1,6 +1,8 @@
+
 import React, { useCallback, useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
+
 interface CarouselSlide {
   text: string;
   highlightText?: string;
@@ -8,13 +10,15 @@ interface CarouselSlide {
   imageSrc?: string;
   type: 'text-only' | 'text-with-image';
 }
+
 const HeroCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    // Remove 'draggable: false' and replace with 'dragFree: false'
     dragFree: false
   });
+
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const slides: CarouselSlide[] = [{
     text: "Digital Frontier",
     highlightText: "Marketing",
@@ -43,16 +47,6 @@ const HeroCarousel: React.FC = () => {
     text: "",
     highlightText: "Money-Printing Machine",
     type: "text-with-image",
-    imageSrc: "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png"
-  }, {
-    text: "",
-    highlightText: "Money-Printing Machine",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/54e3ff42-70e3-485e-8ade-21a31ebdde42.png"
-  }, {
-    text: "",
-    highlightText: "Money-Printing Machine",
-    type: "text-with-image",
     imageSrc: "/lovable-uploads/2f2b5241-ae39-428b-a2cb-cc6b0a71a4e9.png"
   }, {
     text: "Stop paying for pretty pixels.",
@@ -60,6 +54,7 @@ const HeroCarousel: React.FC = () => {
     subText: "Your site should print money. We design pages around the only metric that matters in 2025 - Attention.",
     type: "text-only"
   }];
+
   const autoPlayInterval = 5000; // 5 seconds
 
   const scrollToNext = useCallback(() => {
@@ -88,6 +83,7 @@ const HeroCarousel: React.FC = () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
   return <div className="df-hero-carousel relative">
       <Carousel ref={emblaRef} className="w-full overflow-hidden" opts={{
       loop: true,
@@ -102,15 +98,15 @@ const HeroCarousel: React.FC = () => {
                 </div>}
               
               <div className="relative z-10 flex flex-col items-center justify-center h-[60vh] px-4 text-center">
-                {slide.text && <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white text-center">
+                {slide.text && <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-4 text-white text-center text-shadow-cyan">
                     {slide.text}
                   </h1>}
                 
-                {slide.highlightText && <h1 className="text-5xl md:text-6xl mb-6 text-[var(--df-light-blue)] lg:text-7xl text-cyan-400 mx-0 my-[32px] px-[9px] py-[9px] font-extrabold">
+                {slide.highlightText && <h1 className="text-6xl md:text-7xl lg:text-8xl mb-6 text-[var(--df-light-blue)] mx-0 my-[32px] px-[9px] py-[9px] font-extrabold text-shadow-cyan">
                     {slide.highlightText}
                   </h1>}
                 
-                {slide.subText && <h2 className="text-3xl md:text-4xl lg:text-5xl text-[var(--df-light-blue)] max-w-4xl text-cyan-400">
+                {slide.subText && <h2 className="text-4xl md:text-5xl lg:text-6xl text-[var(--df-light-blue)] max-w-4xl text-shadow-cyan">
                     {slide.subText}
                   </h2>}
               </div>
@@ -127,4 +123,5 @@ const HeroCarousel: React.FC = () => {
       </div>
     </div>;
 };
+
 export default HeroCarousel;
