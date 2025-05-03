@@ -97,6 +97,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-and-digital-marketing">AI & Digital Marketing</Link>
                       </NavigationMenuLink>
+                      {/* Add new SEO page link */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/search-engine-optimization">Search Engine Optimization</Link>
+                      </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -216,6 +220,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-and-digital-marketing">AI & Digital Marketing</Link>
                       </NavigationMenuLink>
+                      {/* Add new SEO page link to mobile menu */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/search-engine-optimization">Search Engine Optimization</Link>
+                      </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/sectors">Sector Spotlights</Link>
                       </NavigationMenuLink>
@@ -307,6 +315,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
                 Terms of Use
               </a>
+              {/* Add SEO link to footer */}
+              <Link to="/search-engine-optimization" className="text-slate-400 hover:text-blue-400 transition-colors">
+                SEO
+              </Link>
               {/* Add Newsletter link to footer */}
               <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 transition-colors flex items-center">
                 <Newspaper className="h-4 w-4 mr-1" />
