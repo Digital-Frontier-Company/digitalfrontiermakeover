@@ -108,7 +108,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-and-digital-marketing">AI & Digital Marketing</Link>
                       </NavigationMenuLink>
-                      {/* Add new SEO page link */}
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
                         <Link to="/search-engine-optimization">Search Engine Optimization</Link>
                       </NavigationMenuLink>
@@ -131,6 +130,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/faq">FAQ</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/crypto-marketing">Crypto Marketing</Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -239,7 +241,6 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-and-digital-marketing">AI & Digital Marketing</Link>
                       </NavigationMenuLink>
-                      {/* Add new SEO page link to mobile menu */}
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
                         <Link to="/search-engine-optimization">Search Engine Optimization</Link>
                       </NavigationMenuLink>
@@ -258,21 +259,21 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                       </NavigationMenuLink>
-                      {/* Add Newsletter to mobile menu */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/crypto-marketing">Crypto Marketing</Link>
+                      </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
                         <Link to="/newsletter" className="flex items-center">
                           <Newspaper className="h-4 w-4 mr-2" />
                           Newsletter
                         </Link>
                       </NavigationMenuLink>
-                      {/* Add Pricing to mobile menu */}
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/pricing" className="flex items-center">
                           <ShoppingCart className="h-4 w-4 mr-2" />
                           Pricing
                         </Link>
                       </NavigationMenuLink>
-                      {/* Keep Contact in mobile menu */}
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
                         <Link to="/contact" className="flex items-center">
                           <Mail className="h-4 w-4 mr-2" />
@@ -355,7 +356,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Link to="/sectors" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Sectors</Link>
                 <Link to="/future" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Future Trends</Link>
                 <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">SEO</Link>
-                <Link to="/faq" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">FAQ</Link>
+                <Link to="/crypto-marketing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Crypto Marketing</Link>
                 <Link to="/pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Pricing</Link>
                 <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Newsletter</Link>
               </div>
@@ -394,6 +395,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               </a>
               <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 SEO
+              </Link>
+              <Link to="/crypto-marketing" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                Crypto
               </Link>
               <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors flex items-center">
                 <Newspaper className="h-3 w-3 mr-1" />
