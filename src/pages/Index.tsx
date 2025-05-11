@@ -60,6 +60,14 @@ const Index = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+        <div className="mb-6">
+          <img 
+            src="/lovable-uploads/0766a10f-5459-46d2-976d-baebe7dc52cd.png" 
+            alt="Digital Frontier Company"
+            className="mx-auto h-32 w-auto" 
+          />
+        </div>
+
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
           We Supercharge Your <span className="gradient-text">Digital Growth</span>
         </h1>
