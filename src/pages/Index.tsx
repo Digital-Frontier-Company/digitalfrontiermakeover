@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -19,13 +20,9 @@ const Index = () => {
     if (typedElement.current) {
       typed.current = new Typed(typedElement.current, {
         strings: [
-          'SEO Optimization',
-          'Pay‑Per‑Click Mastery',
-          'Content Marketing',
-          'Social Media Growth',
-          'Data‑Driven Analytics',
-          'Conversion Optimization',
-          'Brand Storytelling'
+          'Outthink',
+          'Outperform',
+          'Outgrow'
         ],
         typeSpeed: 50,
         backSpeed: 25,
@@ -69,18 +66,38 @@ const Index = () => {
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-          We Supercharge Your <span className="gradient-text">Digital Growth</span>
+          We don't just use AI to crunch numbers. We use it to <span className="gradient-text">crush markets</span>.
         </h1>
         
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium h-16">
-          <span ref={typedElement} className="gradient-text"></span>
-          <span className="cursor"></span>
-        </h2>
+        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          From raw data to ruthless execution, Digital Frontier plugs machine learning into every decision, 
+          every strategy, every campaign—so your business doesn't just grow...
+        </p>
+        
+        <p className="text-2xl sm:text-3xl font-semibold gradient-text">
+          It dominates.
+        </p>
         
         <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
-          From strategy to execution, Digital Frontier harnesses AI‑driven insights to help you dominate your market. 
-          Our data-first approach delivers measurable results that accelerate your business growth.
+          You'll stop guessing. You'll start scaling. Measurable wins. Market momentum. Growth you can see in your bank account.
         </p>
+        
+        <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          This is war, and we bring the smart weapons.
+        </p>
+        
+        <div className="pt-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium flex items-center justify-center gap-2">
+            <span className="text-yellow-400">⚡️</span>
+            <span ref={typedElement} className="gradient-text"></span>
+            <span className="cursor"></span>
+          </h2>
+          
+          <p className="mt-4 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            At Digital Frontier, we weaponize AI-powered data to take you from strategy to full-blown market domination. 
+            No fluff. Just hard growth, fast execution, and results you can measure in MRR.
+          </p>
+        </div>
         
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <Link to="/contact" className="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
