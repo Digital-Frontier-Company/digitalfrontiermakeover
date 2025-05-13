@@ -3,6 +3,7 @@ import React from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, BarChart, Brain, Rocket, Target, Globe, Briefcase, FileText, Building, Code, BarChart2 } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const AboutUs = () => {
   return (
@@ -11,13 +12,15 @@ const AboutUs = () => {
       subtitle="Your Partner in Digital Marketing Excellence"
       currentPath="/about-us"
     >
-      {/* Hero Image Section */}
-      <div className="df-neon-border mb-8">
-        <img 
-          src="/lovable-uploads/36f6d997-5da6-4119-aaba-d7390e04fde2.png" 
-          alt="David Thompson, CEO and Founder" 
-          className="rounded-lg w-72 mx-auto"
-        />
+      {/* David Thompson Logo Banner */}
+      <div className="w-full mb-10 bg-gradient-to-r from-blue-700 via-blue-500 to-indigo-900 p-4 rounded-xl">
+        <div className="max-w-4xl mx-auto">
+          <img 
+            src="/lovable-uploads/bdef0584-bc16-4946-90f8-c741502dc157.png" 
+            alt="David Thompson, CEO of Digital Frontier Company" 
+            className="w-full"
+          />
+        </div>
       </div>
 
       {/* Main Content */}
