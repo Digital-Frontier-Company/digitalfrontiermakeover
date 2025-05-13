@@ -39,6 +39,31 @@ header [data-radix-navigation-menu-content] {
 header a {
   position: relative;
   z-index: 50;
+  color: #ffffff !important; /* Force white text for all links in header */
+}
+
+header a:hover {
+  color: var(--df-bright-blue) !important; /* Cyan blue color on hover */
+  transition: color 0.2s ease;
+}
+
+/* Navigation menu link styles */
+header [data-radix-navigation-menu-content] a {
+  color: #ffffff !important; /* Ensure white text in dropdown menu */
+}
+
+header [data-radix-navigation-menu-content] a:hover {
+  color: var(--df-bright-blue) !important; /* Cyan blue on hover */
+}
+
+/* Navigation menu trigger styles */
+header [data-radix-navigation-menu-trigger] {
+  color: #ffffff !important; /* White text for dropdown triggers */
+}
+
+/* Style for active/hovered navigation states */
+header [data-state="open"] {
+  color: var(--df-bright-blue) !important;
 }
 
 /* ===== New Hero Section Styles ===== */

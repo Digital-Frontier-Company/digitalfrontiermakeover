@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
@@ -68,7 +67,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <NavigationMenu className="hidden md:flex">
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Explore Topics</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Explore Topics</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid grid-cols-2 gap-3 p-4 w-[400px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
@@ -94,7 +93,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Digital Marketing</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Digital Marketing</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid grid-cols-1 gap-3 p-4 w-[300px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
@@ -117,7 +116,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Industry</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Industry</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid grid-cols-2 gap-3 p-4 w-[400px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
@@ -140,7 +139,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Ethics</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Ethics</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid grid-cols-1 gap-3 p-4 w-[250px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
@@ -220,7 +219,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/90 hover:bg-slate-700/90">Menu</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/90 hover:bg-slate-700/90 text-white">Menu</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div className="grid gap-2 p-4 w-[200px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
