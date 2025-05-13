@@ -24,8 +24,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
     
-  // Canonical URL
-  const canonicalUrl = `https://thedigitalfrontier.ai${currentPath}`;
+  // Canonical URL with www prefix
+  const canonicalUrl = `https://www.thedigitalfrontier.ai${currentPath}`;
     
   // Effect to handle anchor link smooth scrolling
   useEffect(() => {
@@ -70,7 +70,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://thedigitalfrontier.ai"
+                "item": "https://www.thedigitalfrontier.ai"
               },
               {
                 "@type": "ListItem",
