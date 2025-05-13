@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown } from "lucide-react";
@@ -8,12 +9,14 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
-  const menuAnimation = useRef<Typed | null>(null);
+  const menuAnimation = useRef<HTMLSpanElement>(null);
   
   useEffect(() => {
-    let typed: any;
-    if (!isMobile) {
-      typed = new Typed(menuAnimation.current!, {
+    let typed: Typed | null = null;
+    
+    // Only initialize Typed.js if the element exists and we're not on mobile
+    if (menuAnimation.current && !isMobile) {
+      typed = new Typed(menuAnimation.current, {
         strings: [
           'AI-Powered Ad Funnel Blueprint',
           'Generative Engine Optimization',
@@ -32,7 +35,10 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     }
     
     return () => {
-      typed?.destroy();
+      // Only destroy if typed was initialized
+      if (typed) {
+        typed.destroy();
+      }
     };
   }, [isMobile]);
 
