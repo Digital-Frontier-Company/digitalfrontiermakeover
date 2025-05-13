@@ -13,7 +13,7 @@ const blogPosts = [
     id: 0,
     title: "Mastering Digital Marketing: AI, AEO, and Innovations",
     excerpt: "Learn how AI, AEO, and new digital marketing innovations can transform your B2B marketing strategy in 2025 and beyond.",
-    image: "/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png",
+    image: "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
     date: "May 13, 2025",
     category: "Digital Marketing",
     author: "Digital Frontier Team",

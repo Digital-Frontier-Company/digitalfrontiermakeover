@@ -63,7 +63,7 @@ const BlogPost: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Mastering Digital Marketing: AI, AEO, and Innovations",
-    "image": "/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png",
+    "image": "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
     "author": {
       "@type": "Organization",
       "name": "Digital Frontier Company"
@@ -117,10 +117,10 @@ const BlogPost: React.FC = () => {
         </div>
         
         <div className="relative mb-10">
-          <AspectRatio ratio={21 / 9} className="overflow-hidden rounded-xl">
+          <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-xl">
             <img 
-              src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" 
-              alt="Digital Frontier Marketing" 
+              src="/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png" 
+              alt="Digital Marketing Question Mark" 
               className="object-cover w-full h-full"
             />
           </AspectRatio>
@@ -136,16 +136,6 @@ const BlogPost: React.FC = () => {
             The new digital spaces and technologies that allow brands to connect with their customers are referred to as the digital frontier. When I first heard the concept of "digital frontier", I thought it was just about websites and social media. But today, this concept has expanded to AI tools, metaverse, voice search, and even virtual reality. For B2B brands, this means understanding new tools and new customer touchpoints and using them in the best way. åIf you don't understand this digital frontier, your brand will lag behind. In my experience, experimenting and adopting new trends is a big factor in success. These new frontiers are giving us new opportunities, we just have to learn to capture them in the right way.
           </p>
 
-          <div className="my-8">
-            <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
-              <img 
-                src="/lovable-uploads/3b21fa11-2a1d-4153-98dd-07178e0da505.png" 
-                alt="Digital Marketing Innovation" 
-                className="object-cover w-full h-full"
-              />
-            </AspectRatio>
-          </div>
-
           <h2 className="text-2xl font-bold mt-8 mb-4">What are Digital Marketing Innovations and Why Are They Important?</h2>
           <p>
             New digital marketing innovations enable us to reach our intended audience and accomplish our business objectives. When I used a chatbot for the first time with a client, I realized that innovations are more than just fancy tools; they also produce real business outcomes. Today's B2B buyers have become much smarter and digitally aware. A good website or social media page is not enough to impress them. You will have to resort to innovative solutions like AI-driven content, personalized marketing, and automation. Every new innovation increases brand loyalty and improves customer experience. Therefore, ignoring new trends is equivalent to ignoring the future of your business. Digital innovation is now a necessity, not a choice.
@@ -155,16 +145,6 @@ const BlogPost: React.FC = () => {
           <p>
             The importance of AI strategy optimization dawned on me when I compared manual targeting and AI targeting in a campaign. The result was shocking: AI targeting delivered 45% better results! AI is no longer just a buzzword; it is a solid tool that can make your marketing strategies smarter and more efficient. It has become essential for B2B brands to use AI tools like predictive analytics, personalization engines, and chatbots. AI analyzes your audience behavior and helps you make data-driven decisions. I remember when I designed an AI-driven email marketing strategy for one of my clients, there was a huge jump in both open rates and conversions. So if you want to stay ahead in today's race, make sure to incorporate AI optimization into your marketing plan.
           </p>
-
-          <div className="my-8">
-            <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
-              <img 
-                src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" 
-                alt="AI Marketing Strategy" 
-                className="object-cover w-full h-full"
-              />
-            </AspectRatio>
-          </div>
 
           <h2 className="text-2xl font-bold mt-8 mb-4">What is Answer Engine Optimization (AEO) and why should B2B brands care?</h2>
           <p>
@@ -176,21 +156,10 @@ const BlogPost: React.FC = () => {
             I remember when I was first introducing AI into marketing, the biggest challenge was: how to maintain human touch? AI-driven cold communication alone can break the audience connection. That's why AI should be used as a tool, not to think like humans. My experience is that AI should provide data and automation but keep the messaging and emotional connection human. Like in personalized emails, AI inserts names but the tone of the message and empathy is decided by the human marketer. B2B buyers are also humans and they should feel that the brand understands their needs. Only the perfect blend of AI and human effort makes your brand real and trustworthy.
           </p>
 
-          {/* Continue with the rest of the content sections */}
           <h2 className="text-2xl font-bold mt-8 mb-4">Social Media Marketing Innovations in B2B Space</h2>
           <p>
             When we talk about B2B marketing, people think that only LinkedIn is enough. But my personal experience says that platforms like Instagram, Twitter (X), and even TikTok can be game changers for B2B. Nowadays decision-makers are also humans, they too spend their time on social media. I once created an Instagram Reels strategy for a SaaS brand, and those short videos took their brand awareness by 10X! Using new features like LinkedIn Polls, Instagram Stories, and Twitter Spaces correctly, B2B brands can connect with their audience in real-time. It is important to adapt to social media innovations in digital frontier marketing, otherwise you will be left behind your competition.
           </p>
-
-          <div className="my-8">
-            <AspectRatio ratio={16 / 9} className="overflow-hidden rounded-lg">
-              <img 
-                src="/lovable-uploads/36f6d997-5da6-4119-aaba-d7390e04fde2.png" 
-                alt="Social Media Marketing" 
-                className="object-cover w-full h-full"
-              />
-            </AspectRatio>
-          </div>
 
           {/* Adding more sections would make this file too long, so we're condensing */}
           {/* The remaining content sections would follow the same pattern */}
