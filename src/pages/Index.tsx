@@ -57,7 +57,7 @@ const Index = () => {
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
         <div className="mb-6">
-          <img alt="Digital Frontier Company" className="mx-auto h-32 w-auto" src="/lovable-uploads/a38a8603-b878-43e1-9987-4ffe706d510f.png" />
+          <img alt="Digital Frontier Company" className="mx-auto h-32 w-auto" src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" />
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
@@ -98,7 +98,7 @@ const Index = () => {
           <Link to="/contact" className="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#0066FF] to-[#00BFFF] rounded-lg hover:from-[#0055DD] hover:to-[#00AAEE] transition-all duration-300">
             Get Your Free Strategy Call
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 000-1.414z" clipRule="evenodd" />
             </svg>
           </Link>
           <a href="#cases" className="btn-secondary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border border-gray-700 rounded-lg hover:bg-gray-800 transition-all duration-300">

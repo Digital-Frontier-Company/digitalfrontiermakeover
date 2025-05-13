@@ -87,7 +87,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       <section className="df-hero-section py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <img src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
+            <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
             {subtitle && <h2 className="text-xl text-slate-300">{subtitle}</h2>}
           </div>

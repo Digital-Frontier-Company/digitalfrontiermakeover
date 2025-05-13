@@ -16,9 +16,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <div className="mb-4 md:mb-0 md:mr-6 pl-2">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" 
+                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
                 alt="Digital Frontier Company" 
-                className="h-14" 
+                className="h-16" 
               />
             </Link>
           </div>
@@ -336,9 +336,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             {/* Company Info */}
             <div>
               <img 
-                src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" 
+                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
                 alt="Digital Frontier Company" 
-                className="h-12 mb-4" 
+                className="h-14 mb-4" 
               />
               <p className="text-slate-400 mb-4 text-sm">
                 Leading the way in AI-powered marketing solutions and digital transformation strategies.
