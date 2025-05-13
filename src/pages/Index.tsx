@@ -38,19 +38,19 @@ const Index = () => {
     <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl opacity-20 mix-blend-multiply"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 mix-blend-multiply"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-500 rounded-full filter blur-3xl opacity-10 mix-blend-multiply"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#0066FF] rounded-full filter blur-3xl opacity-20 mix-blend-multiply"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#00BFFF] rounded-full filter blur-3xl opacity-20 mix-blend-multiply"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0066FF] rounded-full filter blur-3xl opacity-10 mix-blend-multiply"></div>
       </div>
       
       {/* Floating abstract shapes */}
-      <div className="absolute top-20 left-10 w-16 h-16 rounded-lg bg-blue-500 opacity-10 floating" style={{
+      <div className="absolute top-20 left-10 w-16 h-16 rounded-lg bg-[#00BFFF] opacity-10 floating" style={{
         animationDelay: '0s'
       }}></div>
-      <div className="absolute top-1/3 right-20 w-24 h-24 rounded-full bg-purple-500 opacity-10 floating" style={{
+      <div className="absolute top-1/3 right-20 w-24 h-24 rounded-full bg-[#0066FF] opacity-10 floating" style={{
         animationDelay: '1s'
       }}></div>
-      <div className="absolute bottom-20 right-1/4 w-20 h-20 rounded-lg bg-indigo-500 opacity-10 floating" style={{
+      <div className="absolute bottom-20 right-1/4 w-20 h-20 rounded-lg bg-[#00BFFF] opacity-10 floating" style={{
         animationDelay: '2s'
       }}></div>
       
@@ -95,7 +95,7 @@ const Index = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-          <Link to="/contact" className="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+          <Link to="/contact" className="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-[#0066FF] to-[#00BFFF] rounded-lg hover:from-[#0055DD] hover:to-[#00AAEE] transition-all duration-300">
             Get Your Free Strategy Call
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
