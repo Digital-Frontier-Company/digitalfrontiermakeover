@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -98,10 +97,7 @@ const Blog: React.FC = () => {
       <div className="space-y-12">
         <section>
           <p className="text-lg text-slate-300 mb-8">
-            Stay ahead of the curve with our latest insights, case studies, and expert opinions on the 
-            intersection of artificial intelligence and digital marketing. Our team shares actionable 
-            strategies and industry analysis to help your business leverage cutting-edge technology for 
-            measurable growth.
+            At the Digital Frontier Company's blog, we delve deep into the vast and ever-evolving landscape of digital marketing, social media, artificial intelligence, and cryptocurrency. Our mission is to explore the latest trends, innovative strategies, and cutting-edge technologies that shape the digital world. Whether you're a marketing professional looking to enhance your skills, a tech enthusiast eager to understand AI, or an investor seeking insights into cryptocurrency, our blog offers valuable resources and thought-provoking content. Join us as we navigate the complexities of the digital frontier, empowering you with the knowledge to thrive in this dynamic environment. Stay informed and inspired as we uncover the potential and possibilities within the digital realm.
           </p>
         </section>
 
