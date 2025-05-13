@@ -5,6 +5,8 @@ import PageLayout from "@/components/layout/PageLayout";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const blogPosts = [
   {
@@ -66,12 +68,31 @@ const blogPosts = [
 const Blog: React.FC = () => {
   const location = useLocation();
 
+  const blogFaqs: FAQItem[] = [
+    {
+      question: "How often is the Digital Frontier blog updated?",
+      answer: "Our blog is updated weekly with new content exploring AI marketing, ethics, SEO strategies, and industry trends. We publish deep-dive analyses on Tuesdays and practical how-to guides on Thursdays, ensuring you always have fresh insights to help your business navigate the digital landscape."
+    },
+    {
+      question: "Can I contribute a guest post to the Digital Frontier blog?",
+      answer: "Yes! We welcome guest contributions from industry experts. To be considered, please email your pitch to blog@thedigitalfrontier.ai with your proposed topic, a brief outline, and examples of your previous writing. Ideal contributions provide unique insights backed by data or experience in AI marketing ethics or applications."
+    },
+    {
+      question: "Are there resources for beginners to understand AI marketing concepts?",
+      answer: "Absolutely. We have a dedicated 'Fundamentals' section that breaks down complex AI marketing concepts for beginners. Start with our 'AI Marketing 101' series, which covers basic principles, terminology, and practical applications. We also offer downloadable guides and infographics designed specifically for newcomers to the field."
+    }
+  ];
+
   return (
     <PageLayout 
       title="Digital Frontier Blog" 
       subtitle="Insights on AI Marketing, SEO, and Digital Strategy" 
       currentPath={location.pathname}
     >
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/blog" />
+      </Helmet>
+      
       <div className="space-y-12">
         <section>
           <p className="text-lg text-slate-300 mb-8">
@@ -136,6 +157,13 @@ const Blog: React.FC = () => {
             </div>
           </div>
         </section>
+        
+        {/* FAQ Section */}
+        <FAQSection 
+          title="Blog FAQ" 
+          faqs={blogFaqs} 
+          className="mt-12" 
+        />
       </div>
     </PageLayout>
   );

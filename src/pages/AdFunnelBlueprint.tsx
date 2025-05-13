@@ -7,6 +7,7 @@ import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContaine
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { ChevronDown } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { 
   Carousel,
   CarouselContent,
@@ -81,6 +82,10 @@ const AdFunnelBlueprint = () => {
       subtitle="Navigate Your Customer Journey" 
       currentPath={location.pathname}
     >
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/ad-funnel-blueprint" />
+      </Helmet>
+      
       <div className="space-y-12">
         {/* Introduction section with animated gradient */}
         <section className="relative overflow-hidden rounded-xl p-8 bg-gradient-to-br from-blue-900/40 to-purple-900/40 border border-blue-800/30 animate-fade-in">

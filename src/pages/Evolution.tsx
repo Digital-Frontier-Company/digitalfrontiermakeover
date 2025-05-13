@@ -2,9 +2,26 @@
 import { useLocation } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const Evolution = () => {
   const location = useLocation();
+
+  const evolutionFaqs: FAQItem[] = [
+    {
+      question: "How has AI's role in marketing evolved over the last decade?",
+      answer: "AI's role has evolved from basic automation and simple recommendation systems to sophisticated predictive analytics, personalized customer journeys, AI-generated content, and conversational interfaces. The ethical considerations have similarly evolved from basic privacy concerns to complex issues involving bias, transparency, data rights, and societal impacts."
+    },
+    {
+      question: "What was the Cambridge Analytica scandal and why was it a turning point?",
+      answer: "The Cambridge Analytica scandal (2018) involved the harvesting of millions of Facebook users' data without proper consent for political microtargeting. It was a turning point because it highlighted the ethical risks of advanced data practices, eroded public trust in data-driven marketing, and accelerated privacy regulations like GDPR and CCPA."
+    },
+    {
+      question: "What can marketers learn from the historical evolution of AI ethics?",
+      answer: "The key lesson is that ethical considerations often lag behind technological capabilities. Proactive ethical frameworks are better than reactive regulations. Also, transparency builds trust—as AI becomes more powerful, being open about its use becomes more important. Finally, ethical AI is becoming a competitive advantage as consumers grow more AI-aware."
+    }
+  ];
 
   return (
     <PageLayout 
@@ -12,6 +29,10 @@ const Evolution = () => {
       subtitle="Understanding the history highlights why ethical considerations are critical today."
       currentPath={location.pathname}
     >
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/evolution" />
+      </Helmet>
+      
       {/* Timeline Section */}
       <section className="p-5 bg-gradient-to-br from-slate-800/70 to-indigo-900/30 rounded-lg">
         <h3 className="text-2xl font-bold text-blue-400 mb-4">Timeline of AI & Marketing Milestones vs. Ethical Turning Points</h3>
@@ -59,6 +80,13 @@ const Evolution = () => {
       <p className="text-slate-300 mt-6 text-center italic">
         As AI's role grew, so did calls for ethical guardrails to protect consumer rights and societal values.
       </p>
+      
+      {/* FAQ Section */}
+      <FAQSection 
+        title="AI Marketing Evolution FAQ" 
+        faqs={evolutionFaqs} 
+        className="mt-12" 
+      />
     </PageLayout>
   );
 };

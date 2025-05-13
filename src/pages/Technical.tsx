@@ -1,9 +1,26 @@
 
 import { useLocation } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const Technical = () => {
   const location = useLocation();
+  
+  const technicalFaqs: FAQItem[] = [
+    {
+      question: "What is the difference between AI and machine learning in marketing?",
+      answer: "AI is the broader concept of machines making decisions like humans, while machine learning is a subset focused on algorithms that improve through data. In marketing, AI encompasses all intelligent technologies, while machine learning specifically powers predictive analytics, segmentation, and optimization capabilities."
+    },
+    {
+      question: "How can marketers ensure ethical use of AI technologies?", 
+      answer: "Marketers can ensure ethical AI use by implementing robust data governance, practicing transparency about AI usage, conducting regular bias audits, maintaining human oversight of AI systems, respecting privacy preferences, and creating clear ethical guidelines for all AI marketing initiatives."
+    },
+    {
+      question: "What technical skills should marketers develop to work effectively with AI?",
+      answer: "While marketers don't need to become data scientists, they should develop basic data literacy, understand how AI systems make decisions, learn to interpret AI insights, know the limitations of AI tools, and cultivate the ability to collaborate effectively with technical teams implementing AI solutions."
+    }
+  ];
 
   return (
     <PageLayout 
@@ -11,6 +28,10 @@ const Technical = () => {
       subtitle="Understanding how AI works in marketing helps identify ethical risks. It's a suite of technologies:"
       currentPath={location.pathname}
     >
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/technical" />
+      </Helmet>
+      
       {/* Data Crunching & Predictive Analytics */}
       <section className="p-5 bg-gradient-to-br from-slate-800/70 to-indigo-900/30 rounded-lg border-l-4 border-blue-500">
         <h3 className="text-2xl font-bold text-blue-400 mb-4">Data Crunching & Predictive Analytics</h3>
@@ -72,6 +93,13 @@ const Technical = () => {
       <p className="text-slate-300 mt-6 text-center italic">
         Technical literacy helps marketers identify potential ethical issues proactively.
       </p>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Technical AI Marketing FAQ" 
+        faqs={technicalFaqs} 
+        className="mt-12" 
+      />
     </PageLayout>
   );
 };

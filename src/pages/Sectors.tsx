@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ShoppingCart, Banknote, HeartPulse, MessageSquare, Briefcase } from "lucide-react";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const Sectors = () => {
   const location = useLocation();
@@ -50,12 +52,31 @@ const Sectors = () => {
     }
   ];
 
+  const sectorFaqs: FAQItem[] = [
+    {
+      question: "How do ethical AI challenges differ between B2B and B2C marketing?",
+      answer: "In B2B marketing, ethical challenges focus more on accuracy of business predictions, preventing spam, maintaining relationship authenticity, and data security between organizations. B2C marketing faces more intense challenges around personal data privacy, preventing manipulation of individual consumers, targeting vulnerable populations, and creating filter bubbles. B2B typically deals with less sensitive personal data but higher stakes business decisions."
+    },
+    {
+      question: "What are the unique ethical considerations when using AI for healthcare marketing?",
+      answer: "Healthcare marketing involves extremely sensitive personal data protected by regulations like HIPAA. Ethical considerations include: avoiding exploitation of vulnerable patients, ensuring medical accuracy in AI-generated content, maintaining clear boundaries between educational content and promotion, obtaining explicit consent for personalization, and ensuring fairness in how treatments are marketed across different demographic groups."
+    },
+    {
+      question: "How can retailers balance personalization benefits with privacy concerns?",
+      answer: "Retailers can balance personalization and privacy by: implementing clear opt-in/opt-out mechanisms, being transparent about what data is collected and how it's used, anonymizing data where possible, focusing on contextual rather than persistent tracking, using differential privacy techniques, providing genuine value in exchange for data sharing, and creating ethical guidelines specifically for personalization practices."
+    }
+  ];
+
   return (
     <PageLayout 
       title="Sector Spotlights: AI Ethics in Action Across Industries"
       subtitle="AI marketing ethics vary by industry context. Here are key considerations:"
       currentPath={location.pathname}
     >
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/sectors" />
+      </Helmet>
+      
       <div className="space-y-6">
         {sectors.map((sector) => (
           <Card key={sector.id} className="bg-slate-800/80 border-slate-700 hover:border-[#00BFFF] transition-colors">
@@ -88,6 +109,13 @@ const Sectors = () => {
       <p className="text-slate-300 mt-6 text-center italic">
         Context matters, but human oversight and ethical judgment are vital across all sectors.
       </p>
+      
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Industry-Specific AI Ethics FAQ" 
+        faqs={sectorFaqs} 
+        className="mt-12" 
+      />
     </PageLayout>
   );
 };

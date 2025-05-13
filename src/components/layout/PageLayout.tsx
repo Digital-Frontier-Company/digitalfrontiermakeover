@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MainLayout from "./MainLayout";
+import { Helmet } from "react-helmet-async";
 
 type PageLayoutProps = {
   children: React.ReactNode;
@@ -22,6 +23,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     .split("-")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+    
+  // Canonical URL
+  const canonicalUrl = `https://thedigitalfrontier.ai${currentPath}`;
     
   // Effect to handle anchor link smooth scrolling
   useEffect(() => {
@@ -50,6 +54,12 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 
   return (
     <MainLayout>
+      <Helmet>
+        <title>{title} | The Digital Frontier</title>
+        <meta name="description" content={subtitle || `Learn about ${title}`} />
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
+      
       {/* Hero Section */}
       <section className="df-hero-section py-16">
         <div className="container mx-auto px-4">

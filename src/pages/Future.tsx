@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
 import { TrendingUp, Compass, Users, Scale, ShieldCheck, Brain, Share2, Heart } from "lucide-react";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const Future = () => {
   const location = useLocation();
@@ -58,12 +60,31 @@ const Future = () => {
     }
   ];
 
+  const futureFaqs: FAQItem[] = [
+    {
+      question: "How will AI impact marketing jobs in the next 5 years?",
+      answer: "AI will transform rather than eliminate marketing roles. Routine tasks will be automated, while roles focusing on strategy, ethics, creativity, and AI oversight will grow. New positions like AI Ethics Officers, AI-Human Collaboration Specialists, and Creative Prompt Engineers are emerging. Marketers who adapt by learning to collaborate with AI will thrive."
+    },
+    {
+      question: "What is the next frontier in AI marketing personalization?",
+      answer: "The next frontier is context-aware, emotionally intelligent personalization across the entire customer journey. This includes multi-modal personalization (spanning text, voice, visual content), adaptive messaging based on emotional state, personalization that respects evolving privacy norms, and ethical frameworks that prevent manipulation while delivering value."
+    },
+    {
+      question: "How can marketers prepare for the emerging Answer Engine Optimization (AEO) paradigm?",
+      answer: "To prepare for AEO, marketers should focus on structured data implementation (schema markup), optimize content for conversational queries, develop concise, authoritative answers to common questions, maintain impeccable E-E-A-T signals (Experience, Expertise, Authoritativeness, Trustworthiness), and begin testing with AI platforms like ChatGPT plugins and Microsoft's Bing Chat."
+    }
+  ];
+
   return (
     <PageLayout 
       title="Future Trends: The Road Ahead for Ethical AI Marketing" 
       subtitle="Innovation continues, and ethical considerations must keep pace. Key trends include:"
       currentPath={location.pathname}
     >
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/future" />
+      </Helmet>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {trends.map((trend) => (
           <Card key={trend.id} className="bg-slate-800/80 border-slate-700 hover:border-[#00BFFF] transition-colors group">
@@ -87,6 +108,13 @@ const Future = () => {
       <p className="text-slate-300 mt-6 text-center italic">
         Ethics remain the linchpin for sustainable innovation. Responsible AI marketing strategies will evolve with technology.
       </p>
+      
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Future AI Marketing Trends FAQ" 
+        faqs={futureFaqs} 
+        className="mt-12" 
+      />
     </PageLayout>
   );
 };

@@ -1,11 +1,31 @@
-
 import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Gavel, Shield, BookOpen } from "lucide-react";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const Regulations = () => {
+  const regulationsFaqs: FAQItem[] = [
+    {
+      question: "What is the EU AI Act and how will it affect marketers?",
+      answer: "The EU AI Act is a comprehensive regulation expected to come into effect around 2025. For marketers, it categorizes AI systems by risk level, with many marketing applications falling into the 'limited risk' category. This means requirements for transparency (disclosing when AI is used in content creation, chatbots, etc.), documentation of systems, and alignment with existing GDPR requirements. Non-compliance can result in significant fines."
+    },
+    {
+      question: "How do privacy laws like GDPR and CCPA impact AI marketing?",
+      answer: "Privacy laws significantly impact AI marketing by requiring: explicit consent for data processing, data minimization (only collecting what's necessary), rights for consumers to access/delete their data, special protections for sensitive attributes, transparency about automated decision-making, and impact assessments for high-risk processing. These laws effectively set guardrails for how AI can be trained and deployed in marketing contexts."
+    },
+    {
+      question: "What should be included in an AI ethics committee for a marketing team?",
+      answer: "An effective AI ethics committee should include cross-functional representation from: marketing leadership, legal/compliance, data science/engineering, privacy officers, customer advocacy, and diversity/inclusion specialists. The committee should meet regularly to review AI initiatives, set ethical guidelines, monitor for potential issues, evaluate vendor solutions, and provide governance for AI deployments across marketing operations."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950">
+      <Helmet>
+        <link rel="canonical" href="https://thedigitalfrontier.ai/regulations" />
+      </Helmet>
+      
       {/* Header */}
       <header className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
@@ -93,7 +113,7 @@ const Regulations = () => {
             </div>
           </Card>
 
-          <Card className="bg-slate-900/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-slate-800 shadow-lg">
+          <Card className="bg-slate-900/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-slate-800 shadow-lg mb-8">
             <div className="flex items-center mb-6">
               <Shield className="h-8 w-8 text-emerald-400 mr-3" />
               <h2 className="text-3xl md:text-4xl font-bold text-slate-100">
@@ -182,6 +202,14 @@ const Regulations = () => {
                 A strong governance framework prevents disasters, ensures compliance, builds trust, and enables confident innovation.
               </p>
             </div>
+          </Card>
+          
+          {/* FAQ Section */}
+          <Card className="bg-slate-900/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-slate-800 shadow-lg">
+            <FAQSection 
+              title="Regulatory & Governance FAQ" 
+              faqs={regulationsFaqs} 
+            />
           </Card>
         </div>
       </main>
