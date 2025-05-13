@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper, Link as LinkIcon, BookOpen } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper, Link as LinkIcon, BookOpen, FileText } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -144,6 +144,21 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                     <div className="grid grid-cols-1 gap-3 p-4 w-[250px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
+                      </NavigationMenuLink>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                {/* Resources Link - New Addition */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Resources</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px] bg-slate-900 shadow-xl">
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/resources/content-creation-agent" className="flex items-center">
+                          <FileText className="h-4 w-4 mr-2" />
+                          Content Creation Agent
+                        </Link>
                       </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
@@ -294,6 +309,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                           Contact Us
                         </Link>
                       </NavigationMenuLink>
+                      
+                      {/* Add Resources section to mobile menu */}
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/resources/content-creation-agent" className="flex items-center">
+                          <FileText className="h-4 w-4 mr-2" />
+                          Content Creation Agent
+                        </Link>
+                      </NavigationMenuLink>
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -374,6 +397,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Link to="/crypto-marketing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Crypto Marketing</Link>
                 <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Newsletter</Link>
                 <Link to="/pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Pricing</Link>
+                <Link to="/resources/content-creation-agent" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Content Creator</Link>
               </div>
             </div>
             

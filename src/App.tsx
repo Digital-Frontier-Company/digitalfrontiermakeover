@@ -26,6 +26,7 @@ import HubSpotSettings from "./components/integration/HubSpotSettings";
 import SearchEngineOptimization from "./pages/SearchEngineOptimization";
 import CryptoMarketing from "./pages/CryptoMarketing";
 import Blog from "./pages/Blog";
+import ContentCreationAgent from "./pages/ContentCreationAgent";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
           <Route path="/search-engine-optimization" element={<SearchEngineOptimization />} />
           <Route path="/crypto-marketing" element={<CryptoMarketing />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/resources/content-creation-agent" element={<ContentCreationAgent />} />
           <Route path="/admin/hubspot-settings" element={<HubSpotSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
