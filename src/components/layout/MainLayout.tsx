@@ -218,7 +218,9 @@ const MainLayout = ({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-14 mb-4" />
+              <a href="http://digitalfrontier.app" target="_blank" rel="noopener noreferrer">
+                <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-14 mb-4" />
+              </a>
               <p className="text-slate-400 mb-4 text-sm">
                 Leading the way in AI-powered marketing solutions and digital transformation strategies.
               </p>
