@@ -56,15 +56,38 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     <MainLayout>
       <Helmet>
         <title>{title} | The Digital Frontier</title>
-        <meta name="description" content={subtitle || `Learn about ${title}`} />
+        <meta name="description" content={subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`} />
         <link rel="canonical" href={canonicalUrl} />
+        <meta name="keywords" content="digital marketing, AI marketing, digital transformation, Digital Frontier, SEO, AEO, content marketing" />
+        
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://thedigitalfrontier.ai"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": title,
+                "item": canonicalUrl
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       
       {/* Hero Section */}
       <section className="df-hero-section py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <img src="/lovable-uploads/0766a10f-5459-46d2-976d-baebe7dc52cd.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
+            <img src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
             {subtitle && <h2 className="text-xl text-slate-300">{subtitle}</h2>}
           </div>

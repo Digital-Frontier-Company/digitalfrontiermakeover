@@ -16,7 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           <div className="mb-4 md:mb-0 md:mr-6 pl-2">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/0766a10f-5459-46d2-976d-baebe7dc52cd.png" 
+                src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" 
                 alt="Digital Frontier Company" 
                 className="h-14" 
               />
@@ -336,7 +336,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             {/* Company Info */}
             <div>
               <img 
-                src="/lovable-uploads/0766a10f-5459-46d2-976d-baebe7dc52cd.png" 
+                src="/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" 
                 alt="Digital Frontier Company" 
                 className="h-12 mb-4" 
               />

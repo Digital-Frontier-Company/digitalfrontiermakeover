@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Index from "./pages/Index";
 import Technical from "./pages/Technical";
 import Evolution from "./pages/Evolution";
@@ -35,6 +36,33 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="description" content="Digital Frontier - Leading the way in AI-powered marketing solutions and digital transformation strategies." />
+        <meta name="keywords" content="digital marketing, AI marketing, SEO, content creation, marketing automation, digital transformation" />
+        <link rel="canonical" href="https://thedigitalfrontier.ai" />
+        
+        {/* Organization Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Digital Frontier Company",
+            "url": "https://thedigitalfrontier.ai",
+            "logo": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+            "sameAs": [
+              "https://www.facebook.com/profile.php?id=61572896248731",
+              "https://x.com/DigitalFro14616", 
+              "https://www.youtube.com/@Digital_FrontierCO",
+              "https://www.tiktok.com/@digital_frontier_company",
+              "https://www.instagram.com/digital_frontier_company/",
+              "https://www.linkedin.com/company/digital-frontier-company"
+            ]
+          })}
+        </script>
+      </Helmet>
       <Toaster />
       <Sonner />
       <BrowserRouter>
