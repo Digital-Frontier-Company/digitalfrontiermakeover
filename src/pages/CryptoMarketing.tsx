@@ -101,9 +101,41 @@ const CryptoMarketing = () => {
             <p className="mb-4 text-slate-300">Our battle-tested approach combines growth marketing with user experience design specifically for legitimate crypto startups.</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a href="#playbook" className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-lg font-medium text-center transition-colors">Explore the Playbook</a>
-              <DialogTrigger asChild>
-                <button className="border-2 border-slate-600 bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 px-6 py-3 rounded-lg font-medium text-center transition-colors">Get UX Audit</button>
-              </DialogTrigger>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="border-2 border-slate-600 bg-slate-800/50 hover:bg-slate-700/50 text-slate-300 px-6 py-3 rounded-lg font-medium text-center transition-colors">Get UX Audit</button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px] bg-slate-900 border-slate-700">
+                  <DialogHeader>
+                    <DialogTitle className="text-slate-100">Request UX Audit</DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-right text-slate-300">
+                        Name
+                      </Label>
+                      <Input id="name" className="col-span-3 bg-slate-800 border-slate-700 text-slate-200" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="email" className="text-right text-slate-300">
+                        Email
+                      </Label>
+                      <Input id="email" type="email" className="col-span-3 bg-slate-800 border-slate-700 text-slate-200" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="message" className="text-right text-slate-300">
+                        Message
+                      </Label>
+                      <textarea id="message" className="col-span-3 border rounded-md p-2 h-24 bg-slate-800 border-slate-700 text-slate-200"></textarea>
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <Button type="button" className="bg-cyan-500 hover:bg-cyan-600">
+                      Submit
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
           <div className="relative hidden md:block">
@@ -606,3 +638,4 @@ const CryptoMarketing = () => {
 };
 
 export default CryptoMarketing;
+
