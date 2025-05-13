@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -8,6 +9,16 @@ import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { Helmet } from "react-helmet-async";
 
 const blogPosts = [
+  {
+    id: 0,
+    title: "Mastering Digital Marketing: AI, AEO, and Innovations",
+    excerpt: "Learn how AI, AEO, and new digital marketing innovations can transform your B2B marketing strategy in 2025 and beyond.",
+    image: "/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png",
+    date: "May 13, 2025",
+    category: "Digital Marketing",
+    author: "Digital Frontier Team",
+    link: "/blog/mastering-digital-marketing"
+  },
   {
     id: 1,
     title: "The Future of AI in Digital Marketing",
@@ -127,12 +138,14 @@ const Blog: React.FC = () => {
                 </h3>
                 <p className="text-slate-300">{post.excerpt}</p>
                 <div>
-                  <Button 
-                    variant="ghost" 
-                    className="text-[#00BFFF] hover:text-white hover:bg-[#0066FF] p-0 h-auto font-semibold"
-                  >
-                    Read more →
-                  </Button>
+                  <Link to={post.link || "#"}>
+                    <Button 
+                      variant="ghost" 
+                      className="text-[#00BFFF] hover:text-white hover:bg-[#0066FF] p-0 h-auto font-semibold"
+                    >
+                      Read more →
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </article>
