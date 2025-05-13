@@ -29,6 +29,7 @@ import CryptoMarketing from "./pages/CryptoMarketing";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import ContentCreationAgent from "./pages/ContentCreationAgent";
+import SiteMap from "./pages/SiteMap";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Digital Frontier - Leading the way in AI-powered marketing solutions and digital transformation strategies." />
         <meta name="keywords" content="digital marketing, AI marketing, SEO, content creation, marketing automation, digital transformation" />
+        <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://thedigitalfrontier.ai" />
         
         {/* Organization Schema */}
@@ -51,7 +53,7 @@ const App = () => (
             "@type": "Organization",
             "name": "Digital Frontier Company",
             "url": "https://thedigitalfrontier.ai",
-            "logo": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+            "logo": "https://thedigitalfrontier.ai/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png",
             "sameAs": [
               "https://www.facebook.com/profile.php?id=61572896248731",
               "https://x.com/DigitalFro14616", 
@@ -89,6 +91,7 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/mastering-digital-marketing" element={<BlogPost />} />
           <Route path="/resources/content-creation-agent" element={<ContentCreationAgent />} />
+          <Route path="/site-map" element={<SiteMap />} />
           <Route path="/admin/hubspot-settings" element={<HubSpotSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -1,338 +1,258 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper, Link as LinkIcon, BookOpen, FileText } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown } from "lucide-react";
+import { useMobile } from "@/hooks/use-mobile";
+import Typed from 'typed.js';
 
-type MainLayoutProps = {
-  children: React.ReactNode;
-};
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isMobile = useMobile();
+  const menuAnimation = useRef<Typed | null>(null);
+  
+  useEffect(() => {
+    let typed: any;
+    if (!isMobile) {
+      typed = new Typed(menuAnimation.current!, {
+        strings: [
+          'AI-Powered Ad Funnel Blueprint',
+          'Generative Engine Optimization',
+          'Answer Engine Optimization',
+          'AI and Digital Marketing',
+          'Search Engine Optimization',
+          'Crypto Marketing',
+        ],
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay: 2500,
+        startDelay: 1000,
+        loop: true,
+        showCursor: false,
+      });
+    }
+    
+    return () => {
+      typed?.destroy();
+    };
+  }, [isMobile]);
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const handleMobileMenuToggle = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+  
   return (
-    <div className="min-h-screen df-landing-page">
-      {/* Header */}
-      <header className="container mx-auto py-6 px-4 relative z-50">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0 md:mr-6 pl-2">
-            <Link to="/" className="flex items-center">
-              <img 
-                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
-                alt="Digital Frontier Company" 
-                className="h-16" 
-              />
-            </Link>
-          </div>
-          
-          <div className="flex items-center space-x-3">
-            {/* Social Media Icons */}
-            <div className="hidden md:flex items-center space-x-3 mr-6">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="Facebook">
-                <Facebook size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="X (Twitter)">
-                <Twitter size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="YouTube">
-                <Youtube size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="TikTok">
-                {/* TikTok icon with consistent styling */}
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
-                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
-                  <path d="M15 8c0 1 1 2 2 2h-2"></path>
-                  <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
-                  <path d="M15 12v8"></path>
-                </svg>
-              </a>
-              <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="Instagram">
-                <Instagram size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="LinkedIn">
-                <Linkedin size={22} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
+    <div className="min-h-screen flex flex-col bg-slate-950 text-white">
+      {/* Fixed header */}
+      <header className="w-full backdrop-blur-lg bg-slate-900/80 border-b border-slate-800 fixed top-0 z-50 shadow-lg shadow-slate-900/20">
+        <div className="container mx-auto py-3 px-4">
+          <div className="flex justify-between items-center">
+            <div className="mb-4 md:mb-0 md:mr-6 pl-2">
+              <Link to="/" className="flex items-center">
+                <img 
+                  src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
+                  alt="Digital Frontier Company" 
+                  className="h-16" 
+                />
+              </Link>
             </div>
             
-            <NavigationMenu className="hidden md:flex">
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Explore Topics</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px] bg-slate-900 shadow-xl">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Home</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/about-us">About Us</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/technical">How Marketing AI Works</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/evolution">Evolution</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/newsletter" className="flex items-center">
-                          <Newspaper className="h-4 w-4 mr-2" />
-                          Newsletter
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Digital Marketing</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid grid-cols-1 gap-3 p-4 w-[300px] bg-slate-900 shadow-xl">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ad-funnel-blueprint">Ad Funnel Blueprint</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/generative-engine-optimization">Generative Engine Optimization</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/answer-engine-optimization">Answer Engine Optimization</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ai-and-digital-marketing">AI & Digital Marketing</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/search-engine-optimization">Search Engine Optimization</Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Industry</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px] bg-slate-900 shadow-xl">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/sectors">Sector Spotlights</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/future">Future Trends</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/kpis">KPIs</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/faq">FAQ</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/crypto-marketing">Crypto Marketing</Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Ethics</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px] bg-slate-900 shadow-xl">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                {/* Resources Link - New Addition */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80 text-white">Resources</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px] bg-slate-900 shadow-xl">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/resources/content-creation-agent" className="flex items-center">
-                          <FileText className="h-4 w-4 mr-2" />
-                          Content Creation Agent
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                {/* Blog link with icon */}
-                <NavigationMenuItem>
-                  <Link to="/blog" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
-                    <BookOpen className="h-4 w-4 mr-2" />
-                    Blog
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex flex-grow justify-center">
+              <ul className="flex space-x-1">
+                <li>
+                  <Link 
+                    to="/" 
+                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
+                      location.pathname === "/" ? "text-blue-400 font-semibold" : "text-slate-300"
+                    }`}
+                  >
+                    Home
                   </Link>
-                </NavigationMenuItem>
-                
-                {/* Pricing link with icon */}
-                <NavigationMenuItem>
-                  <Link to="/pricing" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
-                    <ShoppingCart className="h-4 w-4 mr-2" />
+                </li>
+                <li className="group relative">
+                  <button className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center">
+                    Services
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                  <div className="absolute left-0 mt-1 w-56 hidden group-hover:block z-50">
+                    <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
+                      <Link to="/ad-funnel-blueprint" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        AI-Powered Ad Funnel Blueprint
+                      </Link>
+                      <Link to="/generative-engine-optimization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Generative Engine Optimization
+                      </Link>
+                      <Link to="/answer-engine-optimization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Answer Engine Optimization
+                      </Link>
+                      <Link to="/search-engine-optimization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Search Engine Optimization
+                      </Link>
+                      <Link to="/crypto-marketing" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Crypto Marketing
+                      </Link>
+                    </div>
+                  </div>
+                </li>
+                <li className="group relative">
+                  <button className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center">
+                    Resources
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </button>
+                  <div className="absolute left-0 mt-1 w-56 hidden group-hover:block z-50">
+                    <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
+                      <Link to="/blog" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Blog
+                      </Link>
+                      <Link to="/resources/content-creation-agent" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Content Creation Agent
+                      </Link>
+                      <Link to="/ai-bias-in-advertising" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        AI Bias in Advertising
+                      </Link>
+                      <Link to="/ai-and-digital-marketing" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        AI & Digital Marketing
+                      </Link>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <Link 
+                    to="/about-us" 
+                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
+                      location.pathname === "/about-us" ? "text-blue-400 font-semibold" : "text-slate-300"
+                    }`}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    to="/pricing" 
+                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
+                      location.pathname === "/pricing" ? "text-blue-400 font-semibold" : "text-slate-300"
+                    }`}
+                  >
                     Pricing
                   </Link>
-                </NavigationMenuItem>
-                
-                {/* Contact link */}
-                <NavigationMenuItem>
-                  <Link to="/contact" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
-                    <Mail className="h-4 w-4 mr-2" />
-                    Contact Us
+                </li>
+                <li>
+                  <Link 
+                    to="/faq" 
+                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
+                      location.pathname === "/faq" ? "text-blue-400 font-semibold" : "text-slate-300"
+                    }`}
+                  >
+                    FAQ
                   </Link>
-                </NavigationMenuItem>
-
-                {/* Newsletter link */}
-                <NavigationMenuItem>
-                  <Link to="/newsletter" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
-                    <Newspaper className="h-4 w-4 mr-2" />
-                    Newsletter
+                </li>
+                <li>
+                  <Link 
+                    to="/contact" 
+                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
+                      location.pathname === "/contact" ? "text-blue-400 font-semibold" : "text-slate-300"
+                    }`}
+                  >
+                    Contact
                   </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-
-          {/* Mobile Menu */}
-          <div className="md:hidden">
-            {/* Mobile social icons */}
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="Facebook">
-                <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="X (Twitter)">
-                <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="YouTube">
-                <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-              </a>
-              <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" 
-                 className="text-cyan-400 hover:text-cyan-300 transition-all hover:scale-110" 
-                 aria-label="TikTok">
-                {/* TikTok icon with consistent styling */}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
-                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
-                  <path d="M15 8c0 1 1 2 2 2h-2"></path>
-                  <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
-                  <path d="M15 12v8"></path>
-                </svg>
-              </a>
+                </li>
+              </ul>
+            </nav>
+            
+            {/* Action buttons */}
+            <div className="hidden md:flex items-center space-x-3">
+              <Link to="/newsletter" className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors">
+                Newsletter
+              </Link>
+              <div className="h-5 w-px bg-slate-700 mx-1"></div>
+              <Link to="/contact" className="px-4 py-2 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors">
+                Get Started
+              </Link>
             </div>
             
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-slate-800/90 hover:bg-slate-700/90 text-white">Menu</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-2 p-4 w-[200px] bg-slate-900 shadow-xl">
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/">Home</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/about-us">About Us</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/technical">How AI Works</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/evolution">Evolution</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/regulations">Regulations</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ad-funnel-blueprint">Ad Funnel Blueprint</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/generative-engine-optimization">Generative Engine Optimization</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/answer-engine-optimization">Answer Engine Optimization</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ai-and-digital-marketing">AI & Digital Marketing</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/search-engine-optimization">Search Engine Optimization</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/sectors">Sector Spotlights</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/future">Future Trends</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/kpis">KPIs</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/faq">FAQ</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/crypto-marketing">Crypto Marketing</Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/blog" className="flex items-center">
-                          <BookOpen className="h-4 w-4 mr-2" />
-                          Blog
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/newsletter" className="flex items-center">
-                          <Newspaper className="h-4 w-4 mr-2" />
-                          Newsletter
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
-                        <Link to="/pricing" className="flex items-center">
-                          <ShoppingCart className="h-4 w-4 mr-2" />
-                          Pricing
-                        </Link>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/contact" className="flex items-center">
-                          <Mail className="h-4 w-4 mr-2" />
-                          Contact Us
-                        </Link>
-                      </NavigationMenuLink>
-                      
-                      {/* Add Resources section to mobile menu */}
-                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
-                        <Link to="/resources/content-creation-agent" className="flex items-center">
-                          <FileText className="h-4 w-4 mr-2" />
-                          Content Creation Agent
-                        </Link>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button onClick={handleMobileMenuToggle} className="text-slate-400 hover:text-white focus:outline-none">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {mobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Navigation Menu */}
+        <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} bg-slate-900 border-t border-slate-800 py-4 px-4`}>
+          <nav className="flex flex-col space-y-2">
+            <Link to="/" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Home
+            </Link>
+            <Link to="/ad-funnel-blueprint" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              AI-Powered Ad Funnel Blueprint
+            </Link>
+            <Link to="/generative-engine-optimization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Generative Engine Optimization
+            </Link>
+            <Link to="/answer-engine-optimization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Answer Engine Optimization
+            </Link>
+            <Link to="/search-engine-optimization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Search Engine Optimization
+            </Link>
+            <Link to="/crypto-marketing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Crypto Marketing
+            </Link>
+            <Link to="/blog" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Blog
+            </Link>
+            <Link to="/resources/content-creation-agent" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Content Creation Agent
+            </Link>
+            <Link to="/ai-bias-in-advertising" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              AI Bias in Advertising
+            </Link>
+            <Link to="/ai-and-digital-marketing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              AI & Digital Marketing
+            </Link>
+            <Link to="/about-us" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              About
+            </Link>
+            <Link to="/pricing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Pricing
+            </Link>
+            <Link to="/faq" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              FAQ
+            </Link>
+            <Link to="/contact" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Contact
+            </Link>
+            <Link to="/newsletter" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Newsletter
+            </Link>
+          </nav>
+          <div className="mt-4">
+            <Link to="/contact" className="block px-4 py-2 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-center">
+              Get Started
+            </Link>
           </div>
         </div>
       </header>
-
-      {/* Main Content */}
-      {children}
-
-      {/* Footer - Cleaned up and Enhanced */}
-      <footer className="mt-12 py-10 border-t border-slate-800 bg-gradient-to-b from-slate-900/80 to-slate-950">
+      
+      {/* Main content with padding for fixed header */}
+      <main className="flex-grow pt-24">
+        <div className="min-h-screen">
+          {children}
+        </div>
+      </main>
+      
+      {/* Footer */}
+      <footer className="bg-slate-900 border-t border-slate-800 pt-12 pb-8 mt-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
               <img 
@@ -343,111 +263,118 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <p className="text-slate-400 mb-4 text-sm">
                 Leading the way in AI-powered marketing solutions and digital transformation strategies.
               </p>
-              <div className="flex space-x-3">
-                <a href="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" 
-                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
-                   aria-label="Facebook">
-                  <Facebook size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-                </a>
-                <a href="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" 
-                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
-                   aria-label="X (Twitter)">
-                  <Twitter size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-                </a>
-                <a href="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
-                   aria-label="YouTube">
-                  <Youtube size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-                </a>
-                <a href="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
-                   aria-label="TikTok">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]">
-                    <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
-                    <path d="M15 8c0 1 1 2 2 2h-2"></path>
-                    <path d="M15 2c0 5 3 6 6 6v4c-2 0-4 0-6-2"></path>
-                    <path d="M15 12v8"></path>
+              <div className="flex space-x-2">
+                <Link to="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                  <span className="sr-only">Facebook</span>
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link to="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                  <span className="sr-only">X / Twitter</span>
+                  <Twitter className="h-5 w-5" />
+                </Link>
+                <Link to="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                  <span className="sr-only">Instagram</span>
+                  <Instagram className="h-5 w-5" />
+                </Link>
+                <Link to="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                  <span className="sr-only">LinkedIn</span>
+                  <Linkedin className="h-5 w-5" />
+                </Link>
+                <Link to="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                  <span className="sr-only">YouTube</span>
+                  <Youtube className="h-5 w-5" />
+                </Link>
+                <Link to="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
+                  <span className="sr-only">TikTok</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.321 5.562a5.122 5.122 0 01-3.414-1.267 5.111 5.111 0 01-1.468-1.968h-3.165v13.579c0 1.124-.92 2.03-2.055 2.03a2.057 2.057 0 01-2.058-2.03 2.057 2.057 0 012.058-2.032c.218 0 .426.035.621.097V10.3a5.63 5.63 0 00-.621-.034c-2.796 0-5.076 2.267-5.076 5.047 0 2.781 2.28 5.048 5.076 5.048 2.795 0 5.075-2.267 5.075-5.048V9.469c1.065.812 2.373 1.322 3.804 1.322v-3.183a5.145 5.145 0 01-1.951.381 5.122 5.122 0 003.171-1.615V5.562z" />
                   </svg>
-                </a>
-                <a href="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
-                   aria-label="Instagram">
-                  <Instagram size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-                </a>
-                <a href="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer"
-                   className="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-cyan-400 hover:text-cyan-300 hover:bg-slate-700 transition-all hover:scale-110"
-                   aria-label="LinkedIn">
-                  <Linkedin size={18} strokeWidth={1.5} className="hover:drop-shadow-[0_0_8px_rgba(34,211,238,0.7)]" />
-                </a>
+                </Link>
               </div>
             </div>
             
-            {/* Quick Links */}
+            {/* Services */}
             <div>
-              <h3 className="text-white font-semibold mb-4 text-lg">Quick Links</h3>
-              <div className="grid grid-cols-2 gap-2">
-                <Link to="/" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Home</Link>
-                <Link to="/about-us" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">About Us</Link>
-                <Link to="/technical" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">How AI Works</Link>
-                <Link to="/evolution" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Evolution</Link>
-                <Link to="/sectors" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Sectors</Link>
-                <Link to="/future" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Future Trends</Link>
-                <Link to="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Blog</Link>
-                <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">SEO</Link>
-                <Link to="/crypto-marketing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Crypto Marketing</Link>
-                <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Newsletter</Link>
-                <Link to="/pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Pricing</Link>
-                <Link to="/resources/content-creation-agent" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Content Creator</Link>
-              </div>
+              <h3 className="text-white font-semibold mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/ad-funnel-blueprint" className="text-slate-400 hover:text-blue-400 text-sm">AI-Powered Ad Funnel Blueprint</Link>
+                </li>
+                <li>
+                  <Link to="/generative-engine-optimization" className="text-slate-400 hover:text-blue-400 text-sm">Generative Engine Optimization</Link>
+                </li>
+                <li>
+                  <Link to="/answer-engine-optimization" className="text-slate-400 hover:text-blue-400 text-sm">Answer Engine Optimization</Link>
+                </li>
+                <li>
+                  <Link to="/search-engine-optimization" className="text-slate-400 hover:text-blue-400 text-sm">Search Engine Optimization</Link>
+                </li>
+                <li>
+                  <Link to="/crypto-marketing" className="text-slate-400 hover:text-blue-400 text-sm">Crypto Marketing</Link>
+                </li>
+                <li>
+                  <Link to="/ai-and-digital-marketing" className="text-slate-400 hover:text-blue-400 text-sm">AI & Digital Marketing</Link>
+                </li>
+              </ul>
             </div>
             
-            {/* Contact Info */}
+            {/* Resources */}
             <div>
-              <h3 className="text-white font-semibold mb-4 text-lg">Contact Us</h3>
-              <a href="mailto:info@digitalfrontier.app" className="text-cyan-400 hover:underline flex items-center mb-3 text-sm">
-                <Mail size={16} className="mr-2" />
-                info@digitalfrontier.app
-              </a>
-              <Link to="/contact" className="inline-flex items-center px-3 py-2 bg-cyan-500/20 text-cyan-300 rounded-md hover:bg-cyan-500/30 transition-colors text-sm">
-                <LinkIcon size={14} className="mr-2" />
-                Get in Touch
-              </Link>
-              <p className="text-slate-400 text-sm mt-4">
-                Digital Frontier Company LLC<br />
-                © 2025 - All rights reserved
-              </p>
+              <h3 className="text-white font-semibold mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/blog" className="text-slate-400 hover:text-blue-400 text-sm">Blog</Link>
+                </li>
+                <li>
+                  <Link to="/resources/content-creation-agent" className="text-slate-400 hover:text-blue-400 text-sm">Content Creation Agent</Link>
+                </li>
+                <li>
+                  <Link to="/ai-bias-in-advertising" className="text-slate-400 hover:text-blue-400 text-sm">AI Bias in Advertising</Link>
+                </li>
+                <li>
+                  <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 text-sm">Newsletter</Link>
+                </li>
+                <li>
+                  <Link to="/faq" className="text-slate-400 hover:text-blue-400 text-sm">FAQ</Link>
+                </li>
+                <li>
+                  <Link to="/site-map" className="text-slate-400 hover:text-blue-400 text-sm">Site Map</Link>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Company */}
+            <div>
+              <h3 className="text-white font-semibold mb-4">Company</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link to="/about-us" className="text-slate-400 hover:text-blue-400 text-sm">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/pricing" className="text-slate-400 hover:text-blue-400 text-sm">Pricing</Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="text-slate-400 hover:text-blue-400 text-sm">Contact</Link>
+                </li>
+                <li>
+                  <Link to="/terms" className="text-slate-400 hover:text-blue-400 text-sm">Terms of Service</Link>
+                </li>
+                <li>
+                  <Link to="/privacy" className="text-slate-400 hover:text-blue-400 text-sm">Privacy Policy</Link>
+                </li>
+              </ul>
             </div>
           </div>
           
-          {/* Bottom Footer */}
-          <div className="pt-6 mt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-500 text-xs mb-4 md:mb-0">
-              Harnessing the power of AI for next-generation digital marketing
+          <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-slate-500 text-sm mb-4 md:mb-0">
+              &copy; 2025 Digital Frontier Company. All rights reserved.
             </p>
-            
-            <div className="flex space-x-6 text-xs">
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Terms of Use
-              </a>
-              <Link to="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Blog
-              </Link>
-              <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                SEO
-              </Link>
-              <Link to="/crypto-marketing" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Crypto
-              </Link>
-              <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors flex items-center">
-                <Newspaper className="h-3 w-3 mr-1" />
-                Newsletter
-              </Link>
-              <Link to="/contact" className="text-slate-400 hover:text-cyan-400 transition-colors">
-                Contact
-              </Link>
+            <div className="flex space-x-4">
+              <Link to="/terms" className="text-slate-500 hover:text-slate-300 text-sm">Terms</Link>
+              <Link to="/privacy" className="text-slate-500 hover:text-slate-300 text-sm">Privacy</Link>
+              <Link to="/cookies" className="text-slate-500 hover:text-slate-300 text-sm">Cookies</Link>
+              <Link to="/site-map" className="text-slate-500 hover:text-slate-300 text-sm">Site Map</Link>
             </div>
           </div>
         </div>
