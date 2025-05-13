@@ -1,7 +1,8 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper, Link as LinkIcon } from "lucide-react";
+import { Facebook, Twitter, Youtube, Instagram, Linkedin, Mail, ShoppingCart, Newspaper, Link as LinkIcon, BookOpen } from "lucide-react";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -149,6 +150,14 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 
+                {/* Add Blog link with icon */}
+                <NavigationMenuItem>
+                  <Link to="/blog" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                    <BookOpen className="h-4 w-4 mr-2" />
+                    Blog
+                  </Link>
+                </NavigationMenuItem>
+                
                 {/* Add Pricing link with icon */}
                 <NavigationMenuItem>
                   <Link to="/pricing" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
@@ -263,6 +272,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                         <Link to="/crypto-marketing">Crypto Marketing</Link>
                       </NavigationMenuLink>
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
+                        <Link to="/blog" className="flex items-center">
+                          <BookOpen className="h-4 w-4 mr-2" />
+                          Blog
+                        </Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md bg-blue-900/20">
                         <Link to="/newsletter" className="flex items-center">
                           <Newspaper className="h-4 w-4 mr-2" />
                           Newsletter
@@ -355,10 +370,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 <Link to="/evolution" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Evolution</Link>
                 <Link to="/sectors" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Sectors</Link>
                 <Link to="/future" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Future Trends</Link>
+                <Link to="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Blog</Link>
                 <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">SEO</Link>
                 <Link to="/crypto-marketing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Crypto Marketing</Link>
-                <Link to="/pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Pricing</Link>
                 <Link to="/newsletter" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Newsletter</Link>
+                <Link to="/pricing" className="text-slate-400 hover:text-cyan-400 transition-colors text-sm">Pricing</Link>
               </div>
             </div>
             
@@ -393,6 +409,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Terms of Use
               </a>
+              <Link to="/blog" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                Blog
+              </Link>
               <Link to="/search-engine-optimization" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 SEO
               </Link>
