@@ -16,6 +16,31 @@
   overflow-x: hidden;
 }
 
+/* ===== Header Navigation Styles ===== */
+header {
+  position: relative;
+  z-index: 100; /* Ensure header is above all content */
+}
+
+/* Navigation menu styling */
+header [data-radix-navigation-menu-viewport] {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(8px);
+  border-color: rgba(51, 65, 85, 0.5) !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+  z-index: 100;
+}
+
+header [data-radix-navigation-menu-content] {
+  z-index: 100;
+}
+
+/* Make navigation menu links more readable */
+header a {
+  position: relative;
+  z-index: 50;
+}
+
 /* ===== New Hero Section Styles ===== */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -64,6 +89,7 @@
   background: var(--df-black-blue);
   position: relative;
   overflow: hidden;
+  z-index: 1; /* Lower z-index than header */
 }
 .df-hero-section::before {
   content: '';

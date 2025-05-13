@@ -12,7 +12,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen df-landing-page">
       {/* Header */}
-      <header className="container mx-auto py-6 px-4">
+      <header className="container mx-auto py-6 px-4 relative z-50">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 md:mr-6 pl-2">
             <Link to="/" className="flex items-center">
@@ -68,9 +68,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <NavigationMenu className="hidden md:flex">
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Explore Topics</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Explore Topics</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
+                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/">Home</Link>
                       </NavigationMenuLink>
@@ -94,9 +94,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Digital Marketing</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Digital Marketing</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid grid-cols-1 gap-3 p-4 w-[300px]">
+                    <div className="grid grid-cols-1 gap-3 p-4 w-[300px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ad-funnel-blueprint">Ad Funnel Blueprint</Link>
                       </NavigationMenuLink>
@@ -117,9 +117,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Industry</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Industry</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
+                    <div className="grid grid-cols-2 gap-3 p-4 w-[400px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/sectors">Sector Spotlights</Link>
                       </NavigationMenuLink>
@@ -140,9 +140,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Ethics</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/80 hover:bg-slate-700/80">Ethics</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px]">
+                    <div className="grid grid-cols-1 gap-3 p-4 w-[250px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/ai-bias-in-advertising">AI Bias in Advertising</Link>
                       </NavigationMenuLink>
@@ -150,33 +150,33 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 
-                {/* Add Blog link with icon */}
+                {/* Blog link with icon */}
                 <NavigationMenuItem>
-                  <Link to="/blog" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                  <Link to="/blog" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
                     <BookOpen className="h-4 w-4 mr-2" />
                     Blog
                   </Link>
                 </NavigationMenuItem>
                 
-                {/* Add Pricing link with icon */}
+                {/* Pricing link with icon */}
                 <NavigationMenuItem>
-                  <Link to="/pricing" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                  <Link to="/pricing" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
                     <ShoppingCart className="h-4 w-4 mr-2" />
                     Pricing
                   </Link>
                 </NavigationMenuItem>
                 
-                {/* Keep Contact as a standalone item */}
+                {/* Contact link */}
                 <NavigationMenuItem>
-                  <Link to="/contact" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                  <Link to="/contact" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
                     <Mail className="h-4 w-4 mr-2" />
                     Contact Us
                   </Link>
                 </NavigationMenuItem>
 
-                {/* Add Newsletter as a standalone item */}
+                {/* Newsletter link */}
                 <NavigationMenuItem>
-                  <Link to="/newsletter" className="flex items-center px-4 py-2 text-sm font-medium hover:text-blue-400 transition-colors">
+                  <Link to="/newsletter" className="flex items-center px-4 py-2 text-sm font-medium bg-slate-800/80 hover:bg-slate-700/80 rounded-md text-white">
                     <Newspaper className="h-4 w-4 mr-2" />
                     Newsletter
                   </Link>
@@ -220,9 +220,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-slate-800/50">Menu</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="bg-slate-800/90 hover:bg-slate-700/90">Menu</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="grid gap-2 p-4 w-[200px]">
+                    <div className="grid gap-2 p-4 w-[200px] bg-slate-900 shadow-xl">
                       <NavigationMenuLink asChild className="p-2 hover:bg-slate-800/50 rounded-md">
                         <Link to="/">Home</Link>
                       </NavigationMenuLink>
