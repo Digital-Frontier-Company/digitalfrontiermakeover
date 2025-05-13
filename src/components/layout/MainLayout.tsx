@@ -1,39 +1,32 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Typed from 'typed.js';
-
-const MainLayout = ({ children }: { children: React.ReactNode }) => {
+const MainLayout = ({
+  children
+}: {
+  children: React.ReactNode;
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
   const menuAnimation = useRef<HTMLSpanElement>(null);
-  
   useEffect(() => {
     let typed: Typed | null = null;
-    
+
     // Only initialize Typed.js if the element exists and we're not on mobile
     if (menuAnimation.current && !isMobile) {
       typed = new Typed(menuAnimation.current, {
-        strings: [
-          'AI-Powered Ad Funnel Blueprint',
-          'Generative Engine Optimization',
-          'Answer Engine Optimization',
-          'AI and Digital Marketing',
-          'Search Engine Optimization',
-          'Crypto Marketing',
-        ],
+        strings: ['AI-Powered Ad Funnel Blueprint', 'Generative Engine Optimization', 'Answer Engine Optimization', 'AI and Digital Marketing', 'Search Engine Optimization', 'Crypto Marketing'],
         typeSpeed: 50,
         backSpeed: 25,
         backDelay: 2500,
         startDelay: 1000,
         loop: true,
-        showCursor: false,
+        showCursor: false
       });
     }
-    
     return () => {
       // Only destroy if typed was initialized
       if (typed) {
@@ -41,24 +34,17 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       }
     };
   }, [isMobile]);
-
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-  
-  return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-white">
+  return <div className="min-h-screen flex flex-col bg-slate-950 text-white">
       {/* Fixed header */}
       <header className="w-full backdrop-blur-lg bg-slate-900/80 border-b border-slate-800 fixed top-0 z-50 shadow-lg shadow-slate-900/20">
         <div className="container mx-auto py-3 px-4">
           <div className="flex justify-between items-center">
-            <div className="mb-4 md:mb-0 md:mr-6 pl-2">
+            <div className="mb-5 md:mb-0 md:mr-6 pl-1">
               <Link to="/" className="flex items-center">
-                <img 
-                  src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
-                  alt="Digital Frontier Company" 
-                  className="h-16" 
-                />
+                <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-90" />
               </Link>
             </div>
             
@@ -66,12 +52,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <nav className="hidden md:flex flex-grow justify-center">
               <ul className="flex space-x-1">
                 <li>
-                  <Link 
-                    to="/" 
-                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
-                      location.pathname === "/" ? "text-blue-400 font-semibold" : "text-slate-300"
-                    }`}
-                  >
+                  <Link to="/" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
                     Home
                   </Link>
                 </li>
@@ -123,42 +104,22 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                   </div>
                 </li>
                 <li>
-                  <Link 
-                    to="/about-us" 
-                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
-                      location.pathname === "/about-us" ? "text-blue-400 font-semibold" : "text-slate-300"
-                    }`}
-                  >
+                  <Link to="/about-us" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/about-us" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
                     About
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/pricing" 
-                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
-                      location.pathname === "/pricing" ? "text-blue-400 font-semibold" : "text-slate-300"
-                    }`}
-                  >
+                  <Link to="/pricing" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/pricing" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
                     Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/faq" 
-                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
-                      location.pathname === "/faq" ? "text-blue-400 font-semibold" : "text-slate-300"
-                    }`}
-                  >
+                  <Link to="/faq" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/faq" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link 
-                    to="/contact" 
-                    className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${
-                      location.pathname === "/contact" ? "text-blue-400 font-semibold" : "text-slate-300"
-                    }`}
-                  >
+                  <Link to="/contact" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/contact" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
                     Contact
                   </Link>
                 </li>
@@ -180,11 +141,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="md:hidden">
               <button onClick={handleMobileMenuToggle} className="text-slate-400 hover:text-white focus:outline-none">
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  {mobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                  )}
+                  {mobileMenuOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />}
                 </svg>
               </button>
             </div>
@@ -261,11 +218,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <img 
-                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
-                alt="Digital Frontier Company" 
-                className="h-14 mb-4" 
-              />
+              <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-14 mb-4" />
               <p className="text-slate-400 mb-4 text-sm">
                 Leading the way in AI-powered marketing solutions and digital transformation strategies.
               </p>
@@ -385,8 +338,6 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default MainLayout;
