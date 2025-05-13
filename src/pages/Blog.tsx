@@ -85,11 +85,13 @@ const Blog: React.FC = () => {
 
   return (
     <PageLayout 
-      title="Digital Frontier Blog" 
-      subtitle="Insights on AI Marketing, SEO, and Digital Strategy" 
+      title="Digital Frontier Company's Blog" 
+      subtitle="Where we explore the Digital Frontier in Digital Marketing, Social Media, Artificial Intelligence and Cryptocurrency" 
       currentPath={location.pathname}
     >
       <Helmet>
+        <title>Digital Frontier Company's Blog | The Digital Frontier</title>
+        <meta name="description" content="Where we explore the Digital Frontier in Digital Marketing, Social Media, Artificial Intelligence and Cryptocurrency" />
         <link rel="canonical" href="https://thedigitalfrontier.ai/blog" />
       </Helmet>
       
