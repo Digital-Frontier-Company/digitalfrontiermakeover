@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -6,24 +5,19 @@ import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import HeroCarousel from "@/components/HeroCarousel";
 import Typed from 'typed.js';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
-  
+
   // Reference for Typed.js element
   const typedElement = useRef(null);
   const typed = useRef(null);
-  
+
   // Initialize Typed.js on component mount
   useEffect(() => {
     if (typedElement.current) {
       typed.current = new Typed(typedElement.current, {
-        strings: [
-          'Outthink',
-          'Outperform',
-          'Outgrow'
-        ],
+        strings: ['Outthink', 'Outperform', 'Outgrow'],
         typeSpeed: 50,
         backSpeed: 25,
         backDelay: 1500,
@@ -31,7 +25,7 @@ const Index = () => {
         showCursor: false
       });
     }
-    
+
     // Clean up on component unmount
     return () => {
       if (typed.current) {
@@ -39,7 +33,6 @@ const Index = () => {
       }
     };
   }, []);
-  
   return <MainLayout>
     {/* NEW HERO SECTION */}
     <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
@@ -51,22 +44,24 @@ const Index = () => {
       </div>
       
       {/* Floating abstract shapes */}
-      <div className="absolute top-20 left-10 w-16 h-16 rounded-lg bg-blue-500 opacity-10 floating" style={{animationDelay: '0s'}}></div>
-      <div className="absolute top-1/3 right-20 w-24 h-24 rounded-full bg-purple-500 opacity-10 floating" style={{animationDelay: '1s'}}></div>
-      <div className="absolute bottom-20 right-1/4 w-20 h-20 rounded-lg bg-indigo-500 opacity-10 floating" style={{animationDelay: '2s'}}></div>
+      <div className="absolute top-20 left-10 w-16 h-16 rounded-lg bg-blue-500 opacity-10 floating" style={{
+        animationDelay: '0s'
+      }}></div>
+      <div className="absolute top-1/3 right-20 w-24 h-24 rounded-full bg-purple-500 opacity-10 floating" style={{
+        animationDelay: '1s'
+      }}></div>
+      <div className="absolute bottom-20 right-1/4 w-20 h-20 rounded-lg bg-indigo-500 opacity-10 floating" style={{
+        animationDelay: '2s'
+      }}></div>
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
         <div className="mb-6">
-          <img 
-            src="/lovable-uploads/0766a10f-5459-46d2-976d-baebe7dc52cd.png" 
-            alt="Digital Frontier Company"
-            className="mx-auto h-32 w-auto" 
-          />
+          <img alt="Digital Frontier Company" className="mx-auto h-32 w-auto" src="/lovable-uploads/a38a8603-b878-43e1-9987-4ffe706d510f.png" />
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-          We don't just use AI to crunch numbers. We use it to <span className="gradient-text">crush markets</span>.
+          We don't just use AI to crunch numbers. We use it to <span className="gradient-text">Crush Markets</span>.
         </h1>
         
         <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
@@ -156,10 +151,10 @@ const Index = () => {
         </div>
 
         <div className="intro-text" style={{
-        maxWidth: "800px",
-        margin: "0 auto 30px",
-        textAlign: "center"
-      }}>
+          maxWidth: "800px",
+          margin: "0 auto 30px",
+          textAlign: "center"
+        }}>
           <p>We're not another digital marketing agency tossing generic playbooks. We are The Digital Frontier Company, a crew of engineers, analysts, and creative killers who live to squeeze more money out of your pipeline.</p>
           <p>Here's what Digital Frontier Marketing includes:</p>
         </div>
@@ -268,39 +263,39 @@ const Index = () => {
     <section className="df-revenue-engine">
       <div className="container">
         <div className="row" style={{
-        alignItems: "center"
-      }}>
+          alignItems: "center"
+        }}>
           <div className="col-lg-6">
             <div className="df-neon-border mt-3 mb-5 mb-lg-3">
               <img alt="Digital Frontier Data Dashboard" className="img-fluid p-2" style={{
-              borderRadius: "10px"
-            }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
+                borderRadius: "10px"
+              }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
             </div>
           </div>
           <div className="col-lg-6">
             <h2 style={{
-            fontSize: "32px",
-            fontWeight: 700,
-            marginBottom: "20px"
-          }}>Turn Your Brand into a Revenue Engine</h2>
+              fontSize: "32px",
+              fontWeight: 700,
+              marginBottom: "20px"
+            }}>Turn Your Brand into a Revenue Engine</h2>
             <div className="imagine-text">
               <p style={{
-              fontSize: "18px",
-              color: "#e0e0e0",
-              marginBottom: "15px"
-            }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
+                fontSize: "18px",
+                color: "#e0e0e0",
+                marginBottom: "15px"
+              }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
             </div>
             <div className="content-text">
               <p style={{
-              fontSize: "16px",
-              color: "#cccccc",
-              marginBottom: "15px"
-            }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
+                fontSize: "16px",
+                color: "#cccccc",
+                marginBottom: "15px"
+              }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
               <p style={{
-              fontSize: "16px",
-              color: "#cccccc",
-              marginBottom: 0
-            }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
+                fontSize: "16px",
+                color: "#cccccc",
+                marginBottom: 0
+              }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
             </div>
           </div>
         </div>
@@ -313,24 +308,24 @@ const Index = () => {
         <div className="text-center mb-5">
           <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
           <h2 className="section-title" style={{
-          fontSize: "36px",
-          fontWeight: 700,
-          marginBottom: "15px"
-        }}>What You'll <span>Gain</span></h2>
+            fontSize: "36px",
+            fontWeight: 700,
+            marginBottom: "15px"
+          }}>What You'll <span>Gain</span></h2>
           <p className="section-subtitle" style={{
-          fontSize: "18px",
-          color: "#e0e0e0",
-          maxWidth: "700px",
-          margin: "0 auto"
-        }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
+            fontSize: "18px",
+            color: "#e0e0e0",
+            maxWidth: "700px",
+            margin: "0 auto"
+          }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
         </div>
 
         <div className="row">
           <div className="col-md-6 col-lg-3 mb-4">
             <div className="df-gain-card">
               <div className="icon" style={{
-              fontSize: "40px"
-            }}>🔍</div>
+                fontSize: "40px"
+              }}>🔍</div>
               <h3>SEO Analysis</h3>
               <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
             </div>
@@ -339,8 +334,8 @@ const Index = () => {
           <div className="col-md-6 col-lg-3 mb-4">
             <div className="df-gain-card">
               <div className="icon" style={{
-              fontSize: "40px"
-            }}>📈</div>
+                fontSize: "40px"
+              }}>📈</div>
               <h3>Conversion Insights</h3>
               <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
             </div>
@@ -349,8 +344,8 @@ const Index = () => {
           <div className="col-md-6 col-lg-3 mb-4">
             <div className="df-gain-card">
               <div className="icon" style={{
-              fontSize: "40px"
-            }}>🔄</div>
+                fontSize: "40px"
+              }}>🔄</div>
               <h3>Competitor Analysis</h3>
               <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
             </div>
@@ -359,8 +354,8 @@ const Index = () => {
           <div className="col-md-6 col-lg-3 mb-4">
             <div className="df-gain-card">
               <div className="icon" style={{
-              fontSize: "40px"
-            }}>📋</div>
+                fontSize: "40px"
+              }}>📋</div>
               <h3>Action Plan</h3>
               <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
             </div>
