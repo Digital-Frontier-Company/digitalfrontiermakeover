@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Typed from 'typed.js';
+
 const MainLayout = ({
   children
 }: {
@@ -339,7 +340,11 @@ const MainLayout = ({
             </div>
           </div>
         </div>
+        
+        {/* SEO Juice Script */}
+        <script type="text/javascript" src="https://cdn.seojuice.io/suggestions.v1.js" defer></script>
       </footer>
     </div>;
 };
+
 export default MainLayout;
