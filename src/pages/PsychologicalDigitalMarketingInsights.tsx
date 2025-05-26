@@ -154,8 +154,8 @@ const PsychologicalDigitalMarketingInsights = () => {
 
       {/* Main Content */}
       <main className="flex flex-col lg:flex-row gap-8">
-        {/* Article Content - Made wider */}
-        <article className="lg:w-4/5">
+        {/* Article Content - Made much wider */}
+        <article className="lg:w-5/6">
           {/* Featured Image */}
           <div className="mb-8 rounded-lg overflow-hidden shadow-xl relative scroll-animate">
             <img 
@@ -607,8 +607,8 @@ const PsychologicalDigitalMarketingInsights = () => {
           </div>
         </article>
 
-        {/* Sidebar - Made narrower */}
-        <aside className="lg:w-1/5 space-y-8">
+        {/* Sidebar - Made much narrower */}
+        <aside className="lg:w-1/6 space-y-8">
           {/* Social Sharing */}
           <div className="bg-slate-800/30 p-6 rounded-lg sticky top-20 scroll-animate">
             <h3 className="font-bold text-lg mb-4 text-cyan-400">Share this article</h3>
