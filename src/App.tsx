@@ -32,6 +32,10 @@ import ContentCreationAgent from "./pages/ContentCreationAgent";
 import SiteMap from "./pages/SiteMap";
 import PsychologicalDigitalMarketingInsights from "./pages/PsychologicalDigitalMarketingInsights";
 import EmotionalMarketingPlaybook from "./pages/EmotionalMarketingPlaybook";
+import SWOTAnalysis from "./pages/SWOTAnalysis";
+import PortersFiveForces from "./pages/PortersFiveForces";
+import BlueOceanStrategy from "./pages/BlueOceanStrategy";
+import GrowthHacking from "./pages/GrowthHacking";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -96,6 +100,10 @@ const App = () => (
           <Route path="/site-map" element={<SiteMap />} />
           <Route path="/psychological-digital-marketing-insights" element={<PsychologicalDigitalMarketingInsights />} />
           <Route path="/emotional-marketing-playbook" element={<EmotionalMarketingPlaybook />} />
+          <Route path="/swot-analysis" element={<SWOTAnalysis />} />
+          <Route path="/porters-five-forces" element={<PortersFiveForces />} />
+          <Route path="/blue-ocean-strategy" element={<BlueOceanStrategy />} />
+          <Route path="/growth-hacking" element={<GrowthHacking />} />
           <Route path="/admin/hubspot-settings" element={<HubSpotSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

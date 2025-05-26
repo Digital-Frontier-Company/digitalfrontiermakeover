@@ -1,5 +1,5 @@
-
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import { ChevronDown } from "lucide-react";
 
@@ -15,7 +15,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Identify strengths, weaknesses, opportunities, and threats to inform strategic planning.",
       category: "business",
       icon: "fas fa-clipboard-list",
-      color: "bg-cyan-400/20 text-cyan-400"
+      color: "bg-cyan-400/20 text-cyan-400",
+      link: "/swot-analysis"
     },
     {
       id: 2,
@@ -23,7 +24,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Analyze industry competition and profitability through five key forces.",
       category: "business",
       icon: "fas fa-chess-board",
-      color: "bg-blue-400/20 text-blue-400"
+      color: "bg-blue-400/20 text-blue-400",
+      link: "/porters-five-forces"
     },
     {
       id: 3,
@@ -31,7 +33,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Create uncontested market space by making competition irrelevant.",
       category: "business", 
       icon: "fas fa-water",
-      color: "bg-cyan-400/20 text-cyan-400"
+      color: "bg-cyan-400/20 text-cyan-400",
+      link: "/blue-ocean-strategy"
     },
     {
       id: 4,
@@ -39,7 +42,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Rapid experimentation across marketing channels to identify efficient growth.",
       category: "growth",
       icon: "fas fa-chart-line", 
-      color: "bg-green-400/20 text-green-400"
+      color: "bg-green-400/20 text-green-400",
+      link: "/growth-hacking"
     },
     {
       id: 5,
@@ -47,7 +51,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Set and track objectives with measurable key results for alignment.",
       category: "personal",
       icon: "fas fa-bullseye",
-      color: "bg-purple-400/20 text-purple-400"
+      color: "bg-purple-400/20 text-purple-400",
+      link: "/okr-framework"
     },
     {
       id: 6,
@@ -55,7 +60,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Attract customers through valuable content rather than interruptive ads.",
       category: "marketing",
       icon: "fas fa-magnet",
-      color: "bg-amber-400/20 text-amber-400"
+      color: "bg-amber-400/20 text-amber-400",
+      link: "/inbound-marketing"
     },
     {
       id: 7,
@@ -63,7 +69,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Build-measure-learn feedback loop to develop products efficiently.",
       category: "business",
       icon: "fas fa-leaf",
-      color: "bg-emerald-400/20 text-emerald-400"
+      color: "bg-emerald-400/20 text-emerald-400",
+      link: "/lean-startup"
     },
     {
       id: 8,
@@ -71,7 +78,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Create and distribute valuable content to attract and retain customers.",
       category: "marketing",
       icon: "fas fa-pen-fancy",
-      color: "bg-pink-400/20 text-pink-400"
+      color: "bg-pink-400/20 text-pink-400",
+      link: "/content-marketing"
     },
     {
       id: 9,
@@ -79,7 +87,8 @@ const EmotionalMarketingPlaybook = () => {
       description: "Establish a prescribed image in the minds of others for career growth.",
       category: "personal",
       icon: "fas fa-user-tie",
-      color: "bg-orange-400/20 text-orange-400"
+      color: "bg-orange-400/20 text-orange-400",
+      link: "/personal-branding"
     }
   ];
 
@@ -162,7 +171,6 @@ const EmotionalMarketingPlaybook = () => {
       {/* Full width content */}
       <div className="w-full max-w-none">
         <article className="w-full">
-          {/* Hero Section */}
           <section className="mb-12 scroll-animate">
             <div className="bg-gradient-to-r from-slate-800/50 to-cyan-900/30 p-8 rounded-lg text-center scroll-animate">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
@@ -210,23 +218,24 @@ const EmotionalMarketingPlaybook = () => {
                     <div className={`w-12 h-12 rounded-full ${strategy.color} flex items-center justify-center mr-4`}>
                       <i className={`${strategy.icon} text-xl`}></i>
                     </div>
-                    <h3 className="text-xl font-bold text-white">{strategy.title}</h3>
+                    <Link to={strategy.link} className="text-xl font-bold text-white hover:text-cyan-400 transition">
+                      {strategy.title}
+                    </Link>
                   </div>
                   <p className="text-slate-300 mb-6 flex-grow">{strategy.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="px-3 py-1 bg-slate-700/50 text-slate-300 rounded-full text-xs font-medium capitalize">
                       {strategy.category}
                     </span>
-                    <button className="text-cyan-400 font-medium hover:text-cyan-300 transition">
+                    <Link to={strategy.link} className="text-cyan-400 font-medium hover:text-cyan-300 transition">
                       Learn More <i className="fas fa-arrow-right ml-1"></i>
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Featured Strategy */}
           <section className="mb-12 scroll-animate">
             <div className="bg-slate-800/50 rounded-xl overflow-hidden border border-slate-700">
               <div className="md:flex">
@@ -243,9 +252,9 @@ const EmotionalMarketingPlaybook = () => {
                     <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 rounded-full text-xs font-medium">Market Creation</span>
                     <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 rounded-full text-xs font-medium">Value Innovation</span>
                   </div>
-                  <button className="bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white px-6 py-2 rounded-lg font-medium transition">
+                  <Link to="/blue-ocean-strategy" className="bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white px-6 py-2 rounded-lg font-medium transition">
                     Learn More
-                  </button>
+                  </Link>
                 </div>
                 <div className="md:w-1/2 p-8 md:p-12">
                   <h4 className="text-xl font-semibold mb-4 text-white">Key Principles</h4>
@@ -273,7 +282,6 @@ const EmotionalMarketingPlaybook = () => {
             </div>
           </section>
 
-          {/* FAQ Section */}
           <section className="mb-12 scroll-animate">
             <h2 className="text-3xl font-bold text-center mb-8 text-cyan-400">Frequently Asked Questions</h2>
             
@@ -301,7 +309,6 @@ const EmotionalMarketingPlaybook = () => {
             </div>
           </section>
 
-          {/* CTA Section */}
           <section className="mb-12 scroll-animate">
             <div className="bg-gradient-to-r from-slate-800/50 to-cyan-900/30 p-8 rounded-lg text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Approach?</h2>
