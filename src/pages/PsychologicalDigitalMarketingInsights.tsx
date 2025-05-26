@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import { ChevronDown } from "lucide-react";
@@ -111,7 +110,7 @@ const PsychologicalDigitalMarketingInsights = () => {
       subtitle="Influencing Behavior Online"
       currentPath="/psychological-digital-marketing-insights"
     >
-      <style jsx>{`
+      <style>{`
         .scroll-animate {
           opacity: 0;
           transform: translateY(40px);
@@ -155,8 +154,8 @@ const PsychologicalDigitalMarketingInsights = () => {
 
       {/* Main Content */}
       <main className="flex flex-col lg:flex-row gap-8">
-        {/* Article Content */}
-        <article className="lg:w-3/4">
+        {/* Article Content - Made wider */}
+        <article className="lg:w-4/5">
           {/* Featured Image */}
           <div className="mb-8 rounded-lg overflow-hidden shadow-xl relative scroll-animate">
             <img 
@@ -608,8 +607,8 @@ const PsychologicalDigitalMarketingInsights = () => {
           </div>
         </article>
 
-        {/* Sidebar */}
-        <aside className="lg:w-1/4 space-y-8">
+        {/* Sidebar - Made narrower */}
+        <aside className="lg:w-1/5 space-y-8">
           {/* Social Sharing */}
           <div className="bg-slate-800/30 p-6 rounded-lg sticky top-20 scroll-animate">
             <h3 className="font-bold text-lg mb-4 text-cyan-400">Share this article</h3>
