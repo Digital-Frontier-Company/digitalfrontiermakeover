@@ -152,10 +152,10 @@ const PsychologicalDigitalMarketingInsights = () => {
         }
       `}</style>
 
-      {/* Main Content */}
-      <main className="flex flex-col lg:flex-row gap-8">
-        {/* Article Content - Made much wider */}
-        <article className="lg:w-5/6">
+      {/* Override the default container width with minimal margins */}
+      <div className="w-full px-12 max-w-none">
+        {/* Main Content - Full Width */}
+        <article className="w-full">
           {/* Featured Image */}
           <div className="mb-8 rounded-lg overflow-hidden shadow-xl relative scroll-animate">
             <img 
@@ -606,82 +606,7 @@ const PsychologicalDigitalMarketingInsights = () => {
             </div>
           </div>
         </article>
-
-        {/* Sidebar - Made much narrower */}
-        <aside className="lg:w-1/6 space-y-8">
-          {/* Social Sharing */}
-          <div className="bg-slate-800/30 p-6 rounded-lg sticky top-20 scroll-animate">
-            <h3 className="font-bold text-lg mb-4 text-cyan-400">Share this article</h3>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-blue-700 transition text-white hover:text-cyan-300">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-cyan-600 flex items-center justify-center hover:bg-cyan-500 transition text-white hover:text-blue-900">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-500 transition text-white hover:text-red-200">
-                <i className="fab fa-pinterest-p"></i>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-500 transition text-white hover:text-cyan-300">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </div>
-
-          {/* Newsletter */}
-          <div className="bg-gradient-to-br from-slate-800/50 to-cyan-900/50 p-6 rounded-lg scroll-animate">
-            <h3 className="font-bold text-lg mb-4 text-cyan-400">Get Marketing Insights</h3>
-            <p className="text-sm mb-4">Join our newsletter to receive cutting-edge digital marketing strategies powered by psychology.</p>
-            <form className="space-y-3">
-              <input type="email" placeholder="Your email address" className="w-full px-4 py-2 bg-slate-800 border border-slate-600 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400 text-slate-100" />
-              <button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold py-2 px-4 rounded transition">
-                Subscribe Now
-              </button>
-            </form>
-            <p className="text-xs text-slate-400 mt-2">We respect your privacy. Unsubscribe at any time.</p>
-          </div>
-
-          {/* Psychology Cheat Sheet */}
-          <div className="bg-slate-800/30 p-6 rounded-lg scroll-animate">
-            <h3 className="font-bold text-lg mb-4 text-cyan-400">Psychology Cheat Sheet</h3>
-            <div className="space-y-3">
-              <div className="flex items-center scroll-animate">
-                <div className="w-8 h-8 bg-cyan-400/20 rounded-full flex items-center justify-center mr-3 text-cyan-400">
-                  <i className="fas fa-hourglass-half text-sm"></i>
-                </div>
-                <span className="text-sm">Scarcity Principle</span>
-              </div>
-              <div className="flex items-center scroll-animate">
-                <div className="w-8 h-8 bg-cyan-400/20 rounded-full flex items-center justify-center mr-3 text-cyan-400">
-                  <i className="fas fa-users text-sm"></i>
-                </div>
-                <span className="text-sm">Social Proof</span>
-              </div>
-              <div className="flex items-center scroll-animate">
-                <div className="w-8 h-8 bg-cyan-400/20 rounded-full flex items-center justify-center mr-3 text-cyan-400">
-                  <i className="fas fa-anchor text-sm"></i>
-                </div>
-                <span className="text-sm">Anchoring Bias</span>
-              </div>
-              <div className="flex items-center scroll-animate">
-                <div className="w-8 h-8 bg-cyan-400/20 rounded-full flex items-center justify-center mr-3 text-cyan-400">
-                  <i className="fas fa-heart text-sm"></i>
-                </div>
-                <span className="text-sm">Emotional Triggers</span>
-              </div>
-              <div className="flex items-center scroll-animate">
-                <div className="w-8 h-8 bg-cyan-400/20 rounded-full flex items-center justify-center mr-3 text-cyan-400">
-                  <i className="fas fa-user-tie text-sm"></i>
-                </div>
-                <span className="text-sm">Authority Bias</span>
-              </div>
-            </div>
-            <a href="#" className="inline-block mt-4 text-cyan-400 hover:text-cyan-300 text-sm font-medium transition scroll-animate">
-              Download Full Cheat Sheet <i className="fas fa-download ml-1"></i>
-            </a>
-          </div>
-        </aside>
-      </main>
+      </div>
 
       {/* Font Awesome Icons */}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
