@@ -31,6 +31,7 @@ import BlogPost from "./pages/BlogPost";
 import ContentCreationAgent from "./pages/ContentCreationAgent";
 import SiteMap from "./pages/SiteMap";
 import PsychologicalDigitalMarketingInsights from "./pages/PsychologicalDigitalMarketingInsights";
+import EmotionalMarketingPlaybook from "./pages/EmotionalMarketingPlaybook";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -94,6 +95,7 @@ const App = () => (
           <Route path="/resources/content-creation-agent" element={<ContentCreationAgent />} />
           <Route path="/site-map" element={<SiteMap />} />
           <Route path="/psychological-digital-marketing-insights" element={<PsychologicalDigitalMarketingInsights />} />
+          <Route path="/emotional-marketing-playbook" element={<EmotionalMarketingPlaybook />} />
           <Route path="/admin/hubspot-settings" element={<HubSpotSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import { ChevronDown } from "lucide-react";
 
@@ -153,7 +154,7 @@ const PsychologicalDigitalMarketingInsights = () => {
       `}</style>
 
       {/* Override the default container width with minimal margins */}
-      <div className="w-full px-12 max-w-none">
+      <div className="w-full max-w-none">
         {/* Main Content - Full Width */}
         <article className="w-full">
           {/* Featured Image */}
@@ -277,9 +278,12 @@ const PsychologicalDigitalMarketingInsights = () => {
             </div>
             
             <div className="text-center mt-6 scroll-animate">
-              <a href="#" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-medium rounded-lg transition">
+              <Link 
+                to="/emotional-marketing-playbook"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-medium rounded-lg transition"
+              >
                 <i className="fas fa-book mr-2"></i> Explore All Cognitive Biases
-              </a>
+              </Link>
             </div>
           </section>
 
