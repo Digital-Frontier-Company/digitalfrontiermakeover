@@ -101,6 +101,9 @@ const MainLayout = ({
                       <Link to="/ai-and-digital-marketing" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         AI & Digital Marketing
                       </Link>
+                      <Link to="/psychological-digital-marketing-insights" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Psychological Digital Marketing
+                      </Link>
                     </div>
                   </div>
                 </li>
@@ -181,6 +184,9 @@ const MainLayout = ({
             </Link>
             <Link to="/ai-and-digital-marketing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               AI & Digital Marketing
+            </Link>
+            <Link to="/psychological-digital-marketing-insights" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Psychological Digital Marketing
             </Link>
             <Link to="/about-us" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               About
