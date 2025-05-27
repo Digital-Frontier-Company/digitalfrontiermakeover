@@ -36,6 +36,7 @@ import SWOTAnalysis from "./pages/SWOTAnalysis";
 import PortersFiveForces from "./pages/PortersFiveForces";
 import BlueOceanStrategy from "./pages/BlueOceanStrategy";
 import GrowthHacking from "./pages/GrowthHacking";
+import NikeCaseStudy from "./pages/NikeCaseStudy";
 import "./styles/digitalFrontier.css";
 
 const queryClient = new QueryClient();
@@ -104,6 +105,7 @@ const App = () => (
           <Route path="/porters-five-forces" element={<PortersFiveForces />} />
           <Route path="/blue-ocean-strategy" element={<BlueOceanStrategy />} />
           <Route path="/growth-hacking" element={<GrowthHacking />} />
+          <Route path="/nike-case-study" element={<NikeCaseStudy />} />
           <Route path="/admin/hubspot-settings" element={<HubSpotSettings />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
