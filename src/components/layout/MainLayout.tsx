@@ -13,6 +13,7 @@ const MainLayout = ({
   const location = useLocation();
   const isMobile = useIsMobile();
   const menuAnimation = useRef<HTMLSpanElement>(null);
+  
   useEffect(() => {
     let typed: Typed | null = null;
 
@@ -35,9 +36,11 @@ const MainLayout = ({
       }
     };
   }, [isMobile]);
+  
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+  
   return <div className="min-h-screen flex flex-col bg-slate-950 text-white">
       {/* Fixed header */}
       <header className="w-full backdrop-blur-lg bg-slate-900/80 border-b border-slate-800 fixed top-0 z-50 shadow-lg shadow-slate-900/20">
@@ -91,6 +94,9 @@ const MainLayout = ({
                     <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
                       <Link to="/blog" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         Blog
+                      </Link>
+                      <Link to="/digital-marketing-playbook" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
+                        Digital Marketing Playbook
                       </Link>
                       <Link to="/resources/content-creation-agent" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         Content Creation Agent
@@ -175,6 +181,9 @@ const MainLayout = ({
             </Link>
             <Link to="/blog" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               Blog
+            </Link>
+            <Link to="/digital-marketing-playbook" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
+              Digital Marketing Playbook
             </Link>
             <Link to="/resources/content-creation-agent" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               Content Creation Agent
@@ -292,6 +301,9 @@ const MainLayout = ({
               <ul className="space-y-2">
                 <li>
                   <Link to="/blog" className="text-slate-400 hover:text-blue-400 text-sm">Blog</Link>
+                </li>
+                <li>
+                  <Link to="/digital-marketing-playbook" className="text-slate-400 hover:text-blue-400 text-sm">Digital Marketing Playbook</Link>
                 </li>
                 <li>
                   <Link to="/resources/content-creation-agent" className="text-slate-400 hover:text-blue-400 text-sm">Content Creation Agent</Link>

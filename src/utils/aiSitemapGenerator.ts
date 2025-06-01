@@ -4,139 +4,175 @@ export interface AISitemapEntry {
   summary: string;
   primaryEntity: string;
   lastmod: string;
-  changefreq: string;
   priority: number;
+  keywords: string[];
 }
 
 export const generateAISitemap = (): AISitemapEntry[] => {
-  const baseUrl = "https://www.thedigitalfrontier.ai";
+  const baseUrl = 'https://www.thedigitalfrontier.ai';
   const currentDate = new Date().toISOString().split('T')[0];
   
   return [
     {
       url: `${baseUrl}/`,
-      summary: "Digital Frontier's AI-powered marketing solutions and digital transformation strategies for businesses.",
-      primaryEntity: "Organization",
+      summary: "Digital Frontier Company homepage featuring AI-powered marketing solutions, digital transformation strategies, and comprehensive services for modern businesses seeking competitive advantage.",
+      primaryEntity: "Digital Frontier Company",
       lastmod: currentDate,
-      changefreq: "weekly",
-      priority: 1.0
+      priority: 1.0,
+      keywords: ["AI marketing", "digital transformation", "marketing automation", "Digital Frontier"]
     },
     {
       url: `${baseUrl}/about-us`,
-      summary: "Learn about Digital Frontier's mission to lead AI-powered marketing innovation with proven results.",
-      primaryEntity: "AboutPage",
+      summary: "Learn about Digital Frontier's mission to revolutionize digital marketing through AI-powered solutions, our expert team, and proven track record in helping businesses achieve growth.",
+      primaryEntity: "About Digital Frontier",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.8
+      priority: 0.8,
+      keywords: ["company", "team", "mission", "AI marketing experts"]
     },
     {
       url: `${baseUrl}/contact`,
-      summary: "Contact Digital Frontier for AI marketing consultation and digital transformation services.",
-      primaryEntity: "ContactPage",
+      summary: "Get in touch with Digital Frontier's marketing experts for personalized AI-powered marketing solutions, consultations, and strategic digital transformation guidance.",
+      primaryEntity: "Contact Information",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.8
-    },
-    {
-      url: `${baseUrl}/blog`,
-      summary: "Technical AI marketing insights with real performance metrics from 500+ client implementations.",
-      primaryEntity: "Blog",
-      lastmod: currentDate,
-      changefreq: "weekly",
-      priority: 0.9
-    },
-    {
-      url: `${baseUrl}/blog/mastering-digital-marketing`,
-      summary: "Meta Advantage+ and Google Performance Max deliver 15-30% better ROAS. Implementation strategies with XGBoost models.",
-      primaryEntity: "BlogPosting",
-      lastmod: "2025-05-13",
-      changefreq: "monthly",
-      priority: 0.7
-    },
-    {
-      url: `${baseUrl}/technical`,
-      summary: "Understanding AI architecture in marketing: XGBoost models, real-time bidding, and ethical frameworks.",
-      primaryEntity: "TechArticle",
-      lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.8,
+      keywords: ["contact", "consultation", "support", "marketing experts"]
     },
     {
       url: `${baseUrl}/ad-funnel-blueprint`,
-      summary: "AI-powered advertising funnel optimization using programmatic bidding and machine learning models.",
-      primaryEntity: "Service",
+      summary: "Comprehensive AI-powered advertising funnel blueprint that optimizes customer acquisition, increases conversion rates, and maximizes ROI through intelligent automation and data-driven insights.",
+      primaryEntity: "AI Ad Funnel Strategy",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.9,
+      keywords: ["advertising funnel", "AI optimization", "conversion rates", "customer acquisition"]
     },
     {
       url: `${baseUrl}/answer-engine-optimization`,
-      summary: "Answer Engine Optimization (AEO) strategies that drive 30% more organic traffic through structured data.",
-      primaryEntity: "Service",
+      summary: "Master Answer Engine Optimization (AEO) strategies to dominate voice search, AI assistants, and featured snippets. Optimize content for direct answers and conversational queries.",
+      primaryEntity: "Answer Engine Optimization",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.8,
+      keywords: ["AEO", "voice search", "featured snippets", "AI assistants", "conversational search"]
     },
     {
       url: `${baseUrl}/generative-engine-optimization`,
-      summary: "Generative Engine Optimization (GEO) for AI search engines like ChatGPT, Claude, and Perplexity.",
-      primaryEntity: "Service",
+      summary: "Advanced Generative Engine Optimization (GEO) techniques for AI-generated content discovery. Optimize for ChatGPT, Bard, and other generative AI platforms to capture new traffic sources.",
+      primaryEntity: "Generative Engine Optimization",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.8,
+      keywords: ["GEO", "generative AI", "ChatGPT optimization", "AI content discovery"]
     },
     {
       url: `${baseUrl}/search-engine-optimization`,
-      summary: "Advanced SEO strategies combining traditional optimization with AI-powered content and technical improvements.",
-      primaryEntity: "Service",
+      summary: "Professional SEO services combining traditional optimization with AI-powered strategies. Improve rankings, organic traffic, and visibility across all search engines.",
+      primaryEntity: "SEO Services",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.8,
+      keywords: ["SEO", "search optimization", "organic traffic", "Google rankings"]
     },
     {
       url: `${baseUrl}/crypto-marketing`,
-      summary: "Crypto marketing compliance frameworks for 2025 with 60% lead quality improvement through AI targeting.",
-      primaryEntity: "Service",
+      summary: "Specialized cryptocurrency and blockchain marketing services. Navigate crypto advertising restrictions while building communities and driving adoption through compliant strategies.",
+      primaryEntity: "Cryptocurrency Marketing",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.7,
+      keywords: ["crypto marketing", "blockchain", "cryptocurrency advertising", "DeFi marketing"]
+    },
+    {
+      url: `${baseUrl}/digital-marketing-playbook`,
+      summary: "Complete 2025 digital marketing playbook for SMBs featuring AI automation, content velocity strategies, conversion optimization, and data privacy frameworks for competitive advantage.",
+      primaryEntity: "Digital Marketing Playbook",
+      lastmod: currentDate,
+      priority: 0.9,
+      keywords: ["digital marketing", "AI automation", "content strategy", "CRO", "marketing playbook"]
     },
     {
       url: `${baseUrl}/ai-and-digital-marketing`,
-      summary: "Comprehensive AI and digital marketing solutions with predictive analytics and automation.",
-      primaryEntity: "Service",
+      summary: "Explore the intersection of artificial intelligence and digital marketing. Learn how AI transforms customer experiences, automates campaigns, and drives unprecedented growth.",
+      primaryEntity: "AI in Digital Marketing",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.8,
+      keywords: ["AI marketing", "artificial intelligence", "marketing automation", "machine learning"]
+    },
+    {
+      url: `${baseUrl}/psychological-digital-marketing-insights`,
+      summary: "Deep dive into psychological triggers in digital marketing. Understand consumer behavior, emotional marketing tactics, and psychological frameworks that drive conversions.",
+      primaryEntity: "Marketing Psychology",
+      lastmod: currentDate,
+      priority: 0.7,
+      keywords: ["marketing psychology", "consumer behavior", "emotional marketing", "conversion psychology"]
+    },
+    {
+      url: `${baseUrl}/ai-bias-in-advertising`,
+      summary: "Critical analysis of AI bias in advertising algorithms, ethical considerations for marketers, and strategies to ensure fair and inclusive AI-powered marketing campaigns.",
+      primaryEntity: "AI Bias in Advertising",
+      lastmod: currentDate,
+      priority: 0.6,
+      keywords: ["AI bias", "ethical marketing", "advertising ethics", "inclusive marketing"]
+    },
+    {
+      url: `${baseUrl}/blog`,
+      summary: "Digital Frontier's marketing blog featuring latest insights on AI marketing trends, case studies, strategy guides, and industry analysis for modern marketers.",
+      primaryEntity: "Marketing Blog",
+      lastmod: currentDate,
+      priority: 0.8,
+      keywords: ["marketing blog", "AI trends", "case studies", "marketing insights"]
+    },
+    {
+      url: `${baseUrl}/resources/content-creation-agent`,
+      summary: "AI-powered content creation tool that generates high-quality marketing content, social media posts, and campaign materials using advanced natural language processing.",
+      primaryEntity: "Content Creation Agent",
+      lastmod: currentDate,
+      priority: 0.7,
+      keywords: ["content creation", "AI writing", "marketing content", "automated content"]
     },
     {
       url: `${baseUrl}/pricing`,
-      summary: "Transparent pricing for AI marketing services with performance guarantees and ROI tracking.",
-      primaryEntity: "PriceSpecification",
+      summary: "Transparent pricing for Digital Frontier's AI marketing services, packages, and consulting options. Choose the right plan for your business growth objectives.",
+      primaryEntity: "Service Pricing",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.8
+      priority: 0.8,
+      keywords: ["pricing", "marketing services", "packages", "consulting rates"]
+    },
+    {
+      url: `${baseUrl}/newsletter`,
+      summary: "Subscribe to Digital Frontier's newsletter for weekly AI marketing insights, industry updates, strategy tips, and exclusive content for marketing professionals.",
+      primaryEntity: "Newsletter Subscription",
+      lastmod: currentDate,
+      priority: 0.6,
+      keywords: ["newsletter", "marketing insights", "AI updates", "weekly tips"]
     },
     {
       url: `${baseUrl}/faq`,
-      summary: "Frequently asked questions about AI marketing implementation, ROI measurement, and best practices.",
-      primaryEntity: "FAQPage",
+      summary: "Frequently asked questions about Digital Frontier's AI marketing services, implementation processes, pricing, and support options for businesses.",
+      primaryEntity: "FAQ",
       lastmod: currentDate,
-      changefreq: "monthly",
-      priority: 0.7
+      priority: 0.7,
+      keywords: ["FAQ", "questions", "support", "service information"]
     }
   ];
 };
 
-export const saveAISitemap = async (): Promise<void> => {
-  const sitemap = generateAISitemap();
-  const blob = new Blob([JSON.stringify(sitemap, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'ai-sitemap.json';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+export const saveAISitemap = () => {
+  const sitemapData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Digital Frontier AI Sitemap",
+    "description": "AI-optimized sitemap with content summaries and entity information",
+    "url": "https://www.thedigitalfrontier.ai",
+    "lastModified": new Date().toISOString(),
+    "pages": generateAISitemap()
+  };
+
+  const blob = new Blob([JSON.stringify(sitemapData, null, 2)], { 
+    type: 'application/json' 
+  });
+  
+  const url = window.URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'ai-sitemap.json';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
 };
