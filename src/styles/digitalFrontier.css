@@ -275,16 +275,17 @@ header [data-state="open"] {
 }
 
 .df-testimonial-image {
-  width: 35px !important;
-  height: 35px !important;
-  min-width: 35px !important;
-  min-height: 35px !important;
-  max-width: 35px !important;
-  max-height: 35px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid rgba(0, 191, 255, 0.3) !important;
   display: block !important;
+  flex-shrink: 0 !important;
 }
 
 .df-testimonial-quote-container {
