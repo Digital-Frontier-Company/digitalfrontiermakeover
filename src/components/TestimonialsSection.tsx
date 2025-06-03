@@ -15,7 +15,7 @@ const Testimonial = ({
 }: TestimonialProps) => <div className="df-testimonial-card">
     <div className="df-testimonial-content">
       <div className="df-testimonial-image-container">
-        <img src={image} alt={`${name} headshot`} className="df-testimonial-image object-scale-down" />
+        <img src={image} alt={`${name} headshot`} className="df-testimonial-image" />
       </div>
       <div className="df-testimonial-quote-container">
         <div className="df-testimonial-quote">
