@@ -270,17 +270,17 @@ header [data-state="open"] {
 }
 
 .df-testimonial-image-container {
-  flex: 0 0 35px;
+  flex: 0 0 30px;
   margin-right: 12px;
 }
 
 .df-testimonial-image {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  min-height: 40px !important;
-  max-width: 40px !important;
-  max-height: 40px !important;
+  width: 30px !important;
+  height: 30px !important;
+  min-width: 30px !important;
+  min-height: 30px !important;
+  max-width: 30px !important;
+  max-height: 30px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid rgba(0, 191, 255, 0.3) !important;
