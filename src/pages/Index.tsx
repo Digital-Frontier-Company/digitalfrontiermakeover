@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -18,7 +19,7 @@ const Index = () => {
   useEffect(() => {
     if (typedElement.current) {
       typed.current = new Typed(typedElement.current, {
-        strings: ['Outthink', 'Outperform', 'Outgrow'],
+        strings: ['Out think', 'Out perform', 'Out grow'],
         typeSpeed: 50,
         backSpeed: 25,
         backDelay: 1500,
@@ -74,7 +75,7 @@ const Index = () => {
             You'll stop guessing. You'll start scaling. Measurable wins. Market momentum. Growth you can see in your bank account.
           </p>
           
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl gradient-text max-w-3xl mx-auto">
             This is war, and we bring the smart weapons.
           </p>
           
