@@ -5,6 +5,7 @@ import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import HeroCarousel from "@/components/HeroCarousel";
 import Typed from 'typed.js';
+
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -61,7 +62,7 @@ const Index = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-[#07d4ae]">
-            We don't just use AI to crunch numbers. We use it to <span className="gradient-text font-extrabold text-4xl">Crush Markets</span>.
+            We don't just use AI to crunch numbers. We use it to <span className="crush-markets-gradient font-extrabold text-4xl">Crush Markets</span>.
           </h1>
           
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
@@ -497,4 +498,5 @@ const Index = () => {
       </section>
     </MainLayout>;
 };
+
 export default Index;
