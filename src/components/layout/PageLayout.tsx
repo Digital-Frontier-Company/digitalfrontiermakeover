@@ -9,17 +9,13 @@ type PageLayoutProps = {
   title: string;
   subtitle?: string;
   currentPath: string;
-  ogImage?: string;
-  ogDescription?: string;
 };
 
 const PageLayout: React.FC<PageLayoutProps> = ({ 
   children, 
   title, 
   subtitle,
-  currentPath,
-  ogImage = "https://www.thedigitalfrontier.ai/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png",
-  ogDescription
+  currentPath
 }) => {
   // Get the current page name from the path
   const pageName = currentPath.split("/").pop() || "";
@@ -28,11 +24,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
     
-  // Canonical URL with www prefix to prevent duplicate content
+  // Canonical URL with www prefix
   const canonicalUrl = `https://www.thedigitalfrontier.ai${currentPath}`;
-  
-  // Default OG description from subtitle or title
-  const defaultOgDescription = ogDescription || subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`;
     
   // Effect to handle anchor link smooth scrolling
   useEffect(() => {
@@ -63,28 +56,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     <MainLayout>
       <Helmet>
         <title>{title} | The Digital Frontier</title>
-        <meta name="description" content={defaultOgDescription} />
+        <meta name="description" content={subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`} />
         <link rel="canonical" href={canonicalUrl} />
         <meta name="keywords" content="digital marketing, AI marketing, digital transformation, Digital Frontier, SEO, AEO, content marketing" />
-        
-        {/* Enhanced OpenGraph Tags */}
-        <meta property="og:title" content={`${title} | The Digital Frontier`} />
-        <meta property="og:description" content={defaultOgDescription} />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:alt" content={`${title} - Digital Frontier`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:site_name" content="Digital Frontier" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Enhanced Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${title} | The Digital Frontier`} />
-        <meta name="twitter:description" content={defaultOgDescription} />
-        <meta name="twitter:image" content={ogImage} />
-        <meta name="twitter:image:alt" content={`${title} - Digital Frontier`} />
-        <meta name="twitter:site" content="@DigitalFro14616" />
-        <meta name="twitter:creator" content="@DigitalFro14616" />
         
         {/* Breadcrumb Schema */}
         <script type="application/ld+json">
@@ -107,46 +81,13 @@ const PageLayout: React.FC<PageLayoutProps> = ({
             ]
           })}
         </script>
-        
-        {/* Article Schema for content pages */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": title,
-            "description": defaultOgDescription,
-            "url": canonicalUrl,
-            "image": ogImage,
-            "author": {
-              "@type": "Organization",
-              "name": "Digital Frontier Company"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Digital Frontier Company",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://www.thedigitalfrontier.ai/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png"
-              }
-            },
-            "dateModified": new Date().toISOString(),
-            "datePublished": new Date().toISOString()
-          })}
-        </script>
       </Helmet>
       
       {/* Hero Section */}
       <section className="df-hero-section py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <img 
-              src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
-              alt="Digital Frontier Company - AI Marketing Solutions" 
-              className="df-logo mx-auto mb-6" 
-              width="180" 
-              height="auto"
-              loading="eager"
-            />
+            <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
             {subtitle && <h2 className="text-xl text-slate-300">{subtitle}</h2>}
           </div>
@@ -156,11 +97,11 @@ const PageLayout: React.FC<PageLayoutProps> = ({
       {/* Breadcrumb Navigation */}
       <div className="bg-slate-900/60 border-y border-slate-800/80">
         <div className="container mx-auto py-3 px-4">
-          <nav aria-label="Breadcrumb" className="flex text-sm text-slate-400">
-            <Link to="/" className="hover:text-blue-400 focus:text-blue-400 focus:outline-none">Home</Link>
-            <span className="mx-2" aria-hidden="true">/</span>
+          <div className="flex text-sm text-slate-400">
+            <Link to="/" className="hover:text-blue-400">Home</Link>
+            <span className="mx-2">/</span>
             <span className="text-slate-300">{formattedPageName || title}</span>
-          </nav>
+          </div>
         </div>
       </div>
       

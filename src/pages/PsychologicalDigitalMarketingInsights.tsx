@@ -482,12 +482,9 @@ const PsychologicalDigitalMarketingInsights = () => {
             </div>
             
             <div className="text-center mt-6 scroll-animate">
-              <Link 
-                to="/nike-case-study"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-medium rounded-lg transition"
-              >
+              <a href="#" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-medium rounded-lg transition">
                 <i className="fas fa-book-open mr-2"></i> Download Full Case Study Analysis
-              </Link>
+              </a>
             </div>
           </section>
 

@@ -22,6 +22,6 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-# Sitemap locations
+# Sitemap location
 Sitemap: https://www.thedigitalfrontier.ai/sitemap.xml
-Sitemap: https://www.thedigitalfrontier.ai/ai-sitemap.json
+
