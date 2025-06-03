@@ -1,6 +1,4 @@
-
 import { Star } from "lucide-react";
-
 type TestimonialProps = {
   image: string;
   quote: string;
@@ -8,12 +6,16 @@ type TestimonialProps = {
   title: string;
   company: string;
 };
-
-const Testimonial = ({ image, quote, name, title, company }: TestimonialProps) => (
-  <div className="df-testimonial-card">
+const Testimonial = ({
+  image,
+  quote,
+  name,
+  title,
+  company
+}: TestimonialProps) => <div className="df-testimonial-card">
     <div className="df-testimonial-content">
       <div className="df-testimonial-image-container">
-        <img src={image} alt={`${name} headshot`} className="df-testimonial-image" />
+        <img src={image} alt={`${name} headshot`} className="df-testimonial-image object-scale-down" />
       </div>
       <div className="df-testimonial-quote-container">
         <div className="df-testimonial-quote">
@@ -28,12 +30,9 @@ const Testimonial = ({ image, quote, name, title, company }: TestimonialProps) =
         </div>
       </div>
     </div>
-  </div>
-);
-
+  </div>;
 const TestimonialsSection = () => {
-  return (
-    <section className="df-testimonials-section">
+  return <section className="df-testimonials-section">
       <div className="container">
         <div className="text-center mb-4">
           <div className="df-stars-container">
@@ -47,39 +46,15 @@ const TestimonialsSection = () => {
         </div>
         
         <div className="df-testimonials-container">
-          <Testimonial 
-            image="/lovable-uploads/7cb44db8-2a71-4927-bc07-e05c54261377.png"
-            quote="Enrollments up 85% in a single semester thanks to their tailored ad funnels."
-            name="Amy B."
-            title="Director"
-            company="Delta Learning Center"
-          />
+          <Testimonial image="/lovable-uploads/7cb44db8-2a71-4927-bc07-e05c54261377.png" quote="Enrollments up 85% in a single semester thanks to their tailored ad funnels." name="Amy B." title="Director" company="Delta Learning Center" />
           
-          <Testimonial 
-            image="/lovable-uploads/4a25c6e7-d446-42a7-b9be-e55739bc1e58.png"
-            quote="Our project bids doubled after their Answer Engine Optimization roadmap."
-            name="Denise C."
-            title="COO"
-            company="Memphis Earth Movers"
-          />
+          <Testimonial image="/lovable-uploads/4a25c6e7-d446-42a7-b9be-e55739bc1e58.png" quote="Our project bids doubled after their Answer Engine Optimization roadmap." name="Denise C." title="COO" company="Memphis Earth Movers" />
           
-          <Testimonial 
-            image="/lovable-uploads/05e5d28b-90bc-4666-9f8c-eb24aa8f2db4.png"
-            quote="Digital Frontier dialed in our local search and our phone hasn't stopped ringing."
-            name="Mark R."
-            title="Owner"
-            company="Patriot Plunges"
-          />
+          <Testimonial image="/lovable-uploads/05e5d28b-90bc-4666-9f8c-eb24aa8f2db4.png" quote="Digital Frontier dialed in our local search and our phone hasn't stopped ringing." name="Mark R." title="Owner" company="Patriot Plunges" />
         </div>
 
         <div className="df-testimonials-container">
-          <Testimonial 
-            image="/lovable-uploads/34b9c76a-de0d-438b-aa2c-82b92aac2a9f.png"
-            quote="Digital Frontier transformed our online presence. In three months our traffic grew 120% and qualified leads doubled. Couldn't be happier!"
-            name="Sarah L."
-            title="Owner"
-            company="Memphis Coffee Co."
-          />
+          <Testimonial image="/lovable-uploads/34b9c76a-de0d-438b-aa2c-82b92aac2a9f.png" quote="Digital Frontier transformed our online presence. In three months our traffic grew 120% and qualified leads doubled. Couldn't be happier!" name="Sarah L." title="Owner" company="Memphis Coffee Co." />
         </div>
 
         <div className="df-certifications">
@@ -91,8 +66,6 @@ const TestimonialsSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TestimonialsSection;
