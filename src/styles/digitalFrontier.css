@@ -93,7 +93,7 @@ header [data-state="open"] {
   color: transparent;
 }
 .crush-markets-gradient {
-  background: linear-gradient(90deg, #001f3f, #00bfff);
+  background: linear-gradient(90deg, #1e3a8a, #00bfff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
