@@ -86,7 +86,7 @@ const App = () => (
           <Route path="/answer-engine-optimization" element={<AnswerEngineOptimization />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/ai-and-digital-marketing" element={<RecommenderSystem />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/answer-engine-optimization-and-digital-marketing-services" element={<Pricing />} />
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/search-engine-optimization" element={<SearchEngineOptimization />} />
           <Route path="/crypto-marketing" element={<CryptoMarketing />} />
