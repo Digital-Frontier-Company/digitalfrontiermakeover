@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Play, ArrowRight } from 'lucide-react';
@@ -11,8 +12,7 @@ const MorphingHero = () => {
   const dynamicTexts = [
     "clicks",
     "conversions", 
-    "competition",
-    "revenue"
+    "competition"
   ];
 
   useEffect(() => {
@@ -133,7 +133,7 @@ const MorphingHero = () => {
             <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white mb-6">
               <span className="block mb-2">We dominate</span>
               <span 
-                className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent transition-all duration-1000"
+                className="block text-2xl md:text-3xl text-cyan-400 transition-all duration-1000"
                 key={textIndex}
                 style={{
                   animation: 'fadeInScale 1s ease-out'
