@@ -35,7 +35,7 @@ const TestimonialsSection = () => {
   return (
     <section className="df-testimonials-section">
       <div className="container">
-        <div className="text-center mb-4">
+        <div className="text-center mb-3">
           <div className="df-stars-container">
             <Star className="df-star-icon" fill="#00BFFF" strokeWidth={1} />
             <Star className="df-star-icon" fill="#00BFFF" strokeWidth={1} />
