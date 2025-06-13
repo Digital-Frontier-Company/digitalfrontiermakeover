@@ -10,10 +10,10 @@ const MorphingHero = () => {
   const [textIndex, setTextIndex] = useState(0);
 
   const dynamicTexts = [
-    "AI-Powered Growth",
-    "Data-Driven Results", 
-    "Market Domination",
-    "Revenue Explosion"
+    "deliver AI-Powered Growth",
+    "provide Data-Driven Results", 
+    "achieve Market Domination",
+    "create Revenue Explosion"
   ];
 
   useEffect(() => {
