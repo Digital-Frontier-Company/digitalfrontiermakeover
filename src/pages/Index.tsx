@@ -177,7 +177,7 @@ const Index = () => {
                 Leverage cutting-edge artificial intelligence to automate and optimize your marketing campaigns for maximum impact.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-cyan-300 rounded-tl-full rounded-full bg-slate-950">
+                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-tl-full rounded-full bg-slate-950">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
@@ -202,7 +202,7 @@ const Index = () => {
                 Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white-300 bg-slate-950 rounded-full">
+                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white bg-slate-950 rounded-full">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
@@ -227,7 +227,7 @@ const Index = () => {
                 Dominate AI-powered search results and voice assistants to capture high-intent traffic before your competition.
               </p>
               <ul className="space-y-3 mb-8">
-                {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => <li key={index} className="flex items-center text-slate-300">
+                {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => <li key={index} className="flex items-center text-white">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
