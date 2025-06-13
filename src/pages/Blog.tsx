@@ -11,6 +11,16 @@ import { Helmet } from "react-helmet-async";
 const blogPosts = [
   {
     id: 0,
+    title: "Ultimate Guide to Tax Reduction & All-Weather Wealth-Building",
+    excerpt: "Master advanced tax reduction tactics and build resilient wealth with proven strategies that work in any economic climate.",
+    image: "/lovable-uploads/3d7bf124-081a-4959-9a39-759c1e0dc150.png",
+    date: "January 13, 2025",
+    category: "Financial Strategy",
+    author: "Digital Frontier Team",
+    link: "/blog/tax-reduction-wealth-building-guide"
+  },
+  {
+    id: 1,
     title: "Answer Engine Optimization in Digital Marketing for Crypto Startups",
     excerpt: "Discover how AEO and strategic community building can help crypto startups overcome credibility challenges and build lasting trust in 2025.",
     image: "/lovable-uploads/7856abf2-126d-4fbb-87da-fe5143707423.png",
