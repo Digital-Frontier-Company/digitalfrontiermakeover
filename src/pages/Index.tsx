@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
+
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -178,7 +179,7 @@ const Index = () => {
               </p>
               <ul className="space-y-3 mb-8">
                 {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-tl-full rounded-full bg-slate-950">
-                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
               </ul>
@@ -193,7 +194,7 @@ const Index = () => {
                 <img alt="Data-Driven Insights" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} src="/lovable-uploads/740d8d00-3c56-4745-a2e2-dce396f2ecee.jpg" className="w-full h-48 rounded-lg object-cover" />
+              }} onLoad={() => console.log('Image loaded successfully')} src="/lovable-uploads/caa84279-4b2b-4b24-aa41-82da6b5882b6.png" className="w-full h-48 rounded-lg object-cover" />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Data-Driven Insights
@@ -215,7 +216,7 @@ const Index = () => {
             {/* Answer Engine Optimization Card */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950">
               <div className="mb-6">
-                <img src="/lovable-uploads/31668116-f914-4c37-9812-346ae25aa624.png" alt="Answer Engine Optimization" className="w-full h-48 object-cover rounded-lg" onError={e => {
+                <img src="/lovable-uploads/0c145136-0069-47e6-b799-655b514f21bf.png" alt="Answer Engine Optimization" className="w-full h-48 object-cover rounded-lg" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
               }} onLoad={() => console.log('Image loaded successfully')} />
@@ -228,7 +229,7 @@ const Index = () => {
               </p>
               <ul className="space-y-3 mb-8">
                 {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => <li key={index} className="flex items-center text-white">
-                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
               </ul>
