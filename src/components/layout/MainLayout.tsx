@@ -156,6 +156,7 @@ const MainLayout = ({
                       <Link to="/ai-bias-in-advertising" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         AI Bias in Advertising
                       </Link>
+                      <Link to="/recommender-system-generalization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">Recommender Systems Research</Link>
                       <Link to="/ai-and-digital-marketing" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         AI & Digital Marketing
                       </Link>
@@ -240,6 +241,7 @@ const MainLayout = ({
             <Link to="/ai-bias-in-advertising" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               AI Bias in Advertising
             </Link>
+             <Link to="/recommender-system-generalization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">Recommender Systems Research</Link>
             <Link to="/ai-and-digital-marketing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
               AI & Digital Marketing
             </Link>
@@ -356,6 +358,9 @@ const MainLayout = ({
                 </li>
                 <li>
                   <Link to="/ai-bias-in-advertising" className="text-slate-400 hover:text-blue-400 text-sm">AI Bias in Advertising</Link>
+                </li>
+                <li>
+                  <Link to="/recommender-system-generalization" className="text-slate-400 hover:text-blue-400 text-sm">Recommender Systems Research</Link>
                 </li>
                 <li>
                   <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 text-sm">Newsletter</Link>

@@ -25,6 +25,7 @@ import Sectors from '@/pages/Sectors';
 import Future from '@/pages/Future';
 import AIBias from '@/pages/AIBias';
 import AIAndDigitalMarketing from '@/pages/AIAndDigitalMarketing';
+import RecommenderSystemGeneralization from '@/pages/RecommenderSystemGeneralization';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
@@ -63,6 +64,7 @@ function App() {
             <Route path="/future" element={<MainLayout><Future /></MainLayout>} />
             <Route path="/ai-bias-in-advertising" element={<MainLayout><AIBias /></MainLayout>} />
             <Route path="/ai-and-digital-marketing" element={<MainLayout><AIAndDigitalMarketing /></MainLayout>} />
+            <Route path="/recommender-system-generalization" element={<MainLayout><RecommenderSystemGeneralization /></MainLayout>} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

@@ -3,11 +3,13 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import PageLayout from "../components/layout/PageLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Brain, Target, Zap, TrendingUp, Users, Shield } from "lucide-react";
+import { Brain, Target, Zap, TrendingUp, Users, Shield, ChevronRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { generateArticleSchema, generateBreadcrumbSchema } from "@/lib/utils";
 
 const AIAndDigitalMarketing = () => {
   const location = useLocation();
+  const canonicalUrl = `https://www.thedigitalfrontier.ai${location.pathname}`;
 
   const aiMarketingAreas = [
     {
@@ -66,56 +68,106 @@ const AIAndDigitalMarketing = () => {
     },
   ];
 
+  // Generate structured data
+  const articleSchema = generateArticleSchema(
+    "AI & Digital Marketing Revolution - Transform Your Marketing Strategy",
+    "Discover how artificial intelligence is revolutionizing digital marketing through AI-powered targeting, content creation, predictive analytics, and ethical AI implementation. Learn from Digital Frontier Company's expertise.",
+    "Digital Frontier Company",
+    "Digital Frontier Company",
+    "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+    "2025-01-13",
+    "2025-01-13",
+    canonicalUrl
+  );
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedigitalfrontier.ai" },
+    { name: "AI & Digital Marketing", url: canonicalUrl }
+  ]);
+
   return (
     <PageLayout 
       title="AI & Digital Marketing Revolution"
-      subtitle="Transforming marketing strategies through artificial intelligence and machine learning technologies"
+      subtitle="Transform your marketing strategy through artificial intelligence and machine learning technologies"
       currentPath={location.pathname}
     >
       <Helmet>
-        <title>AI & Digital Marketing | AI-Powered Marketing Solutions | Digital Frontier</title>
-        <meta name="description" content="Discover how AI is revolutionizing digital marketing. Learn about AI-powered targeting, content creation, predictive analytics, and ethical AI implementation." />
-        <meta name="keywords" content="AI marketing, artificial intelligence, digital marketing AI, machine learning marketing, AI advertising, marketing automation" />
+        <title>AI & Digital Marketing Revolution | AI-Powered Marketing Solutions | Digital Frontier</title>
+        <meta name="description" content="Discover how AI is revolutionizing digital marketing. Learn about AI-powered targeting, content creation, predictive analytics, recommender systems, and ethical AI implementation from Digital Frontier Company." />
+        <meta name="keywords" content="AI marketing, artificial intelligence digital marketing, machine learning marketing, AI advertising, marketing automation, predictive analytics, recommender systems, Digital Frontier Company" />
+        <link rel="canonical" href={canonicalUrl} />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="AI & Digital Marketing Revolution | Digital Frontier" />
+        <meta property="og:description" content="Transform your marketing strategy with AI-powered solutions. Expert insights on artificial intelligence in digital marketing from Digital Frontier Company." />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" />
+        
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AI & Digital Marketing Revolution | Digital Frontier" />
+        <meta name="twitter:description" content="Transform your marketing strategy with AI-powered solutions. Expert insights from Digital Frontier Company." />
+        <meta name="twitter:image" content="https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png" />
         
         {/* Article Schema */}
         <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
+        </script>
+        
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": "AI & Digital Marketing Revolution",
-            "description": "Transforming marketing strategies through artificial intelligence and machine learning technologies",
-            "author": {
-              "@type": "Organization",
-              "name": "Digital Frontier Company"
-            },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Digital Frontier Company",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png"
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is AI-powered digital marketing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI-powered digital marketing uses artificial intelligence and machine learning to automate and optimize marketing processes, including targeting, content creation, predictive analytics, and personalization to improve campaign performance and customer engagement."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can AI improve marketing ROI?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI improves marketing ROI through precision targeting (up to 40% conversion improvement), automated content creation (70% time reduction), predictive analytics (25% retention increase), and real-time optimization (30% efficiency improvement)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What are recommender systems in digital marketing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Recommender systems are AI algorithms that analyze user behavior and preferences to suggest personalized content, products, or services, significantly improving user engagement and conversion rates in digital marketing campaigns."
+                }
               }
-            },
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://thedigitalfrontier.ai/ai-and-digital-marketing"
-            }
+            ]
           })}
         </script>
       </Helmet>
       
-      <div className="mb-6">
-        <p className="text-slate-300">
-          Artificial Intelligence is fundamentally reshaping how we approach digital marketing. From predictive analytics 
+      <div className="mb-8">
+        <p className="text-slate-300 text-lg leading-relaxed">
+          Artificial Intelligence is fundamentally reshaping how we approach <strong>digital marketing</strong>. From predictive analytics 
           to personalized content generation, AI technologies are enabling marketers to create more effective, 
-          efficient, and ethical campaigns that deliver superior results.
+          efficient, and ethical campaigns that deliver superior results. At <span className="text-[#00BFFF] font-semibold">Digital Frontier Company</span>, 
+          we're at the forefront of this AI marketing revolution.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {aiMarketingAreas.map((item) => (
           <Link to={item.link} key={item.id}>
-            <Card className="bg-slate-800/80 border-slate-700 hover:border-[#00BFFF] transition-colors group h-full">
+            <Card className="bg-slate-800/80 border-slate-700 hover:border-[#00BFFF] transition-all duration-300 group h-full hover:transform hover:scale-105">
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-slate-700/50 rounded-md group-hover:bg-[#00BFFF]/20 transition-colors">
@@ -139,17 +191,37 @@ const AIAndDigitalMarketing = () => {
           </Link>
         ))}
       </div>
+
+      {/* New Recommender Systems Section */}
+      <div className="mb-8 p-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-slate-700 rounded-xl">
+        <h3 className="text-2xl font-semibold text-[#00BFFF] mb-4 flex items-center gap-2">
+          <Brain className="h-6 w-6" />
+          Advanced AI Research & Development
+        </h3>
+        <p className="text-slate-300 mb-4">
+          Dive deeper into cutting-edge AI research that's shaping the future of digital marketing. Our advanced research covers 
+          recommender system generalization, predictive modeling, and automated machine learning techniques.
+        </p>
+        <Link 
+          to="/recommender-system-generalization" 
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[#00BFFF] hover:bg-[#0099CC] text-white font-semibold rounded-lg transition-colors duration-300"
+        >
+          Explore Recommender Systems Research
+          <ChevronRight className="h-4 w-4" />
+        </Link>
+      </div>
       
       <div className="mt-8 p-6 bg-slate-800/60 border border-slate-700 rounded-xl">
         <h3 className="text-xl font-semibold text-[#00BFFF] mb-3">The Future of AI-Driven Marketing</h3>
         <p className="text-slate-300 mb-4">
           As AI technologies continue to evolve, we're seeing unprecedented opportunities for marketers to create 
           more personalized, effective, and ethical campaigns. The key to success lies in understanding both the 
-          technical capabilities and the strategic implications of AI implementation.
+          technical capabilities and the strategic implications of AI implementation in digital marketing.
         </p>
         <p className="text-slate-300 mb-4">
-          Companies that embrace AI-driven marketing strategies while maintaining ethical standards and focusing on 
-          genuine customer value will emerge as leaders in the digital marketplace of tomorrow.
+          Companies that embrace <strong>AI-driven marketing strategies</strong> while maintaining ethical standards and focusing on 
+          genuine customer value will emerge as leaders in the digital marketplace of tomorrow. <span className="text-[#00BFFF] font-semibold">Digital Frontier Company</span> 
+          is committed to helping businesses navigate this transformation successfully.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 mt-6">
