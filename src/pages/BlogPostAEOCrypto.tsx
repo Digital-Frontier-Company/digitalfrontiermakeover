@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -7,39 +6,25 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Link } from "react-router-dom";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import { Helmet } from "react-helmet-async";
-
 const BlogPostAEOCrypto: React.FC = () => {
   const location = useLocation();
-
-  const blogPostFaqs: FAQItem[] = [
-    {
-      question: "What is Answer Engine Optimization (AEO) and why is it important for crypto startups?",
-      answer: "Answer Engine Optimization (AEO) is the process of optimizing your content to directly answer questions that users are asking on search engines and other platforms. For crypto startups, AEO is crucial because it helps build trust and credibility by providing clear, accurate, and valuable information to potential users and investors. In an industry often plagued by misinformation, AEO can set you apart as a reliable source."
-    },
-    {
-      question: "How can AEO help crypto startups overcome credibility challenges?",
-      answer: "Crypto startups often face skepticism due to the volatile nature of the market and the prevalence of scams. AEO helps overcome these challenges by positioning your startup as a knowledgeable and trustworthy authority. By consistently providing high-quality answers to common questions, you can establish a reputation for transparency and expertise, which is essential for gaining user confidence and attracting investment."
-    },
-    {
-      question: "What are the key components of a successful AEO strategy for crypto startups?",
-      answer: "A successful AEO strategy involves several key components: 1) Identifying the questions your target audience is asking. 2) Creating comprehensive and informative content that directly answers those questions. 3) Optimizing your content for search engines and answer engines. 4) Building a strong community around your brand. 5) Continuously monitoring and updating your content to stay relevant and accurate. By focusing on these areas, you can create a robust AEO strategy that drives traffic, builds trust, and fosters long-term growth."
-    },
-    {
-      question: "How does community building contribute to AEO for crypto startups?",
-      answer: "Community building is integral to AEO because it amplifies the reach and impact of your content. A strong community can help distribute your answers, provide feedback, and contribute to the conversation, making your content more visible and credible. Engaging with your community also allows you to stay informed about the questions and concerns of your audience, ensuring that your AEO efforts remain relevant and effective."
-    },
-    {
-      question: "What are some common mistakes to avoid when implementing AEO for a crypto startup?",
-      answer: "Common mistakes include: 1) Neglecting to research the questions your audience is actually asking. 2) Creating content that is too technical or difficult to understand. 3) Failing to optimize your content for search engines. 4) Ignoring the importance of community engagement. 5) Spreading misinformation or making unsubstantiated claims. Avoiding these mistakes will help you build a more effective and trustworthy AEO strategy."
-    }
-  ];
-
-  return (
-    <PageLayout
-      title="Answer Engine Optimization in Digital Marketing for Crypto Startups"
-      subtitle="Discover how AEO and strategic community building can help crypto startups overcome credibility challenges and build lasting trust in 2025."
-      currentPath={location.pathname}
-    >
+  const blogPostFaqs: FAQItem[] = [{
+    question: "What is Answer Engine Optimization (AEO) and why is it important for crypto startups?",
+    answer: "Answer Engine Optimization (AEO) is the process of optimizing your content to directly answer questions that users are asking on search engines and other platforms. For crypto startups, AEO is crucial because it helps build trust and credibility by providing clear, accurate, and valuable information to potential users and investors. In an industry often plagued by misinformation, AEO can set you apart as a reliable source."
+  }, {
+    question: "How can AEO help crypto startups overcome credibility challenges?",
+    answer: "Crypto startups often face skepticism due to the volatile nature of the market and the prevalence of scams. AEO helps overcome these challenges by positioning your startup as a knowledgeable and trustworthy authority. By consistently providing high-quality answers to common questions, you can establish a reputation for transparency and expertise, which is essential for gaining user confidence and attracting investment."
+  }, {
+    question: "What are the key components of a successful AEO strategy for crypto startups?",
+    answer: "A successful AEO strategy involves several key components: 1) Identifying the questions your target audience is asking. 2) Creating comprehensive and informative content that directly answers those questions. 3) Optimizing your content for search engines and answer engines. 4) Building a strong community around your brand. 5) Continuously monitoring and updating your content to stay relevant and accurate. By focusing on these areas, you can create a robust AEO strategy that drives traffic, builds trust, and fosters long-term growth."
+  }, {
+    question: "How does community building contribute to AEO for crypto startups?",
+    answer: "Community building is integral to AEO because it amplifies the reach and impact of your content. A strong community can help distribute your answers, provide feedback, and contribute to the conversation, making your content more visible and credible. Engaging with your community also allows you to stay informed about the questions and concerns of your audience, ensuring that your AEO efforts remain relevant and effective."
+  }, {
+    question: "What are some common mistakes to avoid when implementing AEO for a crypto startup?",
+    answer: "Common mistakes include: 1) Neglecting to research the questions your audience is actually asking. 2) Creating content that is too technical or difficult to understand. 3) Failing to optimize your content for search engines. 4) Ignoring the importance of community engagement. 5) Spreading misinformation or making unsubstantiated claims. Avoiding these mistakes will help you build a more effective and trustworthy AEO strategy."
+  }];
+  return <PageLayout title="Answer Engine Optimization in Digital Marketing for Crypto Startups" subtitle="Discover how AEO and strategic community building can help crypto startups overcome credibility challenges and build lasting trust in 2025." currentPath={location.pathname}>
       <Helmet>
         <title>Answer Engine Optimization in Digital Marketing for Crypto Startups | Digital Frontier</title>
         <meta name="description" content="Discover how AEO and strategic community building can help crypto startups overcome credibility challenges and build lasting trust in 2025." />
@@ -49,11 +34,7 @@ const BlogPostAEOCrypto: React.FC = () => {
       <div className="space-y-12">
         <section>
           <AspectRatio ratio={16 / 9}>
-            <img
-              src="/lovable-uploads/7856abf2-126d-4fbb-87da-fe5143707423.png"
-              alt="Answer Engine Optimization in Digital Marketing for Crypto Startups"
-              className="object-cover w-full h-full rounded-xl"
-            />
+            <img src="/lovable-uploads/7856abf2-126d-4fbb-87da-fe5143707423.png" alt="Answer Engine Optimization in Digital Marketing for Crypto Startups" className="object-cover w-full h-full rounded-xl" />
           </AspectRatio>
         </section>
 
@@ -72,11 +53,7 @@ const BlogPostAEOCrypto: React.FC = () => {
 
         <section>
           <AspectRatio ratio={16 / 9}>
-            <img
-              src="/lovable-uploads/75c01b5c-2cdc-434f-ba8b-8a7f57494a92.png"
-              alt="Answer Engine Optimization - Dominate the AI Answer"
-              className="object-cover w-full h-full rounded-xl"
-            />
+            <img alt="Answer Engine Optimization - Dominate the AI Answer" src="/lovable-uploads/108a6190-a689-4e67-8494-edae10aa78d2.jpg" className="w-full h-full rounded-xl object-contain" />
           </AspectRatio>
         </section>
 
@@ -123,11 +100,7 @@ const BlogPostAEOCrypto: React.FC = () => {
 
         <section>
           <AspectRatio ratio={16 / 9}>
-            <img
-              src="/lovable-uploads/e7c6a6e9-3eeb-49c1-b0da-5377010fbf57.png"
-              alt="Digital Frontier Company - Comprehensive Business Strategy Flowchart"
-              className="object-cover w-full h-full rounded-xl"
-            />
+            <img src="/lovable-uploads/e7c6a6e9-3eeb-49c1-b0da-5377010fbf57.png" alt="Digital Frontier Company - Comprehensive Business Strategy Flowchart" className="w-full h-full rounded-xl object-contain" />
           </AspectRatio>
         </section>
 
@@ -200,11 +173,7 @@ const BlogPostAEOCrypto: React.FC = () => {
         </section>
 
         {/* FAQ Section */}
-        <FAQSection
-          title="AEO for Crypto Startups FAQ"
-          faqs={blogPostFaqs}
-          className="mt-12"
-        />
+        <FAQSection title="AEO for Crypto Startups FAQ" faqs={blogPostFaqs} className="mt-12" />
 
         <div className="bg-gradient-to-r from-[#0066FF]/10 to-[#00BFFF]/10 p-8 rounded-xl border border-[#0066FF]/20">
           <div className="text-center space-y-4">
@@ -275,8 +244,6 @@ const BlogPostAEOCrypto: React.FC = () => {
           </p>
         </div>
       </div>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default BlogPostAEOCrypto;
