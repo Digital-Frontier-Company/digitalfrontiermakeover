@@ -1,13 +1,12 @@
+
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Calendar, User, ArrowRight } from "lucide-react";
-import { generateBreadcrumbSchema } from "@/lib/utils";
-import FAQSection from "@/components/FAQSection";
+import { Link } from "react-router-dom";
+import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Helmet } from "react-helmet-async";
 
 const blogPosts = [
   {
@@ -96,140 +95,108 @@ const blogPosts = [
   }
 ];
 
-const blogFaqs = [
-  {
-    question: "How often do you publish new blog posts?",
-    answer: "We publish new insights and articles weekly, covering the latest trends in AI marketing, digital transformation, and Answer Engine Optimization."
-  },
-  {
-    question: "Can I subscribe to your blog updates?",
-    answer: "Yes! You can subscribe to our newsletter to receive the latest blog posts and exclusive insights directly in your inbox."
-  },
-  {
-    question: "Do you cover topics for beginners in digital marketing?",
-    answer: "Absolutely! Our blog covers topics for all skill levels, from beginner-friendly guides to advanced AI marketing strategies."
-  },
-  {
-    question: "How can I suggest a topic for your blog?",
-    answer: "We welcome topic suggestions! You can reach out to us through our contact page or social media channels with your ideas."
-  }
-];
-
-const Blog = () => {
+const Blog: React.FC = () => {
   const location = useLocation();
-  const canonicalUrl = `https://www.thedigitalfrontier.ai${location.pathname}`;
-  
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://www.thedigitalfrontier.ai" },
-    { name: "Blog", url: canonicalUrl }
-  ]);
+
+  const blogFaqs: FAQItem[] = [
+    {
+      question: "How often is the Digital Frontier blog updated?",
+      answer: "Our blog is updated weekly with new content exploring AI marketing, ethics, SEO strategies, and industry trends. We publish deep-dive analyses on Tuesdays and practical how-to guides on Thursdays, ensuring you always have fresh insights to help your business navigate the digital landscape."
+    },
+    {
+      question: "Can I contribute a guest post to the Digital Frontier blog?",
+      answer: "Yes! We welcome guest contributions from industry experts. To be considered, please email your pitch to blog@thedigitalfrontier.ai with your proposed topic, a brief outline, and examples of your previous writing. Ideal contributions provide unique insights backed by data or experience in AI marketing ethics or applications."
+    },
+    {
+      question: "Are there resources for beginners to understand AI marketing concepts?",
+      answer: "Absolutely. We have a dedicated 'Fundamentals' section that breaks down complex AI marketing concepts for beginners. Start with our 'AI Marketing 101' series, which covers basic principles, terminology, and practical applications. We also offer downloadable guides and infographics designed specifically for newcomers to the field."
+    }
+  ];
 
   return (
-    <>
+    <PageLayout 
+      title="Digital Frontier Company's Blog" 
+      subtitle="Where we explore the Digital Frontier in Digital Marketing, Social Media, Artificial Intelligence and Cryptocurrency" 
+      currentPath={location.pathname}
+    >
       <Helmet>
-        <title>Digital Marketing Blog | AI & Digital Transformation Insights</title>
-        <meta name="description" content="Explore expert insights on AI marketing, Answer Engine Optimization, crypto marketing, and digital transformation. Latest trends and strategies from Digital Frontier Company." />
-        <meta name="keywords" content="digital marketing blog, AI marketing insights, Answer Engine Optimization blog, crypto marketing articles, digital transformation trends, SEO blog, marketing strategy" />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta name="robots" content="index, follow" />
-        
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Digital Marketing Blog | AI & Digital Transformation Insights" />
-        <meta property="og:description" content="Expert insights on AI marketing, Answer Engine Optimization, and digital transformation strategies." />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://thedigitalfrontier.ai/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" />
-        
-        {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Digital Marketing Blog | Digital Frontier" />
-        <meta name="twitter:description" content="Expert insights on AI marketing and digital transformation strategies." />
-        <meta name="twitter:image" content="https://thedigitalfrontier.ai/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
+        <title>Digital Frontier Company's Blog | The Digital Frontier</title>
+        <meta name="description" content="Where we explore the Digital Frontier in Digital Marketing, Social Media, Artificial Intelligence and Cryptocurrency" />
+        <link rel="canonical" href="https://thedigitalfrontier.ai/blog" />
       </Helmet>
       
-      <PageLayout 
-        title="Digital Marketing Insights Blog"
-        subtitle="Expert insights on AI marketing, digital transformation, and the future of online business"
-        currentPath={location.pathname}
-      >
-        <div className="space-y-12">
-          <section>
-            <p className="text-lg text-slate-300 mb-8">
-              At the Digital Frontier Company's blog, we delve deep into the vast and ever-evolving landscape of digital marketing, social media, artificial intelligence, and cryptocurrency. Our mission is to explore the latest trends, innovative strategies, and cutting-edge technologies that shape the digital world. Whether you're a marketing professional looking to enhance your skills, a tech enthusiast eager to understand AI, or an investor seeking insights into cryptocurrency, our blog offers valuable resources and thought-provoking content. Join us as we navigate the complexities of the digital frontier, empowering you with the knowledge to thrive in this dynamic environment. Stay informed and inspired as we uncover the potential and possibilities within the digital realm.
-            </p>
-          </section>
+      <div className="space-y-12">
+        <section>
+          <p className="text-lg text-slate-300 mb-8">
+            At the Digital Frontier Company's blog, we delve deep into the vast and ever-evolving landscape of digital marketing, social media, artificial intelligence, and cryptocurrency. Our mission is to explore the latest trends, innovative strategies, and cutting-edge technologies that shape the digital world. Whether you're a marketing professional looking to enhance your skills, a tech enthusiast eager to understand AI, or an investor seeking insights into cryptocurrency, our blog offers valuable resources and thought-provoking content. Join us as we navigate the complexities of the digital frontier, empowering you with the knowledge to thrive in this dynamic environment. Stay informed and inspired as we uncover the potential and possibilities within the digital realm.
+          </p>
+        </section>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <article key={post.id} className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700 hover:border-[#00BFFF]/50 transition-all hover:shadow-lg hover:shadow-[#0066FF]/10">
-                <div className="relative">
-                  <AspectRatio ratio={16 / 9}>
-                    <img 
-                      src={post.image} 
-                      alt={post.title} 
-                      className="object-cover w-full h-full"
-                    />
-                  </AspectRatio>
-                  <div className="absolute top-4 right-4 bg-[#0066FF] text-white text-xs py-1 px-2 rounded">
-                    {post.category}
-                  </div>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <article key={post.id} className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700 hover:border-[#00BFFF]/50 transition-all hover:shadow-lg hover:shadow-[#0066FF]/10">
+              <div className="relative">
+                <AspectRatio ratio={16 / 9}>
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="object-cover w-full h-full"
+                  />
+                </AspectRatio>
+                <div className="absolute top-4 right-4 bg-[#0066FF] text-white text-xs py-1 px-2 rounded">
+                  {post.category}
                 </div>
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center text-sm text-slate-400 space-x-4">
-                    <span>{post.date}</span>
-                    <span>•</span>
-                    <span>{post.author}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white hover:text-[#00BFFF] transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-slate-300">{post.excerpt}</p>
-                  <div>
-                    <Link to={post.link || "#"}>
-                      <Button 
-                        variant="ghost" 
-                        className="text-[#00BFFF] hover:text-white hover:bg-[#0066FF] p-0 h-auto font-semibold"
-                      >
-                        Read more →
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </section>
-          
-          <section className="bg-gradient-to-r from-[#0066FF]/10 to-[#00BFFF]/10 p-8 rounded-xl border border-[#0066FF]/20">
-            <div className="text-center space-y-4">
-              <h2 className="text-2xl font-bold">Subscribe to Our Newsletter</h2>
-              <p className="text-slate-300 max-w-lg mx-auto">
-                Get the latest insights on AI marketing delivered straight to your inbox. 
-                No spam, just valuable content to help your business grow.
-              </p>
-              <div className="pt-4">
-                <Link to="/newsletter">
-                  <Button className="bg-gradient-to-r from-[#0066FF] to-[#00BFFF] hover:from-[#0055DD] hover:to-[#00AAEE] text-white">
-                    Subscribe Now
-                  </Button>
-                </Link>
               </div>
+              <div className="p-6 space-y-4">
+                <div className="flex items-center text-sm text-slate-400 space-x-4">
+                  <span>{post.date}</span>
+                  <span>•</span>
+                  <span>{post.author}</span>
+                </div>
+                <h3 className="text-xl font-bold text-white hover:text-[#00BFFF] transition-colors">
+                  {post.title}
+                </h3>
+                <p className="text-slate-300">{post.excerpt}</p>
+                <div>
+                  <Link to={post.link || "#"}>
+                    <Button 
+                      variant="ghost" 
+                      className="text-[#00BFFF] hover:text-white hover:bg-[#0066FF] p-0 h-auto font-semibold"
+                    >
+                      Read more →
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+        
+        <section className="bg-gradient-to-r from-[#0066FF]/10 to-[#00BFFF]/10 p-8 rounded-xl border border-[#0066FF]/20">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl font-bold">Subscribe to Our Newsletter</h2>
+            <p className="text-slate-300 max-w-lg mx-auto">
+              Get the latest insights on AI marketing delivered straight to your inbox. 
+              No spam, just valuable content to help your business grow.
+            </p>
+            <div className="pt-4">
+              <Link to="/newsletter">
+                <Button className="bg-gradient-to-r from-[#0066FF] to-[#00BFFF] hover:from-[#0055DD] hover:to-[#00AAEE] text-white">
+                  Subscribe Now
+                </Button>
+              </Link>
             </div>
-          </section>
-          
-          {/* FAQ Section */}
-          <FAQSection 
-            title="Blog FAQ" 
-            faqs={blogFaqs} 
-            className="mt-12" 
-          />
-        </div>
-      </PageLayout>
-    </>
+          </div>
+        </section>
+        
+        {/* FAQ Section */}
+        <FAQSection 
+          title="Blog FAQ" 
+          faqs={blogFaqs} 
+          className="mt-12" 
+        />
+      </div>
+    </PageLayout>
   );
 };
 
