@@ -1,3 +1,4 @@
+
 import React, { useCallback, useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
@@ -6,8 +7,7 @@ interface CarouselSlide {
   text: string;
   highlightText?: string;
   subText?: string;
-  imageSrc?: string;
-  type: 'text-only' | 'text-with-image';
+  type: 'text-only';
 }
 
 const HeroCarousel: React.FC = () => {
@@ -25,27 +25,23 @@ const HeroCarousel: React.FC = () => {
     text: "If you were truly Honest about it. We both know..",
     highlightText: "Your Web-site",
     subText: "could be........ MORE",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/1937a134-56d1-4879-bf22-3c8aaf49e075.png"
+    type: "text-only"
   }, {
     text: "How about a",
     highlightText: "Money-Printing Machine",
     type: "text-only"
   }, {
-    text: "",
+    text: "Ready for a",
     highlightText: "Money-Printing Machine",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png"
+    type: "text-only"
   }, {
-    text: "",
+    text: "Build your",
     highlightText: "Money-Printing Machine",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/2f2b5241-ae39-428b-a2cb-cc6b0a71a4e9.png"
+    type: "text-only"
   }, {
-    text: "",
+    text: "Deploy your",
     highlightText: "Money-Printing Machine",
-    type: "text-with-image",
-    imageSrc: "/lovable-uploads/54e3ff42-70e3-485e-8ade-21a31ebdde42.png"
+    type: "text-only"
   }, {
     text: "Stop paying for pretty pixels.",
     highlightText: "",
@@ -92,17 +88,6 @@ const HeroCarousel: React.FC = () => {
         <CarouselContent>
           {slides.map((slide, index) => (
             <CarouselItem key={index} className="relative min-w-full">
-              {slide.type === "text-with-image" && slide.imageSrc && (
-                <div className="absolute inset-0 z-0">
-                  <img 
-                    src={slide.imageSrc} 
-                    alt="" 
-                    className="w-full h-full max-h-80 object-contain opacity-20 mx-auto" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent"></div>
-                </div>
-              )}
-              
               <div className="relative z-10 flex flex-col items-center justify-center h-80 md:h-96 text-center px-6">
                 {slide.text && (
                   <h1 className="text-3xl md:text-5xl mb-4 text-white text-center font-extrabold">
