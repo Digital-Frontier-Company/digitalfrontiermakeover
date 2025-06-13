@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import HeroCarousel from "@/components/HeroCarousel";
 import Typed from 'typed.js';
 
 const Index = () => {
@@ -41,84 +40,84 @@ const Index = () => {
       <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
         {/* Background blue gradient effects */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-500/30 to-cyan-400/20 rounded-full filter blur-3xl opacity-70 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-400/20 to-blue-600/30 rounded-full filter blur-3xl opacity-60 animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-cyan-300/10 rounded-full filter blur-3xl opacity-40"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-cyan-400/15 rounded-full filter blur-2xl opacity-50 animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-400/15 to-blue-600/20 rounded-full filter blur-2xl opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-r from-blue-400/10 to-cyan-300/10 rounded-full filter blur-2xl opacity-30"></div>
         </div>
         
-        {/* Floating abstract shapes with blue colors */}
-        <div className="absolute top-20 left-10 w-16 h-16 rounded-lg bg-gradient-to-br from-blue-400/20 to-cyan-300/20 backdrop-blur-sm floating shadow-lg shadow-blue-500/20" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-1/3 right-20 w-24 h-24 rounded-full bg-gradient-to-br from-cyan-400/25 to-blue-500/25 backdrop-blur-sm floating shadow-xl shadow-cyan-400/20" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 right-1/4 w-20 h-20 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-400/20 backdrop-blur-sm floating shadow-lg shadow-blue-400/20" style={{ animationDelay: '2s' }}></div>
+        {/* Floating abstract shapes with blue colors - reduced sizes */}
+        <div className="absolute top-20 left-10 w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400/15 to-cyan-300/15 backdrop-blur-sm floating shadow-sm shadow-blue-500/10" style={{ animationDelay: '0s' }}></div>
+        <div className="absolute top-1/3 right-20 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 backdrop-blur-sm floating shadow-sm shadow-cyan-400/10" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 right-1/4 w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/15 to-cyan-400/15 backdrop-blur-sm floating shadow-sm shadow-blue-400/10" style={{ animationDelay: '2s' }}></div>
         
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           <div className="mb-6">
-            <img alt="Digital Frontier Company" className="mx-auto h-32 w-auto drop-shadow-2xl" src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" />
+            <img alt="Digital Frontier Company" className="mx-auto h-16 w-auto drop-shadow-lg" src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" />
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white">
             We don't just use AI to crunch numbers. We use it to <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Crush Markets</span>.
           </h1>
           
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
             From raw data to ruthless execution, Digital Frontier plugs machine learning into every decision, 
             every strategy, every campaign—so your business doesn't just grow...
           </p>
           
-          <p className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+          <p className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
             It dominates.
           </p>
           
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
             You'll stop guessing. You'll start scaling. Measurable wins. Market momentum. Growth you can see in your bank account.
           </p>
           
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
             This is war, and we bring the smart weapons.
           </p>
           
           <div className="pt-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium flex items-center justify-center gap-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium flex items-center justify-center gap-2">
               <span className="text-yellow-400 drop-shadow-lg">⚡️</span>
               <span ref={typedElement} className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent"></span>
               <span className="cursor animate-pulse">|</span>
             </h2>
             
-            <p className="mt-4 text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="mt-4 text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
               At Digital Frontier, we weaponize AI-powered data to take you from strategy to full-blown market domination. 
               No fluff. Just hard growth, fast execution, and results you can measure in MRR.
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105">
+            <Link to="/contact" className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105">
               Get Your Free Strategy Call
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </Link>
-            <a href="#testimonials" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border border-blue-500/50 rounded-lg hover:bg-blue-900/20 hover:border-blue-400/70 transition-all duration-300 backdrop-blur-sm">
+            <a href="#testimonials" className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white border border-blue-500/50 rounded-lg hover:bg-blue-900/20 hover:border-blue-400/70 transition-all duration-300 backdrop-blur-sm">
               See Our Success Stories
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
                 <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
               </svg>
             </a>
           </div>
           
-          {/* Trust indicators */}
-          <div className="pt-12 flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-400 text-sm">
+          {/* Trust indicators - reduced image sizes */}
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-400 text-sm">
             <div className="flex items-center">
-              <div className="flex -space-x-2">
-                <img className="w-8 h-8 rounded-full border-2 border-blue-500/30 shadow-lg" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Client" />
-                <img className="w-8 h-8 rounded-full border-2 border-blue-500/30 shadow-lg" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" />
-                <img className="w-8 h-8 rounded-full border-2 border-blue-500/30 shadow-lg" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" />
+              <div className="flex -space-x-1">
+                <img className="w-6 h-6 rounded-full border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Client" />
+                <img className="w-6 h-6 rounded-full border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" />
+                <img className="w-6 h-6 rounded-full border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" />
               </div>
               <span className="ml-3">Trusted by 850+ brands</span>
             </div>
             <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
               <span className="ml-1.5">4.9/5 (387 reviews)</span>
@@ -126,10 +125,10 @@ const Index = () => {
           </div>
         </div>
         
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-          <a href="#testimonials" className="animate-bounce inline-flex items-center justify-center w-10 h-10 rounded-full border border-blue-500/30 hover:bg-blue-900/20 hover:border-blue-400/50 transition-colors duration-300 backdrop-blur-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+        {/* Scroll indicator - smaller size */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <a href="#testimonials" className="animate-bounce inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-500/30 hover:bg-blue-900/20 hover:border-blue-400/50 transition-colors duration-300 backdrop-blur-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </a>
@@ -137,7 +136,7 @@ const Index = () => {
       </section>
 
       {/* TESTIMONIALS SECTION - PROPERLY SIZED */}
-      <div id="testimonials" className="py-12 bg-gradient-to-b from-slate-900/50 to-slate-800/50">
+      <div id="testimonials" className="py-8 bg-gradient-to-b from-slate-900/50 to-slate-800/50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <TestimonialsSection />
@@ -149,7 +148,7 @@ const Index = () => {
       <section className="df-smart-marketing">
         <div className="container">
           <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
             <h2>Smart Marketing Built for Speed, Scale, and Survival</h2>
           </div>
 
@@ -270,32 +269,32 @@ const Index = () => {
           }}>
             <div className="col-lg-6">
               <div className="df-neon-border mt-3 mb-5 mb-lg-3">
-                <img alt="Digital Frontier Data Dashboard" className="img-fluid p-2" style={{
+                <img alt="Digital Frontier Data Dashboard" className="img-fluid p-2 max-h-64 object-contain" style={{
                   borderRadius: "10px"
                 }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
               </div>
             </div>
             <div className="col-lg-6">
               <h2 style={{
-                fontSize: "32px",
+                fontSize: "28px",
                 fontWeight: 700,
                 marginBottom: "20px"
               }}>Turn Your Brand into a Revenue Engine</h2>
               <div className="imagine-text">
                 <p style={{
-                  fontSize: "18px",
+                  fontSize: "16px",
                   color: "#e0e0e0",
                   marginBottom: "15px"
                 }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
               </div>
               <div className="content-text">
                 <p style={{
-                  fontSize: "16px",
+                  fontSize: "14px",
                   color: "#cccccc",
                   marginBottom: "15px"
                 }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
                 <p style={{
-                  fontSize: "16px",
+                  fontSize: "14px",
                   color: "#cccccc",
                   marginBottom: 0
                 }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
@@ -309,14 +308,14 @@ const Index = () => {
       <section className="df-what-youll-gain">
         <div className="container">
           <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
             <h2 className="section-title" style={{
-              fontSize: "36px",
+              fontSize: "32px",
               fontWeight: 700,
               marginBottom: "15px"
             }}>What You'll <span>Gain</span></h2>
             <p className="section-subtitle" style={{
-              fontSize: "18px",
+              fontSize: "16px",
               color: "#e0e0e0",
               maxWidth: "700px",
               margin: "0 auto"
@@ -327,7 +326,7 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "40px"
+                  fontSize: "32px"
                 }}>🔍</div>
                 <h3>SEO Analysis</h3>
                 <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
@@ -337,7 +336,7 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "40px"
+                  fontSize: "32px"
                 }}>📈</div>
                 <h3>Conversion Insights</h3>
                 <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
@@ -347,7 +346,7 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "40px"
+                  fontSize: "32px"
                 }}>🔄</div>
                 <h3>Competitor Analysis</h3>
                 <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
@@ -357,7 +356,7 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "40px"
+                  fontSize: "32px"
                 }}>📋</div>
                 <h3>Action Plan</h3>
                 <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
@@ -403,7 +402,7 @@ const Index = () => {
       <section className="df-final-cta">
         <div className="container">
           <div className="text-center mb-4">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" width="120" className="mb-4" />
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" width="80" className="mb-4" />
           </div>
           <h2>Ready to Own Your Digital Space?</h2>
           <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk. Click below, and let's build something legendary.</p>
