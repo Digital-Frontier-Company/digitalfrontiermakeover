@@ -151,9 +151,9 @@ const Index = () => {
 
       {/* NEW SERVICE CARDS SECTION */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
-        {/* Animated background image with heavy opacity */}
+        {/* Animated background image with medium opacity */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-20"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-40"
           style={{
             backgroundImage: "url('/lovable-uploads/1382424c-884b-488c-a216-f685e32138c7.png')",
             filter: 'blur(1px)'
