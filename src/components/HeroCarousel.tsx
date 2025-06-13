@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import useEmblaCarousel from "embla-carousel-react";
+
 interface CarouselSlide {
   text: string;
   highlightText?: string;
@@ -8,13 +9,14 @@ interface CarouselSlide {
   imageSrc?: string;
   type: 'text-only' | 'text-with-image';
 }
+
 const HeroCarousel: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    // Remove 'draggable: false' and replace with 'dragFree: false'
     dragFree: false
   });
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const slides: CarouselSlide[] = [{
     text: "Digital Frontier",
     highlightText: "Marketing",
@@ -50,6 +52,7 @@ const HeroCarousel: React.FC = () => {
     subText: "Your site should print money. We design pages around the only metric that matters in 2025 - Attention.",
     type: "text-only"
   }];
+
   const autoPlayInterval = 5000; // 5 seconds
 
   const scrollToNext = useCallback(() => {
@@ -78,43 +81,70 @@ const HeroCarousel: React.FC = () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
-  return <div className="df-hero-carousel relative">
+
+  return (
+    <div className="df-hero-carousel relative">
       <Carousel ref={emblaRef} className="w-full overflow-hidden" opts={{
-      loop: true,
-      align: "center",
-      dragFree: false
-    }}>
+        loop: true,
+        align: "center",
+        dragFree: false
+      }}>
         <CarouselContent>
-          {slides.map((slide, index) => <CarouselItem key={index} className="relative min-w-full">
-              {slide.type === "text-with-image" && slide.imageSrc && <div className="absolute inset-0 z-0">
-                  <img src={slide.imageSrc} alt="" className="w-full h-full object-cover opacity-30" />
+          {slides.map((slide, index) => (
+            <CarouselItem key={index} className="relative min-w-full">
+              {slide.type === "text-with-image" && slide.imageSrc && (
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={slide.imageSrc} 
+                    alt="" 
+                    className="w-full h-full max-h-80 object-contain opacity-20 mx-auto" 
+                  />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent"></div>
-                </div>}
+                </div>
+              )}
               
-              <div className="relative z-10 flex flex-col items-center justify-center h-[60vh] text-center px-[24px]">
-                {slide.text && <h1 className="text-5xl md:text-6xl mb-4 text-white text-center lg:text-4xl font-extrabold">
+              <div className="relative z-10 flex flex-col items-center justify-center h-80 md:h-96 text-center px-6">
+                {slide.text && (
+                  <h1 className="text-3xl md:text-5xl mb-4 text-white text-center font-extrabold">
                     {slide.text}
-                  </h1>}
+                  </h1>
+                )}
                 
-                {slide.highlightText && <h1 className="text-5xl md:text-6xl mb-6 text-[var(--df-light-blue)] lg:text-7xl mx-0 my-[32px] px-[9px] py-[9px] font-extrabold border border-cyan-500 text-cyan-400 capitalize shadow-[0_0_15px_rgba(0,255,255,0.6)] rounded-sm">
+                {slide.highlightText && (
+                  <h1 className="text-4xl md:text-6xl mb-6 text-[var(--df-light-blue)] mx-0 my-8 px-2 py-2 font-extrabold border border-cyan-500 text-cyan-400 capitalize shadow-[0_0_15px_rgba(0,255,255,0.6)] rounded-sm">
                     {slide.highlightText}
-                  </h1>}
+                  </h1>
+                )}
                 
-                {slide.subText && <h2 className="text-3xl md:text-4xl text-[var(--df-light-blue)] max-w-4xl text-cyan-400 font-extrabold lg:text-xl">
+                {slide.subText && (
+                  <h2 className="text-xl md:text-3xl text-[var(--df-light-blue)] max-w-4xl text-cyan-400 font-extrabold">
                     {slide.subText}
-                  </h2>}
+                  </h2>
+                )}
               </div>
-            </CarouselItem>)}
+            </CarouselItem>
+          ))}
         </CarouselContent>
       </Carousel>
       
       {/* Slide indicators */}
       <div className="flex justify-center mt-4 space-x-2">
-        {slides.map((_, index) => <button key={index} className={`h-1.5 rounded-full transition-all ${currentIndex === index ? "w-6 bg-[var(--df-light-blue)]" : "w-2 bg-white/30"}`} aria-label={`Go to slide ${index + 1}`} onClick={() => {
-        emblaApi?.scrollTo(index);
-        setCurrentIndex(index);
-      }} />)}
+        {slides.map((_, index) => (
+          <button 
+            key={index} 
+            className={`h-1.5 rounded-full transition-all ${
+              currentIndex === index ? "w-6 bg-[var(--df-light-blue)]" : "w-2 bg-white/30"
+            }`} 
+            aria-label={`Go to slide ${index + 1}`} 
+            onClick={() => {
+              emblaApi?.scrollTo(index);
+              setCurrentIndex(index);
+            }} 
+          />
+        ))}
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default HeroCarousel;
