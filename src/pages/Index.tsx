@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -170,6 +171,11 @@ const Index = () => {
                   src="/lovable-uploads/d1f63922-cb81-400c-9c51-2d3281fae842.png" 
                   alt="AI-Powered Marketing" 
                   className="w-full h-48 object-cover rounded-lg"
+                  onError={(e) => {
+                    console.error('Failed to load image:', e.currentTarget.src);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => console.log('Image loaded successfully')}
                 />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
@@ -201,6 +207,11 @@ const Index = () => {
                   src="/lovable-uploads/92f1d92f-0397-4181-96f0-c11dd99997b6.png" 
                   alt="Data-Driven Insights" 
                   className="w-full h-48 object-cover rounded-lg"
+                  onError={(e) => {
+                    console.error('Failed to load image:', e.currentTarget.src);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => console.log('Image loaded successfully')}
                 />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
@@ -232,6 +243,11 @@ const Index = () => {
                   src="/lovable-uploads/31668116-f914-4c37-9812-346ae25aa624.png" 
                   alt="Answer Engine Optimization" 
                   className="w-full h-48 object-cover rounded-lg"
+                  onError={(e) => {
+                    console.error('Failed to load image:', e.currentTarget.src);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => console.log('Image loaded successfully')}
                 />
               </div>
               <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
