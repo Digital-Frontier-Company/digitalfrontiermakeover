@@ -10,9 +10,12 @@ const MainLayout = ({
   children: React.ReactNode;
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
   const isMobile = useIsMobile();
   const menuAnimation = useRef<HTMLSpanElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
     let typed: Typed | null = null;
 
@@ -35,9 +38,42 @@ const MainLayout = ({
       }
     };
   }, [isMobile]);
+
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
+
+  const handleDropdownEnter = (dropdownName: string) => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+    setActiveDropdown(dropdownName);
+  };
+
+  const handleDropdownLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300); // 300ms delay before closing
+  };
+
+  const handleDropdownClick = (dropdownName: string) => {
+    if (activeDropdown === dropdownName) {
+      setActiveDropdown(null);
+    } else {
+      setActiveDropdown(dropdownName);
+    }
+  };
+
+  // Clear timeout on component unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return <div className="min-h-screen flex flex-col bg-slate-950 text-white">
       {/* Fixed header */}
       <header className="w-full backdrop-blur-lg bg-slate-900/80 border-b border-slate-800 fixed top-0 z-50 shadow-lg shadow-slate-900/20">
@@ -57,12 +93,23 @@ const MainLayout = ({
                     Home
                   </Link>
                 </li>
-                <li className="group relative">
-                  <button className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center">
+                <li className="relative">
+                  <button 
+                    className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center"
+                    onClick={() => handleDropdownClick('services')}
+                    onMouseEnter={() => handleDropdownEnter('services')}
+                    onMouseLeave={handleDropdownLeave}
+                  >
                     Services
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
-                  <div className="absolute left-0 mt-1 w-56 hidden group-hover:block z-50">
+                  <div 
+                    className={`absolute left-0 mt-1 w-56 z-50 transition-all duration-200 ${
+                      activeDropdown === 'services' ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}
+                    onMouseEnter={() => handleDropdownEnter('services')}
+                    onMouseLeave={handleDropdownLeave}
+                  >
                     <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
                       <Link to="/ad-funnel-blueprint" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         AI-Powered Ad Funnel Blueprint
@@ -82,12 +129,23 @@ const MainLayout = ({
                     </div>
                   </div>
                 </li>
-                <li className="group relative">
-                  <button className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center">
+                <li className="relative">
+                  <button 
+                    className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center"
+                    onClick={() => handleDropdownClick('resources')}
+                    onMouseEnter={() => handleDropdownEnter('resources')}
+                    onMouseLeave={handleDropdownLeave}
+                  >
                     Resources
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
-                  <div className="absolute left-0 mt-1 w-56 hidden group-hover:block z-50">
+                  <div 
+                    className={`absolute left-0 mt-1 w-56 z-50 transition-all duration-200 ${
+                      activeDropdown === 'resources' ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}
+                    onMouseEnter={() => handleDropdownEnter('resources')}
+                    onMouseLeave={handleDropdownLeave}
+                  >
                     <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
                       <Link to="/blog" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
                         Blog
