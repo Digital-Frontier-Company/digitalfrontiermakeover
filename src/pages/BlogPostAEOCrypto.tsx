@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -69,6 +70,16 @@ const BlogPostAEOCrypto: React.FC = () => {
           </p>
         </section>
 
+        <section>
+          <AspectRatio ratio={16 / 9}>
+            <img
+              src="/lovable-uploads/75c01b5c-2cdc-434f-ba8b-8a7f57494a92.png"
+              alt="Answer Engine Optimization - Dominate the AI Answer"
+              className="object-cover w-full h-full rounded-xl"
+            />
+          </AspectRatio>
+        </section>
+
         <section className="space-y-6">
           <h3 className="text-2xl font-bold text-slate-100">
             The Credibility Challenge for Crypto Startups
@@ -108,6 +119,16 @@ const BlogPostAEOCrypto: React.FC = () => {
               <span className="font-semibold">Greater Trust and Credibility:</span> By demonstrating your expertise, you can build trust with potential users and investors.
             </li>
           </ul>
+        </section>
+
+        <section>
+          <AspectRatio ratio={16 / 9}>
+            <img
+              src="/lovable-uploads/e7c6a6e9-3eeb-49c1-b0da-5377010fbf57.png"
+              alt="Digital Frontier Company - Comprehensive Business Strategy Flowchart"
+              className="object-cover w-full h-full rounded-xl"
+            />
+          </AspectRatio>
         </section>
 
         <section className="space-y-6">
