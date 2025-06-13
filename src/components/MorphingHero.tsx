@@ -253,7 +253,7 @@ const MorphingHero = () => {
       </div>
 
       {/* Custom CSS for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fadeInScale {
           0% {
             opacity: 0;
