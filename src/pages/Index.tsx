@@ -6,7 +6,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -191,10 +190,10 @@ const Index = () => {
             {/* Data-Driven Insights Card */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950">
               <div className="mb-6">
-                <img src="/lovable-uploads/caa84279-4b2b-4b24-aa41-82da6b5882b6.png" alt="Data-Driven Insights" className="w-full h-48 object-cover rounded-lg" onError={e => {
+                <img alt="Data-Driven Insights" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} />
+              }} onLoad={() => console.log('Image loaded successfully')} src="/lovable-uploads/740d8d00-3c56-4745-a2e2-dce396f2ecee.jpg" className="w-full h-48 rounded-lg object-cover" />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Data-Driven Insights
