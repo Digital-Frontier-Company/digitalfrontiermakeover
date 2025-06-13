@@ -22,6 +22,11 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
+# Crawl-delay for courtesy
+Crawl-delay: 1
+
 # Sitemap location
 Sitemap: https://www.thedigitalfrontier.ai/sitemap.xml
 
+# Additional sitemap for images if needed
+# Sitemap: https://www.thedigitalfrontier.ai/sitemap-images.xml
