@@ -6,7 +6,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -194,7 +193,7 @@ const Index = () => {
                 <img alt="Data-Driven Insights" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} src="/lovable-uploads/caa84279-4b2b-4b24-aa41-82da6b5882b6.png" className="w-full h-48 rounded-lg object-cover" />
+              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png" />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Data-Driven Insights
