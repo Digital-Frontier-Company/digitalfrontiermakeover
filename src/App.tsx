@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
+import Index from '@/pages/Index';
 import AdFunnelBlueprint from '@/pages/AdFunnelBlueprint';
 import GenerativeEngineOptimization from '@/pages/GenerativeEngineOptimization';
 import AnswerEngineOptimization from '@/pages/AnswerEngineOptimization';
@@ -30,7 +31,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<MainLayout><div>Home Page</div></MainLayout>} />
+            <Route path="/" element={<Index />} />
             <Route path="/ad-funnel-blueprint" element={<MainLayout><AdFunnelBlueprint /></MainLayout>} />
             <Route path="/generative-engine-optimization" element={<MainLayout><GenerativeEngineOptimization /></MainLayout>} />
             <Route path="/answer-engine-optimization" element={<MainLayout><AnswerEngineOptimization /></MainLayout>} />
