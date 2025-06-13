@@ -4,7 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Target, Lightbulb, Award, Globe, Code, Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Users, Target, Lightbulb, Award, Globe, Code, Facebook, Instagram, Linkedin, Twitter, Youtube, BarChart, BarChart2 } from "lucide-react";
 import { generateOrganizationSchema, generateBreadcrumbSchema } from "@/lib/utils";
 
 const AboutUs = () => {
