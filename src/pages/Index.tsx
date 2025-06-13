@@ -191,7 +191,7 @@ const Index = () => {
             {/* Data-Driven Insights Card */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950">
               <div className="mb-6">
-                <img src="/lovable-uploads/92f1d92f-0397-4181-96f0-c11dd99997b6.png" alt="Data-Driven Insights" className="w-full h-48 object-cover rounded-lg" onError={e => {
+                <img src="/lovable-uploads/caa84279-4b2b-4b24-aa41-82da6b5882b6.png" alt="Data-Driven Insights" className="w-full h-48 object-cover rounded-lg" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
               }} onLoad={() => console.log('Image loaded successfully')} />
@@ -204,7 +204,7 @@ const Index = () => {
               </p>
               <ul className="space-y-3 mb-8">
                 {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white bg-slate-950 rounded-full">
-                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
               </ul>
