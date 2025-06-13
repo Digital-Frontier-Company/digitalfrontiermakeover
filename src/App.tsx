@@ -92,6 +92,7 @@ const App = () => (
           <Route path="/crypto-marketing" element={<CryptoMarketing />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/mastering-digital-marketing" element={<BlogPost />} />
+          <Route path="/blog/answer-engine-optimization-crypto-startups" element={<BlogPostAEOCrypto />} />
           <Route path="/resources/content-creation-agent" element={<ContentCreationAgent />} />
           <Route path="/site-map" element={<SiteMap />} />
           <Route path="/psychological-digital-marketing-insights" element={<PsychologicalDigitalMarketingInsights />} />

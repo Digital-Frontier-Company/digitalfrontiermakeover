@@ -11,6 +11,16 @@ import { Helmet } from "react-helmet-async";
 const blogPosts = [
   {
     id: 0,
+    title: "Answer Engine Optimization in Digital Marketing for Crypto Startups",
+    excerpt: "Discover how AEO and strategic community building can help crypto startups overcome credibility challenges and build lasting trust in 2025.",
+    image: "/lovable-uploads/7856abf2-126d-4fbb-87da-fe5143707423.png",
+    date: "January 13, 2025",
+    category: "Crypto Marketing",
+    author: "Digital Frontier Team",
+    link: "/blog/answer-engine-optimization-crypto-startups"
+  },
+  {
+    id: 1,
     title: "Mastering Digital Marketing: AI, AEO, and Innovations",
     excerpt: "Learn how AI, AEO, and new digital marketing innovations can transform your B2B marketing strategy in 2025 and beyond.",
     image: "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
