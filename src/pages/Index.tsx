@@ -150,8 +150,20 @@ const Index = () => {
       </section>
 
       {/* NEW SERVICE CARDS SECTION */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900 animate-on-scroll animate-gradient-x relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 animate-gradient-x"></div>
+      <section className="py-20 relative overflow-hidden animate-on-scroll">
+        {/* Animated background image with heavy opacity */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-20"
+          style={{
+            backgroundImage: "url('/lovable-uploads/1382424c-884b-488c-a216-f685e32138c7.png')",
+            filter: 'blur(1px)'
+          }}
+        ></div>
+        
+        {/* Animated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-900/80 to-slate-900/80 animate-gradient-x"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 via-purple-600/30 to-cyan-600/30 animate-gradient-x"></div>
+        
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
