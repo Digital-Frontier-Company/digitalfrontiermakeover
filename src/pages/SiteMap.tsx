@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -14,7 +13,7 @@ const SiteMap = () => {
     { name: "About Us", path: "/about-us" },
     { name: "Contact", path: "/contact" },
     { name: "Blog", path: "/blog" },
-    { name: "Pricing", path: "/pricing" },
+    { name: "Pricing", path: "/answer-engine-optimization-and-digital-marketing-services" },
     { name: "Newsletter", path: "/newsletter" },
     { name: "FAQ", path: "/faq" },
   ];
