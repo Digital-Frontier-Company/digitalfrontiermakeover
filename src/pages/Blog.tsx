@@ -52,7 +52,7 @@ const blogPosts = [
     id: 2,
     title: "Optimizing Your SEO For Answer Engines",
     excerpt: "Learn how to adapt your SEO strategy for the new era of answer engines and AI search.",
-    image: "/lovable-uploads/36f6d997-5da6-4119-aaba-d7390e04fde2.png",
+    image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=328,h=240,fit=crop/AQED72Wg6XijkzV2/the-perfect-none-background-mem-AE0r33Kk1ZT9DN1k.png",
     date: "May 7, 2025",
     category: "SEO",
     author: "Samantha Lee"
