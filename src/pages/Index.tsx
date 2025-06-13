@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Typed from 'typed.js';
+import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award } from 'lucide-react';
 
 const Index = () => {
   // Use the FAQ toggle hook
@@ -12,6 +13,37 @@ const Index = () => {
   // Reference for Typed.js element
   const typedElement = useRef(null);
   const typed = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Track mouse movement for interactive effects
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Intersection observer for animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const sections = document.querySelectorAll('.animate-on-scroll');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   // Initialize Typed.js on component mount
   useEffect(() => {
@@ -36,108 +68,216 @@ const Index = () => {
 
   return (
     <MainLayout>
-      {/* HERO SECTION WITH PROPER BLUE EFFECTS */}
-      <section className="relative overflow-hidden min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-        {/* Background blue gradient effects */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-cyan-400/15 rounded-full filter blur-2xl opacity-50 animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-cyan-400/15 to-blue-600/20 rounded-full filter blur-2xl opacity-40 animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-gradient-to-r from-blue-400/10 to-cyan-300/10 rounded-full filter blur-2xl opacity-30"></div>
-        </div>
-        
-        {/* Floating abstract shapes with blue colors - reduced sizes */}
-        <div className="absolute top-20 left-10 w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400/15 to-cyan-300/15 backdrop-blur-sm floating shadow-sm shadow-blue-500/10" style={{ animationDelay: '0s' }}></div>
-        <div className="absolute top-1/3 right-20 w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 backdrop-blur-sm floating shadow-sm shadow-cyan-400/10" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 right-1/4 w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/15 to-cyan-400/15 backdrop-blur-sm floating shadow-sm shadow-blue-400/10" style={{ animationDelay: '2s' }}></div>
-        
-        {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-          <div className="mb-6">
-            <img alt="Digital Frontier Company" className="mx-auto h-16 w-auto drop-shadow-lg" src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" />
+      {/* HERO SECTION - RULE OF THIRDS LAYOUT */}
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-800">
+        {/* Interactive Background Effects */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Animated Grid */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="grid grid-cols-3 grid-rows-3 h-full w-full">
+              {[...Array(9)].map((_, i) => (
+                <div 
+                  key={i} 
+                  className="border border-blue-400/20 relative animate-pulse"
+                  style={{ animationDelay: `${i * 0.2}s` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent" />
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-white">
-            We don't just use AI to crunch numbers. We use it to <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Crush Markets</span>.
-          </h1>
+          {/* Floating Particles */}
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-blue-400/30 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${3 + Math.random() * 4}s`
+              }}
+            />
+          ))}
+
+          {/* Interactive Mouse Trail */}
+          <div
+            className="absolute w-96 h-96 bg-gradient-radial from-blue-500/10 to-transparent rounded-full pointer-events-none transition-all duration-300 ease-out"
+            style={{
+              left: mousePosition.x - 192,
+              top: mousePosition.y - 192,
+            }}
+          />
+        </div>
+
+        {/* Rule of Thirds Grid Layout */}
+        <div className="relative z-10 h-screen grid grid-cols-3 grid-rows-3 gap-0">
           
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-            From raw data to ruthless execution, Digital Frontier plugs machine learning into every decision, 
-            every strategy, every campaign—so your business doesn't just grow...
-          </p>
-          
-          <p className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-            It dominates.
-          </p>
-          
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-            You'll stop guessing. You'll start scaling. Measurable wins. Market momentum. Growth you can see in your bank account.
-          </p>
-          
-          <p className="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-            This is war, and we bring the smart weapons.
-          </p>
-          
-          <div className="pt-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium flex items-center justify-center gap-2">
-              <span className="text-yellow-400 drop-shadow-lg">⚡️</span>
-              <span ref={typedElement} className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent"></span>
-              <span className="cursor animate-pulse">|</span>
-            </h2>
-            
-            <p className="mt-4 text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
-              At Digital Frontier, we weaponize AI-powered data to take you from strategy to full-blown market domination. 
-              No fluff. Just hard growth, fast execution, and results you can measure in MRR.
-            </p>
+          {/* TOP LEFT - Logo and Brand Identity */}
+          <div className="flex items-center justify-center p-8 animate-fade-in">
+            <div className="text-center transform hover:scale-110 transition-all duration-500">
+              <img 
+                alt="Digital Frontier Company" 
+                className="mx-auto h-20 w-auto drop-shadow-2xl animate-pulse"
+                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
+              />
+              <div className="mt-4 text-blue-400 text-sm font-medium tracking-wider animate-bounce">
+                EST. 2024
+              </div>
+            </div>
           </div>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <Link to="/contact" className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:scale-105">
-              Get Your Free Strategy Call
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </Link>
-            <a href="#testimonials" className="inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white border border-blue-500/50 rounded-lg hover:bg-blue-900/20 hover:border-blue-400/70 transition-all duration-300 backdrop-blur-sm">
-              See Our Success Stories
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
-              </svg>
+
+          {/* TOP CENTER - Main Headline */}
+          <div className="flex items-center justify-center p-8 animate-scale-in">
+            <div className="text-center">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight text-white mb-6 animate-fade-in">
+                We don't just use AI to 
+                <span className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
+                  Crush Markets
+                </span>
+              </h1>
+            </div>
+          </div>
+
+          {/* TOP RIGHT - Stats/Trust Indicators */}
+          <div className="flex items-center justify-center p-8 animate-slide-in-right">
+            <div className="grid grid-cols-1 gap-4 text-center">
+              <div className="bg-blue-900/20 backdrop-blur-sm border border-blue-500/20 rounded-lg p-4 hover:bg-blue-900/30 transition-all duration-300 hover:scale-105">
+                <div className="text-2xl font-bold text-blue-400">850+</div>
+                <div className="text-sm text-gray-300">Brands Trust Us</div>
+              </div>
+              <div className="bg-blue-900/20 backdrop-blur-sm border border-blue-500/20 rounded-lg p-4 hover:bg-blue-900/30 transition-all duration-300 hover:scale-105">
+                <div className="text-2xl font-bold text-yellow-400">4.9/5</div>
+                <div className="text-sm text-gray-300">Client Rating</div>
+              </div>
+            </div>
+          </div>
+
+          {/* MIDDLE LEFT - Key Benefits */}
+          <div className="flex items-center justify-center p-8 animate-slide-in-left">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer group">
+                <Zap className="w-6 h-6 text-yellow-400 group-hover:animate-spin" />
+                <span className="font-medium">AI-Powered Growth</span>
+              </div>
+              <div className="flex items-center space-x-3 text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer group">
+                <Target className="w-6 h-6 text-red-400 group-hover:animate-pulse" />
+                <span className="font-medium">Precision Targeting</span>
+              </div>
+              <div className="flex items-center space-x-3 text-white hover:text-blue-400 transition-colors duration-300 cursor-pointer group">
+                <TrendingUp className="w-6 h-6 text-green-400 group-hover:animate-bounce" />
+                <span className="font-medium">Measurable Results</span>
+              </div>
+            </div>
+          </div>
+
+          {/* CENTER - Dynamic Typed Text and Core Message */}
+          <div className="flex items-center justify-center p-8 relative">
+            <div className="text-center z-10">
+              <div className="mb-8">
+                <h2 className="text-2xl md:text-4xl font-medium flex items-center justify-center gap-2 mb-4">
+                  <span className="text-yellow-400 drop-shadow-lg animate-pulse">⚡️</span>
+                  <span ref={typedElement} className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent"></span>
+                  <span className="cursor animate-pulse">|</span>
+                </h2>
+              </div>
+              
+              <p className="text-lg text-gray-300 max-w-md mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+                From raw data to ruthless execution. We weaponize AI-powered data for full-blown market domination.
+              </p>
+
+              {/* Interactive CTA Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link 
+                  to="/contact" 
+                  className="group relative px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 hover:scale-105 hover:-translate-y-1 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-300 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  <span className="relative flex items-center justify-center">
+                    Get Your Free Strategy Call
+                    <Rocket className="ml-2 w-4 h-4 group-hover:animate-bounce" />
+                  </span>
+                </Link>
+                
+                <a 
+                  href="#testimonials" 
+                  className="group px-8 py-4 text-base font-semibold text-white border border-blue-500/50 rounded-lg hover:bg-blue-900/20 hover:border-blue-400/70 transition-all duration-300 backdrop-blur-sm hover:scale-105 hover:-translate-y-1"
+                >
+                  <span className="flex items-center justify-center">
+                    See Success Stories
+                    <Award className="ml-2 w-4 h-4 group-hover:animate-pulse" />
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* Central Focal Point Indicator */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-4 h-4 bg-blue-400/50 rounded-full animate-ping" />
+              <div className="absolute w-2 h-2 bg-blue-400 rounded-full" />
+            </div>
+          </div>
+
+          {/* MIDDLE RIGHT - Social Proof */}
+          <div className="flex items-center justify-center p-8 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
+            <div className="text-center">
+              <div className="mb-4">
+                <div className="flex -space-x-2 justify-center mb-3">
+                  <img className="w-8 h-8 rounded-full border-2 border-blue-500/50 shadow-lg hover:scale-110 transition-transform duration-300" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Client" />
+                  <img className="w-8 h-8 rounded-full border-2 border-blue-500/50 shadow-lg hover:scale-110 transition-transform duration-300" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" />
+                  <img className="w-8 h-8 rounded-full border-2 border-blue-500/50 shadow-lg hover:scale-110 transition-transform duration-300" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" />
+                </div>
+              </div>
+              <p className="text-sm text-gray-400 animate-fade-in">
+                Join 850+ growing brands
+              </p>
+            </div>
+          </div>
+
+          {/* BOTTOM LEFT - Value Proposition */}
+          <div className="flex items-center justify-center p-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="text-center">
+              <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-lg p-6 hover:bg-slate-800/70 transition-all duration-300 hover:scale-105">
+                <Users className="w-8 h-8 text-blue-400 mx-auto mb-2 animate-pulse" />
+                <p className="text-sm text-gray-300">
+                  <strong className="text-blue-400">No fluff.</strong><br />
+                  Just hard growth & fast execution
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* BOTTOM CENTER - Scroll Indicator */}
+          <div className="flex items-end justify-center p-8 pb-12">
+            <a 
+              href="#smart-marketing" 
+              className="group animate-bounce hover:animate-none inline-flex flex-col items-center justify-center text-blue-300 hover:text-blue-400 transition-colors duration-300"
+            >
+              <span className="text-sm mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Explore More</span>
+              <div className="w-10 h-10 rounded-full border-2 border-blue-500/30 hover:border-blue-400/50 transition-colors duration-300 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-500/25">
+                <ChevronDown className="w-5 h-5 group-hover:animate-bounce" />
+              </div>
             </a>
           </div>
-          
-          {/* Trust indicators - reduced image sizes */}
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-400 text-sm">
-            <div className="flex items-center">
-              <div className="flex -space-x-1">
-                <img className="w-6 h-6 rounded-full border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/women/12.jpg" alt="Client" />
-                <img className="w-6 h-6 rounded-full border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" />
-                <img className="w-6 h-6 rounded-full border border-blue-500/30 shadow-sm" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" />
+
+          {/* BOTTOM RIGHT - Call to Action Reinforcement */}
+          <div className="flex items-center justify-center p-8 animate-slide-in-right" style={{ animationDelay: '0.9s' }}>
+            <div className="text-center">
+              <div className="bg-gradient-to-br from-yellow-900/20 to-orange-900/20 backdrop-blur-sm border border-yellow-500/20 rounded-lg p-6 hover:bg-gradient-to-br hover:from-yellow-900/30 hover:to-orange-900/30 transition-all duration-300 hover:scale-105">
+                <div className="text-yellow-400 text-2xl mb-2">⚡</div>
+                <p className="text-sm text-gray-300">
+                  <strong className="text-yellow-400">This is war,</strong><br />
+                  we bring smart weapons
+                </p>
               </div>
-              <span className="ml-3">Trusted by 850+ brands</span>
-            </div>
-            <div className="flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span className="ml-1.5">4.9/5 (387 reviews)</span>
             </div>
           </div>
-        </div>
-        
-        {/* Scroll indicator - smaller size */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <a href="#testimonials" className="animate-bounce inline-flex items-center justify-center w-8 h-8 rounded-full border border-blue-500/30 hover:bg-blue-900/20 hover:border-blue-400/50 transition-colors duration-300 backdrop-blur-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </a>
         </div>
       </section>
 
-
       {/* SMART MARKETING SECTION */}
-      <section className="df-smart-marketing">
+      <section id="smart-marketing" className="df-smart-marketing animate-on-scroll">
         <div className="container">
           <div className="text-center mb-5">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
@@ -214,7 +354,7 @@ const Index = () => {
       </section>
 
       {/* CUSTOM ABOUT SECTION */}
-      <div className="hostinger-custom-about">
+      <div className="hostinger-custom-about animate-on-scroll">
         <div className="about-container-inner">
           <div className="about-content-box">
             <h2>So What is Digital Frontier Company?</h2>
@@ -254,7 +394,7 @@ const Index = () => {
       </div>
 
       {/* REVENUE ENGINE SECTION */}
-      <section className="df-revenue-engine">
+      <section className="df-revenue-engine animate-on-scroll">
         <div className="container">
           <div className="row" style={{
             alignItems: "center"
@@ -297,7 +437,7 @@ const Index = () => {
       </section>
 
       {/* WHAT YOU'LL GAIN SECTION */}
-      <section className="df-what-youll-gain">
+      <section className="df-what-youll-gain animate-on-scroll">
         <div className="container">
           <div className="text-center mb-5">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
@@ -359,7 +499,7 @@ const Index = () => {
       </section>
 
       {/* FAQ SECTION */}
-      <section className="df-faq-section" id="faq">
+      <section className="df-faq-section animate-on-scroll" id="faq">
         <div className="container">
           <div className="text-center mb-5">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
@@ -391,7 +531,7 @@ const Index = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="df-final-cta">
+      <section className="df-final-cta animate-on-scroll">
         <div className="container">
           <div className="text-center mb-4">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" width="80" className="mb-4" />
@@ -406,7 +546,7 @@ const Index = () => {
       </section>
 
       {/* LEARN MORE SECTION */}
-      <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800">
+      <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800 animate-on-scroll">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-slate-100 mb-8">Explore Digital Frontier</h2>
           

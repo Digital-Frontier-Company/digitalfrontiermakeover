@@ -1,7 +1,7 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './styles/animations.css';
 
 @layer base {
   :root {
@@ -397,7 +397,7 @@
 .df-faq-section::before {
   content:''; 
   position:absolute; 
-  bottom:0; right:0;
+  bottom:0 right:0;
   width:40%; height:40%;
   background:radial-gradient(circle, rgba(0,149,255,.1) 0%, rgba(0,14,41,0) 70%);
   pointer-events:none; 
