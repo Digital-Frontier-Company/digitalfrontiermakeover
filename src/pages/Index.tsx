@@ -135,14 +135,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* TESTIMONIALS SECTION - PROPERLY SIZED */}
-      <div id="testimonials" className="py-8 bg-gradient-to-b from-slate-900/50 to-slate-800/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <TestimonialsSection />
-          </div>
-        </div>
-      </div>
 
       {/* SMART MARKETING SECTION */}
       <section className="df-smart-marketing">
