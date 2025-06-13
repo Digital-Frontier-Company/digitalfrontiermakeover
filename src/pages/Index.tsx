@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -7,7 +6,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -15,35 +13,37 @@ const Index = () => {
   // Reference for Typed.js element
   const typedElement = useRef(null);
   const typed = useRef(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   const [isVisible, setIsVisible] = useState(false);
 
   // Track mouse movement for interactive effects
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   // Intersection observer for animations
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     const sections = document.querySelectorAll('.animate-on-scroll');
-    sections.forEach((section) => observer.observe(section));
-
+    sections.forEach(section => observer.observe(section));
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
+      sections.forEach(section => observer.unobserve(section));
     };
   }, []);
 
@@ -67,9 +67,7 @@ const Index = () => {
       }
     };
   }, []);
-
-  return (
-    <MainLayout>
+  return <MainLayout>
       {/* NEW MORPHING HERO SECTION */}
       <MorphingHero />
 
@@ -82,10 +80,10 @@ const Index = () => {
           </div>
 
           <div className="intro-text" style={{
-            maxWidth: "800px",
-            margin: "0 auto 30px",
-            textAlign: "center"
-          }}>
+          maxWidth: "800px",
+          margin: "0 auto 30px",
+          textAlign: "center"
+        }}>
             <p>We're not another digital marketing agency tossing generic playbooks. We are The Digital Frontier Company, a crew of engineers, analysts, and creative killers who live to squeeze more money out of your pipeline.</p>
             <p>Here's what Digital Frontier Marketing includes:</p>
           </div>
@@ -151,7 +149,7 @@ const Index = () => {
       </section>
 
       {/* NEW SERVICE CARDS SECTION */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-on-scroll">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-on-scroll bg-slate-100 rounded">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
@@ -165,109 +163,76 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* AI-Powered Marketing Card */}
-            <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-slate-800/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950">
               <div className="mb-6">
-                <img 
-                  src="/lovable-uploads/d1f63922-cb81-400c-9c51-2d3281fae842.png" 
-                  alt="AI-Powered Marketing" 
-                  className="w-full h-48 object-cover rounded-lg"
-                  onError={(e) => {
-                    console.error('Failed to load image:', e.currentTarget.src);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={() => console.log('Image loaded successfully')}
-                />
+                <img src="/lovable-uploads/d1f63922-cb81-400c-9c51-2d3281fae842.png" alt="AI-Powered Marketing" className="w-full h-48 object-cover rounded-lg" onError={e => {
+                console.error('Failed to load image:', e.currentTarget.src);
+                e.currentTarget.style.display = 'none';
+              }} onLoad={() => console.log('Image loaded successfully')} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+              <h3 className="mb-4 transition-colors font-extrabold text-xl text-cyan-300 text-center">
                 AI-Powered Marketing
               </h3>
-              <p className="text-slate-300 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-slate-100 font-bold">
                 Leverage cutting-edge artificial intelligence to automate and optimize your marketing campaigns for maximum impact.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => (
-                  <li key={index} className="flex items-center text-slate-300">
+                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-cyan-300 rounded-tl-full rounded-full bg-slate-950">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
-              <Link 
-                to="/contact" 
-                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
-              >
+              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
                 Explore AI Solutions
               </Link>
             </div>
 
             {/* Data-Driven Insights Card */}
-            <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-slate-800/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950">
               <div className="mb-6">
-                <img 
-                  src="/lovable-uploads/92f1d92f-0397-4181-96f0-c11dd99997b6.png" 
-                  alt="Data-Driven Insights" 
-                  className="w-full h-48 object-cover rounded-lg"
-                  onError={(e) => {
-                    console.error('Failed to load image:', e.currentTarget.src);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={() => console.log('Image loaded successfully')}
-                />
+                <img src="/lovable-uploads/92f1d92f-0397-4181-96f0-c11dd99997b6.png" alt="Data-Driven Insights" className="w-full h-48 object-cover rounded-lg" onError={e => {
+                console.error('Failed to load image:', e.currentTarget.src);
+                e.currentTarget.style.display = 'none';
+              }} onLoad={() => console.log('Image loaded successfully')} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+              <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Data-Driven Insights
               </h3>
-              <p className="text-slate-300 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed text-base font-semibold text-slate-100">
                 Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => (
-                  <li key={index} className="flex items-center text-slate-300">
+                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white-300 bg-slate-950 rounded-full">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
-              <Link 
-                to="/contact" 
-                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
-              >
+              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
                 See Our Analytics
               </Link>
             </div>
 
             {/* Answer Engine Optimization Card */}
-            <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-slate-800/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1">
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950">
               <div className="mb-6">
-                <img 
-                  src="/lovable-uploads/31668116-f914-4c37-9812-346ae25aa624.png" 
-                  alt="Answer Engine Optimization" 
-                  className="w-full h-48 object-cover rounded-lg"
-                  onError={(e) => {
-                    console.error('Failed to load image:', e.currentTarget.src);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={() => console.log('Image loaded successfully')}
-                />
+                <img src="/lovable-uploads/31668116-f914-4c37-9812-346ae25aa624.png" alt="Answer Engine Optimization" className="w-full h-48 object-cover rounded-lg" onError={e => {
+                console.error('Failed to load image:', e.currentTarget.src);
+                e.currentTarget.style.display = 'none';
+              }} onLoad={() => console.log('Image loaded successfully')} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+              <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Answer Engine Optimization
               </h3>
-              <p className="text-slate-300 mb-6 leading-relaxed">
+              <p className="mb-6 leading-relaxed font-bold text-slate-100">
                 Dominate AI-powered search results and voice assistants to capture high-intent traffic before your competition.
               </p>
               <ul className="space-y-3 mb-8">
-                {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => (
-                  <li key={index} className="flex items-center text-slate-300">
+                {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => <li key={index} className="flex items-center text-slate-300">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
-              <Link 
-                to="/answer-engine-optimization" 
-                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
-              >
+              <Link to="/answer-engine-optimization" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
                 Learn About AEO
               </Link>
             </div>
@@ -279,39 +244,39 @@ const Index = () => {
       <section className="df-revenue-engine animate-on-scroll">
         <div className="container">
           <div className="row" style={{
-            alignItems: "center"
-          }}>
+          alignItems: "center"
+        }}>
             <div className="col-lg-6">
               <div className="df-neon-border mt-3 mb-5 mb-lg-3">
                 <img alt="Digital Frontier Data Dashboard" className="img-fluid p-2 max-h-64 object-contain" style={{
-                  borderRadius: "10px"
-                }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
+                borderRadius: "10px"
+              }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
               </div>
             </div>
             <div className="col-lg-6">
               <h2 style={{
-                fontSize: "28px",
-                fontWeight: 700,
-                marginBottom: "20px"
-              }}>Turn Your Brand into a Revenue Engine</h2>
+              fontSize: "28px",
+              fontWeight: 700,
+              marginBottom: "20px"
+            }}>Turn Your Brand into a Revenue Engine</h2>
               <div className="imagine-text">
                 <p style={{
-                  fontSize: "16px",
-                  color: "#e0e0e0",
-                  marginBottom: "15px"
-                }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
+                fontSize: "16px",
+                color: "#e0e0e0",
+                marginBottom: "15px"
+              }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
               </div>
               <div className="content-text">
                 <p style={{
-                  fontSize: "14px",
-                  color: "#cccccc",
-                  marginBottom: "15px"
-                }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
+                fontSize: "14px",
+                color: "#cccccc",
+                marginBottom: "15px"
+              }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
                 <p style={{
-                  fontSize: "14px",
-                  color: "#cccccc",
-                  marginBottom: 0
-                }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
+                fontSize: "14px",
+                color: "#cccccc",
+                marginBottom: 0
+              }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
               </div>
             </div>
           </div>
@@ -324,24 +289,24 @@ const Index = () => {
           <div className="text-center mb-5">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
             <h2 className="section-title" style={{
-              fontSize: "32px",
-              fontWeight: 700,
-              marginBottom: "15px"
-            }}>What You'll <span>Gain</span></h2>
+            fontSize: "32px",
+            fontWeight: 700,
+            marginBottom: "15px"
+          }}>What You'll <span>Gain</span></h2>
             <p className="section-subtitle" style={{
-              fontSize: "16px",
-              color: "#e0e0e0",
-              maxWidth: "700px",
-              margin: "0 auto"
-            }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
+            fontSize: "16px",
+            color: "#e0e0e0",
+            maxWidth: "700px",
+            margin: "0 auto"
+          }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
           </div>
 
           <div className="row">
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "32px"
-                }}>🔍</div>
+                fontSize: "32px"
+              }}>🔍</div>
                 <h3>SEO Analysis</h3>
                 <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
               </div>
@@ -350,8 +315,8 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "32px"
-                }}>📈</div>
+                fontSize: "32px"
+              }}>📈</div>
                 <h3>Conversion Insights</h3>
                 <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
               </div>
@@ -360,8 +325,8 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "32px"
-                }}>🔄</div>
+                fontSize: "32px"
+              }}>🔄</div>
                 <h3>Competitor Analysis</h3>
                 <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
               </div>
@@ -370,8 +335,8 @@ const Index = () => {
             <div className="col-md-6 col-lg-3 mb-4">
               <div className="df-gain-card">
                 <div className="icon" style={{
-                  fontSize: "32px"
-                }}>📋</div>
+                fontSize: "32px"
+              }}>📋</div>
                 <h3>Action Plan</h3>
                 <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
               </div>
@@ -511,8 +476,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </MainLayout>
-  );
+    </MainLayout>;
 };
-
 export default Index;
