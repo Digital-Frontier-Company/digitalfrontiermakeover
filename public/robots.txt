@@ -24,4 +24,3 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://www.thedigitalfrontier.ai/sitemap.xml
-
