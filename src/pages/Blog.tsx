@@ -1,11 +1,13 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Calendar, User, ArrowRight } from "lucide-react";
 import { generateBreadcrumbSchema } from "@/lib/utils";
+import FAQSection from "@/components/FAQSection";
 
 const blogPosts = [
   {
@@ -91,6 +93,25 @@ const blogPosts = [
     date: "April 18, 2025",
     category: "Analytics",
     author: "Rachel Kim"
+  }
+];
+
+const blogFaqs = [
+  {
+    question: "How often do you publish new blog posts?",
+    answer: "We publish new insights and articles weekly, covering the latest trends in AI marketing, digital transformation, and Answer Engine Optimization."
+  },
+  {
+    question: "Can I subscribe to your blog updates?",
+    answer: "Yes! You can subscribe to our newsletter to receive the latest blog posts and exclusive insights directly in your inbox."
+  },
+  {
+    question: "Do you cover topics for beginners in digital marketing?",
+    answer: "Absolutely! Our blog covers topics for all skill levels, from beginner-friendly guides to advanced AI marketing strategies."
+  },
+  {
+    question: "How can I suggest a topic for your blog?",
+    answer: "We welcome topic suggestions! You can reach out to us through our contact page or social media channels with your ideas."
   }
 ];
 
