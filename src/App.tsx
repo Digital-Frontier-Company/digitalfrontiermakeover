@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,6 +27,7 @@ import SearchEngineOptimization from "./pages/SearchEngineOptimization";
 import CryptoMarketing from "./pages/CryptoMarketing";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import BlogPostAEOCrypto from "./pages/BlogPostAEOCrypto";
 import ContentCreationAgent from "./pages/ContentCreationAgent";
 import SiteMap from "./pages/SiteMap";
 import PsychologicalDigitalMarketingInsights from "./pages/PsychologicalDigitalMarketingInsights";
