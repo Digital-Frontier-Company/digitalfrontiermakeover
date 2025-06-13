@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
+
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -149,8 +150,9 @@ const Index = () => {
       </section>
 
       {/* NEW SERVICE CARDS SECTION */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-on-scroll bg-slate-100 rounded">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900 animate-on-scroll animate-gradient-x relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-cyan-600/20 animate-gradient-x"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -163,7 +165,7 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* AI-Powered Marketing Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950">
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
                 <img src="/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png" alt="AI-Powered Marketing" className="w-full h-48 object-cover rounded-lg" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
@@ -188,7 +190,7 @@ const Index = () => {
             </div>
 
             {/* Data-Driven Insights Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950">
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
                 <img alt="Data-Driven Insights" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
@@ -213,7 +215,7 @@ const Index = () => {
             </div>
 
             {/* Answer Engine Optimization Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950">
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950/80">
               <div className="mb-6">
                 <img src="/lovable-uploads/0c145136-0069-47e6-b799-655b514f21bf.png" alt="Answer Engine Optimization" className="w-full h-48 object-cover rounded-lg" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
@@ -478,4 +480,5 @@ const Index = () => {
       </section>
     </MainLayout>;
 };
+
 export default Index;
