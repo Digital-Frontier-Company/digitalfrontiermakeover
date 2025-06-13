@@ -6,7 +6,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -152,13 +151,10 @@ const Index = () => {
       {/* NEW SERVICE CARDS SECTION */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
         {/* Animated background image with medium opacity */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-40"
-          style={{
-            backgroundImage: "url('/lovable-uploads/1382424c-884b-488c-a216-f685e32138c7.png')",
-            filter: 'blur(1px)'
-          }}
-        ></div>
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-40" style={{
+        backgroundImage: "url('/lovable-uploads/1382424c-884b-488c-a216-f685e32138c7.png')",
+        filter: 'blur(1px)'
+      }}></div>
         
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-900/80 to-slate-900/80 animate-gradient-x"></div>
@@ -191,7 +187,7 @@ const Index = () => {
                 Leverage cutting-edge artificial intelligence to automate and optimize your marketing campaigns for maximum impact.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-tl-full rounded-full bg-slate-950">
+                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-tl-full rounded-full bg-[#074192]/0">
                     <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
@@ -216,7 +212,7 @@ const Index = () => {
                 Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
               </p>
               <ul className="space-y-3 mb-8">
-                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white bg-slate-950 rounded-full">
+                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-full bg-[#074192]/0">
                     <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
                     {feature}
                   </li>)}
@@ -492,5 +488,4 @@ const Index = () => {
       </section>
     </MainLayout>;
 };
-
 export default Index;
