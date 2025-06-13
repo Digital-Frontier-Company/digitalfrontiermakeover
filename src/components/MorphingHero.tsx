@@ -10,9 +10,10 @@ const MorphingHero = () => {
   const [textIndex, setTextIndex] = useState(0);
 
   const dynamicTexts = [
-    "clicks",
-    "conversions", 
-    "competition"
+    "deliver AI-Powered Growth",
+    "provide Data-Driven Results", 
+    "achieve Market Domination",
+    "create Revenue Explosion"
   ];
 
   useEffect(() => {
@@ -131,15 +132,18 @@ const MorphingHero = () => {
           {/* Dynamic Headline with Morphing Text */}
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white mb-6">
-              <span className="block mb-2">We dominate</span>
+              <span className="block mb-2">We don't just</span>
               <span 
-                className="block text-2xl md:text-3xl text-cyan-400 transition-all duration-1000"
+                className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent transition-all duration-1000"
                 key={textIndex}
                 style={{
                   animation: 'fadeInScale 1s ease-out'
                 }}
               >
                 {dynamicTexts[textIndex]}
+              </span>
+              <span className="block mt-2 text-4xl md:text-5xl text-gray-300">
+                We <em className="text-yellow-400">Dominate</em>
               </span>
             </h1>
           </div>
