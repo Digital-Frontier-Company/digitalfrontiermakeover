@@ -18,6 +18,12 @@ import Blog from '@/pages/Blog';
 import BlogPost from '@/pages/BlogPost';
 import ContentCreationAgent from '@/pages/ContentCreationAgent';
 import PsychologicalDigitalMarketingInsights from '@/pages/PsychologicalDigitalMarketingInsights';
+import Technical from '@/pages/Technical';
+import Evolution from '@/pages/Evolution';
+import Regulations from '@/pages/Regulations';
+import Sectors from '@/pages/Sectors';
+import Future from '@/pages/Future';
+import AIBias from '@/pages/AIBias';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
@@ -49,6 +55,12 @@ function App() {
             <Route path="/resources/content-creation-agent" element={<MainLayout><ContentCreationAgent /></MainLayout>} />
             <Route path="/psychological-digital-marketing-insights" element={<MainLayout><PsychologicalDigitalMarketingInsights /></MainLayout>} />
             <Route path="/blog/tax-reduction-wealth-building-guide" element={<TaxReductionGuide />} />
+            <Route path="/technical" element={<MainLayout><Technical /></MainLayout>} />
+            <Route path="/evolution" element={<MainLayout><Evolution /></MainLayout>} />
+            <Route path="/regulations" element={<MainLayout><Regulations /></MainLayout>} />
+            <Route path="/sectors" element={<MainLayout><Sectors /></MainLayout>} />
+            <Route path="/future" element={<MainLayout><Future /></MainLayout>} />
+            <Route path="/ai-bias-in-advertising" element={<MainLayout><AIBias /></MainLayout>} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>
