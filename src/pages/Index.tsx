@@ -5,7 +5,7 @@ import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
-import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award } from 'lucide-react';
+import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 
 const Index = () => {
   // Use the FAQ toggle hook
@@ -149,45 +149,115 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CUSTOM ABOUT SECTION */}
-      <div className="hostinger-custom-about animate-on-scroll">
-        <div className="about-container-inner">
-          <div className="about-content-box">
-            <h2>So What is Digital Frontier Company?</h2>
+      {/* NEW SERVICE CARDS SECTION */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-on-scroll">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Turn Your Brand into a <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Revenue Engine</span>
+            </h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              We don't just build campaigns—we engineer revenue machines that dominate markets and deliver measurable results.
+            </p>
+          </div>
 
-            <p className="intro-text">We are Engineers of Connection.</p>
-
-            <p>Based in Memphis, TN, we don't just help businesses get noticed—we make sure they get remembered.</p>
-            <p>From SEO and social media to high-converting ad campaigns, we engineer magnetic experiences that pull your audience in and turn them into die-hard customers.</p>
-
-            <h3>SEO & AEO (Answer Engine Optimization)</h3>
-            <p>We don't just boost your rankings—we position your brand as the definitive answer customers are searching for. AI is the new search engine, and we make sure you dominate where AI determines relevancy.</p>
-
-            <h3>Social Media Marketing</h3>
-            <p>Forget generic content—our strategies ignite engagement, build loyalty, and inspire action. We've mastered the art of turning likes into loyalty and conversations into conversions.</p>
-
-            <h3>Smart Tech, Smarter Marketing</h3>
-            <p>AI doesn't replace human creativity—it supercharges it. We leverage AI to analyze data, optimize campaigns, and forecast trends, but at the heart of every strategy is bold, people-driven storytelling.</p>
-            <p>Our approach cuts waste, maximizes ROI, and gives you an unfair edge over your competition.</p>
-
-            <h3>Your Growth is Our Mission</h3>
-            <p>At Digital Frontier, we ask just one question:</p>
-            <p><em>Are you satisfied with your current brand impact and the stories people share about your business?</em></p>
-            <p>If the answer was yes, let's be honest—you wouldn't be reading this.</p>
-            <p>Whether you're a startup ready to disrupt or an established brand looking to dominate, we scale your business with speed, precision, and vision tailored uniquely to your brand.</p>
-
-            <h3>Ready to Own Your Digital Space?</h3>
-            <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk.</p>
-            <p>Click below, and let's build something legendary.</p>
-
-            <div className="button-placeholder">
-              <Link to="/contact" className="df-cta-button">Let's Talk Growth</Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {/* AI-Powered Marketing Card */}
+            <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-slate-800/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+              <div className="mb-6">
+                <img 
+                  src="/lovable-uploads/d1f63922-cb81-400c-9c51-2d3281fae842.png" 
+                  alt="AI-Powered Marketing" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                AI-Powered Marketing
+              </h3>
+              <p className="text-slate-300 mb-6 leading-relaxed">
+                Leverage cutting-edge artificial intelligence to automate and optimize your marketing campaigns for maximum impact.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => (
+                  <li key={index} className="flex items-center text-slate-300">
+                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link 
+                to="/contact" 
+                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+              >
+                Explore AI Solutions
+              </Link>
             </div>
 
-            <p className="final-tagline">Digital Frontier—Marketing That Actually Works.</p>
+            {/* Data-Driven Insights Card */}
+            <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-slate-800/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+              <div className="mb-6">
+                <img 
+                  src="/lovable-uploads/92f1d92f-0397-4181-96f0-c11dd99997b6.png" 
+                  alt="Data-Driven Insights" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                Data-Driven Insights
+              </h3>
+              <p className="text-slate-300 mb-6 leading-relaxed">
+                Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => (
+                  <li key={index} className="flex items-center text-slate-300">
+                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link 
+                to="/contact" 
+                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+              >
+                See Our Analytics
+              </Link>
+            </div>
+
+            {/* Answer Engine Optimization Card */}
+            <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 hover:bg-slate-800/70 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1">
+              <div className="mb-6">
+                <img 
+                  src="/lovable-uploads/31668116-f914-4c37-9812-346ae25aa624.png" 
+                  alt="Answer Engine Optimization" 
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                Answer Engine Optimization
+              </h3>
+              <p className="text-slate-300 mb-6 leading-relaxed">
+                Dominate AI-powered search results and voice assistants to capture high-intent traffic before your competition.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => (
+                  <li key={index} className="flex items-center text-slate-300">
+                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <Link 
+                to="/answer-engine-optimization" 
+                className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30"
+              >
+                Learn About AEO
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* REVENUE ENGINE SECTION */}
       <section className="df-revenue-engine animate-on-scroll">
