@@ -7,95 +7,138 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon, ArrowRight } from "lucide-react";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
-
 const AnswerEngineOptimization = () => {
   const location = useLocation();
 
   // Sample data for comparison chart
-  const comparisonData = [
-    { month: 'Jan', traditional: 35, aeo: 65 },
-    { month: 'Feb', traditional: 38, aeo: 72 },
-    { month: 'Mar', traditional: 40, aeo: 78 },
-    { month: 'Apr', traditional: 38, aeo: 82 },
-    { month: 'May', traditional: 42, aeo: 87 },
-    { month: 'Jun', traditional: 45, aeo: 92 },
-  ];
+  const comparisonData = [{
+    month: 'Jan',
+    traditional: 35,
+    aeo: 65
+  }, {
+    month: 'Feb',
+    traditional: 38,
+    aeo: 72
+  }, {
+    month: 'Mar',
+    traditional: 40,
+    aeo: 78
+  }, {
+    month: 'Apr',
+    traditional: 38,
+    aeo: 82
+  }, {
+    month: 'May',
+    traditional: 42,
+    aeo: 87
+  }, {
+    month: 'Jun',
+    traditional: 45,
+    aeo: 92
+  }];
 
   // Sample data for answer distribution chart
-  const answerDistributionData = [
-    { name: 'Featured Snippets', value: 45 },
-    { name: 'Knowledge Panels', value: 28 },
-    { name: 'Voice Responses', value: 17 },
-    { name: 'Rich Results', value: 10 },
-  ];
-
+  const answerDistributionData = [{
+    name: 'Featured Snippets',
+    value: 45
+  }, {
+    name: 'Knowledge Panels',
+    value: 28
+  }, {
+    name: 'Voice Responses',
+    value: 17
+  }, {
+    name: 'Rich Results',
+    value: 10
+  }];
   const COLORS = ['#8B5CF6', '#D946EF', '#F97316', '#0EA5E9'];
 
   // Sample data for optimization factors
-  const factorsData = [
-    { factor: 'Question Relevance', impact: 90 },
-    { factor: 'Answer Conciseness', impact: 85 },
-    { factor: 'Structured Data', impact: 80 },
-    { factor: 'Voice-Search Ready', impact: 75 },
-    { factor: 'Content Quality', impact: 70 },
-    { factor: 'Page Authority', impact: 65 },
-  ];
+  const factorsData = [{
+    factor: 'Question Relevance',
+    impact: 90
+  }, {
+    factor: 'Answer Conciseness',
+    impact: 85
+  }, {
+    factor: 'Structured Data',
+    impact: 80
+  }, {
+    factor: 'Voice-Search Ready',
+    impact: 75
+  }, {
+    factor: 'Content Quality',
+    impact: 70
+  }, {
+    factor: 'Page Authority',
+    impact: 65
+  }];
 
   // Sample data for monthly improvement
-  const monthlyImprovementData = [
-    { month: 'Jan', improvement: 15 },
-    { month: 'Feb', improvement: 32 },
-    { month: 'Mar', improvement: 48 },
-    { month: 'Apr', improvement: 63 },
-    { month: 'May', improvement: 79 },
-    { month: 'Jun', improvement: 92 },
-  ];
+  const monthlyImprovementData = [{
+    month: 'Jan',
+    improvement: 15
+  }, {
+    month: 'Feb',
+    improvement: 32
+  }, {
+    month: 'Mar',
+    improvement: 48
+  }, {
+    month: 'Apr',
+    improvement: 63
+  }, {
+    month: 'May',
+    improvement: 79
+  }, {
+    month: 'Jun',
+    improvement: 92
+  }];
 
   // Updated data for SEO vs AEO vs GEO comparison based on research
-  const optimizationComparisonData = [
-    { name: 'Search Visibility (%)', seo: 53, aeo: 41, geo: 46 },
-    { name: 'Direct Traffic (%)', seo: 40, aeo: 0, geo: 45 },
-    { name: 'Conversion Rate (%)', seo: 2.8, aeo: 24, geo: 20 },
-    { name: 'Content ROI (%)', seo: 550, aeo: 400, geo: 400 },
-  ];
+  const optimizationComparisonData = [{
+    name: 'Search Visibility (%)',
+    seo: 53,
+    aeo: 41,
+    geo: 46
+  }, {
+    name: 'Direct Traffic (%)',
+    seo: 40,
+    aeo: 0,
+    geo: 45
+  }, {
+    name: 'Conversion Rate (%)',
+    seo: 2.8,
+    aeo: 24,
+    geo: 20
+  }, {
+    name: 'Content ROI (%)',
+    seo: 550,
+    aeo: 400,
+    geo: 400
+  }];
 
   // AEO FAQ questions and answers
-  const aeoFaqs: FAQItem[] = [
-    {
-      question: "What is Answer Engine Optimization (AEO)?",
-      answer: "AEO optimizes content to provide direct answers to user queries, using structured data to shine in featured snippets, knowledge panels, or voice responses. Unlike traditional SEO, it focuses on being the immediate solution rather than just a link."
-    },
-    {
-      question: "How does AEO differ from SEO?",
-      answer: "SEO ranks pages for broad keywords to drive traffic, while AEO targets specific questions for zero-click answers, leveraging AI and conversational tones. AEO is designed for the modern search landscape where users expect immediate answers."
-    },
-    {
-      question: "Why is structured data key for AEO?",
-      answer: "Structured data (like schema markup) gives AI context about your content, making it a top pick for quick-response formats like featured snippets and voice search results. It's like handing search engines a cheat sheet of your content's organization."
-    },
-    {
-      question: "How long should AEO answers be?",
-      answer: "Ideal AEO answers should be concise and complete, typically 40-60 words. This length is perfect for featured snippets and voice responses, while still providing enough information to satisfy the user's query."
-    },
-    {
-      question: "Can AEO work for any industry?",
-      answer: "Yes, AEO can be effective across all industries. Any business with information that people search for can benefit from optimizing for direct answers, whether it's e-commerce, B2B services, healthcare, finance, or local businesses."
-    }
-  ];
-
-  return (
-    <PageLayout
-      title="Answer Engine Optimization"
-      subtitle="Position Your Content as the Go-To Answer Source"
-      currentPath={location.pathname}
-    >
+  const aeoFaqs: FAQItem[] = [{
+    question: "What is Answer Engine Optimization (AEO)?",
+    answer: "AEO optimizes content to provide direct answers to user queries, using structured data to shine in featured snippets, knowledge panels, or voice responses. Unlike traditional SEO, it focuses on being the immediate solution rather than just a link."
+  }, {
+    question: "How does AEO differ from SEO?",
+    answer: "SEO ranks pages for broad keywords to drive traffic, while AEO targets specific questions for zero-click answers, leveraging AI and conversational tones. AEO is designed for the modern search landscape where users expect immediate answers."
+  }, {
+    question: "Why is structured data key for AEO?",
+    answer: "Structured data (like schema markup) gives AI context about your content, making it a top pick for quick-response formats like featured snippets and voice search results. It's like handing search engines a cheat sheet of your content's organization."
+  }, {
+    question: "How long should AEO answers be?",
+    answer: "Ideal AEO answers should be concise and complete, typically 40-60 words. This length is perfect for featured snippets and voice responses, while still providing enough information to satisfy the user's query."
+  }, {
+    question: "Can AEO work for any industry?",
+    answer: "Yes, AEO can be effective across all industries. Any business with information that people search for can benefit from optimizing for direct answers, whether it's e-commerce, B2B services, healthcare, finance, or local businesses."
+  }];
+  return <PageLayout title="Answer Engine Optimization" subtitle="Position Your Content as the Go-To Answer Source" currentPath={location.pathname}>
       {/* Hero Image Section */}
       <section className="mb-24">
-        <img 
-          src="/lovable-uploads/4a25c6e7-d446-42a7-b9be-e55739bc1e58.png" 
-          alt="Answer Engine Optimization" 
-          className="w-full max-w-3xl mx-auto rounded-lg shadow-xl mb-12" 
-        />
+        <img alt="Answer Engine Optimization" className="w-full max-w-3xl mx-auto rounded-lg shadow-xl mb-12" src="/lovable-uploads/ee38718a-95d4-48fd-9ffb-203acff704f0.jpg" />
         <h2 className="text-2xl font-bold mb-8 text-slate-100">Understanding AEO: The Direct Answer Revolution</h2>
         <p className="text-slate-300 text-lg mb-6">
           Answer Engine Optimization (AEO) is a modern strategy that refines your content to deliver direct 
@@ -114,11 +157,7 @@ const AnswerEngineOptimization = () => {
       <section className="mb-32">
         <h2 className="text-3xl font-bold mb-12 text-slate-100">Your 6-Step AEO Playbook</h2>
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <img 
-            src="/lovable-uploads/d376fcd6-50df-40c9-b62e-adf836bcee74.png" 
-            alt="6-Step AEO Framework" 
-            className="w-full max-w-md rounded-lg shadow-lg border border-slate-700" 
-          />
+          <img alt="6-Step AEO Framework" className="w-full max-w-md rounded-lg shadow-lg border border-slate-700" src="/lovable-uploads/6c3d2d6e-7ff3-40e9-be46-918e6ee0996c.png" />
           <div className="space-y-6">
             <div className="bg-slate-800/40 p-6 rounded-lg">
               <h3 className="text-xl font-semibold text-blue-400 flex items-center gap-2">
@@ -183,19 +222,28 @@ const AnswerEngineOptimization = () => {
           <p className="mb-8 text-slate-300 text-lg">Traditional SEO vs AEO-Optimized Content Performance in Answer Visibility</p>
           <div className="h-[450px] w-full">
             <ChartContainer config={{
-              traditional: { color: "#9F9EA1" },
-              aeo: { color: "#3b82f6" },
-            }}>
+            traditional: {
+              color: "#9F9EA1"
+            },
+            aeo: {
+              color: "#3b82f6"
+            }
+          }}>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={comparisonData}
-                  margin={{ top: 50, right: 30, left: 20, bottom: 50 }}
-                >
+                <BarChart data={comparisonData} margin={{
+                top: 50,
+                right: 30,
+                left: 20,
+                bottom: 50
+              }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="month" stroke="#9F9EA1" />
                   <YAxis stroke="#9F9EA1" />
                   <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
+                  <Legend wrapperStyle={{
+                  paddingTop: "20px",
+                  marginBottom: "10px"
+                }} />
                   <Bar dataKey="traditional" fill="#9F9EA1" name="Traditional Content" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO-Optimized" />
                 </BarChart>
@@ -217,26 +265,31 @@ const AnswerEngineOptimization = () => {
           <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs <Link to="/generative-engine-optimization" className="text-purple-400 hover:underline">GEO</Link>: Performance Across Key Metrics (Logarithmic Scale)</p>
           <div className="h-[500px] w-full mb-8">
             <ChartContainer config={{
-              seo: { color: "#22c55e" },
-              aeo: { color: "#3b82f6" },
-              geo: { color: "#8B5CF6" },
-            }}>
+            seo: {
+              color: "#22c55e"
+            },
+            aeo: {
+              color: "#3b82f6"
+            },
+            geo: {
+              color: "#8B5CF6"
+            }
+          }}>
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={optimizationComparisonData}
-                  margin={{ top: 70, right: 30, left: 20, bottom: 70 }}
-                >
+                <BarChart data={optimizationComparisonData} margin={{
+                top: 70,
+                right: 30,
+                left: 20,
+                bottom: 70
+              }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                   <XAxis dataKey="name" stroke="#9F9EA1" />
-                  <YAxis 
-                    stroke="#9F9EA1" 
-                    scale="log" 
-                    domain={[1, 'auto']} 
-                    allowDataOverflow={true}
-                    tickFormatter={(value) => value.toLocaleString()}
-                  />
+                  <YAxis stroke="#9F9EA1" scale="log" domain={[1, 'auto']} allowDataOverflow={true} tickFormatter={value => value.toLocaleString()} />
                   <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "30px", marginBottom: "10px" }} />
+                  <Legend wrapperStyle={{
+                  paddingTop: "30px",
+                  marginBottom: "10px"
+                }} />
                   <Bar dataKey="seo" fill="#22c55e" name="SEO" />
                   <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
                   <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
@@ -273,26 +326,26 @@ const AnswerEngineOptimization = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 h-[450px]">
               <ChartContainer config={{
-                'Featured Snippets': { color: "#3b82f6" },
-                'Knowledge Panels': { color: "#D946EF" },
-                'Voice Responses': { color: "#F97316" },
-                'Rich Results': { color: "#0EA5E9" },
-              }}>
+              'Featured Snippets': {
+                color: "#3b82f6"
+              },
+              'Knowledge Panels': {
+                color: "#D946EF"
+              },
+              'Voice Responses': {
+                color: "#F97316"
+              },
+              'Rich Results': {
+                color: "#0EA5E9"
+              }
+            }}>
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
-                    <Pie
-                      data={answerDistributionData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      outerRadius={120}
-                      fill="#8884d8"
-                      dataKey="value"
-                      label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                    >
-                      {answerDistributionData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
+                    <Pie data={answerDistributionData} cx="50%" cy="50%" labelLine={false} outerRadius={120} fill="#8884d8" dataKey="value" label={({
+                    name,
+                    percent
+                  }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
+                      {answerDistributionData.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
                     </Pie>
                     <Tooltip content={<ChartTooltipContent />} />
                     <Legend />
@@ -332,14 +385,17 @@ const AnswerEngineOptimization = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 h-[450px]">
               <ChartContainer config={{
-                impact: { color: "#3b82f6" },
-              }}>
+              impact: {
+                color: "#3b82f6"
+              }
+            }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    layout="vertical"
-                    data={factorsData}
-                    margin={{ top: 20, right: 30, left: 150, bottom: 20 }}
-                  >
+                  <BarChart layout="vertical" data={factorsData} margin={{
+                  top: 20,
+                  right: 30,
+                  left: 150,
+                  bottom: 20
+                }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                     <XAxis type="number" stroke="#9F9EA1" />
                     <YAxis dataKey="factor" type="category" scale="band" stroke="#9F9EA1" />
@@ -373,27 +429,27 @@ const AnswerEngineOptimization = () => {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="w-full md:w-1/2 h-[450px]">
               <ChartContainer config={{
-                improvement: { color: "#3b82f6" },
-              }}>
+              improvement: {
+                color: "#3b82f6"
+              }
+            }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart
-                    data={monthlyImprovementData}
-                    margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
-                  >
+                  <LineChart data={monthlyImprovementData} margin={{
+                  top: 20,
+                  right: 30,
+                  left: 20,
+                  bottom: 20
+                }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#333" />
                     <XAxis dataKey="month" stroke="#9F9EA1" />
                     <YAxis stroke="#9F9EA1" />
                     <Tooltip content={<ChartTooltipContent />} />
                     <Legend />
-                    <Line 
-                      type="monotone" 
-                      dataKey="improvement" 
-                      stroke="#3b82f6" 
-                      strokeWidth={3} 
-                      dot={{ r: 5 }}
-                      activeDot={{ r: 10 }}
-                      name="Monthly Improvement %" 
-                    />
+                    <Line type="monotone" dataKey="improvement" stroke="#3b82f6" strokeWidth={3} dot={{
+                    r: 5
+                  }} activeDot={{
+                    r: 10
+                  }} name="Monthly Improvement %" />
                   </LineChart>
                 </ResponsiveContainer>
               </ChartContainer>
@@ -480,11 +536,7 @@ const AnswerEngineOptimization = () => {
       </div>
       
       {/* FAQ Section with JSON-LD Schema */}
-      <FAQSection 
-        title="Frequently Asked Questions About AEO" 
-        faqs={aeoFaqs} 
-        className="mb-16"
-      />
+      <FAQSection title="Frequently Asked Questions About AEO" faqs={aeoFaqs} className="mb-16" />
       
       {/* Benefits Section with Gradients */}
       <section className="mb-24">
@@ -610,8 +662,6 @@ const AnswerEngineOptimization = () => {
           Get Your Free AEO Analysis
         </button>
       </div>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default AnswerEngineOptimization;
