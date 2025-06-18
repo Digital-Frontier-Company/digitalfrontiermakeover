@@ -1,23 +1,28 @@
+
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+
 const MainLayout = ({
   children
 }: {
   children: React.ReactNode;
 }) => {
   const location = useLocation();
+  
   useEffect(() => {
     // Load HubSpot tracking script if configured
     const hubspotId = localStorage.getItem('hubspot_id');
     const enableTracking = localStorage.getItem('hubspot_enable_tracking') === 'true';
+    
     if (hubspotId && enableTracking) {
       const script = document.createElement('script');
       script.src = `//js.hs-scripts.com/${hubspotId}.js`;
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
+      
       return () => {
         // Cleanup script on unmount
         const existingScript = document.querySelector(`script[src*="${hubspotId}"]`);
@@ -27,7 +32,9 @@ const MainLayout = ({
       };
     }
   }, []);
-  return <div className="min-h-screen bg-slate-950 text-slate-100">
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* Navigation */}
       <nav className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4">
@@ -233,7 +240,6 @@ const MainLayout = ({
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-8 w-auto" />
-                <span className="font-bold text-lg text-slate-100">Digital Frontier</span>
               </div>
               <p className="text-slate-400 mb-4">
                 Leading digital marketing agency specializing in AI-driven strategies, SEO, and cutting-edge optimization techniques.
@@ -287,6 +293,8 @@ const MainLayout = ({
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default MainLayout;
