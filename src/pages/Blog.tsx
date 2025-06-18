@@ -1,202 +1,161 @@
-
 import React from "react";
-import { useLocation } from "react-router-dom";
-import PageLayout from "@/components/layout/PageLayout";
-import { Button } from "@/components/ui/button";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Link } from "react-router-dom";
-import FAQSection, { FAQItem } from "@/components/FAQSection";
+import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import MainLayout from "@/components/layout/MainLayout";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { generateOrganizationSchema, generateBreadcrumbSchema } from "@/lib/utils";
 
-const blogPosts = [
-  {
-    id: 0,
-    title: "Ultimate Guide to Tax Reduction & All-Weather Wealth-Building",
-    excerpt: "Master advanced tax reduction tactics and build resilient wealth with proven strategies that work in any economic climate.",
-    image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=861,h=573,fit=crop/AQED72Wg6XijkzV2/blovcky-AwvDpoZjZgsOjJNo.png",
-    date: "January 13, 2025",
-    category: "Financial Strategy",
-    author: "Digital Frontier Team",
-    link: "/blog/tax-reduction-wealth-building-guide"
-  },
-  {
-    id: 1,
-    title: "Answer Engine Optimization in Digital Marketing for Crypto Startups",
-    excerpt: "Discover how AEO and strategic community building can help crypto startups overcome credibility challenges and build lasting trust in 2025.",
-    image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=656,h=579,fit=crop/AQED72Wg6XijkzV2/chatgpt-image-apr-24-2025-08_58_50-am-YrDWZ3jZq7hJ7D2B.png",
-    date: "January 13, 2025",
-    category: "Crypto Marketing",
-    author: "Digital Frontier Team",
-    link: "/blog/answer-engine-optimization-crypto-startups"
-  },
-  {
-    id: 1,
-    title: "Mastering Digital Marketing: AI, AEO, and Innovations",
-    excerpt: "Learn how AI, AEO, and new digital marketing innovations can transform your B2B marketing strategy in 2025 and beyond.",
-    image: "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
-    date: "May 13, 2025",
-    category: "Digital Marketing",
-    author: "Digital Frontier Team",
-    link: "/blog/mastering-digital-marketing"
-  },
-  {
-    id: 1,
-    title: "The Future of AI in Digital Marketing",
-    excerpt: "Exploring how artificial intelligence is reshaping marketing strategies and customer engagement.",
-    image: "/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png",
-    date: "May 10, 2025",
-    category: "AI Technology",
-    author: "Alex Jordan"
-  },
-  {
-    id: 2,
-    title: "Optimizing Your SEO For Answer Engines",
-    excerpt: "Learn how to adapt your SEO strategy for the new era of answer engines and AI search.",
-    image: "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=328,h=240,fit=crop/AQED72Wg6XijkzV2/the-perfect-none-background-mem-AE0r33Kk1ZT9DN1k.png",
-    date: "May 7, 2025",
-    category: "SEO",
-    author: "Samantha Lee"
-  },
-  {
-    id: 3,
-    title: "How Crypto Businesses Can Enhance Their Digital Marketing",
-    excerpt: "Specialized marketing strategies for blockchain and cryptocurrency companies in an evolving landscape.",
-    image: "/lovable-uploads/7856abf2-126d-4fbb-87da-fe5143707423.png",
-    date: "May 3, 2025",
-    category: "Crypto Marketing",
-    author: "Michael Chen"
-  },
-  {
-    id: 4,
-    title: "Building Effective AI-Powered Ad Funnels",
-    excerpt: "A step-by-step guide to creating conversion-focused advertising funnels with AI optimization.",
-    image: "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
-    date: "April 28, 2025",
-    category: "Ad Strategy",
-    author: "Jessica Williams"
-  },
-  {
-    id: 5,
-    title: "Ethics in AI Marketing: Avoiding Bias in Automated Campaigns",
-    excerpt: "Understanding and mitigating potential biases in AI-driven marketing campaigns.",
-    image: "/lovable-uploads/4a25c6e7-d446-42a7-b9be-e55739bc1e58.png",
-    date: "April 22, 2025",
-    category: "Ethics",
-    author: "David Thompson"
-  },
-  {
-    id: 6,
-    title: "Industry KPIs: Measuring Success in AI Marketing",
-    excerpt: "Key performance indicators to track the effectiveness of your AI marketing initiatives.",
-    image: "/lovable-uploads/3d7bf124-081a-4959-9a39-759c1e0dc150.png",
-    date: "April 18, 2025",
-    category: "Analytics",
-    author: "Rachel Kim"
-  }
-];
-
-const Blog: React.FC = () => {
+const Blog = () => {
   const location = useLocation();
+  const canonicalUrl = `https://www.thedigitalfrontier.ai${location.pathname}`;
+  
+  // Generate schemas
+  const organizationSchema = generateOrganizationSchema();
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedigitalfrontier.ai" },
+    { name: "Blog", url: canonicalUrl }
+  ]);
 
-  const blogFaqs: FAQItem[] = [
+  const blogPosts = [
     {
-      question: "How often is the Digital Frontier blog updated?",
-      answer: "Our blog is updated weekly with new content exploring AI marketing, ethics, SEO strategies, and industry trends. We publish deep-dive analyses on Tuesdays and practical how-to guides on Thursdays, ensuring you always have fresh insights to help your business navigate the digital landscape."
+      id: 1,
+      title: "Mastering Digital Marketing in 2024",
+      excerpt: "Discover the latest strategies and trends that are shaping the digital marketing landscape this year.",
+      category: "Digital Marketing",
+      readTime: "8 min read",
+      date: "2024-12-15",
+      slug: "mastering-digital-marketing",
+      image: "/lovable-uploads/3b21fa11-2a1d-4153-98dd-07178e0da505.png"
     },
     {
-      question: "Can I contribute a guest post to the Digital Frontier blog?",
-      answer: "Yes! We welcome guest contributions from industry experts. To be considered, please email your pitch to blog@thedigitalfrontier.ai with your proposed topic, a brief outline, and examples of your previous writing. Ideal contributions provide unique insights backed by data or experience in AI marketing ethics or applications."
+      id: 2,
+      title: "Answer Engine Optimization for Crypto Startups",
+      excerpt: "Learn how crypto startups can leverage AEO strategies to improve their visibility in AI-powered search results.",
+      category: "AEO Strategy",
+      readTime: "6 min read",
+      date: "2024-12-10",
+      slug: "answer-engine-optimization-crypto-startups",
+      image: "/lovable-uploads/ee38718a-95d4-48fd-9ffb-203acff704f0.jpg"
     },
     {
-      question: "Are there resources for beginners to understand AI marketing concepts?",
-      answer: "Absolutely. We have a dedicated 'Fundamentals' section that breaks down complex AI marketing concepts for beginners. Start with our 'AI Marketing 101' series, which covers basic principles, terminology, and practical applications. We also offer downloadable guides and infographics designed specifically for newcomers to the field."
+      id: 3,
+      title: "Ultimate Guide to Tax Reduction & All-Weather Wealth-Building",
+      excerpt: "Master advanced tax reduction tactics and build resilient wealth with proven strategies from financial experts.",
+      category: "Financial Strategy",
+      readTime: "15 min read",
+      date: "2025-01-13",
+      slug: "tax-reduction-wealth-building-guide",
+      image: "/lovable-uploads/3d7bf124-081a-4959-759c1e0dc150.png"
     }
   ];
 
-  return (
-    <PageLayout 
-      title="Digital Frontier Company's Blog" 
-      subtitle="Where we explore the Digital Frontier in Digital Marketing, Social Media, Artificial Intelligence and Cryptocurrency" 
-      currentPath={location.pathname}
-    >
-      <Helmet>
-        <title>Digital Frontier Company's Blog | The Digital Frontier</title>
-        <meta name="description" content="Where we explore the Digital Frontier in Digital Marketing, Social Media, Artificial Intelligence and Cryptocurrency" />
-        <link rel="canonical" href="https://thedigitalfrontier.ai/blog" />
-      </Helmet>
-      
-      <div className="space-y-12">
-        <section>
-          <p className="text-lg text-slate-300 mb-8">
-            At the Digital Frontier Company's blog, we delve deep into the vast and ever-evolving landscape of digital marketing, social media, artificial intelligence, and cryptocurrency. Our mission is to explore the latest trends, innovative strategies, and cutting-edge technologies that shape the digital world. Whether you're a marketing professional looking to enhance your skills, a tech enthusiast eager to understand AI, or an investor seeking insights into cryptocurrency, our blog offers valuable resources and thought-provoking content. Join us as we navigate the complexities of the digital frontier, empowering you with the knowledge to thrive in this dynamic environment. Stay informed and inspired as we uncover the potential and possibilities within the digital realm.
-          </p>
-        </section>
+  // Blog listing page schema
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Digital Frontier Blog",
+    "description": "Latest insights on digital marketing, AI, and business transformation",
+    "url": canonicalUrl,
+    "author": {
+      "@type": "Organization",
+      "name": "Digital Frontier Company"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Digital Frontier Company",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png"
+      }
+    },
+    "blogPost": blogPosts.map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "url": `https://www.thedigitalfrontier.ai/blog/${post.slug}`,
+      "datePublished": post.date,
+      "author": {
+        "@type": "Organization",
+        "name": "Digital Frontier Company"
+      },
+      "image": `https://thedigitalfrontier.ai${post.image}`
+    }))
+  };
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <article key={post.id} className="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700 hover:border-[#00BFFF]/50 transition-all hover:shadow-lg hover:shadow-[#0066FF]/10">
-              <div className="relative">
-                <AspectRatio ratio={16 / 9}>
-                  <img 
-                    src={post.image} 
-                    alt={post.title} 
-                    className="object-cover w-full h-full"
-                  />
-                </AspectRatio>
-                <div className="absolute top-4 right-4 bg-[#0066FF] text-white text-xs py-1 px-2 rounded">
-                  {post.category}
-                </div>
-              </div>
-              <div className="p-6 space-y-4">
-                <div className="flex items-center text-sm text-slate-400 space-x-4">
-                  <span>{post.date}</span>
-                  <span>•</span>
-                  <span>{post.author}</span>
-                </div>
-                <h3 className="text-xl font-bold text-white hover:text-[#00BFFF] transition-colors">
-                  {post.title}
-                </h3>
-                <p className="text-slate-300">{post.excerpt}</p>
-                <div>
-                  <Link to={post.link || "#"}>
-                    <Button 
-                      variant="ghost" 
-                      className="text-[#00BFFF] hover:text-white hover:bg-[#0066FF] p-0 h-auto font-semibold"
-                    >
-                      Read more →
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </article>
-          ))}
-        </section>
+  return (
+    <MainLayout>
+      <Helmet>
+        <title>Blog | The Digital Frontier</title>
+        <meta name="description" content="Latest insights on digital marketing, AI, and business transformation from Digital Frontier experts." />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta name="keywords" content="digital marketing blog, AI marketing insights, business transformation, Digital Frontier" />
         
-        <section className="bg-gradient-to-r from-[#0066FF]/10 to-[#00BFFF]/10 p-8 rounded-xl border border-[#0066FF]/20">
-          <div className="text-center space-y-4">
-            <h2 className="text-2xl font-bold">Subscribe to Our Newsletter</h2>
-            <p className="text-slate-300 max-w-lg mx-auto">
-              Get the latest insights on AI marketing delivered straight to your inbox. 
-              No spam, just valuable content to help your business grow.
-            </p>
-            <div className="pt-4">
-              <Link to="/newsletter">
-                <Button className="bg-gradient-to-r from-[#0066FF] to-[#00BFFF] hover:from-[#0055DD] hover:to-[#00AAEE] text-white">
-                  Subscribe Now
-                </Button>
-              </Link>
-            </div>
+        {/* Organization Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+        
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+        
+        {/* Blog Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(blogSchema)}
+        </script>
+      </Helmet>
+
+      {/* Hero Section */}
+      <section className="df-hero-section py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
+            <h2 className="text-xl text-slate-300">Insights on Digital Marketing, AI, and Business Transformation</h2>
           </div>
-        </section>
-        
-        {/* FAQ Section */}
-        <FAQSection 
-          title="Blog FAQ" 
-          faqs={blogFaqs} 
-          className="mt-12" 
-        />
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <div className="bg-slate-900/60 border-y border-slate-800/80">
+        <div className="container mx-auto py-3 px-4">
+          <div className="flex text-sm text-slate-400">
+            <Link to="/" className="hover:text-blue-400">Home</Link>
+            <span className="mx-2">/</span>
+            <span className="text-slate-300">Blog</span>
+          </div>
+        </div>
       </div>
-    </PageLayout>
+
+      {/* Main Content */}
+      <main className="container mx-auto py-8 px-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogPosts.map((post) => (
+            <Card key={post.id} className="bg-slate-900/60 border border-slate-800/80">
+              <CardHeader>
+                <CardTitle className="text-lg font-semibold">{post.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <img src={post.image} alt={post.title} className="mb-4 rounded-md" />
+                <CardDescription className="text-slate-400">{post.excerpt}</CardDescription>
+                <div className="flex items-center mt-4">
+                  <Badge className="mr-2">{post.category}</Badge>
+                  <span className="text-sm text-slate-500">{post.readTime}</span>
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Link to={`/blog/${post.slug}`}>
+                  <Button className="w-full">Read More</Button>
+                </Link>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </main>
+    </MainLayout>
   );
 };
 
