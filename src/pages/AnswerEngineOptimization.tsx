@@ -7,51 +7,51 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon, ArrowRight } from "lucide-react";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
+
 const AnswerEngineOptimization = () => {
   const location = useLocation();
 
   // Sample data for comparison chart
-  const comparisonData = [{
-    month: 'Jan',
-    traditional: 35,
-    aeo: 65
-  }, {
-    month: 'Feb',
-    traditional: 38,
-    aeo: 72
-  }, {
-    month: 'Mar',
-    traditional: 40,
-    aeo: 78
-  }, {
-    month: 'Apr',
-    traditional: 38,
-    aeo: 82
-  }, {
-    month: 'May',
-    traditional: 42,
-    aeo: 87
-  }, {
-    month: 'Jun',
-    traditional: 45,
-    aeo: 92
-  }];
+  const comparisonData = [
+    { month: 'Jan', traditional: 35, aeo: 65 },
+    { month: 'Feb', traditional: 38, aeo: 72 },
+    { month: 'Mar', traditional: 40, aeo: 78 },
+    { month: 'Apr', traditional: 38, aeo: 82 },
+    { month: 'May', traditional: 42, aeo: 87 },
+    { month: 'Jun', traditional: 45, aeo: 92 }
+  ];
 
-  // Sample data for answer distribution chart
-  const answerDistributionData = [{
-    name: 'Featured Snippets',
-    value: 45
-  }, {
-    name: 'Knowledge Panels',
-    value: 28
-  }, {
-    name: 'Voice Responses',
-    value: 17
-  }, {
-    name: 'Rich Results',
-    value: 10
-  }];
-  const COLORS = ['#8B5CF6', '#D946EF', '#F97316', '#0EA5E9'];
+  // Sample data for answer distribution chart - improved for readability
+  const answerDistributionData = [
+    { name: 'Featured Snippets', value: 45, color: '#3b82f6' },
+    { name: 'Knowledge Panels', value: 28, color: '#8b5cf6' },
+    { name: 'Voice Responses', value: 17, color: '#f59e0b' },
+    { name: 'Rich Results', value: 10, color: '#10b981' }
+  ];
+
+  const COLORS = ['#3b82f6', '#8b5cf6', '#f59e0b', '#10b981'];
+
+  // Custom label function for better readability
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, name }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text 
+        x={x} 
+        y={y} 
+        fill="white" 
+        textAnchor={x > cx ? 'start' : 'end'} 
+        dominantBaseline="central"
+        fontSize="14"
+        fontWeight="bold"
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
 
   // Sample data for optimization factors
   const factorsData = [{
@@ -324,31 +324,43 @@ const AnswerEngineOptimization = () => {
         
         <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[450px]">
+            <div className="w-full md:w-1/2 h-[500px]">
               <ChartContainer config={{
               'Featured Snippets': {
                 color: "#3b82f6"
               },
               'Knowledge Panels': {
-                color: "#D946EF"
+                color: "#8b5cf6"
               },
               'Voice Responses': {
-                color: "#F97316"
+                color: "#f59e0b"
               },
               'Rich Results': {
-                color: "#0EA5E9"
+                color: "#10b981"
               }
             }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie data={answerDistributionData} cx="50%" cy="50%" labelLine={false} outerRadius={120} fill="#8884d8" dataKey="value" label={({
-                    name,
-                    percent
-                  }) => `${name}: ${(percent * 100).toFixed(0)}%`}>
+                  <PieChart margin={{ top: 40, right: 40, bottom: 40, left: 40 }}>
+                    <Pie
+                      data={answerDistributionData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={renderCustomizedLabel}
+                      outerRadius={140}
+                      fill="#8884d8"
+                      dataKey="value"
+                    >
                       {answerDistributionData.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)}
                     </Pie>
-                    <Tooltip content={<ChartTooltipContent />} />
-                    <Legend />
+                    <Tooltip 
+                      content={<ChartTooltipContent />}
+                      formatter={(value, name) => [`${value}%`, name]}
+                    />
+                    <Legend 
+                      wrapperStyle={{ paddingTop: "30px" }}
+                      formatter={(value, entry) => `${value}: ${entry.payload.value}%`}
+                    />
                   </PieChart>
                 </ResponsiveContainer>
               </ChartContainer>
@@ -362,19 +374,19 @@ const AnswerEngineOptimization = () => {
               <ul className="space-y-6 text-slate-300 text-lg">
                 <li className="flex items-center gap-4">
                   <span className="h-5 w-5 rounded-full bg-[#3b82f6]"></span>
-                  <span>Featured Snippets: Direct answers at the top of search results</span>
+                  <span><strong>Featured Snippets (45%):</strong> Direct answers at the top of search results</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#D946EF]"></span>
-                  <span>Knowledge Panels: Informational boxes for entities and topics</span>
+                  <span className="h-5 w-5 rounded-full bg-[#8b5cf6]"></span>
+                  <span><strong>Knowledge Panels (28%):</strong> Informational boxes for entities and topics</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#F97316]"></span>
-                  <span>Voice Responses: Answers delivered through voice assistants</span>
+                  <span className="h-5 w-5 rounded-full bg-[#f59e0b]"></span>
+                  <span><strong>Voice Responses (17%):</strong> Answers delivered through voice assistants</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#0EA5E9]"></span>
-                  <span>Rich Results: Enhanced listings with additional information</span>
+                  <span className="h-5 w-5 rounded-full bg-[#10b981]"></span>
+                  <span><strong>Rich Results (10%):</strong> Enhanced listings with additional information</span>
                 </li>
               </ul>
             </div>
@@ -445,11 +457,7 @@ const AnswerEngineOptimization = () => {
                     <YAxis stroke="#9F9EA1" />
                     <Tooltip content={<ChartTooltipContent />} />
                     <Legend />
-                    <Line type="monotone" dataKey="improvement" stroke="#3b82f6" strokeWidth={3} dot={{
-                    r: 5
-                  }} activeDot={{
-                    r: 10
-                  }} name="Monthly Improvement %" />
+                    <Line type="monotone" dataKey="improvement" stroke="#3b82f6" strokeWidth={3} dot={{ r: 5 }} activeDot={{ r: 10 }} name="Monthly Improvement %" />
                   </LineChart>
                 </ResponsiveContainer>
               </ChartContainer>
