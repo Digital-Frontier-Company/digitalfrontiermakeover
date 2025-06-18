@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
@@ -63,7 +62,7 @@ const AEOChartTabs = () => {
       
       <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
         <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2 h-[700px]">
+          <div className="w-full md:w-1/2 h-[800px]">
             <ChartContainer config={{
               'Featured Snippets': { color: "#3b82f6" },
               'Knowledge Panels': { color: "#8b5cf6" },
@@ -71,7 +70,7 @@ const AEOChartTabs = () => {
               'Rich Results': { color: "#10b981" }
             }}>
               <ResponsiveContainer width="100%" height="100%">
-                <PieChart margin={{ top: 80, right: 80, bottom: 80, left: 80 }}>
+                <PieChart margin={{ top: 120, right: 120, bottom: 120, left: 120 }}>
                   <Pie
                     data={answerDistributionData}
                     cx="50%"
