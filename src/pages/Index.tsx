@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -28,6 +29,21 @@ const Index = () => {
       };
     }
   }, []);
+
+  const homepageFaqs = [
+    {
+      question: "What makes Digital Frontier different from other marketing agencies?",
+      answer: "We specialize in cutting-edge AI-powered marketing strategies including GEO, AEO, and advanced SEO techniques that traditional agencies don't offer."
+    },
+    {
+      question: "How quickly can I see results from your services?",
+      answer: "Results vary by service, but most clients see initial improvements within 30-60 days, with significant growth within 3-6 months."
+    },
+    {
+      question: "Do you work with both traditional and crypto/Web3 businesses?",
+      answer: "Yes! We have specialized expertise in both traditional digital marketing and emerging Web3/cryptocurrency marketing strategies."
+    }
+  ];
 
   return (
     <MainLayout>
@@ -139,7 +155,7 @@ const Index = () => {
       <TestimonialsSection />
 
       {/* FAQ Section */}
-      <FAQSection />
+      <FAQSection faqs={homepageFaqs} />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
