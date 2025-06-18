@@ -252,7 +252,7 @@ const GenerativeEngineOptimization = () => {
         </CardContent>
       </Card>
 
-      {/* Tabs for Multiple Chart Views - Increased height and margins */}
+      {/* Tabs for Multiple Chart Views - Fixed pie chart height and margins */}
       <Tabs defaultValue="distribution" className="mb-32">
         <TabsList className="grid w-full grid-cols-3 mb-6">
           <TabsTrigger value="distribution" className="text-base py-3">Quote Position</TabsTrigger>
@@ -262,7 +262,7 @@ const GenerativeEngineOptimization = () => {
         
         <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[500px]">
+            <div className="w-full md:w-1/2 h-[800px]">
               <ChartContainer config={{
                 'First Position': { color: "#8B5CF6" },
                 'Second Position': { color: "#D946EF" },
@@ -270,7 +270,7 @@ const GenerativeEngineOptimization = () => {
                 'Lower Positions': { color: "#0EA5E9" },
               }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart margin={{ top: 30, right: 30, bottom: 30, left: 30 }}>
+                  <PieChart margin={{ top: 120, right: 120, bottom: 120, left: 120 }}>
                     <Pie
                       data={quoteDistributionData}
                       cx="50%"
