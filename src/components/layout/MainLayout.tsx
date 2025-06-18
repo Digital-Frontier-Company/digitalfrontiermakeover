@@ -1,419 +1,323 @@
-import React, { useState, useEffect, useRef } from "react";
+
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, ChevronDown } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
-import Typed from 'typed.js';
+import { 
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
-const MainLayout = ({
-  children
-}: {
-  children: React.ReactNode;
-}) => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
-  const isMobile = useIsMobile();
-  const menuAnimation = useRef<HTMLSpanElement>(null);
-  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
+  
   useEffect(() => {
-    let typed: Typed | null = null;
-
-    // Only initialize Typed.js if the element exists and we're not on mobile
-    if (menuAnimation.current && !isMobile) {
-      typed = new Typed(menuAnimation.current, {
-        strings: ['AI-Powered Ad Funnel Blueprint', 'Generative Engine Optimization', 'Answer Engine Optimization', 'AI and Digital Marketing', 'Search Engine Optimization', 'Crypto Marketing'],
-        typeSpeed: 50,
-        backSpeed: 25,
-        backDelay: 2500,
-        startDelay: 1000,
-        loop: true,
-        showCursor: false
-      });
+    // Load HubSpot tracking script if configured
+    const hubspotId = localStorage.getItem('hubspot_id');
+    const enableTracking = localStorage.getItem('hubspot_enable_tracking') === 'true';
+    
+    if (hubspotId && enableTracking) {
+      const script = document.createElement('script');
+      script.src = `//js.hs-scripts.com/${hubspotId}.js`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+      
+      return () => {
+        // Cleanup script on unmount
+        const existingScript = document.querySelector(`script[src*="${hubspotId}"]`);
+        if (existingScript) {
+          existingScript.remove();
+        }
+      };
     }
-    return () => {
-      // Only destroy if typed was initialized
-      if (typed) {
-        typed.destroy();
-      }
-    };
-  }, [isMobile]);
-
-  const handleMobileMenuToggle = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
-
-  const handleDropdownEnter = (dropdownName: string) => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setActiveDropdown(dropdownName);
-  };
-
-  const handleDropdownLeave = () => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 300); // 300ms delay before closing
-  };
-
-  const handleDropdownClick = (dropdownName: string) => {
-    if (activeDropdown === dropdownName) {
-      setActiveDropdown(null);
-    } else {
-      setActiveDropdown(dropdownName);
-    }
-  };
-
-  // Clear timeout on component unmount
-  useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-    };
   }, []);
 
-  return <div className="min-h-screen flex flex-col bg-slate-950 text-white">
-      {/* Fixed header */}
-      <header className="w-full backdrop-blur-lg bg-slate-900/80 border-b border-slate-800 fixed top-0 z-50 shadow-lg shadow-slate-900/20">
-        <div className="container mx-auto py-3 px-4">
-          <div className="flex justify-between items-center">
-            <div className="mb-5 md:mb-0 md:mr-6 pl-1">
-              <Link to="/" className="flex items-center">
-                <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-90" />
-              </Link>
-            </div>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex flex-grow justify-center">
-              <ul className="flex space-x-1">
-                <li>
-                  <Link to="/" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
-                    Home
-                  </Link>
-                </li>
-                <li className="relative">
-                  <button 
-                    className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center"
-                    onClick={() => handleDropdownClick('services')}
-                    onMouseEnter={() => handleDropdownEnter('services')}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    Services
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </button>
-                  <div 
-                    className={`absolute left-0 mt-1 w-56 z-50 transition-all duration-200 ${
-                      activeDropdown === 'services' ? 'opacity-100 visible' : 'opacity-0 invisible'
-                    }`}
-                    onMouseEnter={() => handleDropdownEnter('services')}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
-                      <Link to="/ad-funnel-blueprint" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        AI-Powered Ad Funnel Blueprint
-                      </Link>
-                      <Link to="/generative-engine-optimization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Generative Engine Optimization
-                      </Link>
-                      <Link to="/answer-engine-optimization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Answer Engine Optimization
-                      </Link>
-                      <Link to="/search-engine-optimization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Search Engine Optimization
-                      </Link>
-                      <Link to="/crypto-marketing" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Crypto Marketing
-                      </Link>
-                    </div>
-                  </div>
-                </li>
-                <li className="relative">
-                  <button 
-                    className="px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors flex items-center"
-                    onClick={() => handleDropdownClick('resources')}
-                    onMouseEnter={() => handleDropdownEnter('resources')}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    Resources
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </button>
-                  <div 
-                    className={`absolute left-0 mt-1 w-56 z-50 transition-all duration-200 ${
-                      activeDropdown === 'resources' ? 'opacity-100 visible' : 'opacity-0 invisible'
-                    }`}
-                    onMouseEnter={() => handleDropdownEnter('resources')}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <div className="bg-slate-900 border border-slate-700 rounded-md shadow-lg py-1">
-                      <Link to="/blog" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Blog
-                      </Link>
-                      <Link to="/resources/content-creation-agent" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Content Creation Agent
-                      </Link>
-                      <Link to="/ai-bias-in-advertising" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        AI Bias in Advertising
-                      </Link>
-                      <Link to="/recommender-system-generalization" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">Recommender Systems Research</Link>
-                      <Link to="/ai-and-digital-marketing" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        AI & Digital Marketing
-                      </Link>
-                      <Link to="/psychological-digital-marketing-insights" className="block px-4 py-2 text-sm text-slate-300 hover:bg-slate-800 hover:text-white">
-                        Psychological Digital Marketing
-                      </Link>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <Link to="/about-us" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/about-us" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/pricing" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/pricing" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/faq" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/faq" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
-                    FAQ
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className={`px-3 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors ${location.pathname === "/contact" ? "text-blue-400 font-semibold" : "text-slate-300"}`}>
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-            
-            {/* Action buttons */}
-            <div className="hidden md:flex items-center space-x-3">
-              <Link to="/newsletter" className="px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors">
-                Newsletter
-              </Link>
-              <div className="h-5 w-px bg-slate-700 mx-1"></div>
-              <Link to="/contact" className="px-4 py-2 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors">
-                Get Started
-              </Link>
-            </div>
-            
-            {/* Mobile menu button */}
-            <div className="md:hidden">
-              <button onClick={handleMobileMenuToggle} className="text-slate-400 hover:text-white focus:outline-none">
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  {mobileMenuOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />}
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        {/* Mobile Navigation Menu */}
-        <div className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'} bg-slate-900 border-t border-slate-800 py-4 px-4`}>
-          <nav className="flex flex-col space-y-2">
-            <Link to="/" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Home
-            </Link>
-            <Link to="/ad-funnel-blueprint" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              AI-Powered Ad Funnel Blueprint
-            </Link>
-            <Link to="/generative-engine-optimization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Generative Engine Optimization
-            </Link>
-            <Link to="/answer-engine-optimization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Answer Engine Optimization
-            </Link>
-            <Link to="/search-engine-optimization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Search Engine Optimization
-            </Link>
-            <Link to="/crypto-marketing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Crypto Marketing
-            </Link>
-            <Link to="/blog" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Blog
-            </Link>
-            <Link to="/resources/content-creation-agent" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Content Creation Agent
-            </Link>
-            <Link to="/ai-bias-in-advertising" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              AI Bias in Advertising
-            </Link>
-             <Link to="/recommender-system-generalization" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">Recommender Systems Research</Link>
-            <Link to="/ai-and-digital-marketing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              AI & Digital Marketing
-            </Link>
-            <Link to="/psychological-digital-marketing-insights" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Psychological Digital Marketing
-            </Link>
-            <Link to="/about-us" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              About
-            </Link>
-            <Link to="/pricing" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Pricing
-            </Link>
-            <Link to="/faq" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              FAQ
-            </Link>
-            <Link to="/contact" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Contact
-            </Link>
-            <Link to="/newsletter" className="block px-3 py-2 rounded-md text-sm text-slate-300 hover:bg-slate-800 transition-colors">
-              Newsletter
-            </Link>
-          </nav>
-          <div className="mt-4">
-            <Link to="/contact" className="block px-4 py-2 rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-center">
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </header>
-      
-      {/* Main content with padding for fixed header */}
-      <main className="flex-grow pt-24">
-        <div className="min-h-screen">
-          {children}
-        </div>
-      </main>
-      
-      {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-800 pt-12 pb-8 mt-20">
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100">
+      {/* Navigation */}
+      <nav className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Company Info */}
-            <div>
-              <a href="http://digitalfrontier.app" target="_blank" rel="noopener noreferrer">
-                <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-14 mb-4" />
-              </a>
-              <p className="text-slate-400 mb-4 text-sm">
-                Leading the way in AI-powered marketing solutions and digital transformation strategies.
+          <div className="flex items-center justify-between h-16">
+            <Link to="/" className="flex items-center space-x-2">
+              <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-8 w-auto" />
+              <span className="font-bold text-lg">Digital Frontier</span>
+            </Link>
+            
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Digital Marketing</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <li className="row-span-3">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-blue-500/20 to-blue-700/20 p-6 no-underline outline-none focus:shadow-md"
+                            to="/search-engine-optimization"
+                          >
+                            <div className="mb-2 mt-4 text-lg font-medium">
+                              SEO Services
+                            </div>
+                            <p className="text-sm leading-tight text-slate-300">
+                              Search Engine Optimization strategies to boost your visibility
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/generative-engine-optimization"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">GEO</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Generative Engine Optimization
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/answer-engine-optimization"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">AEO</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Answer Engine Optimization
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/crypto-marketing"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Crypto Marketing</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Web3 and cryptocurrency marketing
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/influencer-marketing-2025"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Influencer Marketing 2025</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Next-gen creator strategies
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/ad-funnel-blueprint"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Ad Funnel Blueprint</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              High-converting ad strategies
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/blog"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Blog</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Latest insights and strategies
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/resources/content-creation-agent"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Content Creation Agent</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              AI-powered content tools
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/psychological-digital-marketing-insights"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Psychology Insights</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Consumer behavior analysis
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/faq"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">FAQ</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Frequently asked questions
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                      <li className="row-span-3">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-800/50 to-slate-900/50 p-6 no-underline outline-none focus:shadow-md"
+                            to="/about-us"
+                          >
+                            <div className="mb-2 mt-4 text-lg font-medium">
+                              About Digital Frontier
+                            </div>
+                            <p className="text-sm leading-tight text-slate-300">
+                              Learn about our mission and team
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/pricing"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Pricing</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Our service packages
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/contact"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                          >
+                            <div className="text-sm font-medium leading-none">Contact</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Get in touch with us
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Content */}
+      <main className="flex-1">
+        {children}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 border-t border-slate-800 mt-16">
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center space-x-2 mb-4">
+                <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-8 w-auto" />
+                <span className="font-bold text-lg">Digital Frontier</span>
+              </div>
+              <p className="text-slate-400 mb-4">
+                Leading digital marketing agency specializing in AI-driven strategies, SEO, and cutting-edge optimization techniques.
               </p>
-              <div className="flex space-x-2">
-                <Link to="https://www.facebook.com/profile.php?id=61572896248731" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <span className="sr-only">Facebook</span>
-                  <Facebook className="h-5 w-5" />
-                </Link>
-                <Link to="https://x.com/DigitalFro14616" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <span className="sr-only">X / Twitter</span>
-                  <Twitter className="h-5 w-5" />
-                </Link>
-                <Link to="https://www.instagram.com/digital_frontier_company/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <span className="sr-only">Instagram</span>
-                  <Instagram className="h-5 w-5" />
-                </Link>
-                <Link to="https://www.linkedin.com/company/digital-frontier-company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <span className="sr-only">LinkedIn</span>
-                  <Linkedin className="h-5 w-5" />
-                </Link>
-                <Link to="https://www.youtube.com/@Digital_FrontierCO" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <span className="sr-only">YouTube</span>
-                  <Youtube className="h-5 w-5" />
-                </Link>
-                <Link to="https://www.tiktok.com/@digital_frontier_company" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white">
-                  <span className="sr-only">TikTok</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.321 5.562a5.122 5.122 0 01-3.414-1.267 5.111 5.111 0 01-1.468-1.968h-3.165v13.579c0 1.124-.92 2.03-2.055 2.03a2.057 2.057 0 01-2.058-2.03 2.057 2.057 0 012.058-2.032c.218 0 .426.035.621.097V10.3a5.63 5.63 0 00-.621-.034c-2.796 0-5.076 2.267-5.076 5.047 0 2.781 2.28 5.048 5.076 5.048 2.795 0 5.075-2.267 5.075-5.048V9.469c1.065.812 2.373 1.322 3.804 1.322v-3.183a5.145 5.145 0 01-1.951.381 5.122 5.122 0 003.171-1.615V5.562z" />
+              <div className="flex space-x-4">
+                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                   </svg>
-                </Link>
+                </a>
+                <a href="#" className="text-slate-400 hover:text-blue-400 transition-colors">
+                  <span className="sr-only">LinkedIn</span>
+                  <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                </a>
               </div>
             </div>
             
-            {/* Services */}
             <div>
               <h3 className="text-white font-semibold mb-4">Services</h3>
               <ul className="space-y-2">
-                <li>
-                  <Link to="/ad-funnel-blueprint" className="text-slate-400 hover:text-blue-400 text-sm">AI-Powered Ad Funnel Blueprint</Link>
-                </li>
-                <li>
-                  <Link to="/generative-engine-optimization" className="text-slate-400 hover:text-blue-400 text-sm">Generative Engine Optimization</Link>
-                </li>
-                <li>
-                  <Link to="/answer-engine-optimization" className="text-slate-400 hover:text-blue-400 text-sm">Answer Engine Optimization</Link>
-                </li>
-                <li>
-                  <Link to="/search-engine-optimization" className="text-slate-400 hover:text-blue-400 text-sm">Search Engine Optimization</Link>
-                </li>
-                <li>
-                  <Link to="/crypto-marketing" className="text-slate-400 hover:text-blue-400 text-sm">Crypto Marketing</Link>
-                </li>
-                <li>
-                  <Link to="/ai-and-digital-marketing" className="text-slate-400 hover:text-blue-400 text-sm">AI & Digital Marketing</Link>
-                </li>
+                <li><Link to="/search-engine-optimization" className="text-slate-400 hover:text-white transition-colors">SEO</Link></li>
+                <li><Link to="/generative-engine-optimization" className="text-slate-400 hover:text-white transition-colors">GEO</Link></li>
+                <li><Link to="/answer-engine-optimization" className="text-slate-400 hover:text-white transition-colors">AEO</Link></li>
+                <li><Link to="/crypto-marketing" className="text-slate-400 hover:text-white transition-colors">Crypto Marketing</Link></li>
               </ul>
             </div>
             
-            {/* Resources */}
-            <div>
-              <h3 className="text-white font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link to="/blog" className="text-slate-400 hover:text-blue-400 text-sm">Blog</Link>
-                </li>
-                <li>
-                  <Link to="/resources/content-creation-agent" className="text-slate-400 hover:text-blue-400 text-sm">Content Creation Agent</Link>
-                </li>
-                <li>
-                  <Link to="/ai-bias-in-advertising" className="text-slate-400 hover:text-blue-400 text-sm">AI Bias in Advertising</Link>
-                </li>
-                <li>
-                  <Link to="/recommender-system-generalization" className="text-slate-400 hover:text-blue-400 text-sm">Recommender Systems Research</Link>
-                </li>
-                <li>
-                  <Link to="/newsletter" className="text-slate-400 hover:text-blue-400 text-sm">Newsletter</Link>
-                </li>
-                <li>
-                  <Link to="/faq" className="text-slate-400 hover:text-blue-400 text-sm">FAQ</Link>
-                </li>
-                <li>
-                  <Link to="/site-map" className="text-slate-400 hover:text-blue-400 text-sm">Site Map</Link>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Company */}
             <div>
               <h3 className="text-white font-semibold mb-4">Company</h3>
               <ul className="space-y-2">
-                <li>
-                  <Link to="/about-us" className="text-slate-400 hover:text-blue-400 text-sm">About Us</Link>
-                </li>
-                <li>
-                  <Link to="/pricing" className="text-slate-400 hover:text-blue-400 text-sm">Pricing</Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-slate-400 hover:text-blue-400 text-sm">Contact</Link>
-                </li>
-                <li>
-                  <Link to="/terms" className="text-slate-400 hover:text-blue-400 text-sm">Terms of Service</Link>
-                </li>
-                <li>
-                  <Link to="/privacy" className="text-slate-400 hover:text-blue-400 text-sm">Privacy Policy</Link>
-                </li>
+                <li><Link to="/about-us" className="text-slate-400 hover:text-white transition-colors">About</Link></li>
+                <li><Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link to="/pricing" className="text-slate-400 hover:text-white transition-colors">Pricing</Link></li>
+                <li><Link to="/site-map" className="text-slate-400 hover:text-white transition-colors">Site Map</Link></li>
               </ul>
             </div>
           </div>
           
-          <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-500 text-sm mb-4 md:mb-0">
-              &copy; 2025 Digital Frontier Company. All rights reserved.
+          <div className="border-t border-slate-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-slate-400 text-sm">
+              © 2024 Digital Frontier Company. All rights reserved.
             </p>
-            <div className="flex space-x-4">
-              <Link to="/terms" className="text-slate-500 hover:text-slate-300 text-sm">Terms</Link>
-              <Link to="/privacy" className="text-slate-500 hover:text-slate-300 text-sm">Privacy</Link>
-              <Link to="/cookies" className="text-slate-500 hover:text-slate-300 text-sm">Cookies</Link>
-              <Link to="/site-map" className="text-slate-500 hover:text-slate-300 text-sm">Site Map</Link>
+            <div className="flex space-x-6 mt-4 sm:mt-0">
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
-        
-        {/* SEO Juice Script */}
-        <script type="text/javascript" src="https://cdn.seojuice.io/suggestions.v1.js" defer></script>
       </footer>
-    </div>;
+    </div>
+  );
 };
 
 export default MainLayout;
