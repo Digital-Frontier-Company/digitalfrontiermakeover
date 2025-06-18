@@ -170,19 +170,19 @@ const AdFunnelBlueprint = () => {
           </CardContent>
         </Card>
 
-        {/* Interactive Ad Funnel Phases with Tabs */}
-        <div className="mt-16">
-          <h2 className="text-3xl font-bold mb-8 text-slate-100">The AI-Powered Ad Funnel Blueprint</h2>
+        {/* Interactive Ad Funnel Phases with Tabs - Improved spacing */}
+        <div className="mt-24">
+          <h2 className="text-3xl font-bold mb-12 text-slate-100">The AI-Powered Ad Funnel Blueprint</h2>
           
           <Tabs defaultValue="awareness" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsList className="grid w-full grid-cols-4 mb-12">
               <TabsTrigger value="awareness" onClick={() => handlePhaseClick("awareness")} className="text-base py-3">AWARENESS</TabsTrigger>
               <TabsTrigger value="consideration" onClick={() => handlePhaseClick("consideration")} className="text-base py-3">CONSIDERATION</TabsTrigger>
               <TabsTrigger value="conversion" onClick={() => handlePhaseClick("conversion")} className="text-base py-3">CONVERSION</TabsTrigger>
               <TabsTrigger value="loyalty" onClick={() => handlePhaseClick("loyalty")} className="text-base py-3">LOYALTY</TabsTrigger>
             </TabsList>
             
-            <TabsContent value="awareness" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in">
+            <TabsContent value="awareness" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in mt-8">
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <div className="w-full md:w-1/2">
                   <h3 className="text-2xl font-bold text-blue-400 mb-6">Phase 1: AWARENESS (TOFU)</h3>
@@ -210,39 +210,41 @@ const AdFunnelBlueprint = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="w-full md:w-1/2 h-[300px]">
-                  <ChartContainer config={{
-                    'Highly Relevant': { color: "#8B5CF6" },
-                    'Moderately Relevant': { color: "#D946EF" },
-                    'Low Relevance': { color: "#F97316" },
-                    'Non-relevant': { color: "#0EA5E9" },
-                  }}>
-                    <ResponsiveContainer width="100%" height="100%">
-                      <PieChart>
-                        <Pie
-                          data={audienceData}
-                          cx="50%"
-                          cy="50%"
-                          labelLine={false}
-                          outerRadius={120}
-                          fill="#8884d8"
-                          dataKey="value"
-                          label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                        >
-                          {audienceData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                          ))}
-                        </Pie>
-                        <Tooltip content={<ChartTooltipContent />} />
-                        <Legend />
-                      </PieChart>
-                    </ResponsiveContainer>
-                  </ChartContainer>
+                <div className="w-full md:w-1/2 mt-8 md:mt-0">
+                  <div className="h-[350px] w-full">
+                    <ChartContainer config={{
+                      'Highly Relevant': { color: "#8B5CF6" },
+                      'Moderately Relevant': { color: "#D946EF" },
+                      'Low Relevance': { color: "#F97316" },
+                      'Non-relevant': { color: "#0EA5E9" },
+                    }}>
+                      <ResponsiveContainer width="100%" height="100%">
+                        <PieChart>
+                          <Pie
+                            data={audienceData}
+                            cx="50%"
+                            cy="50%"
+                            labelLine={false}
+                            outerRadius={100}
+                            fill="#8884d8"
+                            dataKey="value"
+                            label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                          >
+                            {audienceData.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                          </Pie>
+                          <Tooltip content={<ChartTooltipContent />} />
+                          <Legend />
+                        </PieChart>
+                      </ResponsiveContainer>
+                    </ChartContainer>
+                  </div>
                 </div>
               </div>
             </TabsContent>
             
-            <TabsContent value="consideration" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in">
+            <TabsContent value="consideration" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in mt-8">
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <div className="w-full md:w-1/2">
                   <h3 className="text-2xl font-bold text-purple-400 mb-6">Phase 2: CONSIDERATION (MOFU)</h3>
@@ -270,7 +272,7 @@ const AdFunnelBlueprint = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="w-full md:w-1/2 p-6">
+                <div className="w-full md:w-1/2 p-6 mt-8 md:mt-0">
                   <div className="bg-purple-900/20 border border-purple-800/30 rounded-lg p-6">
                     <h4 className="text-xl font-medium text-purple-400 mb-3">Lead Qualification Improvement</h4>
                     <div className="space-y-4">
@@ -307,7 +309,7 @@ const AdFunnelBlueprint = () => {
               </div>
             </TabsContent>
             
-            <TabsContent value="conversion" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in">
+            <TabsContent value="conversion" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in mt-8">
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <div className="w-full md:w-1/2">
                   <h3 className="text-2xl font-bold text-indigo-400 mb-6">Phase 3: CONVERSION (BOFU)</h3>
@@ -335,7 +337,7 @@ const AdFunnelBlueprint = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="w-full md:w-1/2 p-6">
+                <div className="w-full md:w-1/2 p-6 mt-8 md:mt-0">
                   <div className="bg-indigo-900/20 border border-indigo-800/30 rounded-lg p-6">
                     <h4 className="text-xl font-medium text-indigo-400 mb-6">Conversion Rate Comparison</h4>
                     <div className="flex items-center gap-3 mb-4">
@@ -357,7 +359,7 @@ const AdFunnelBlueprint = () => {
               </div>
             </TabsContent>
             
-            <TabsContent value="loyalty" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in">
+            <TabsContent value="loyalty" className="border rounded-xl border-slate-800 bg-slate-900/80 p-8 animate-fade-in mt-8">
               <div className="flex flex-col md:flex-row gap-10 items-start">
                 <div className="w-full md:w-1/2">
                   <h3 className="text-2xl font-bold text-blue-400 mb-6">Phase 4: LOYALTY & ADVOCACY</h3>
@@ -385,7 +387,7 @@ const AdFunnelBlueprint = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="w-full md:w-1/2 p-6">
+                <div className="w-full md:w-1/2 p-6 mt-8 md:mt-0">
                   <div className="bg-blue-900/20 border border-blue-800/30 rounded-lg p-6">
                     <h4 className="text-xl font-medium text-blue-400 mb-4">Customer Lifetime Value Impact</h4>
                     <div className="relative pt-1">
