@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
@@ -38,7 +39,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <HelmetProvider>
-      <QueryClient client={queryClient}>
+      <QueryClientProvider client={queryClient}>
         <Toaster />
         <Router>
           <Routes>
@@ -72,7 +73,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
-      </QueryClient>
+      </QueryClientProvider>
     </HelmetProvider>
   );
 }
