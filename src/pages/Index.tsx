@@ -1,523 +1,158 @@
-import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import MainLayout from "@/components/layout/MainLayout";
-import useFaqToggle from "@/hooks/useFaqToggle";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import MorphingHero from "@/components/MorphingHero";
-import Typed from 'typed.js';
-import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import MainLayout from '@/components/layout/MainLayout';
+import HeroCarousel from '@/components/HeroCarousel';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import FAQSection from '@/components/FAQSection';
 
 const Index = () => {
-  // Use the FAQ toggle hook
-  useFaqToggle();
-
-  // Reference for Typed.js element
-  const typedElement = useRef(null);
-  const typed = useRef(null);
-  const [mousePosition, setMousePosition] = useState({
-    x: 0,
-    y: 0
-  });
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Track mouse movement for interactive effects
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
-      });
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Intersection observer for animations
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-      }
-    }, {
-      threshold: 0.1
-    });
-    const sections = document.querySelectorAll('.animate-on-scroll');
-    sections.forEach(section => observer.observe(section));
-    return () => {
-      sections.forEach(section => observer.unobserve(section));
-    };
-  }, []);
-
-  // Initialize Typed.js on component mount
-  useEffect(() => {
-    if (typedElement.current) {
-      typed.current = new Typed(typedElement.current, {
-        strings: ['Outthink', 'Outperform', 'Outgrow'],
-        typeSpeed: 50,
-        backSpeed: 25,
-        backDelay: 1500,
-        loop: true,
-        showCursor: false
-      });
+    // Load HubSpot tracking script if configured
+    const hubspotId = localStorage.getItem('hubspot_id');
+    const enableTracking = localStorage.getItem('hubspot_enable_tracking') === 'true';
+    
+    if (hubspotId && enableTracking) {
+      const script = document.createElement('script');
+      script.src = `//js.hs-scripts.com/${hubspotId}.js`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+      
+      return () => {
+        // Cleanup script on unmount
+        const existingScript = document.querySelector(`script[src*="${hubspotId}"]`);
+        if (existingScript) {
+          existingScript.remove();
+        }
+      };
     }
-
-    // Clean up on component unmount
-    return () => {
-      if (typed.current) {
-        typed.current.destroy();
-      }
-    };
   }, []);
 
-  // Load HubSpot form script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://js.hsforms.net/forms/embed/48401342.js';
-    script.defer = true;
-    document.body.appendChild(script);
+  return (
+    <MainLayout>
+      <Helmet>
+        <title>Digital Frontier - AI-Powered Digital Marketing Agency</title>
+        <meta name="description" content="Leading digital marketing agency specializing in AI-driven strategies, SEO, GEO, AEO, and cutting-edge optimization techniques for crypto, Web3, and traditional businesses." />
+        <link rel="canonical" href="https://www.thedigitalfrontier.ai/" />
+      </Helmet>
 
-    return () => {
-      // Cleanup script on component unmount
-      const existingScript = document.querySelector('script[src="https://js.hsforms.net/forms/embed/48401342.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
-  }, []);
-
-  return <MainLayout>
-      {/* NEW MORPHING HERO SECTION */}
-      <MorphingHero />
-
-      {/* SMART MARKETING SECTION */}
-      <section id="smart-marketing" className="df-smart-marketing animate-on-scroll">
-        <div className="container">
-          <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
-            <h2>Smart Marketing Built for Speed, Scale, and Survival</h2>
-          </div>
-
-          <div className="intro-text" style={{
-          maxWidth: "800px",
-          margin: "0 auto 30px",
-          textAlign: "center"
-        }}>
-            <p>We're not another digital marketing agency tossing generic playbooks. We are The Digital Frontier Company, a crew of engineers, analysts, and creative killers who live to squeeze more money out of your pipeline.</p>
-            <p>Here's what Digital Frontier Marketing includes:</p>
-          </div>
-
-          <div className="df-service-list">
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">
-                  <Link to="/answer-engine-optimization" className="hover:text-blue-400 transition-colors">
-                    Answer Engine Optimization (AEO):
-                  </Link>
-                </span>
-                <span className="service-description">Get found on AI-driven engines like ChatGPT, Google's SGE, and Bing Copilot.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">AI-Powered Automation:</span>
-                <span className="service-description">Workflows that respond to leads instantly. Bots that never sleep. Follow-ups that never miss.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">Performance SEO:</span>
-                <span className="service-description">Not fluff. Not theory. SEO that ranks and banks.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">
-                  <Link to="/ad-funnel-blueprint" className="hover:text-blue-400 transition-colors">
-                    Full Funnel Ads:
-                  </Link>
-                </span>
-                <span className="service-description">From scroll-stopping Meta creatives to zero-click Google Search dominance.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">Sales-Focused Email Sequences:</span>
-                <span className="service-description">We write, build, and automate the follow-up.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">Digital Consulting for SaaS & B2B:</span>
-                <span className="service-description">Deep strategy for scaling tech products and recurring revenue models.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* NEW SERVICE CARDS SECTION */}
-      <section className="py-20 relative overflow-hidden animate-on-scroll">
-        {/* Animated background image with medium opacity */}
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-40" style={{
-        backgroundImage: "url('/lovable-uploads/1382424c-884b-488c-a216-f685e32138c7.png')",
-        filter: 'blur(1px)'
-      }}></div>
-        
-        {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-900/80 to-slate-900/80 animate-gradient-x"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 via-purple-600/30 to-cyan-600/30 animate-gradient-x"></div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Turn Your Brand into a <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Revenue Engine</span>
-            </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              We don't just build campaigns—we engineer revenue machines that dominate markets and deliver measurable results.
+      {/* Hero Section */}
+      <section className="df-hero-section">
+        <div className="container mx-auto px-4 py-20">
+          <div className="text-center max-w-4xl mx-auto">
+            <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-8" width="200" />
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent leading-tight">
+              The Future of Digital Marketing is Here
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-300 mb-8">
+              AI-Powered strategies that drive results. Specializing in SEO, GEO, AEO, and cutting-edge optimization for the digital frontier.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* AI-Powered Marketing Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
-              <div className="mb-6">
-                <img src="/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png" alt="AI-Powered Marketing" className="w-full h-48 object-cover rounded-lg" onError={e => {
-                console.error('Failed to load image:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} />
-              </div>
-              <h3 className="mb-4 transition-colors font-extrabold text-xl text-cyan-300 text-center">
-                AI-Powered Marketing
-              </h3>
-              <p className="mb-6 leading-relaxed text-slate-100 font-bold">
-                Leverage cutting-edge artificial intelligence to automate and optimize your marketing campaigns for maximum impact.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['Smart automation', 'Predictive analytics', 'Real-time optimization', 'ROI maximization'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-tl-full rounded-full bg-[#074192]/0">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
-                    {feature}
-                  </li>)}
-              </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-                Explore AI Solutions
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                Get Started Today
               </Link>
-            </div>
-
-            {/* Data-Driven Insights Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
-              <div className="mb-6">
-                <img alt="Data-Driven Insights" onError={e => {
-                console.error('Failed to load image:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png" />
-              </div>
-              <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
-                Data-Driven Insights
-              </h3>
-              <p className="mb-6 leading-relaxed text-base font-semibold text-slate-100">
-                Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-full bg-[#074192]/0">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
-                    {feature}
-                  </li>)}
-              </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-                See Our Analytics
-              </Link>
-            </div>
-
-            {/* Answer Engine Optimization Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950/80">
-              <div className="mb-6">
-                <img src="/lovable-uploads/0c145136-0069-47e6-b799-655b514f21bf.png" alt="Answer Engine Optimization" className="w-full h-48 object-cover rounded-lg" onError={e => {
-                console.error('Failed to load image:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} />
-              </div>
-              <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
-                Answer Engine Optimization
-              </h3>
-              <p className="mb-6 leading-relaxed font-bold text-slate-100">
-                Dominate AI-powered search results and voice assistants to capture high-intent traffic before your competition.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['AI search optimization', 'Voice search ready', 'Featured snippets', 'Future-proof SEO'].map((feature, index) => <li key={index} className="flex items-center text-white">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
-                    {feature}
-                  </li>)}
-              </ul>
-              <Link to="/answer-engine-optimization" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-                Learn About AEO
+              <Link to="/about-us" className="border border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors">
+                Learn More
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* REVENUE ENGINE SECTION */}
-      <section className="df-revenue-engine animate-on-scroll">
-        <div className="container">
-          <div className="row" style={{
-          alignItems: "center"
-        }}>
-            <div className="col-lg-6">
-              <div className="df-neon-border mt-3 mb-5 mb-lg-3">
-                <img alt="Digital Frontier Data Dashboard" className="img-fluid p-2 max-h-64 object-contain" style={{
-                borderRadius: "10px"
-              }} src="/lovable-uploads/8397f9b3-fc8b-4246-b8a6-166b26926970.png" />
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <h2 style={{
-              fontSize: "28px",
-              fontWeight: 700,
-              marginBottom: "20px"
-            }}>Turn Your Brand into a Revenue Engine</h2>
-              <div className="imagine-text">
-                <p style={{
-                fontSize: "16px",
-                color: "#e0e0e0",
-                marginBottom: "15px"
-              }}>Imagine this: You wake up, check your dashboard, and sales are already climbing. Your ad spend? Low. Your return? Massive. And your brand? Getting noticed—on search, social, and beyond.</p>
-              </div>
-              <div className="content-text">
-                <p style={{
-                fontSize: "14px",
-                color: "#cccccc",
-                marginBottom: "15px"
-              }}>This isn't a fantasy. It's what happens when businesses plug into Digital Frontier Marketing.</p>
-                <p style={{
-                fontSize: "14px",
-                color: "#cccccc",
-                marginBottom: 0
-              }}>Most companies waste thousands on broken funnels, low-converting traffic, and "meh" strategies. We don't do mediocre. We engineer performance. <span className="highlight">Real clicks. Real conversions. Real cash.</span></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Carousel */}
+      <HeroCarousel />
 
-      {/* WHAT YOU'LL GAIN SECTION */}
-      <section className="df-what-youll-gain animate-on-scroll">
-        <div className="container">
-          <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
-            <h2 className="section-title" style={{
-            fontSize: "32px",
-            fontWeight: 700,
-            marginBottom: "15px"
-          }}>What You'll <span>Gain</span></h2>
-            <p className="section-subtitle" style={{
-            fontSize: "16px",
-            color: "#e0e0e0",
-            maxWidth: "700px",
-            margin: "0 auto"
-          }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
-          </div>
-
-          <div className="row">
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>🔍</div>
-                <h3>SEO Analysis</h3>
-                <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>📈</div>
-                <h3>Conversion Insights</h3>
-                <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>🔄</div>
-                <h3>Competitor Analysis</h3>
-                <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>📋</div>
-                <h3>Action Plan</h3>
-                <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-      <section className="df-faq-section animate-on-scroll" id="faq">
-        <div className="container">
-          <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
-            <h2>Frequently asked questions</h2>
-          </div>
-
-          <div className="df-faq-container">
-            <div className="df-faq-item">
-              <div className="df-faq-question">How is Digital Frontier different from other digital marketing agencies?</div>
-              <div className="df-faq-answer">Most agencies sell services. We sell outcomes. Every campaign we build is tied to revenue, not vanity metrics. We don't hand off checklists—we execute strategies that scale.</div>
-            </div>
-
-            <div className="df-faq-item">
-              <div className="df-faq-question">What's Answer Engine Optimization (AEO), and why does it matter?</div>
-              <div className="df-faq-answer">AEO is the future of SEO. Instead of just ranking on Google, AEO helps you show up in AI-driven answers across search engines and voice assistants. It's where high-intent users go first.</div>
-            </div>
-
-            <div className="df-faq-item">
-              <div className="df-faq-question">Can I use Digital Frontier for just one service (like SEO or ads)?</div>
-              <div className="df-faq-answer">Yes, but we'll still audit your entire system. Why? Because ads don't work if your funnel's broken. SEO won't help if your site doesn't convert. Everything is connected—we treat it that way.</div>
-            </div>
-
-            <div className="df-faq-item">
-              <div className="df-faq-question">Do you work with local businesses or just SaaS companies?</div>
-              <div className="df-faq-answer">Both. We've scaled local eCommerce brands, service pros, and global SaaS startups. If your business runs on digital, we can build your frontier.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="df-final-cta animate-on-scroll">
-        <div className="container">
-          <div className="text-center mb-4">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" width="80" className="mb-4" />
-          </div>
-          <h2>Ready to Own Your Digital Space?</h2>
-          <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk. Click below, and let's build something legendary.</p>
-          <div className="text-center">
-            <Link to="/contact" className="df-yellow-cta-button">Join Now</Link>
-          </div>
-          <p className="tagline mt-4">Digital Frontier—Marketing That Actually Works.</p>
-        </div>
-      </section>
-
-      {/* LEARN MORE SECTION */}
-      <section className="py-12 bg-gradient-to-br from-slate-900 to-slate-800 animate-on-scroll">
+      {/* Services Grid */}
+      <section className="py-20 bg-slate-900/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-slate-100 mb-8">Explore Digital Frontier</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Digital Marketing Solutions */}
-            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-4">Digital Marketing Solutions</h3>
-              <div className="space-y-3">
-                <Link to="/ad-funnel-blueprint" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Ad Funnel Blueprint</h4>
-                  <p className="text-slate-300 text-sm">Optimize your advertising funnel from awareness to conversion with our proven blueprint.</p>
-                </Link>
-                
-                <Link to="/generative-engine-optimization" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Generative Engine Optimization</h4>
-                  <p className="text-slate-300 text-sm">Leverage AI-generated content to boost your visibility and engagement.</p>
-                </Link>
-                
-                <Link to="/answer-engine-optimization" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Answer Engine Optimization</h4>
-                  <p className="text-slate-300 text-sm">Optimize your content to appear in AI-driven answer boxes and voice search results.</p>
-                </Link>
-              </div>
-            </div>
-            
-            {/* AI Marketing Foundations */}
-            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-4">AI Marketing Foundations</h3>
-              <div className="space-y-3">
-                <Link to="/technical" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Technical Breakdown</h4>
-                  <p className="text-slate-300 text-sm">Understand how modern AI marketing tools work and how they can transform your business.</p>
-                </Link>
-                
-                <Link to="/evolution" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Evolution of AI Marketing</h4>
-                  <p className="text-slate-300 text-sm">Trace the history of AI in marketing from early automation to today's sophisticated systems.</p>
-                </Link>
-                
-                <Link to="/regulations" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Regulations & Compliance</h4>
-                  <p className="text-slate-300 text-sm">Navigate the complex legal landscape of AI-powered marketing and advertising.</p>
-                </Link>
-              </div>
-            </div>
-            
-            {/* Industry Insights */}
-            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-4">Industry Insights</h3>
-              <div className="space-y-3">
-                <Link to="/sectors" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Sector Spotlights</h4>
-                  <p className="text-slate-300 text-sm">See how different industries are leveraging AI marketing for competitive advantage.</p>
-                </Link>
-                
-                <Link to="/future" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Future Trends</h4>
-                  <p className="text-slate-300 text-sm">Get ahead of the curve with insights into emerging AI marketing technologies.</p>
-                </Link>
-                
-                <Link to="/ai-bias-in-advertising" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">AI Bias in Advertising</h4>
-                  <p className="text-slate-300 text-sm">Understand the ethical implications of AI in advertising and how to address bias.</p>
-                </Link>
-              </div>
-            </div>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Our Services</h2>
+            <p className="text-xl text-slate-300">Cutting-edge digital marketing solutions for the modern age</p>
           </div>
           
-          {/* Additional Resources Row */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link to="/about-us" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h4 className="text-xl font-bold text-blue-300 mb-2">About Digital Frontier</h4>
-              <p className="text-slate-300">Learn more about our team, our mission, and how we're changing the digital marketing landscape.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link to="/search-engine-optimization" className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700 hover:border-blue-500 transition-all duration-300 hover:scale-105">
+              <div className="text-blue-400 mb-4">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-400 transition-colors">SEO</h3>
+              <p className="text-slate-300">Search Engine Optimization strategies that put you ahead of the competition</p>
             </Link>
-            
-            <Link to="/contact" className="bg-blue-900/20 p-6 rounded-lg border border-blue-700/30 hover:border-blue-500/50 hover:bg-blue-900/30 transition-all">
-              <h4 className="text-xl font-bold text-blue-300 mb-2">Ready to Transform Your Marketing?</h4>
-              <p className="text-slate-300">Contact us today to discuss how we can help your business thrive in the digital frontier.</p>
+
+            <Link to="/generative-engine-optimization" className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700 hover:border-purple-500 transition-all duration-300 hover:scale-105">
+              <div className="text-purple-400 mb-4">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors">GEO</h3>
+              <p className="text-slate-300">Generative Engine Optimization for AI-powered search results</p>
+            </Link>
+
+            <Link to="/answer-engine-optimization" className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:scale-105">
+              <div className="text-cyan-400 mb-4">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-cyan-400 transition-colors">AEO</h3>
+              <p className="text-slate-300">Answer Engine Optimization for voice search and AI assistants</p>
+            </Link>
+
+            <Link to="/crypto-marketing" className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700 hover:border-yellow-500 transition-all duration-300 hover:scale-105">
+              <div className="text-yellow-400 mb-4">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-yellow-400 transition-colors">Crypto Marketing</h3>
+              <p className="text-slate-300">Specialized marketing strategies for Web3 and cryptocurrency projects</p>
+            </Link>
+
+            <Link to="/influencer-marketing-2025" className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700 hover:border-pink-500 transition-all duration-300 hover:scale-105">
+              <div className="text-pink-400 mb-4">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-pink-400 transition-colors">Influencer Marketing 2025</h3>
+              <p className="text-slate-300">Next-generation creator strategies and authentic brand partnerships</p>
+            </Link>
+
+            <Link to="/ai-and-digital-marketing" className="group bg-slate-800/50 backdrop-blur-sm p-8 rounded-xl border border-slate-700 hover:border-green-500 transition-all duration-300 hover:scale-105">
+              <div className="text-green-400 mb-4">
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-green-400 transition-colors">AI & Digital Marketing</h3>
+              <p className="text-slate-300">Artificial Intelligence powered marketing automation and insights</p>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* HUBSPOT FORM SECTION */}
-      <section className="py-12 bg-slate-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4">Get Started Today</h2>
-            <p className="text-slate-300">Ready to transform your digital marketing? Fill out the form below and let's discuss your goals.</p>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            <div className="hs-form-frame" data-region="na1" data-form-id="5ab0be60-7598-4f9c-ac2f-72519d49d946" data-portal-id="48401342"></div>
-          </div>
+      {/* Testimonials */}
+      <TestimonialsSection />
+
+      {/* FAQ Section */}
+      <FAQSection />
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Digital Presence?</h2>
+          <p className="text-xl mb-8">Join the digital frontier and stay ahead of the competition</p>
+          <Link to="/contact" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+            Get Your Free Consultation
+          </Link>
         </div>
       </section>
-    </MainLayout>;
+    </MainLayout>
+  );
 };
 
 export default Index;
