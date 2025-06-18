@@ -44,22 +44,22 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
           <div className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center space-x-2">
               <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-8 w-auto" />
-              <span className="font-bold text-lg">Digital Frontier</span>
+              <span className="font-bold text-lg text-slate-100">Digital Frontier</span>
             </Link>
             
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Digital Marketing</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-slate-100 hover:text-blue-400 data-[state=open]:text-blue-400">Digital Marketing</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-slate-900 border border-slate-700">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-blue-500/20 to-blue-700/20 p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-blue-500/20 to-blue-700/20 p-6 no-underline outline-none focus:shadow-md text-slate-100 hover:text-white"
                             to="/search-engine-optimization"
                           >
-                            <div className="mb-2 mt-4 text-lg font-medium">
+                            <div className="mb-2 mt-4 text-lg font-medium text-slate-100">
                               SEO Services
                             </div>
                             <p className="text-sm leading-tight text-slate-300">
@@ -72,9 +72,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/generative-engine-optimization"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">GEO</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">GEO</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Generative Engine Optimization
                             </p>
@@ -85,9 +85,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/answer-engine-optimization"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">AEO</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">AEO</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Answer Engine Optimization
                             </p>
@@ -98,9 +98,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/crypto-marketing"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Crypto Marketing</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Crypto Marketing</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Web3 and cryptocurrency marketing
                             </p>
@@ -111,9 +111,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/influencer-marketing-2025"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Influencer Marketing 2025</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Influencer Marketing 2025</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Next-gen creator strategies
                             </p>
@@ -124,11 +124,24 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/ad-funnel-blueprint"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Ad Funnel Blueprint</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Ad Funnel Blueprint</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               High-converting ad strategies
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/ai-and-digital-marketing"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
+                          >
+                            <div className="text-sm font-medium leading-none text-slate-100">AI & Digital Marketing</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              AI-powered marketing strategies
                             </p>
                           </Link>
                         </NavigationMenuLink>
@@ -138,16 +151,16 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-slate-100 hover:text-blue-400 data-[state=open]:text-blue-400">Resources</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-slate-900 border border-slate-700">
                       <li>
                         <NavigationMenuLink asChild>
                           <Link
                             to="/blog"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Blog</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Blog</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Latest insights and strategies
                             </p>
@@ -158,9 +171,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/resources/content-creation-agent"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Content Creation Agent</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Content Creation Agent</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               AI-powered content tools
                             </p>
@@ -171,9 +184,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/psychological-digital-marketing-insights"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Psychology Insights</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Psychology Insights</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Consumer behavior analysis
                             </p>
@@ -183,10 +196,23 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                       <li>
                         <NavigationMenuLink asChild>
                           <Link
-                            to="/faq"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            to="/ai-bias-in-advertising"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">FAQ</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">AI Bias in Advertising</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-slate-400">
+                              Understanding algorithmic bias
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/faq"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
+                          >
+                            <div className="text-sm font-medium leading-none text-slate-100">FAQ</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Frequently asked questions
                             </p>
@@ -198,16 +224,16 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Company</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="text-slate-100 hover:text-blue-400 data-[state=open]:text-blue-400">Company</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] bg-slate-900 border border-slate-700">
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-800/50 to-slate-900/50 p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-slate-800/50 to-slate-900/50 p-6 no-underline outline-none focus:shadow-md text-slate-100 hover:text-white"
                             to="/about-us"
                           >
-                            <div className="mb-2 mt-4 text-lg font-medium">
+                            <div className="mb-2 mt-4 text-lg font-medium text-slate-100">
                               About Digital Frontier
                             </div>
                             <p className="text-sm leading-tight text-slate-300">
@@ -220,9 +246,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/pricing"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Pricing</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Pricing</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Our service packages
                             </p>
@@ -233,9 +259,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                         <NavigationMenuLink asChild>
                           <Link
                             to="/contact"
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800"
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white"
                           >
-                            <div className="text-sm font-medium leading-none">Contact</div>
+                            <div className="text-sm font-medium leading-none text-slate-100">Contact</div>
                             <p className="line-clamp-2 text-sm leading-snug text-slate-400">
                               Get in touch with us
                             </p>
@@ -263,7 +289,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-8 w-auto" />
-                <span className="font-bold text-lg">Digital Frontier</span>
+                <span className="font-bold text-lg text-slate-100">Digital Frontier</span>
               </div>
               <p className="text-slate-400 mb-4">
                 Leading digital marketing agency specializing in AI-driven strategies, SEO, and cutting-edge optimization techniques.
@@ -291,6 +317,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                 <li><Link to="/generative-engine-optimization" className="text-slate-400 hover:text-white transition-colors">GEO</Link></li>
                 <li><Link to="/answer-engine-optimization" className="text-slate-400 hover:text-white transition-colors">AEO</Link></li>
                 <li><Link to="/crypto-marketing" className="text-slate-400 hover:text-white transition-colors">Crypto Marketing</Link></li>
+                <li><Link to="/influencer-marketing-2025" className="text-slate-400 hover:text-white transition-colors">Influencer Marketing</Link></li>
               </ul>
             </div>
             
