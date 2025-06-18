@@ -324,7 +324,7 @@ const AnswerEngineOptimization = () => {
         
         <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[500px]">
+            <div className="w-full md:w-1/2 h-[600px]">
               <ChartContainer config={{
               'Featured Snippets': {
                 color: "#3b82f6"
@@ -340,14 +340,14 @@ const AnswerEngineOptimization = () => {
               }
             }}>
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart margin={{ top: 40, right: 40, bottom: 40, left: 40 }}>
+                  <PieChart margin={{ top: 60, right: 60, bottom: 60, left: 60 }}>
                     <Pie
                       data={answerDistributionData}
                       cx="50%"
                       cy="50%"
                       labelLine={false}
                       label={renderCustomizedLabel}
-                      outerRadius={140}
+                      outerRadius={120}
                       fill="#8884d8"
                       dataKey="value"
                     >
@@ -358,7 +358,7 @@ const AnswerEngineOptimization = () => {
                       formatter={(value, name) => [`${value}%`, name]}
                     />
                     <Legend 
-                      wrapperStyle={{ paddingTop: "30px" }}
+                      wrapperStyle={{ paddingTop: "40px" }}
                       formatter={(value, entry) => `${value}: ${entry.payload.value}%`}
                     />
                   </PieChart>
