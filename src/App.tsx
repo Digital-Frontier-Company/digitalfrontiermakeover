@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import Index from '@/pages/Index';
 import AdFunnelBlueprint from '@/pages/AdFunnelBlueprint';
@@ -29,6 +28,9 @@ import RecommenderSystemGeneralization from '@/pages/RecommenderSystemGeneraliza
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
+import InfluencerMarketing2025 from "./pages/InfluencerMarketing2025";
+import { Toaster } from 'react-hot-toast';
+import NotFound from '@/pages/NotFound';
 
 // Create a query client instance
 const queryClient = new QueryClient();
@@ -36,8 +38,9 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
+      <QueryClient client={queryClient}>
+        <Toaster />
+        <Router>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/ad-funnel-blueprint" element={<MainLayout><AdFunnelBlueprint /></MainLayout>} />
@@ -65,9 +68,11 @@ function App() {
             <Route path="/ai-bias-in-advertising" element={<MainLayout><AIBias /></MainLayout>} />
             <Route path="/ai-and-digital-marketing" element={<MainLayout><AIAndDigitalMarketing /></MainLayout>} />
             <Route path="/recommender-system-generalization" element={<MainLayout><RecommenderSystemGeneralization /></MainLayout>} />
+            <Route path="/influencer-marketing-2025" element={<InfluencerMarketing2025 />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
-      </QueryClientProvider>
+        </Router>
+      </QueryClient>
     </HelmetProvider>
   );
 }
