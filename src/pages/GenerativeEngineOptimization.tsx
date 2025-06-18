@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
@@ -110,6 +111,9 @@ const GenerativeEngineOptimization = () => {
       title="Generative Engine Optimization"
       subtitle="That Makes AI Engines Quote You First"
       currentPath={location.pathname}
+      pageType="article"
+      publishedDate="2024-12-01"
+      modifiedDate="2024-12-18"
     >
       {/* Hero Image Section */}
       <section className="mb-24">

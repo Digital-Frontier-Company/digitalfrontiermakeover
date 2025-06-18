@@ -45,6 +45,9 @@ const AnswerEngineOptimization = () => {
       title="Answer Engine Optimization"
       subtitle="Position Your Content as the Go-To Answer Source"
       currentPath={location.pathname}
+      pageType="article"
+      publishedDate="2024-11-15"
+      modifiedDate="2024-12-18"
     >
       <AEOHeroSection />
       <AEOFrameworkSection />

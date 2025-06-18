@@ -3,19 +3,26 @@ import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MainLayout from "./MainLayout";
 import { Helmet } from "react-helmet-async";
+import { generateOrganizationSchema, generateBreadcrumbSchema } from "@/lib/utils";
 
 type PageLayoutProps = {
   children: React.ReactNode;
   title: string;
   subtitle?: string;
   currentPath: string;
+  pageType?: 'article' | 'page';
+  publishedDate?: string;
+  modifiedDate?: string;
 };
 
 const PageLayout: React.FC<PageLayoutProps> = ({ 
   children, 
   title, 
   subtitle,
-  currentPath
+  currentPath,
+  pageType = 'page',
+  publishedDate,
+  modifiedDate
 }) => {
   // Get the current page name from the path
   const pageName = currentPath.split("/").pop() || "";
@@ -26,6 +33,39 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     
   // Canonical URL with www prefix
   const canonicalUrl = `https://www.thedigitalfrontier.ai${currentPath}`;
+  
+  // Generate schemas
+  const organizationSchema = generateOrganizationSchema();
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "https://www.thedigitalfrontier.ai" },
+    { name: title, url: canonicalUrl }
+  ]);
+  
+  // Generate Article schema if it's an article page
+  const articleSchema = pageType === 'article' ? {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`,
+    "author": {
+      "@type": "Organization",
+      "name": "Digital Frontier Company"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Digital Frontier Company",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png"
+      }
+    },
+    "datePublished": publishedDate || new Date().toISOString().split('T')[0],
+    "dateModified": modifiedDate || new Date().toISOString().split('T')[0],
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    }
+  } : null;
     
   // Effect to handle anchor link smooth scrolling
   useEffect(() => {
@@ -58,29 +98,24 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         <title>{title} | The Digital Frontier</title>
         <meta name="description" content={subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`} />
         <link rel="canonical" href={canonicalUrl} />
-        <meta name="keywords" content="digital marketing, AI marketing, digital transformation, Digital Frontier, SEO, AEO, content marketing" />
+        <meta name="keywords" content="digital marketing, AI marketing, digital transformation, Digital Frontier, SEO, AEO, GEO, content marketing" />
+        
+        {/* Organization Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
         
         {/* Breadcrumb Schema */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.thedigitalfrontier.ai"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": title,
-                "item": canonicalUrl
-              }
-            ]
-          })}
+          {JSON.stringify(breadcrumbSchema)}
         </script>
+        
+        {/* Article Schema (if applicable) */}
+        {articleSchema && (
+          <script type="application/ld+json">
+            {JSON.stringify(articleSchema)}
+          </script>
+        )}
       </Helmet>
       
       {/* Hero Section */}

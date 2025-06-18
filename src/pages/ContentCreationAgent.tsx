@@ -12,16 +12,10 @@ const ContentCreationAgent = () => {
       title="Content Creation Agent"
       subtitle="Generate SEO-optimized content for your digital marketing needs"
       currentPath={location.pathname}
+      pageType="article"
+      publishedDate="2024-10-01"
+      modifiedDate="2024-12-18"
     >
-      <Helmet>
-        <title>Content Creation Agent | Digital Frontier</title>
-        <meta 
-          name="description" 
-          content="Use our AI-powered content creation agent to generate high-quality, SEO-optimized blog posts for your digital marketing strategy." 
-        />
-        <link rel="canonical" href={`https://thedigitalfrontier.ai${location.pathname}`} />
-      </Helmet>
-
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-cyan-300">Create SEO-Optimized Content</h2>
         <p className="mb-6 text-slate-300">
