@@ -1,9 +1,36 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import MainLayout from "@/components/layout/MainLayout";
 import { Badge } from "@/components/ui/badge";
-import { generateOrganizationSchema, generateBreadcrumbSchema } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import FAQSection from "@/components/FAQSection";
+import { generateOrganizationSchema, generateBreadcrumbSchema, formatDate } from "@/lib/utils";
+
+// Blog FAQ data
+const blogFaqs = [
+  {
+    question: "What is Digital Frontier Marketing?",
+    answer: "Digital Frontier Marketing refers to the cutting-edge strategies and technologies that enable brands to connect with customers through new digital channels and platforms, including AI tools, voice search, AR/VR, and emerging social media platforms."
+  },
+  {
+    question: "How can AI help improve my B2B marketing strategy?",
+    answer: "AI can enhance your B2B marketing through predictive analytics, personalized content creation, automated lead scoring, chatbots for customer service, and data-driven decision making that improves targeting and conversion rates."
+  },
+  {
+    question: "What is Answer Engine Optimization (AEO)?",
+    answer: "AEO is the practice of optimizing your content to provide direct answers to user queries, making it more likely to be featured in voice search results, AI assistants, and smart devices that provide immediate answers rather than traditional search results."
+  },
+  {
+    question: "How do I balance AI automation with human touch in marketing?",
+    answer: "Use AI for data analysis, automation, and efficiency while maintaining human oversight for strategy, creativity, emotional connection, and relationship building. AI should enhance human capabilities, not replace human judgment and empathy."
+  },
+  {
+    question: "Which social media platforms work best for B2B marketing?",
+    answer: "While LinkedIn remains the primary B2B platform, don't overlook Instagram, Twitter, and even TikTok for reaching decision-makers. The key is understanding where your specific audience spends their time and creating appropriate content for each platform."
+  }
+];
 
 const BlogPost = () => {
   const location = useLocation();
@@ -222,9 +249,6 @@ const BlogPost = () => {
             <p>
               When we talk about B2B marketing, people think that only LinkedIn is enough. But my personal experience says that platforms like Instagram, Twitter (X), and even TikTok can be game changers for B2B. Nowadays decision-makers are also humans, they too spend their time on social media. I once created an Instagram Reels strategy for a SaaS brand, and those short videos took their brand awareness by 10X! Using new features like LinkedIn Polls, Instagram Stories, and Twitter Spaces correctly, B2B brands can connect with their audience in real-time. It is important to adapt to social media innovations in digital frontier marketing, otherwise you will be left behind your competition.
             </p>
-
-            {/* Adding more sections would make this file too long, so we're condensing */}
-            {/* The remaining content sections would follow the same pattern */}
             
             <h2 className="text-2xl font-bold mt-8 mb-4">Conclusion: Navigating the Digital Frontier with Confidence</h2>
             <p>
