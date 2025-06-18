@@ -6,6 +6,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
+
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -67,6 +68,23 @@ const Index = () => {
       }
     };
   }, []);
+
+  // Load HubSpot form script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://js.hsforms.net/forms/embed/48401342.js';
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://js.hsforms.net/forms/embed/48401342.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return <MainLayout>
       {/* NEW MORPHING HERO SECTION */}
       <MorphingHero />
@@ -486,6 +504,20 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* HUBSPOT FORM SECTION */}
+      <section className="py-12 bg-slate-900">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-white mb-4">Get Started Today</h2>
+            <p className="text-slate-300">Ready to transform your digital marketing? Fill out the form below and let's discuss your goals.</p>
+          </div>
+          <div className="max-w-2xl mx-auto">
+            <div className="hs-form-frame" data-region="na1" data-form-id="5ab0be60-7598-4f9c-ac2f-72519d49d946" data-portal-id="48401342"></div>
+          </div>
+        </div>
+      </section>
     </MainLayout>;
 };
+
 export default Index;
