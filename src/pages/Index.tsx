@@ -110,9 +110,11 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-20">
             {/* Hero Text Content */}
             <div className="text-white space-y-6">
-              {/* Badge */}
-              <div className="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold animate-pulse">
-                ◆ LIMITED TIME OPPORTUNITY
+              {/* Badge - Centered */}
+              <div className="flex justify-center">
+                <div className="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold animate-pulse">
+                  ◆ LIMITED TIME OPPORTUNITY
+                </div>
               </div>
 
               {/* Logo Integration - Centered and Larger */}
