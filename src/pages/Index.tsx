@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -117,15 +118,15 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Logo Integration - Centered and Larger */}
+              {/* Logo Integration - Centered and Larger with proper container */}
               <div className="flex justify-center mb-8">
-                <div className="relative">
+                <div className="relative bg-gradient-to-br from-slate-800/30 to-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all duration-300">
                   <img 
                     src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
                     alt="Digital Frontier Logo" 
-                    className="w-24 h-24 animate-pulse"
+                    className="w-32 h-32 object-contain animate-pulse"
                   />
-                  <div className="absolute inset-0 bg-cyan-400/20 rounded-full animate-ping"></div>
+                  <div className="absolute inset-0 bg-cyan-400/10 rounded-2xl animate-ping opacity-75"></div>
                 </div>
               </div>
 
