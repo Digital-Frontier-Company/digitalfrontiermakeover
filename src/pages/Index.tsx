@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -6,7 +5,6 @@ import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -21,14 +19,7 @@ const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFullText, setShowFullText] = useState(false);
-
-  const carouselSlides = [
-    "The Secret Weapon you aren't using",
-    "but Elite Companies are",
-    "and will never share with you or your SMB",
-    "Ready to get actual real results?",
-    "Meet The Digital Frontier Company"
-  ];
+  const carouselSlides = ["The Secret Weapon you aren't using", "but Elite Companies are", "and will never share with you or your SMB", "Ready to get actual real results?", "Meet The Digital Frontier Company"];
 
   // Track mouse movement for interactive effects
   useEffect(() => {
@@ -45,7 +36,7 @@ const Index = () => {
   // Carousel rotation effect
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+      setCurrentSlide(prev => (prev + 1) % carouselSlides.length);
     }, 4000);
     return () => clearInterval(interval);
   }, [carouselSlides.length]);
@@ -72,7 +63,6 @@ const Index = () => {
     script.src = 'https://js.hsforms.net/forms/embed/48401342.js';
     script.defer = true;
     document.body.appendChild(script);
-
     return () => {
       // Cleanup script on component unmount
       const existingScript = document.querySelector('script[src="https://js.hsforms.net/forms/embed/48401342.js"]');
@@ -81,7 +71,6 @@ const Index = () => {
       }
     };
   }, []);
-
   return <MainLayout>
       {/* REDESIGNED HERO SECTION */}
       <section className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-600 relative overflow-hidden flex items-center">
@@ -93,16 +82,28 @@ const Index = () => {
 
         {/* Floating elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 left-1/10 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '0s' }}>&lt;/&gt;</div>
-          <div className="absolute top-3/5 left-1/5 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '2s' }}>{ }</div>
-          <div className="absolute top-1/3 right-1/6 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '4s' }}>[ ]</div>
-          <div className="absolute bottom-1/3 right-1/4 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '6s' }}>∞</div>
+          <div className="absolute top-1/4 left-1/10 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{
+          animationDelay: '0s'
+        }}>&lt;/&gt;</div>
+          <div className="absolute top-3/5 left-1/5 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{
+          animationDelay: '2s'
+        }}>{}</div>
+          <div className="absolute top-1/3 right-1/6 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{
+          animationDelay: '4s'
+        }}>[ ]</div>
+          <div className="absolute bottom-1/3 right-1/4 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{
+          animationDelay: '6s'
+        }}>∞</div>
           
           {/* Circuit elements */}
-          <div className="absolute top-1/6 right-1/3 w-5 h-5 border-2 border-cyan-400/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}>
+          <div className="absolute top-1/6 right-1/3 w-5 h-5 border-2 border-cyan-400/30 rounded-full animate-pulse" style={{
+          animationDelay: '1s'
+        }}>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400/50 rounded-full"></div>
           </div>
-          <div className="absolute bottom-1/5 left-1/6 w-5 h-5 border-2 border-cyan-400/30 rounded-full animate-pulse" style={{ animationDelay: '3s' }}>
+          <div className="absolute bottom-1/5 left-1/6 w-5 h-5 border-2 border-cyan-400/30 rounded-full animate-pulse" style={{
+          animationDelay: '3s'
+        }}>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400/50 rounded-full"></div>
           </div>
         </div>
@@ -111,62 +112,33 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-20">
             {/* Hero Text Content */}
             <div className="text-white space-y-6">
-              {/* Badge - Centered */}
-              <div className="flex justify-center">
-                <div className="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold animate-pulse">
-                  ◆ LIMITED TIME OPPORTUNITY
-                </div>
-              </div>
+              {/* Badge */}
+              <div className="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold animate-pulse">◆ LIMITED TIME OPPORTUNITY</div>
 
-              {/* Logo Integration - Centered and Larger with proper container */}
+              {/* Logo Integration - Centered and Larger */}
               <div className="flex justify-center mb-8">
-                <div className="relative bg-gradient-to-br from-slate-800/30 to-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 hover:border-cyan-400/40 transition-all duration-300">
-                  <img 
-                    src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
-                    alt="Digital Frontier Logo" 
-                    className="w-32 h-32 object-contain animate-pulse"
-                  />
-                  <div className="absolute inset-0 bg-cyan-400/10 rounded-2xl animate-ping opacity-75"></div>
+                <div className="relative">
+                  <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="w-24 h-24 animate-pulse" />
+                  <div className="absolute inset-0 bg-cyan-400/20 animate-ping rounded-3xl"></div>
                 </div>
               </div>
 
               {/* Interactive text area */}
-              <div 
-                className="relative p-6 rounded-xl transition-all duration-300 cursor-pointer"
-                style={{
-                  background: showFullText ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
-                  backdropFilter: showFullText ? 'blur(10px)' : 'none'
-                }}
-                onMouseEnter={() => setShowFullText(true)}
-                onMouseLeave={() => setShowFullText(false)}
-              >
+              <div className="relative p-6 rounded-xl transition-all duration-300 cursor-pointer" style={{
+              background: showFullText ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
+              backdropFilter: showFullText ? 'blur(10px)' : 'none'
+            }} onMouseEnter={() => setShowFullText(true)} onMouseLeave={() => setShowFullText(false)}>
                 {/* Carousel headline */}
                 <div className="relative bg-black/80 rounded-2xl p-8 mb-6 backdrop-blur-sm border border-white/10 min-h-[200px] flex items-center justify-center overflow-hidden">
-                  {carouselSlides.map((slide, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 flex items-center justify-center text-center transition-all duration-1000 ${
-                        index === currentSlide 
-                          ? 'opacity-100 transform translate-y-0' 
-                          : 'opacity-0 transform translate-y-8'
-                      }`}
-                    >
+                  {carouselSlides.map((slide, index) => <div key={index} className={`absolute inset-0 flex items-center justify-center text-center transition-all duration-1000 ${index === currentSlide ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
                       <h1 className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent leading-tight px-4">
                         {slide}
                       </h1>
-                    </div>
-                  ))}
+                    </div>)}
                   
                   {/* Carousel indicators */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                    {carouselSlides.map((_, index) => (
-                      <div
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                          index === currentSlide ? 'bg-cyan-400 scale-125' : 'bg-cyan-400/30'
-                        }`}
-                      />
-                    ))}
+                    {carouselSlides.map((_, index) => <div key={index} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-cyan-400 scale-125' : 'bg-cyan-400/30'}`} />)}
                   </div>
                 </div>
 
@@ -176,18 +148,14 @@ const Index = () => {
                 </p>
 
                 {/* Expandable body text */}
-                <div className={`transition-all duration-600 overflow-hidden ${
-                  showFullText ? 'max-h-96 opacity-100 transform translate-y-0' : 'max-h-0 opacity-0 transform translate-y-5'
-                }`}>
+                <div className={`transition-all duration-600 overflow-hidden ${showFullText ? 'max-h-96 opacity-100 transform translate-y-0' : 'max-h-0 opacity-0 transform translate-y-5'}`}>
                   <p className="text-lg text-slate-200 leading-relaxed mb-4">
                     <span className="text-cyan-400 font-bold">Big brands are scared.</span> For the first time ever, small businesses have access to the same AI-powered marketing strategies that built billion-dollar companies. Answer Engine Optimization, automated content generation, AI-driven lead scoring—it's all within reach.
                   </p>
                 </div>
 
                 {/* Hover hint */}
-                <div className={`text-cyan-400/60 text-sm font-medium text-center transition-opacity duration-300 ${
-                  showFullText ? 'opacity-0' : 'opacity-70 animate-pulse'
-                }`}>
+                <div className={`text-cyan-400/60 text-sm font-medium text-center transition-opacity duration-300 ${showFullText ? 'opacity-0' : 'opacity-70 animate-pulse'}`}>
                   ▸ Hover to reveal the full story
                 </div>
               </div>
@@ -213,17 +181,11 @@ const Index = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  to="/contact" 
-                  className="group relative bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 overflow-hidden"
-                >
+                <Link to="/contact" className="group relative bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 overflow-hidden">
                   <span className="relative z-10">Level the Playing Field →</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
                 </Link>
-                <Link 
-                  to="/contact" 
-                  className="border-2 border-cyan-500 text-cyan-400 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-cyan-500 hover:text-white hover:scale-105"
-                >
+                <Link to="/contact" className="border-2 border-cyan-500 text-cyan-400 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-cyan-500 hover:text-white hover:scale-105">
                   See Live Demo
                 </Link>
               </div>
@@ -258,19 +220,10 @@ const Index = () => {
 
                 {/* Feature list */}
                 <ul className="space-y-3">
-                  {[
-                    'Automated content generation',
-                    'AI-powered lead scoring', 
-                    'Answer Engine Optimization',
-                    'Predictive analytics dashboard',
-                    '24/7 automated nurturing',
-                    'Competitor intelligence'
-                  ].map((feature, index) => (
-                    <li key={index} className="flex items-center text-white text-sm">
+                  {['Automated content generation', 'AI-powered lead scoring', 'Answer Engine Optimization', 'Predictive analytics dashboard', '24/7 automated nurturing', 'Competitor intelligence'].map((feature, index) => <li key={index} className="flex items-center text-white text-sm">
                       <Check className="w-4 h-4 text-cyan-400 mr-3 flex-shrink-0" />
                       {feature}
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
             </div>
@@ -708,5 +661,4 @@ const Index = () => {
       </section>
     </MainLayout>;
 };
-
 export default Index;
