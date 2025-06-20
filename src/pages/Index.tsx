@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
@@ -213,7 +212,7 @@ const Index = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link 
                   to="/contact" 
                   className="group relative bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 overflow-hidden"
@@ -230,7 +229,7 @@ const Index = () => {
               </div>
 
               {/* Social proof */}
-              <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center gap-4">
                 <span className="text-slate-300 text-sm">Join</span>
                 <div className="bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 rounded-lg text-cyan-400 font-semibold text-sm">
                   547+ SMBs Already Winning
