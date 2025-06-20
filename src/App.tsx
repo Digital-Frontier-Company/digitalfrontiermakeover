@@ -44,31 +44,31 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/ad-funnel-blueprint" element={<AdFunnelBlueprint />} />
-            <Route path="/generative-engine-optimization" element={<GenerativeEngineOptimization />} />
-            <Route path="/answer-engine-optimization" element={<AnswerEngineOptimization />} />
-            <Route path="/search-engine-optimization" element={<SearchEngineOptimization />} />
-            <Route path="/crypto-marketing" element={<CryptoMarketing />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/newsletter" element={<Newsletter />} />
-            <Route path="/site-map" element={<SiteMap />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/mastering-digital-marketing" element={<BlogPost />} />
-            <Route path="/blog/answer-engine-optimization-crypto-startups" element={<BlogPost />} />
-            <Route path="/resources/content-creation-agent" element={<ContentCreationAgent />} />
-            <Route path="/psychological-digital-marketing-insights" element={<PsychologicalDigitalMarketingInsights />} />
+            <Route path="/ad-funnel-blueprint" element={<MainLayout><AdFunnelBlueprint /></MainLayout>} />
+            <Route path="/generative-engine-optimization" element={<MainLayout><GenerativeEngineOptimization /></MainLayout>} />
+            <Route path="/answer-engine-optimization" element={<MainLayout><AnswerEngineOptimization /></MainLayout>} />
+            <Route path="/search-engine-optimization" element={<MainLayout><SearchEngineOptimization /></MainLayout>} />
+            <Route path="/crypto-marketing" element={<MainLayout><CryptoMarketing /></MainLayout>} />
+            <Route path="/about-us" element={<MainLayout><AboutUs /></MainLayout>} />
+            <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
+            <Route path="/pricing" element={<MainLayout><Pricing /></MainLayout>} />
+            <Route path="/faq" element={<MainLayout><FAQ /></MainLayout>} />
+            <Route path="/newsletter" element={<MainLayout><Newsletter /></MainLayout>} />
+            <Route path="/site-map" element={<MainLayout><SiteMap /></MainLayout>} />
+            <Route path="/blog" element={<MainLayout><Blog /></MainLayout>} />
+            <Route path="/blog/mastering-digital-marketing" element={<MainLayout><BlogPost /></MainLayout>} />
+            <Route path="/blog/answer-engine-optimization-crypto-startups" element={<MainLayout><BlogPost /></MainLayout>} />
+            <Route path="/resources/content-creation-agent" element={<MainLayout><ContentCreationAgent /></MainLayout>} />
+            <Route path="/psychological-digital-marketing-insights" element={<MainLayout><PsychologicalDigitalMarketingInsights /></MainLayout>} />
             <Route path="/blog/tax-reduction-wealth-building-guide" element={<TaxReductionGuide />} />
-            <Route path="/technical" element={<Technical />} />
-            <Route path="/evolution" element={<Evolution />} />
-            <Route path="/regulations" element={<Regulations />} />
-            <Route path="/sectors" element={<Sectors />} />
-            <Route path="/future" element={<Future />} />
-            <Route path="/ai-bias-in-advertising" element={<AIBias />} />
-            <Route path="/ai-and-digital-marketing" element={<AIAndDigitalMarketing />} />
-            <Route path="/recommender-system-generalization" element={<RecommenderSystemGeneralization />} />
+            <Route path="/technical" element={<MainLayout><Technical /></MainLayout>} />
+            <Route path="/evolution" element={<MainLayout><Evolution /></MainLayout>} />
+            <Route path="/regulations" element={<MainLayout><Regulations /></MainLayout>} />
+            <Route path="/sectors" element={<MainLayout><Sectors /></MainLayout>} />
+            <Route path="/future" element={<MainLayout><Future /></MainLayout>} />
+            <Route path="/ai-bias-in-advertising" element={<MainLayout><AIBias /></MainLayout>} />
+            <Route path="/ai-and-digital-marketing" element={<MainLayout><AIAndDigitalMarketing /></MainLayout>} />
+            <Route path="/recommender-system-generalization" element={<MainLayout><RecommenderSystemGeneralization /></MainLayout>} />
             <Route path="/influencer-marketing-2025" element={<InfluencerMarketing2025 />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
