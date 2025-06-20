@@ -1,9 +1,9 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import MorphingHero from "@/components/MorphingHero";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 
@@ -19,6 +19,16 @@ const Index = () => {
     y: 0
   });
   const [isVisible, setIsVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [showFullText, setShowFullText] = useState(false);
+
+  const carouselSlides = [
+    "The Secret Weapon you aren't using",
+    "but Elite Companies are",
+    "and will never share with you or your SMB",
+    "Ready to get actual real results?",
+    "Meet The Digital Frontier Company"
+  ];
 
   // Track mouse movement for interactive effects
   useEffect(() => {
@@ -31,6 +41,14 @@ const Index = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+
+  // Carousel rotation effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [carouselSlides.length]);
 
   // Intersection observer for animations
   useEffect(() => {
@@ -45,27 +63,6 @@ const Index = () => {
     sections.forEach(section => observer.observe(section));
     return () => {
       sections.forEach(section => observer.unobserve(section));
-    };
-  }, []);
-
-  // Initialize Typed.js on component mount
-  useEffect(() => {
-    if (typedElement.current) {
-      typed.current = new Typed(typedElement.current, {
-        strings: ['Outthink', 'Outperform', 'Outgrow'],
-        typeSpeed: 50,
-        backSpeed: 25,
-        backDelay: 1500,
-        loop: true,
-        showCursor: false
-      });
-    }
-
-    // Clean up on component unmount
-    return () => {
-      if (typed.current) {
-        typed.current.destroy();
-      }
     };
   }, []);
 
@@ -86,8 +83,201 @@ const Index = () => {
   }, []);
 
   return <MainLayout>
-      {/* NEW MORPHING HERO SECTION */}
-      <MorphingHero />
+      {/* REDESIGNED HERO SECTION */}
+      <section className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-600 relative overflow-hidden flex items-center">
+        {/* Animated background effects */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-900/80 to-slate-900/80"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_80%,rgba(6,182,212,0.3)_0%,transparent_50%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.2)_0%,transparent_50%)] animate-pulse"></div>
+        </div>
+
+        {/* Floating elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/4 left-1/10 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '0s' }}>&lt;/&gt;</div>
+          <div className="absolute top-3/5 left-1/5 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '2s' }}>{ }</div>
+          <div className="absolute top-1/3 right-1/6 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '4s' }}>[ ]</div>
+          <div className="absolute bottom-1/3 right-1/4 text-cyan-400/30 text-2xl font-mono font-bold animate-bounce" style={{ animationDelay: '6s' }}>∞</div>
+          
+          {/* Circuit elements */}
+          <div className="absolute top-1/6 right-1/3 w-5 h-5 border-2 border-cyan-400/30 rounded-full animate-pulse" style={{ animationDelay: '1s' }}>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400/50 rounded-full"></div>
+          </div>
+          <div className="absolute bottom-1/5 left-1/6 w-5 h-5 border-2 border-cyan-400/30 rounded-full animate-pulse" style={{ animationDelay: '3s' }}>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-400/50 rounded-full"></div>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-20">
+            {/* Hero Text Content */}
+            <div className="text-white space-y-6">
+              {/* Badge */}
+              <div className="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold animate-pulse">
+                ◆ LIMITED TIME OPPORTUNITY
+              </div>
+
+              {/* Logo Integration */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
+                    alt="Digital Frontier Logo" 
+                    className="w-16 h-16 animate-pulse"
+                  />
+                  <div className="absolute inset-0 bg-cyan-400/20 rounded-full animate-ping"></div>
+                </div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                  Digital Frontier
+                </div>
+              </div>
+
+              {/* Interactive text area */}
+              <div 
+                className="relative p-6 rounded-xl transition-all duration-300 cursor-pointer"
+                style={{
+                  background: showFullText ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
+                  backdropFilter: showFullText ? 'blur(10px)' : 'none'
+                }}
+                onMouseEnter={() => setShowFullText(true)}
+                onMouseLeave={() => setShowFullText(false)}
+              >
+                {/* Carousel headline */}
+                <div className="relative bg-black/80 rounded-2xl p-8 mb-6 backdrop-blur-sm border border-white/10 min-h-[200px] flex items-center justify-center overflow-hidden">
+                  {carouselSlides.map((slide, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 flex items-center justify-center text-center transition-all duration-1000 ${
+                        index === currentSlide 
+                          ? 'opacity-100 transform translate-y-0' 
+                          : 'opacity-0 transform translate-y-8'
+                      }`}
+                    >
+                      <h1 className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent leading-tight px-4">
+                        {slide}
+                      </h1>
+                    </div>
+                  ))}
+                  
+                  {/* Carousel indicators */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    {carouselSlides.map((_, index) => (
+                      <div
+                        key={index}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                          index === currentSlide ? 'bg-cyan-400 scale-125' : 'bg-cyan-400/30'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Subheadline */}
+                <p className="text-xl md:text-2xl font-semibold text-slate-300 mb-4 leading-relaxed">
+                  They're spending millions on AI marketing teams. You can deploy the same technology for thousands—and get better results.
+                </p>
+
+                {/* Expandable body text */}
+                <div className={`transition-all duration-600 overflow-hidden ${
+                  showFullText ? 'max-h-96 opacity-100 transform translate-y-0' : 'max-h-0 opacity-0 transform translate-y-5'
+                }`}>
+                  <p className="text-lg text-slate-200 leading-relaxed mb-4">
+                    <span className="text-cyan-400 font-bold">Big brands are scared.</span> For the first time ever, small businesses have access to the same AI-powered marketing strategies that built billion-dollar companies. Answer Engine Optimization, automated content generation, AI-driven lead scoring—it's all within reach.
+                  </p>
+                </div>
+
+                {/* Hover hint */}
+                <div className={`text-cyan-400/60 text-sm font-medium text-center transition-opacity duration-300 ${
+                  showFullText ? 'opacity-0' : 'opacity-70 animate-pulse'
+                }`}>
+                  ▸ Hover to reveal the full story
+                </div>
+              </div>
+
+              {/* Countdown timer */}
+              <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
+                <div className="text-red-400 text-sm font-semibold mb-2">◊ Early Adopter Pricing Ends In:</div>
+                <div className="flex justify-center gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-black text-red-400">07</div>
+                    <div className="text-xs text-red-300 uppercase tracking-wide">Days</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-black text-red-400">14</div>
+                    <div className="text-xs text-red-300 uppercase tracking-wide">Hours</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-black text-red-400">32</div>
+                    <div className="text-xs text-red-300 uppercase tracking-wide">Minutes</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  to="/contact" 
+                  className="group relative bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 overflow-hidden"
+                >
+                  <span className="relative z-10">Level the Playing Field →</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-500"></div>
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="border-2 border-cyan-500 text-cyan-400 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-cyan-500 hover:text-white hover:scale-105"
+                >
+                  See Live Demo
+                </Link>
+              </div>
+
+              {/* Social proof */}
+              <div className="flex items-center gap-4">
+                <span className="text-slate-300 text-sm">Join</span>
+                <div className="bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 rounded-lg text-cyan-400 font-semibold text-sm">
+                  547+ SMBs Already Winning
+                </div>
+              </div>
+            </div>
+
+            {/* Hero Visual */}
+            <div className="relative flex items-center justify-center">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 max-w-md w-full animate-pulse">
+                {/* Metrics row */}
+                <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-white/10">
+                  <div className="text-center">
+                    <div className="text-3xl font-black text-cyan-400">847%</div>
+                    <div className="text-xs text-slate-300 uppercase tracking-wide">ROI Increase</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-black text-cyan-400">24/7</div>
+                    <div className="text-xs text-slate-300 uppercase tracking-wide">AI Working</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-black text-cyan-400">90%</div>
+                    <div className="text-xs text-slate-300 uppercase tracking-wide">Time Saved</div>
+                  </div>
+                </div>
+
+                {/* Feature list */}
+                <ul className="space-y-3">
+                  {[
+                    'Automated content generation',
+                    'AI-powered lead scoring', 
+                    'Answer Engine Optimization',
+                    'Predictive analytics dashboard',
+                    '24/7 automated nurturing',
+                    'Competitor intelligence'
+                  ].map((feature, index) => (
+                    <li key={index} className="flex items-center text-white text-sm">
+                      <Check className="w-4 h-4 text-cyan-400 mr-3 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* SMART MARKETING SECTION */}
       <section id="smart-marketing" className="df-smart-marketing animate-on-scroll">
