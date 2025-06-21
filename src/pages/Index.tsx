@@ -5,7 +5,6 @@ import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -72,11 +71,9 @@ const Index = () => {
       }
     };
   }, []);
-
-  return (
-    <MainLayout>
+  return <MainLayout>
       {/* REDESIGNED HERO SECTION WITH MARQUEE ANIMATIONS */}
-      <section className="relative isolate overflow-hidden flex items-center justify-center min-h-screen bg-slate-950 text-white">
+      <section className="relative isolate overflow-hidden flex items-center justify-center min-h-screen bg-slate-950 text-white rounded-full">
         {/* Animated Gradient Blobs for Depth */}
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 opacity-25 blur-3xl"></div>
         <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-cyan-500 opacity-10 blur-3xl"></div>
@@ -171,19 +168,25 @@ const Index = () => {
 
           {/* Interactive Feature Orbs */}
           <div className="flex justify-center items-center gap-8 mt-12">
-            {[
-              { icon: Zap, label: "AI Power", color: "from-yellow-400 to-orange-500" },
-              { icon: Target, label: "Precision", color: "from-cyan-400 to-blue-500" },
-              { icon: TrendingUp, label: "Growth", color: "from-green-400 to-emerald-500" }
-            ].map((item, index) => (
-              <div key={index} className="relative group cursor-pointer transition-all duration-500 hover:scale-110">
+            {[{
+            icon: Zap,
+            label: "AI Power",
+            color: "from-yellow-400 to-orange-500"
+          }, {
+            icon: Target,
+            label: "Precision",
+            color: "from-cyan-400 to-blue-500"
+          }, {
+            icon: TrendingUp,
+            label: "Growth",
+            color: "from-green-400 to-emerald-500"
+          }].map((item, index) => <div key={index} className="relative group cursor-pointer transition-all duration-500 hover:scale-110">
                 <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${item.color} p-0.5 shadow-2xl animate-pulse`}>
                   <div className="w-full h-full rounded-full bg-slate-900/90 backdrop-blur-sm flex items-center justify-center">
                     <item.icon className="w-6 h-6 text-white" />
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           {/* Scroll Indicator */}
@@ -642,8 +645,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </MainLayout>
-  );
+    </MainLayout>;
 };
-
 export default Index;
