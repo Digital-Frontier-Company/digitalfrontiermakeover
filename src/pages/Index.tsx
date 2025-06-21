@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import MainLayout from "@/components/layout/MainLayout";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Typed from 'typed.js';
@@ -72,7 +71,9 @@ const Index = () => {
       }
     };
   }, []);
-  return <MainLayout>
+
+  return (
+    <>
       {/* REDESIGNED HERO SECTION WITH MARQUEE ANIMATIONS */}
       <section className="relative isolate overflow-hidden flex items-center justify-center min-h-screen bg-slate-950 text-white rounded-full">
         {/* Animated Gradient Blobs for Depth */}
@@ -643,6 +644,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </MainLayout>;
+    </>
+  );
 };
+
 export default Index;
