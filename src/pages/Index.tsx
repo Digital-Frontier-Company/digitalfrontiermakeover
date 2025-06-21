@@ -119,7 +119,7 @@ const Index = () => {
               <div className="flex justify-center mb-8">
                 <div className="relative">
                   <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="w-24 h-24 animate-pulse" />
-                  <div className="absolute inset-0 bg-cyan-400/20 animate-ping rounded-3xl"></div>
+                  <div className=""></div>
                 </div>
               </div>
 
