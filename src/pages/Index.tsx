@@ -109,7 +109,7 @@ const Index = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-0 rounded-full">
             {/* Hero Text Content */}
             <div className="text-white space-y-6 rounded-full mx-0 my-[12px]">
               {/* Badge */}
@@ -131,7 +131,7 @@ const Index = () => {
                 {/* Carousel headline */}
                 <div className="relative bg-black/80 rounded-2xl p-8 mb-6 backdrop-blur-sm border border-white/10 min-h-[200px] flex items-center justify-center overflow-hidden">
                   {carouselSlides.map((slide, index) => <div key={index} className={`absolute inset-0 flex items-center justify-center text-center transition-all duration-1000 ${index === currentSlide ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
-                      <h1 className="text-3xl md:text-4xl bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text leading-tight px-4 text-transparent font-extrabold lg:text-5xl">
+                      <h1 className="text-3xl md:text-4xl bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text leading-tight text-transparent font-extrabold lg:text-5xl px-0">
                         {slide}
                       </h1>
                     </div>)}
