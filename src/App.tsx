@@ -43,7 +43,7 @@ function App() {
         <Toaster />
         <Router>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<MainLayout><Index /></MainLayout>} />
             <Route path="/ad-funnel-blueprint" element={<MainLayout><AdFunnelBlueprint /></MainLayout>} />
             <Route path="/generative-engine-optimization" element={<MainLayout><GenerativeEngineOptimization /></MainLayout>} />
             <Route path="/answer-engine-optimization" element={<MainLayout><AnswerEngineOptimization /></MainLayout>} />
