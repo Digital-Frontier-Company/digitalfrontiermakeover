@@ -1,7 +1,6 @@
 
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MainLayout from "./MainLayout";
 import { Helmet } from "react-helmet-async";
 import { generateOrganizationSchema, generateBreadcrumbSchema } from "@/lib/utils";
 
@@ -93,7 +92,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   }, []);
 
   return (
-    <MainLayout>
+    <>
       <Helmet>
         <title>{title} | The Digital Frontier</title>
         <meta name="description" content={subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`} />
@@ -150,7 +149,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           </article>
         </div>
       </main>
-    </MainLayout>
+    </>
   );
 };
 
