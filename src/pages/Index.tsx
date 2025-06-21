@@ -116,7 +116,7 @@ const Index = () => {
               <div className="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold animate-pulse px-0 py-0 rounded">◆ LIMITED TIME OPPORTUNITY</div>
 
               {/* Logo Integration - Centered and Larger */}
-              <div className="flex justify-center mb-8">
+              <div className="flex justify-center mb-8 rounded-full">
                 <div className="relative">
                   <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="max-w-24 max-h-24 animate-pulse object-contain" />
                   <div className=""></div>
