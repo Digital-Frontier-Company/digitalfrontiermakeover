@@ -118,7 +118,7 @@ const Index = () => {
               {/* Logo Integration - Centered and Larger */}
               <div className="flex justify-center mb-8">
                 <div className="relative">
-                  <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="w-24 h-24 animate-pulse" />
+                  <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="max-w-24 max-h-24 animate-pulse object-contain" />
                   <div className=""></div>
                 </div>
               </div>
