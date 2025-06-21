@@ -82,10 +82,10 @@ const Index = () => {
         {/* Scrolling Background Text - Two Lines */}
         <div aria-hidden="true" className="absolute inset-0 flex flex-col justify-center gap-16 select-none opacity-10 pointer-events-none overflow-hidden">
           <div className="marquee whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600">
-            The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital
+            The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital
           </div>
           <div className="marquee marquee2 whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400">
-            Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company
+            Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier
           </div>
         </div>
 
