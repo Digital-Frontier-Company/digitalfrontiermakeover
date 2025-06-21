@@ -81,16 +81,16 @@ const Index = () => {
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 opacity-25 blur-3xl"></div>
         <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-cyan-500 opacity-10 blur-3xl"></div>
 
-        {/* Scrolling Background Text */}
-        <div aria-hidden="true" className="absolute inset-0 flex flex-col gap-6 select-none opacity-10 pointer-events-none overflow-hidden">
-          <div className="marquee whitespace-nowrap text-[13vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600">
-            digital&nbsp;frontier&nbsp;digital&nbsp;frontier&nbsp;digital&nbsp;frontier&nbsp;digital&nbsp;frontier&nbsp;digital&nbsp;frontier&nbsp;digital&nbsp;frontier
+        {/* Scrolling Background Text - Three Lines */}
+        <div aria-hidden="true" className="absolute inset-0 flex flex-col justify-center gap-12 select-none opacity-10 pointer-events-none overflow-hidden">
+          <div className="marquee whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600">
+            Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet&nbsp;Meet
           </div>
-          <div className="marquee marquee2 whitespace-nowrap text-[13vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400">
-            marketing&nbsp;marketing&nbsp;marketing&nbsp;marketing&nbsp;marketing&nbsp;marketing&nbsp;marketing&nbsp;marketing&nbsp;marketing
+          <div className="marquee marquee2 whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400">
+            The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital
           </div>
-          <div className="marquee whitespace-nowrap text-[13vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500">
-            dominance&nbsp;dominance&nbsp;dominance&nbsp;dominance&nbsp;dominance&nbsp;dominance&nbsp;dominance&nbsp;dominance
+          <div className="marquee whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500">
+            Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company&nbsp;Frontier&nbsp;Company
           </div>
         </div>
 
@@ -200,7 +200,7 @@ const Index = () => {
         </div>
 
         {/* CSS for Marquee Animations */}
-        <style jsx>{`
+        <style>{`
           @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
