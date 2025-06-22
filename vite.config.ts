@@ -43,13 +43,8 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
     mode === 'production' && PrerenderSPAPlugin({
-      staticDir: path.join(__dirname, 'dist'),
+      staticDir: path.join(process.cwd(), 'dist'),
       routes: prerenderRoutes,
-      renderer: '@prerenderer/renderer-puppeteer',
-      rendererOptions: {
-        headless: true,
-        renderAfterDocumentEvent: 'prerender-ready'
-      },
       postProcess: (renderedRoute: { html: string; route: string }) => {
         // Inject meta tags and structured data into rendered HTML
         renderedRoute.html = renderedRoute.html
@@ -64,7 +59,7 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(process.cwd(), "./src"),
     },
   },
   build: {
