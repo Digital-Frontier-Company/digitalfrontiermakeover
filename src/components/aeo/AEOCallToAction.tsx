@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AEOCallToAction = () => {
   return (
@@ -16,6 +17,22 @@ const AEOCallToAction = () => {
           Answer Engine Optimization services.
         </p>
       </div>
+      
+      {/* AI Citation Hacking Section */}
+      <div className="bg-purple-900/30 border border-purple-800/50 rounded-lg p-6 mb-8 max-w-3xl mx-auto">
+        <h3 className="text-xl font-bold text-purple-300 mb-3">🎯 WILD-CARD TACTIC: AI Citation Hacking</h3>
+        <p className="text-slate-300 mb-4">
+          Want to get your business cited in ChatGPT responses? Our Memphis Marketing AI Prompt Templates 
+          help you create content that AI systems naturally reference and cite.
+        </p>
+        <Link 
+          to="/ai-prompt-templates"
+          className="inline-block px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md font-medium transition-colors"
+        >
+          Get 50+ Memphis AI Prompts →
+        </Link>
+      </div>
+      
       <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors text-lg">
         Get Your Free AEO Analysis & ChatGPT Audit
       </button>

@@ -26,6 +26,7 @@ import Future from '@/pages/Future';
 import AIBias from '@/pages/AIBias';
 import AIAndDigitalMarketing from '@/pages/AIAndDigitalMarketing';
 import RecommenderSystemGeneralization from '@/pages/RecommenderSystemGeneralization';
+import AIPromptTemplates from '@/pages/AIPromptTemplates';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
@@ -70,6 +71,7 @@ function App() {
             <Route path="/ai-and-digital-marketing" element={<MainLayout><AIAndDigitalMarketing /></MainLayout>} />
             <Route path="/recommender-system-generalization" element={<MainLayout><RecommenderSystemGeneralization /></MainLayout>} />
             <Route path="/influencer-marketing-2025" element={<InfluencerMarketing2025 />} />
+            <Route path="/ai-prompt-templates" element={<MainLayout><AIPromptTemplates /></MainLayout>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
