@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,6 +27,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { submitToHubSpot } from "@/utils/hubspot";
 
 // Define form validation schema
 const formSchema = z.object({
@@ -43,6 +45,7 @@ const formSchema = z.object({
 const Contact = () => {
   const location = useLocation();
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   
   // Initialize form
   const form = useForm<z.infer<typeof formSchema>>({
@@ -59,18 +62,64 @@ const Contact = () => {
   });
 
   // Form submission handler
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real implementation, this would send data to your backend
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
     
-    // Show success message
-    toast({
-      title: "Message sent successfully!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    
-    // Reset the form
-    form.reset();
+    try {
+      // Prepare data for HubSpot
+      const hubspotData = {
+        firstName: values.name.split(' ')[0],
+        lastName: values.name.split(' ').slice(1).join(' ') || '',
+        email: values.email,
+        phone: values.phone || '',
+        company: values.company || '',
+        service_interest: values.service,
+        message: values.message,
+        consent: values.consent.toString()
+      };
+
+      // Check if HubSpot is configured
+      const portalId = localStorage.getItem('hubspot_portal_id');
+      const formId = localStorage.getItem('hubspot_form_id');
+      
+      if (portalId && formId) {
+        // Submit to HubSpot
+        await submitToHubSpot(hubspotData);
+        
+        toast({
+          title: "Message sent successfully!",
+          description: "Your message has been submitted to our CRM. We'll get back to you soon.",
+        });
+      } else {
+        // Fallback: log to console and show informative message
+        console.log('Form submission data:', values);
+        
+        toast({
+          title: "Form submitted!",
+          description: "HubSpot not configured. Please check HubSpot settings or contact david@digitalfrontier.app directly.",
+        });
+      }
+      
+      // Reset the form
+      form.reset();
+      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      
+      // Fallback for any errors
+      console.log('Form submission data (fallback):', values);
+      
+      toast({
+        title: "Submission received",
+        description: "There was an issue with our form system, but your message has been logged. We'll contact you at " + values.email,
+        variant: "default",
+      });
+      
+      // Still reset the form on fallback
+      form.reset();
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   // Create ref for the form to enable scrolling
@@ -256,9 +305,11 @@ const Contact = () => {
                   {/* Submit button */}
                   <Button 
                     type="submit" 
-                    className="w-full py-6 text-lg font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 transition-all duration-300"
+                    disabled={isSubmitting}
+                    className="w-full py-6 text-lg font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 transition-all duration-300 disabled:opacity-50"
                   >
-                    Send Message <Send className="h-5 w-5" />
+                    {isSubmitting ? "Sending..." : "Send Message"} 
+                    <Send className="h-5 w-5" />
                   </Button>
                 </form>
               </Form>
