@@ -1,8 +1,8 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import PrerenderSPAPlugin from "vite-plugin-prerender";
 
 // Define all routes that should be pre-rendered
 const prerenderRoutes = [
@@ -42,20 +42,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
-    mode === 'production' && PrerenderSPAPlugin({
-      staticDir: path.join(process.cwd(), 'dist'),
-      routes: prerenderRoutes,
-      postProcess: (renderedRoute: { html: string; route: string }) => {
-        // Inject meta tags and structured data into rendered HTML
-        renderedRoute.html = renderedRoute.html
-          .replace(/<title>.*?<\/title>/, (match: string) => {
-            // Keep existing title but ensure it's SEO optimized
-            return match;
-          });
-        
-        return renderedRoute;
-      }
-    })
   ].filter(Boolean),
   resolve: {
     alias: {
