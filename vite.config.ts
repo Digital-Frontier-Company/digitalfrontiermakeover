@@ -43,11 +43,12 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
     mode === 'production' && PrerenderSPAPlugin({
+      staticDir: path.join(__dirname, 'dist'),
       routes: prerenderRoutes,
+      renderer: '@prerenderer/renderer-puppeteer',
       rendererOptions: {
-        renderAfterDocumentEvent: 'prerender-ready',
         headless: true,
-        executablePath: undefined, // Let it auto-detect browser
+        renderAfterDocumentEvent: 'prerender-ready'
       },
       postProcess: (renderedRoute: { html: string; route: string }) => {
         // Inject meta tags and structured data into rendered HTML
