@@ -4,11 +4,14 @@ import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 import AEOHeroSection from "@/components/aeo/AEOHeroSection";
+import AEOKeyTakeaways from "@/components/aeo/AEOKeyTakeaways";
 import AEOFrameworkSection from "@/components/aeo/AEOFrameworkSection";
 import AEOPerformanceChart from "@/components/aeo/AEOPerformanceChart";
 import AEOComparisonChart from "@/components/aeo/AEOComparisonChart";
 import AEOChartTabs from "@/components/aeo/AEOChartTabs";
 import AEOApproachCards from "@/components/aeo/AEOApproachCards";
+import AEOContrarianSection from "@/components/aeo/AEOContrarianSection";
+import AEOMemphisCaseStudy from "@/components/aeo/AEOMemphisCaseStudy";
 import AEOBenefitsSection from "@/components/aeo/AEOBenefitsSection";
 import AEOComparisonTable from "@/components/aeo/AEOComparisonTable";
 import AEOCaseStudies from "@/components/aeo/AEOCaseStudies";
@@ -20,43 +23,50 @@ const AnswerEngineOptimization = () => {
   const aeoFaqs: FAQItem[] = [
     {
       question: "What is Answer Engine Optimization (AEO)?",
-      answer: "AEO optimizes content to provide direct answers to user queries, using structured data to shine in featured snippets, knowledge panels, or voice responses. Unlike traditional SEO, it focuses on being the immediate solution rather than just a link."
+      answer: "Answer Engine Optimization (AEO) is a digital marketing strategy that optimizes content to provide direct answers to user queries in AI-powered search results. Unlike traditional SEO, AEO targets ChatGPT, Google's AI overviews, Perplexity AI, and voice search platforms to position your content as the immediate solution users are seeking."
     },
     {
-      question: "How does AEO differ from SEO?",
-      answer: "SEO ranks pages for broad keywords to drive traffic, while AEO targets specific questions for zero-click answers, leveraging AI and conversational tones. AEO is designed for the modern search landscape where users expect immediate answers."
+      question: "How does AEO differ from traditional SEO services?",
+      answer: "While SEO focuses on ranking pages for broad keywords to drive website traffic, Answer Engine Optimization targets specific questions for zero-click answers through featured snippets, voice search results, and AI citations. AEO uses conversational tones, schema markup, and structured data to optimize for ChatGPT and other AI search engines."
     },
     {
-      question: "Why is structured data key for AEO?",
-      answer: "Structured data (like schema markup) gives AI context about your content, making it a top pick for quick-response formats like featured snippets and voice search results. It's like handing search engines a cheat sheet of your content's organization."
+      question: "Why is Answer Engine Optimization important for Memphis businesses?",
+      answer: "Memphis businesses using AEO see significant improvements in local visibility through voice search optimization and AI overviews. Our Memphis clients experience an average 180% increase in featured snippet appearances and 43% boost in qualified leads through strategic Answer Engine Optimization implementation."
     },
     {
-      question: "How long should AEO answers be?",
-      answer: "Ideal AEO answers should be concise and complete, typically 40-60 words. This length is perfect for featured snippets and voice responses, while still providing enough information to satisfy the user's query."
+      question: "What is ChatGPT optimization and how does it work?",
+      answer: "ChatGPT optimization involves structuring content so AI models like ChatGPT, Perplexity, and Google's SGE cite your business as a trusted source. This includes implementing FAQ schema markup, creating direct Q&A content, and using natural language patterns that AI systems prefer for generating responses."
     },
     {
-      question: "Can AEO work for any industry?",
-      answer: "Yes, AEO can be effective across all industries. Any business with information that people search for can benefit from optimizing for direct answers, whether it's e-commerce, B2B services, healthcare, finance, or local businesses."
+      question: "How long does Answer Engine Optimization take to show results?",
+      answer: "AEO typically shows faster results than traditional SEO. Most businesses see improvements in AI citations and voice search visibility within 60-90 days. Featured snippet appearances often increase within 30-45 days of implementing proper schema markup and Answer Engine Optimization strategies."
+    },
+    {
+      question: "What's included in your Answer Engine Optimization services?",
+      answer: "Our AEO services include ChatGPT SEO optimization, voice search targeting, schema markup implementation, AI-friendly content restructuring, Perplexity AI optimization, and ongoing performance tracking. We focus on getting your business cited in AI responses and featured in answer boxes across all major search platforms."
     }
   ];
 
   return (
     <PageLayout
-      title="Answer Engine Optimization"
-      subtitle="Position Your Content as the Go-To Answer Source"
+      title="Answer Engine Optimization Services | AEO Company Memphis"
+      subtitle="Get Your Business Featured in ChatGPT, Voice Search & AI Results"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-11-15"
       modifiedDate="2024-12-18"
     >
       <AEOHeroSection />
+      <AEOKeyTakeaways />
       <AEOFrameworkSection />
       <AEOPerformanceChart />
       <AEOComparisonChart />
       <AEOChartTabs />
       <AEOApproachCards />
+      <AEOContrarianSection />
+      <AEOMemphisCaseStudy />
       <FAQSection 
-        title="Frequently Asked Questions About AEO" 
+        title="Answer Engine Optimization FAQ" 
         faqs={aeoFaqs} 
         className="mb-16"
       />
