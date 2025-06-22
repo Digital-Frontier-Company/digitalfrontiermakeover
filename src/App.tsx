@@ -72,6 +72,7 @@ function App() {
             <Route path="/recommender-system-generalization" element={<MainLayout><RecommenderSystemGeneralization /></MainLayout>} />
             <Route path="/influencer-marketing-2025" element={<InfluencerMarketing2025 />} />
             <Route path="/ai-prompt-templates" element={<MainLayout><AIPromptTemplates /></MainLayout>} />
+            <Route path="/information-architecture-prompts" element={<MainLayout><InformationArchitecturePrompts /></MainLayout>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

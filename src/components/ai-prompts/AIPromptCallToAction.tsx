@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -23,9 +22,12 @@ const AIPromptCallToAction = () => {
         >
           Learn About Answer Engine Optimization
         </Link>
-        <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors text-lg">
-          Get Custom AI Prompts for Your Business
-        </button>
+        <Link 
+          to="/information-architecture-prompts"
+          className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md font-medium transition-colors text-lg"
+        >
+          View Information Architecture Prompts
+        </Link>
       </div>
       <p className="text-slate-400 mt-4 text-sm">
         Free consultation includes personalized Memphis AI marketing prompts
