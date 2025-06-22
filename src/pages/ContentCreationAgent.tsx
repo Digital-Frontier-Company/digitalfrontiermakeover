@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import PageLayout from "@/components/layout/PageLayout";
@@ -37,6 +36,25 @@ const ContentCreationAgent = () => {
               id="vf-chat" 
               className="w-full rounded-md"
               style={{ height: '400px', overflow: 'hidden' }}
+            />
+          </div>
+        </div>
+
+        {/* Additional AI Assistant */}
+        <div className="mb-8 bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+          <h3 className="text-xl font-bold mb-4 text-green-300">🎯 Advanced AI Marketing Assistant</h3>
+          <p className="text-slate-300 mb-4">
+            Access our advanced AI marketing assistant for specialized content creation and strategic guidance.
+          </p>
+          
+          <div className="border border-slate-700 rounded-lg overflow-hidden bg-slate-800/50">
+            <iframe 
+              src="https://app.stammer.ai/en/chatbot/embed/9603fd5b-2bb3-4053-89e8-756bcc28c2f5" 
+              width="100%" 
+              height="600" 
+              frameBorder="0" 
+              allow='microphone'
+              title="Advanced AI Marketing Assistant"
             />
           </div>
         </div>
