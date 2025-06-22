@@ -27,6 +27,7 @@ import AIBias from '@/pages/AIBias';
 import AIAndDigitalMarketing from '@/pages/AIAndDigitalMarketing';
 import RecommenderSystemGeneralization from '@/pages/RecommenderSystemGeneralization';
 import AIPromptTemplates from '@/pages/AIPromptTemplates';
+import InformationArchitecturePrompts from '@/pages/InformationArchitecturePrompts';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
