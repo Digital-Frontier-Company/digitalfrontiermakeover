@@ -1,9 +1,9 @@
 
-# Enhanced robots.txt for SEO optimization
+# Allow all web crawlers by default
 User-agent: *
 Allow: /
 
-# Explicitly welcome major search engines and AI crawlers
+# Explicitly welcome major search engines
 User-agent: Googlebot
 Allow: /
 
@@ -22,36 +22,6 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-# AI and LLM crawlers
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OpenAI-SearchBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-# Bing AI and Copilot
-User-agent: BingPreview
-Allow: /
-
-# Crawl delay for better server performance
-Crawl-delay: 1
-
 # Sitemap location
 Sitemap: https://www.thedigitalfrontier.ai/sitemap.xml
 
-# Important directories
-Allow: /lovable-uploads/
-Allow: /ai-prompt-templates
-Allow: /answer-engine-optimization
-Allow: /generative-engine-optimization
-Allow: /user-experience-prompts
-Allow: /information-architecture-prompts
