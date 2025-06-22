@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
@@ -28,6 +27,7 @@ import AIAndDigitalMarketing from '@/pages/AIAndDigitalMarketing';
 import RecommenderSystemGeneralization from '@/pages/RecommenderSystemGeneralization';
 import AIPromptTemplates from '@/pages/AIPromptTemplates';
 import InformationArchitecturePrompts from '@/pages/InformationArchitecturePrompts';
+import UserExperiencePrompts from '@/pages/UserExperiencePrompts';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
@@ -74,6 +74,7 @@ function App() {
             <Route path="/influencer-marketing-2025" element={<InfluencerMarketing2025 />} />
             <Route path="/ai-prompt-templates" element={<MainLayout><AIPromptTemplates /></MainLayout>} />
             <Route path="/information-architecture-prompts" element={<MainLayout><InformationArchitecturePrompts /></MainLayout>} />
+            <Route path="/user-experience-prompts" element={<MainLayout><UserExperiencePrompts /></MainLayout>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
