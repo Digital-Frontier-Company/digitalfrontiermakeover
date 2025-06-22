@@ -9,25 +9,28 @@ const MainLayout = ({
   children: React.ReactNode;
 }) => {
   useEffect(() => {
-    // Load HubSpot tracking script if configured
-    const hubspotId = localStorage.getItem('hubspot_id');
-    const enableTracking = localStorage.getItem('hubspot_enable_tracking') === 'true';
+    // Load HubSpot tracking script with your specific portal ID
+    const hubspotId = '48401342';
     
-    if (hubspotId && enableTracking) {
-      const script = document.createElement('script');
-      script.src = `//js.hs-scripts.com/${hubspotId}.js`;
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-      
-      return () => {
-        // Cleanup script on unmount
-        const existingScript = document.querySelector(`script[src*="${hubspotId}"]`);
-        if (existingScript) {
-          existingScript.remove();
-        }
-      };
-    }
+    // Check if script is already loaded
+    const existingScript = document.querySelector(`script[src*="${hubspotId}"]`);
+    if (existingScript) return;
+    
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'hs-script-loader';
+    script.async = true;
+    script.defer = true;
+    script.src = `//js.hs-scripts.com/${hubspotId}.js`;
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup script on unmount
+      const scriptToRemove = document.querySelector(`script[src*="${hubspotId}"]`);
+      if (scriptToRemove) {
+        scriptToRemove.remove();
+      }
+    };
   }, []);
 
   return (

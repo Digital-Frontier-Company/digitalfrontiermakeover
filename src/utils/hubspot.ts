@@ -16,9 +16,9 @@ export const submitToHubSpot = async (formData: {
     throw new Error('Email is required');
   }
 
-  // You would replace this with your actual HubSpot portal ID and form ID
-  const portalId = 'YOUR_PORTAL_ID';
-  const formId = 'YOUR_FORM_ID';
+  // Use your specific HubSpot portal ID
+  const portalId = localStorage.getItem('hubspot_portal_id') || '48401342';
+  const formId = localStorage.getItem('hubspot_form_id') || 'YOUR_FORM_ID'; // You'll need to replace this with your actual form ID
 
   // Format data for HubSpot
   const fields = Object.entries(formData).map(([name, value]) => ({
