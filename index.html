@@ -193,6 +193,52 @@
   </head>
 
   <body>
+    <!-- STATIC CONTENT FOR BOTS - This content is immediately visible to crawlers -->
+    <div id="static-content" style="display: block;">
+      <header>
+        <h1>Digital Frontier - AI-Powered Marketing & Digital Transformation</h1>
+        <nav>
+          <a href="/answer-engine-optimization">Answer Engine Optimization</a>
+          <a href="/generative-engine-optimization">Generative Engine Optimization</a>
+          <a href="/search-engine-optimization">SEO Services</a>
+          <a href="/about-us">About Us</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+      
+      <main>
+        <section>
+          <h2>The Secret Weapon Elite Companies Use</h2>
+          <p>Digital Frontier helps businesses leverage AI for smarter marketing, SEO, AEO, GEO and digital transformation. We're not another digital marketing agency - we engineer performance that delivers real clicks, real conversions, and real cash.</p>
+        </section>
+        
+        <section>
+          <h2>Our Services Include:</h2>
+          <ul>
+            <li><strong>Answer Engine Optimization (AEO):</strong> Get found on AI-driven engines like ChatGPT, Google's SGE, and Bing Copilot.</li>
+            <li><strong>Generative Engine Optimization (GEO):</strong> Optimize content for AI quote selection and citation.</li>
+            <li><strong>AI-Powered Automation:</strong> Workflows that respond to leads instantly. Bots that never sleep.</li>
+            <li><strong>Performance SEO:</strong> Not fluff. Not theory. SEO that ranks and banks.</li>
+            <li><strong>Full Funnel Ads:</strong> From scroll-stopping Meta creatives to zero-click Google Search dominance.</li>
+            <li><strong>Sales-Focused Email Sequences:</strong> We write, build, and automate the follow-up.</li>
+            <li><strong>Digital Consulting for SaaS & B2B:</strong> Deep strategy for scaling tech products.</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h2>Contact Information</h2>
+          <p>Ready to transform your digital marketing? Contact Digital Frontier Company today.</p>
+          <p>Website: https://www.thedigitalfrontier.ai</p>
+          <p>Email: hello@thedigitalfrontier.ai</p>
+        </section>
+      </main>
+      
+      <footer>
+        <p>&copy; 2024 Digital Frontier Company. All rights reserved.</p>
+      </footer>
+    </div>
+    
+    <!-- REACT APP CONTAINER -->
     <div id="root"></div>
     
     <!-- Critical loading indicator for bots -->
@@ -203,6 +249,50 @@
         <p>Please enable JavaScript to view the full website experience.</p>
       </div>
     </noscript>
+    
+    <!-- Bot Detection and Content Switching Script -->
+    <script>
+      // Detect if this is a bot/crawler
+      function isBotUserAgent() {
+        const botPatterns = [
+          /googlebot/i,
+          /bingbot/i,
+          /slurp/i,
+          /duckduckbot/i,
+          /baiduspider/i,
+          /yandexbot/i,
+          /facebookexternalhit/i,
+          /twitterbot/i,
+          /rogerbot/i,
+          /linkedinbot/i,
+          /embedly/i,
+          /quora link preview/i,
+          /showyoubot/i,
+          /outbrain/i,
+          /pinterest/i,
+          /developers.google.com\/\+\/web\/snippet/i,
+          /crawler/i,
+          /spider/i,
+          /bot/i,
+          /ChatGPT/i,
+          /Claude/i,
+          /GPTBot/i
+        ];
+        
+        const userAgent = navigator.userAgent || '';
+        return botPatterns.some(pattern => pattern.test(userAgent));
+      }
+      
+      // If this is a regular user (not a bot), hide static content and show React app
+      if (!isBotUserAgent()) {
+        document.addEventListener('DOMContentLoaded', function() {
+          const staticContent = document.getElementById('static-content');
+          if (staticContent) {
+            staticContent.style.display = 'none';
+          }
+        });
+      }
+    </script>
     
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
