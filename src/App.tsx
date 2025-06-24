@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
@@ -57,6 +58,7 @@ function App() {
             <Route path="/faq" element={<MainLayout><FAQ /></MainLayout>} />
             <Route path="/newsletter" element={<MainLayout><Newsletter /></MainLayout>} />
             <Route path="/site-map" element={<MainLayout><SiteMap /></MainLayout>} />
+            <Route path="/sitemap" element={<MainLayout><SiteMap /></MainLayout>} />
             <Route path="/blog" element={<MainLayout><Blog /></MainLayout>} />
             <Route path="/blog/mastering-digital-marketing" element={<MainLayout><BlogPost /></MainLayout>} />
             <Route path="/blog/answer-engine-optimization-crypto-startups" element={<MainLayout><BlogPost /></MainLayout>} />

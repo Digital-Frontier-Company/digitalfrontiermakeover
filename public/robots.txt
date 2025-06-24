@@ -25,3 +25,5 @@ Allow: /
 # Sitemap location
 Sitemap: https://www.thedigitalfrontier.ai/sitemap.xml
 
+# Additional sitemap for HTML version
+Sitemap: https://www.thedigitalfrontier.ai/site-map
