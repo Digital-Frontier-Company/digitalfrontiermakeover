@@ -75,7 +75,7 @@ const Index = () => {
   return (
     <>
       {/* REDESIGNED HERO SECTION WITH MARQUEE ANIMATIONS */}
-      <section className="relative isolate overflow-hidden flex items-center justify-center min-h-screen bg-slate-950 text-white rounded-full">
+      <section className="relative isolate overflow-hidden flex items-center justify-center min-h-screen bg-slate-950 text-white">
         {/* Animated Gradient Blobs for Depth */}
         <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 opacity-25 blur-3xl"></div>
         <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-cyan-500 opacity-10 blur-3xl"></div>
