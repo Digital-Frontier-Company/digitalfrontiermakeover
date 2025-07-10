@@ -61,7 +61,20 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// New Digital Frontier Color System
+				'deep-navy': 'hsl(var(--deep-navy))',
+				'electric-azure': 'hsl(var(--electric-azure))',
+				'ultraviolet': 'hsl(var(--ultraviolet))',
+				'signal-lime': 'hsl(var(--signal-lime))',
+				'soft-white': 'hsl(var(--soft-white))',
+				'mid-gradient-start': 'hsl(var(--mid-gradient-start))',
+				'mid-gradient-end': 'hsl(var(--mid-gradient-end))'
+			},
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
+				'mono': ['IBM Plex Mono', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
