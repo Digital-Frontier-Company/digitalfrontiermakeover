@@ -74,224 +74,126 @@ const Index = () => {
 
   return (
     <>
-      {/* REDESIGNED HERO SECTION WITH MARQUEE ANIMATIONS */}
-      <section className="relative isolate overflow-hidden flex items-center justify-center min-h-screen bg-slate-950 text-white">
-        {/* Animated Gradient Blobs for Depth */}
-        <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 opacity-25 blur-3xl"></div>
-        <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-purple-500 via-pink-500 to-cyan-500 opacity-10 blur-3xl"></div>
-
-        {/* Scrolling Background Text - Two Lines */}
-        <div aria-hidden="true" className="absolute inset-0 flex flex-col justify-center gap-16 select-none opacity-10 pointer-events-none overflow-hidden">
-          <div className="marquee whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600">
-            The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital&nbsp;The&nbsp;Digital
-          </div>
-          <div className="marquee marquee2 whitespace-nowrap text-[12vw] font-extrabold uppercase leading-none text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400">
-            Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier&nbsp;Frontier
-          </div>
-        </div>
-
+      {/* PRESIDENTIAL-LEVEL HERO SECTION */}
+      <section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{ background: 'var(--gradient-hero)' }}>
+        {/* Subtle gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5"></div>
+        
         {/* Main Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 text-center">
-          {/* Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-block bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-semibold animate-pulse px-4 py-2 rounded-full">
-              ◆ LIMITED TIME OPPORTUNITY
-            </div>
-          </div>
-
+        <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 lg:px-8 text-center flex flex-col justify-center min-h-screen">
+          
           {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <div className="relative bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 p-4 rounded-full hover:scale-110 hover:rotate-6 transition-all duration-500">
-              <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-16 w-auto drop-shadow-2xl" />
-            </div>
+          <div className="flex justify-center mb-12">
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-20 w-auto" />
           </div>
 
-          {/* Animated Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6">
-            <span className="block mb-2">The Secret Weapon you</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-              aren't using
-            </span>
-            <span className="block mt-2 text-3xl md:text-4xl text-gray-300">
-              but <em className="text-yellow-400">Elite Companies</em> are
-            </span>
+          {/* Presidential Headline - Poppins SemiBold */}
+          <h1 className="font-poppins font-semibold text-soft-white mb-8" style={{ fontSize: 'clamp(40px, 6vw, 64px)', lineHeight: '1.2', letterSpacing: '-0.01em', maxWidth: '70ch' }}>
+            Stop Guessing, Start Growing with{' '}
+            <span className="text-electric-azure">AI-Powered Marketing</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="mt-6 max-w-3xl mx-auto text-lg sm:text-2xl text-slate-300 leading-relaxed">
-            They're spending millions on AI marketing teams. You can deploy the same technology for thousands—and get <strong className="text-cyan-400">better results</strong>.
+          {/* Subheadline - Inter Regular */}
+          <p className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12" style={{ lineHeight: '1.55' }}>
+            We build content engines that drive organic traffic and generate qualified leads for B2B tech companies. No guesswork—just measurable results.
           </p>
 
-          {/* Countdown Timer */}
-          <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center mt-8 max-w-md mx-auto">
-            <div className="text-red-400 text-sm font-semibold mb-2">◊ Early Adopter Pricing Ends In:</div>
-            <div className="flex justify-center gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-black text-red-400">07</div>
-                <div className="text-xs text-red-300 uppercase tracking-wide">Days</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-black text-red-400">14</div>
-                <div className="text-xs text-red-300 uppercase tracking-wide">Hours</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-black text-red-400">32</div>
-                <div className="text-xs text-red-300 uppercase tracking-wide">Minutes</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Animated Border CTA Button */}
-          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-6">
-            <Link to="/contact" className="relative inline-block rounded-full px-1 py-1 group">
-              {/* Rainbow Ring */}
-              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 blur-sm opacity-70 transition-opacity duration-700 group-hover:opacity-100 animate-pulse"></span>
-              {/* Button Label */}
-              <span className="relative rounded-full bg-slate-950 px-8 py-4 font-semibold text-white hover:text-cyan-400 transition-colors duration-300">
-                Level the Playing Field →
-              </span>
-            </Link>
-            
-            <Link to="/contact" className="border-2 border-cyan-500 text-cyan-400 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:bg-cyan-500 hover:text-white hover:scale-105">
-              See Live Demo
+          {/* Single Azure CTA */}
+          <div className="mb-16">
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+              style={{ 
+                boxShadow: '0 4px 20px -4px hsl(var(--electric-azure) / 0.3)',
+                letterSpacing: '0.5px'
+              }}
+            >
+              Book a Strategy Call →
             </Link>
           </div>
 
-          {/* Social Proof */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <span className="text-slate-300 text-sm">Join</span>
-            <div className="bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 rounded-lg text-cyan-400 font-semibold text-sm">
-              547+ SMBs Already Winning
-            </div>
-          </div>
-
-          {/* Interactive Feature Orbs */}
-          <div className="flex justify-center items-center gap-8 mt-12">
-            {[{
-            icon: Zap,
-            label: "AI Power",
-            color: "from-yellow-400 to-orange-500"
-          }, {
-            icon: Target,
-            label: "Precision",
-            color: "from-cyan-400 to-blue-500"
-          }, {
-            icon: TrendingUp,
-            label: "Growth",
-            color: "from-green-400 to-emerald-500"
-          }].map((item, index) => <div key={index} className="relative group cursor-pointer transition-all duration-500 hover:scale-110">
-                <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${item.color} p-0.5 shadow-2xl animate-pulse`}>
-                  <div className="w-full h-full rounded-full bg-slate-900/90 backdrop-blur-sm flex items-center justify-center">
-                    <item.icon className="w-6 h-6 text-white" />
-                  </div>
-                </div>
-              </div>)}
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="flex justify-center mt-12">
-            <a href="#smart-marketing" className="group flex flex-col items-center justify-center text-blue-300 hover:text-blue-400 transition-all duration-300">
-              <div className="mb-3 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce">
-                Unleash The Power
-              </div>
-              <div className="w-12 h-12 rounded-full border-2 border-blue-500/30 hover:border-blue-400/60 transition-all duration-300 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-900/20">
-                <ChevronDown className="w-6 h-6 group-hover:animate-bounce" />
-              </div>
-            </a>
-          </div>
-        </div>
-
-        {/* CSS for Marquee Animations */}
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .marquee {
-            animation: marquee 40s linear infinite;
-          }
-          .marquee2 {
-            animation: marquee 40s linear infinite reverse;
-          }
-        `}</style>
-      </section>
-
-      {/* SMART MARKETING SECTION */}
-      <section id="smart-marketing" className="df-smart-marketing animate-on-scroll">
-        <div className="container">
-          <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
-            <h2>Smart Marketing Built for Speed, Scale, and Survival</h2>
-          </div>
-
-          <div className="intro-text" style={{
-          maxWidth: "800px",
-          margin: "0 auto 30px",
-          textAlign: "center"
-        }}>
-            <p>We're not another digital marketing agency tossing generic playbooks. We are The Digital Frontier Company, a crew of engineers, analysts, and creative killers who live to squeeze more money out of your pipeline.</p>
-            <p>Here's what Digital Frontier Marketing includes:</p>
-          </div>
-
-          <div className="df-service-list">
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">
-                  <Link to="/answer-engine-optimization" className="hover:text-blue-400 transition-colors">
-                    Answer Engine Optimization (AEO):
-                  </Link>
-                </span>
-                <span className="service-description">Get found on AI-driven engines like ChatGPT, Google's SGE, and Bing Copilot.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">AI-Powered Automation:</span>
-                <span className="service-description">Workflows that respond to leads instantly. Bots that never sleep. Follow-ups that never miss.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">Performance SEO:</span>
-                <span className="service-description">Not fluff. Not theory. SEO that ranks and banks.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">
-                  <Link to="/ad-funnel-blueprint" className="hover:text-blue-400 transition-colors">
-                    Full Funnel Ads:
-                  </Link>
-                </span>
-                <span className="service-description">From scroll-stopping Meta creatives to zero-click Google Search dominance.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">Sales-Focused Email Sequences:</span>
-                <span className="service-description">We write, build, and automate the follow-up.</span>
-              </div>
-            </div>
-
-            <div className="df-service-item">
-              <div className="bullet">•</div>
-              <div className="content">
-                <span className="service-title">Digital Consulting for SaaS & B2B:</span>
-                <span className="service-description">Deep strategy for scaling tech products and recurring revenue models.</span>
-              </div>
-            </div>
+          {/* Trust indicators */}
+          <div className="text-soft-white/60 text-sm">
+            <p>Trusted by 200+ B2B companies • Average 38% increase in SQLs</p>
           </div>
         </div>
       </section>
+
+      {/* TRUST BAR - 6-logo auto-grid */}
+      <section className="py-16 bg-card">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-center text-muted-foreground text-sm mb-12 font-medium">Trusted by industry leaders</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            {[
+              "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+              "/lovable-uploads/66696ff5-dbeb-4266-8e8e-91cafafbe6e7.png", 
+              "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
+              "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
+              "/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png",
+              "/lovable-uploads/bdef0584-bc16-4946-90f8-c741502dc157.png"
+            ].map((logo, index) => (
+              <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
+                <img src={logo} alt={`Client logo ${index + 1}`} className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* BLUEPRINT SECTION - 3 hover-cards */}
+      <section className="py-20 bg-background">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}>
+              The Digital Frontier Blueprint
+            </h2>
+            <p className="font-inter text-lg text-soft-white/70 max-w-2xl mx-auto">
+              Three pillars that transform B2B marketing from guesswork to science
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "AI Marketing Intelligence",
+                description: "Deploy advanced algorithms to identify high-intent prospects and optimize your entire funnel in real-time.",
+                icon: "🤖"
+              },
+              {
+                title: "Data-Driven Insights", 
+                description: "Turn your marketing data into actionable intelligence with predictive analytics and performance forecasting.",
+                icon: "📊"
+              },
+              {
+                title: "Answer Engine Optimization",
+                description: "Dominate voice search and AI-powered search results with our proprietary AEO methodology.",
+                icon: "🎯"
+              }
+            ].map((card, index) => (
+              <div 
+                key={index}
+                className="interactive-card group bg-card border border-border p-8 rounded-2xl transition-all duration-300 hover:border-electric-azure"
+                style={{ 
+                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                }}
+              >
+                <div className="text-4xl mb-6">{card.icon}</div>
+                <h3 className="font-poppins font-medium text-xl text-soft-white mb-4">{card.title}</h3>
+                <p className="font-inter text-soft-white/70 leading-relaxed">{card.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STICKY MOBILE FOOTER CTA */}
+      <div className="sticky-cta fixed bottom-0 left-0 right-0 z-50 md:hidden bg-electric-azure text-deep-navy text-center py-4 font-semibold shadow-lg">
+        <Link to="/contact" className="block">
+          Ready to Transform? Talk to an Expert
+        </Link>
+        {/* Progress bar */}
+        <div className="absolute bottom-0 left-0 h-1 bg-signal-lime w-1/3 transition-all duration-300"></div>
+      </div>
 
       {/* NEW SERVICE CARDS SECTION */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
