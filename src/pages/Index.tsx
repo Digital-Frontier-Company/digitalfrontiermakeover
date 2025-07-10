@@ -8,6 +8,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import SEOSchema from "@/components/SEOSchema";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Index = () => {
   // Use the FAQ toggle hook
@@ -76,53 +77,101 @@ const Index = () => {
     };
   }, []);
 
+  // Parallax scroll effects
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, -150]);
+  const logoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
+
   return (
     <>
       <SEOSchema />
-      {/* PRESIDENTIAL-LEVEL HERO SECTION */}
-      <section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{ background: 'var(--gradient-hero)' }}>
+      {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
+      <motion.section 
+        className="relative isolate overflow-hidden min-h-screen bg-deep-navy" 
+        style={{ background: 'var(--gradient-hero)', y: heroY }}
+      >
         {/* Subtle gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5"></div>
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5"
+          animate={{ 
+            background: [
+              'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)',
+              'linear-gradient(135deg, rgba(151,80,255,0.05) 0%, transparent 50%, rgba(47,128,255,0.05) 100%)',
+              'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)'
+            ]
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        ></motion.div>
         
         {/* Main Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 lg:px-8 text-center flex flex-col justify-center min-h-screen">
           
-          {/* Logo */}
-          <div className="flex justify-center mb-12">
+          {/* Logo with Scale Animation */}
+          <motion.div 
+            className="flex justify-center mb-12"
+            style={{ scale: logoScale }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-20 w-auto" />
-          </div>
+          </motion.div>
 
-          {/* Presidential Headline - Poppins SemiBold */}
-          <h1 className="font-poppins font-semibold text-soft-white mb-8" style={{ fontSize: 'clamp(40px, 6vw, 64px)', lineHeight: '1.2', letterSpacing: '-0.01em', maxWidth: '70ch' }}>
+          {/* Presidential Headline with Fade-in */}
+          <motion.h1 
+            className="font-poppins font-semibold text-soft-white mb-8" 
+            style={{ fontSize: 'clamp(40px, 6vw, 64px)', lineHeight: '1.2', letterSpacing: '-0.01em', maxWidth: '70ch' }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
+          >
             Stop Guessing, Start Growing with{' '}
             <span className="text-electric-azure">AI-Powered Marketing</span>
-          </h1>
+          </motion.h1>
 
-          {/* Subheadline - Inter Regular */}
-          <p className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12" style={{ lineHeight: '1.55' }}>
+          {/* Subheadline with Staggered Animation */}
+          <motion.p 
+            className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12" 
+            style={{ lineHeight: '1.55' }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             We build content engines that drive organic traffic and generate qualified leads for B2B tech companies. No guesswork—just measurable results.
-          </p>
+          </motion.p>
 
-          {/* Single Azure CTA */}
-          <div className="mb-16">
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
-              style={{ 
-                boxShadow: '0 4px 20px -4px hsl(var(--electric-azure) / 0.3)',
-                letterSpacing: '0.5px'
-              }}
-            >
-              Book a Strategy Call →
-            </Link>
-          </div>
+          {/* CTA with Hover Animation */}
+          <motion.div 
+            className="mb-16"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg"
+                style={{ 
+                  boxShadow: '0 4px 20px -4px hsl(var(--electric-azure) / 0.3)',
+                  letterSpacing: '0.5px'
+                }}
+              >
+                Book a Strategy Call →
+              </Link>
+            </motion.div>
+          </motion.div>
 
-          {/* Trust indicators */}
-          <div className="text-soft-white/60 text-sm">
+          {/* Trust indicators with Final Fade-in */}
+          <motion.div 
+            className="text-soft-white/60 text-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
             <p>Trusted by 200+ B2B companies • Average 38% increase in SQLs</p>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* TRUST BAR - 6-logo auto-grid */}
       <section className="py-16 bg-card">
@@ -516,17 +565,24 @@ const Index = () => {
         </div>
       </section>
 
-      {/* HUBSPOT FORM SECTION */}
-      <section className="py-12 bg-slate-900">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-white mb-4">Get Started Today</h2>
-            <p className="text-slate-300">Ready to transform your digital marketing? Fill out the form below and let's discuss your goals.</p>
+      {/* HUBSPOT FORM SECTION - Fixed overlapping containers */}
+      <section className="relative py-16 bg-deep-navy border-t border-border">
+        <div className="mx-auto max-w-4xl px-6 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}>
+              Ready to Transform Your Marketing?
+            </h2>
+            <p className="font-inter text-lg text-soft-white/70 max-w-2xl mx-auto">
+              Get your free AI marketing audit and strategy session. Let's discuss your growth goals.
+            </p>
           </div>
-          <div className="max-w-2xl mx-auto">
+          <div className="bg-card border border-border rounded-2xl p-8 shadow-2xl">
             <div className="hs-form-frame" data-region="na1" data-form-id="5ab0be60-7598-4f9c-ac2f-72519d49d946" data-portal-id="48401342"></div>
           </div>
         </div>
+        
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-t from-electric-azure/5 via-transparent to-transparent pointer-events-none"></div>
       </section>
     </>
   );

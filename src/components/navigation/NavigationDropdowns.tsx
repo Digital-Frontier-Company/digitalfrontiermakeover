@@ -83,7 +83,22 @@ export const DigitalMarketingDropdown = () => (
 
 export const ResourcesDropdown = () => (
   <NavigationMenuContent>
-    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-slate-900 border border-slate-700">
+    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] bg-slate-900 border border-slate-700">
+      <li className="row-span-4">
+        <NavigationMenuLink asChild>
+          <Link
+            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-purple-500/20 to-purple-600/20 p-6 no-underline outline-none focus:shadow-md border border-purple-500/20"
+            to="/insights"
+          >
+            <div className="mb-2 mt-4 text-lg font-medium text-white">
+              AI Marketing Insights Hub
+            </div>
+            <p className="text-sm leading-tight text-slate-300">
+              Comprehensive playbooks for AEO, AI funnel ads, and advanced marketing strategies
+            </p>
+          </Link>
+        </NavigationMenuLink>
+      </li>
       <li>
         <NavigationMenuLink asChild>
           <Link to="/blog" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-800 focus:bg-slate-800 text-slate-100 hover:text-white">
