@@ -24,27 +24,27 @@ const InsightsHub = () => {
       description: "Master Answer Engine Optimization with our 47-page comprehensive guide. Learn to rank #1 in ChatGPT, Claude, and voice search results.",
       category: "Answer Engine Optimization",
       readTime: "12 min read",
-      image: "/lovable-uploads/0c145136-0069-47e6-b799-655b514f21bf.png",
+      image: "/lovable-uploads/783ff8d4-b039-4c59-bf19-1ecdb0b9fb9a.png",
       slug: "/playbooks/complete-aeo-guide",
       featured: true,
       tags: ["AEO", "AI Search", "Voice Search", "Featured Snippets"]
     },
     {
-      title: "AI Funnel Ads: The $2.4M Revenue System",
-      description: "The exact blueprint we used to generate $2.4M in pipeline for B2B tech companies using AI-optimized Facebook and LinkedIn ads.",
-      category: "AI Advertising",
+      title: "Stop Losing Traffic to AI Search: Advanced GEO Strategies",
+      description: "The complete guide to Generative Engine Optimization. Capture traffic from ChatGPT, Claude, and other AI search platforms before your competitors do.",
+      category: "Generative Engine Optimization",
       readTime: "18 min read", 
-      image: "/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png",
-      slug: "/playbooks/ai-funnel-ads",
+      image: "/lovable-uploads/fc7766a1-d8c1-4e01-b409-72d965448fd0.png",
+      slug: "/playbooks/geo-advanced-strategies",
       featured: true,
-      tags: ["AI Funnel Ads", "Facebook Ads", "LinkedIn Ads", "B2B"]
+      tags: ["GEO", "AI Search", "Traffic Recovery", "Generative Search"]
     },
     {
       title: "Predictive Analytics for Marketing: The Executive Guide",
       description: "Transform your marketing data into competitive advantage with machine learning models that predict customer behavior and campaign ROI.",
       category: "Data Science",
       readTime: "15 min read",
-      image: "/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png",
+      image: "/lovable-uploads/4b409906-2e02-4aea-b041-c9e725fdae78.png",
       slug: "/playbooks/predictive-analytics",
       featured: true,
       tags: ["Predictive Analytics", "Machine Learning", "ROI", "Data Science"]
