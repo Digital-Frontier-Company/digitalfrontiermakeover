@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import CaseStudySlider from "@/components/CaseStudySlider";
+import PricingToggle from "@/components/PricingToggle";
+import FAQAccordion from "@/components/FAQAccordion";
+import SEOSchema from "@/components/SEOSchema";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 
@@ -74,6 +78,7 @@ const Index = () => {
 
   return (
     <>
+      <SEOSchema />
       {/* PRESIDENTIAL-LEVEL HERO SECTION */}
       <section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{ background: 'var(--gradient-hero)' }}>
         {/* Subtle gradient overlay for depth */}
@@ -194,6 +199,9 @@ const Index = () => {
         {/* Progress bar */}
         <div className="absolute bottom-0 left-0 h-1 bg-signal-lime w-1/3 transition-all duration-300"></div>
       </div>
+
+      {/* CASE STUDY SLIDER - KPI-driven showcase */}
+      <CaseStudySlider />
 
       {/* NEW SERVICE CARDS SECTION */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
@@ -402,37 +410,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ SECTION */}
-      <section className="df-faq-section animate-on-scroll" id="faq">
-        <div className="container">
-          <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mb-4" />
-            <h2>Frequently asked questions</h2>
-          </div>
+      {/* PRICING TOGGLE - Project/Retainer choice */}
+      <PricingToggle />
 
-          <div className="df-faq-container">
-            <div className="df-faq-item">
-              <div className="df-faq-question">How is Digital Frontier different from other digital marketing agencies?</div>
-              <div className="df-faq-answer">Most agencies sell services. We sell outcomes. Every campaign we build is tied to revenue, not vanity metrics. We don't hand off checklists—we execute strategies that scale.</div>
-            </div>
-
-            <div className="df-faq-item">
-              <div className="df-faq-question">What's Answer Engine Optimization (AEO), and why does it matter?</div>
-              <div className="df-faq-answer">AEO is the future of SEO. Instead of just ranking on Google, AEO helps you show up in AI-driven answers across search engines and voice assistants. It's where high-intent users go first.</div>
-            </div>
-
-            <div className="df-faq-item">
-              <div className="df-faq-question">Can I use Digital Frontier for just one service (like SEO or ads)?</div>
-              <div className="df-faq-answer">Yes, but we'll still audit your entire system. Why? Because ads don't work if your funnel's broken. SEO won't help if your site doesn't convert. Everything is connected—we treat it that way.</div>
-            </div>
-
-            <div className="df-faq-item">
-              <div className="df-faq-question">Do you work with local businesses or just SaaS companies?</div>
-              <div className="df-faq-answer">Both. We've scaled local eCommerce brands, service pros, and global SaaS startups. If your business runs on digital, we can build your frontier.</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* FAQ ACCORDION - Radix UI powered */}
+      <FAQAccordion />
 
       {/* FINAL CTA */}
       <section className="df-final-cta animate-on-scroll">
