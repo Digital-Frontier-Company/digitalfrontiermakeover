@@ -329,10 +329,12 @@ const Index = () => {
             {/* Answer Engine Optimization Card */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950/80">
               <div className="mb-6">
-                <img src="/lovable-uploads/0c145136-0069-47e6-b799-655b514f21bf.png" alt="Answer Engine Optimization" className="w-full h-48 object-cover rounded-lg" onError={e => {
-                console.error('Failed to load image:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} />
+                <a href="https://generativesearch.pro" target="_blank" rel="dofollow" className="block">
+                  <img src="/lovable-uploads/686610ee-b3cc-4985-adab-c751e816394f.png" alt="Generative Engine Optimization" className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" onError={e => {
+                  console.error('Failed to load image:', e.currentTarget.src);
+                  e.currentTarget.style.display = 'none';
+                }} onLoad={() => console.log('Image loaded successfully')} />
+                </a>
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Answer Engine Optimization
@@ -346,9 +348,14 @@ const Index = () => {
                     {feature}
                   </li>)}
               </ul>
-              <Link to="/answer-engine-optimization" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-                Learn About AEO
-              </Link>
+              <a 
+                href="https://generativesearch.pro" 
+                target="_blank" 
+                rel="dofollow"
+                className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30"
+              >
+                Visit GenerativeSearch.pro →
+              </a>
             </div>
           </div>
         </div>
