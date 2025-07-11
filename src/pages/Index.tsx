@@ -389,7 +389,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Turn Your Brand into a <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Revenue Engine</span>
+              Generative Search Pro
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
               We don't just build campaigns—we engineer revenue machines that dominate markets and deliver measurable results.
