@@ -89,6 +89,18 @@ const Index = () => {
       background: 'var(--gradient-hero)',
       y: heroY
     }}>
+        {/* Animated Grid Pattern Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            animation: 'grid-move 20s linear infinite'
+          }}></div>
+        </div>
+        
         {/* Subtle gradient overlay for depth */}
         <motion.div className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5" animate={{
         background: ['linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)', 'linear-gradient(135deg, rgba(151,80,255,0.05) 0%, transparent 50%, rgba(47,128,255,0.05) 100%)', 'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)']
@@ -102,7 +114,7 @@ const Index = () => {
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 lg:px-8 text-center flex flex-col justify-center min-h-screen">
           
           {/* Logo with Scale Animation */}
-          <motion.div className="flex justify-center mb-12" style={{
+          <motion.div className="relative flex justify-center mb-12" style={{
           scale: logoScale
         }} initial={{
           opacity: 0,
@@ -113,7 +125,21 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }}>
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-20 w-auto" />
+            {/* Rotating digital rings around logo */}
+            <div className="absolute inset-0 -top-8 -bottom-8 -left-8 -right-8">
+              <div className="absolute inset-0 rounded-full border border-electric-azure/20 animate-rotate-slow"></div>
+              <div className="absolute inset-4 rounded-full border border-cyan-400/30 animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '15s' }}></div>
+              <div className="absolute inset-8 rounded-full border-2 border-electric-azure/40 animate-pulse"></div>
+            </div>
+            
+            {/* Floating particles */}
+            <div className="absolute top-0 left-0 w-2 h-2 bg-electric-azure rounded-full animate-float" style={{ animationDelay: '0s' }}></div>
+            <div className="absolute top-4 right-0 w-1 h-1 bg-cyan-400 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-0 left-4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-4 right-4 w-1 h-1 bg-electric-azure rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+            
+            {/* Main logo - enlarged */}
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-32 w-auto relative z-10" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
