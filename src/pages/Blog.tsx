@@ -119,16 +119,6 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Breadcrumb Navigation */}
-      <div className="bg-slate-900/60 border-y border-slate-800/80">
-        <div className="container mx-auto py-3 px-4">
-          <div className="flex text-sm text-slate-400">
-            <Link to="/" className="hover:text-blue-400">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-slate-300">Blog</span>
-          </div>
-        </div>
-      </div>
 
       {/* Main Content */}
       <main className="container mx-auto py-8 px-4 mt-4">
