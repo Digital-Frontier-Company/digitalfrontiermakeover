@@ -23,7 +23,51 @@ const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFullText, setShowFullText] = useState(false);
+  const [bubbles, setBubbles] = useState(() => 
+    Array.from({ length: 8 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 20 + Math.random() * 40,
+      speed: 0.5 + Math.random() * 1,
+      direction: Math.random() * 360,
+      opacity: 0.3 + Math.random() * 0.4
+    }))
+  );
   const carouselSlides = ["The Secret Weapon you aren't using", "but Elite Companies are", "and will never share with you or your SMB", "Ready to get actual real results?", "Meet The Digital Frontier Company"];
+
+  // Bubble movement animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBubbles(prevBubbles => 
+        prevBubbles.map(bubble => ({
+          ...bubble,
+          x: (bubble.x + Math.cos(bubble.direction) * bubble.speed + 100) % 100,
+          y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100,
+        }))
+      );
+    }, 50);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Handle bubble pop
+  const handleBubblePop = (id: number) => {
+    setBubbles(prevBubbles => 
+      prevBubbles.map(bubble => 
+        bubble.id === id 
+          ? {
+              ...bubble,
+              x: Math.random() * 100,
+              y: Math.random() * 100,
+              size: 20 + Math.random() * 40,
+              speed: 0.5 + Math.random() * 1,
+              direction: Math.random() * 360,
+              opacity: 0.3 + Math.random() * 0.4
+            }
+          : bubble
+      )
+    );
+  };
 
   // Track mouse movement for interactive effects
   useEffect(() => {
@@ -123,6 +167,27 @@ const Index = () => {
                 transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.01 + i * 0.005)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.01 + i * 0.005)}px)`,
                 transition: 'transform 0.6s ease-out',
               }}
+            />
+          ))}
+        </div>
+
+        {/* Interactive Clickable Bubbles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {bubbles.map((bubble) => (
+            <div
+              key={bubble.id}
+              className="absolute rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 cursor-pointer hover:scale-110 transition-all duration-300"
+              style={{
+                width: `${bubble.size}px`,
+                height: `${bubble.size}px`,
+                left: `${bubble.x}%`,
+                top: `${bubble.y}%`,
+                opacity: bubble.opacity,
+                filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.4))',
+                animation: `float ${3 + (bubble.id % 3)}s ease-in-out infinite`,
+                animationDelay: `${bubble.id * 0.5}s`,
+              }}
+              onClick={() => handleBubblePop(bubble.id)}
             />
           ))}
         </div>
