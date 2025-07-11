@@ -19,7 +19,7 @@ const caseStudies: CaseStudy[] = [
     id: 1,
     client: "TechCorp Solutions",
     industry: "B2B SaaS",
-    image: "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
+    image: "/lovable-uploads/a2ac7ae8-1bc5-411f-9ef9-ff10d8fdd4a7.png",
     metrics: {
       kpi1: { label: "SQL Increase", value: "+247%", icon: TrendingUp },
       kpi2: { label: "Lead Quality", value: "+189%", icon: Target },
@@ -31,7 +31,7 @@ const caseStudies: CaseStudy[] = [
     id: 2,
     client: "DataFlow Analytics",
     industry: "Enterprise Software",
-    image: "/lovable-uploads/66696ff5-dbeb-4266-8e8e-91cafafbe6e7.png",
+    image: "/lovable-uploads/0d2360a9-25e2-44f5-be84-ff6da9ee399d.png",
     metrics: {
       kpi1: { label: "Pipeline Value", value: "+$2.4M", icon: TrendingUp },
       kpi2: { label: "CAC Reduction", value: "-43%", icon: Target },
@@ -43,7 +43,7 @@ const caseStudies: CaseStudy[] = [
     id: 3,
     client: "CloudScale Inc",
     industry: "Cloud Infrastructure",
-    image: "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
+    image: "/lovable-uploads/bc4175bf-e990-48ba-b6c6-bf010230dd00.png",
     metrics: {
       kpi1: { label: "Organic Traffic", value: "+312%", icon: TrendingUp },
       kpi2: { label: "Market Share", value: "+28%", icon: Target },
