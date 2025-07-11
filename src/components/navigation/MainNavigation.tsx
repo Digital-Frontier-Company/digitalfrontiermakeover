@@ -1,12 +1,9 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { DigitalMarketingDropdown, ResourcesDropdown, CompanyDropdown } from "./NavigationDropdowns";
-
 const MainNavigation = () => {
-  return (
-    <nav className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
+  return <nav className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 rounded-none mx-[20px] my-[20px] px-[9px] py-[9px]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
@@ -33,8 +30,6 @@ const MainNavigation = () => {
           </NavigationMenu>
         </div>
       </div>
-    </nav>
-  );
+    </nav>;
 };
-
 export default MainNavigation;

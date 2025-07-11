@@ -23,50 +23,42 @@ const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFullText, setShowFullText] = useState(false);
-  const [bubbles, setBubbles] = useState(() => 
-    Array.from({ length: 8 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: 20 + Math.random() * 40,
-      speed: 0.1 + Math.random() * 0.2,
-      direction: Math.random() * 360,
-      opacity: 0.3 + Math.random() * 0.4
-    }))
-  );
+  const [bubbles, setBubbles] = useState(() => Array.from({
+    length: 8
+  }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: 20 + Math.random() * 40,
+    speed: 0.1 + Math.random() * 0.2,
+    direction: Math.random() * 360,
+    opacity: 0.3 + Math.random() * 0.4
+  })));
   const carouselSlides = ["The Secret Weapon you aren't using", "but Elite Companies are", "and will never share with you or your SMB", "Ready to get actual real results?", "Meet The Digital Frontier Company"];
 
   // Bubble movement animation
   useEffect(() => {
     const interval = setInterval(() => {
-      setBubbles(prevBubbles => 
-        prevBubbles.map(bubble => ({
-          ...bubble,
-          x: (bubble.x + Math.cos(bubble.direction) * bubble.speed + 100) % 100,
-          y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100,
-        }))
-      );
+      setBubbles(prevBubbles => prevBubbles.map(bubble => ({
+        ...bubble,
+        x: (bubble.x + Math.cos(bubble.direction) * bubble.speed + 100) % 100,
+        y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100
+      })));
     }, 100);
     return () => clearInterval(interval);
   }, []);
 
   // Handle bubble pop
   const handleBubblePop = (id: number) => {
-    setBubbles(prevBubbles => 
-      prevBubbles.map(bubble => 
-        bubble.id === id 
-          ? {
-              ...bubble,
-              x: Math.random() * 100,
-              y: Math.random() * 100,
-              size: 20 + Math.random() * 40,
-              speed: 0.1 + Math.random() * 0.2,
-              direction: Math.random() * 360,
-              opacity: 0.3 + Math.random() * 0.4
-            }
-          : bubble
-      )
-    );
+    setBubbles(prevBubbles => prevBubbles.map(bubble => bubble.id === id ? {
+      ...bubble,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 20 + Math.random() * 40,
+      speed: 0.1 + Math.random() * 0.2,
+      direction: Math.random() * 360,
+      opacity: 0.3 + Math.random() * 0.4
+    } : bubble));
   };
 
   // Track mouse movement for interactive effects
@@ -131,18 +123,14 @@ const Index = () => {
       
       {/* Falling cyan specs across entire page */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {Array.from({ length: 12 }, (_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 10}s`,
-              animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
-              filter: 'drop-shadow(0 0 4px cyan)',
-            }}
-          />
-        ))}
+        {Array.from({
+        length: 12
+      }, (_, i) => <div key={i} className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60" style={{
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 10}s`,
+        animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
+        filter: 'drop-shadow(0 0 4px cyan)'
+      }} />)}
       </div>
       
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
@@ -152,67 +140,56 @@ const Index = () => {
     }}>
         {/* Subtle Floating Orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 3 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10"
-              style={{
-                width: `${60 + i * 20}px`,
-                height: `${60 + i * 20}px`,
-                left: `${20 + i * 30}%`,
-                top: `${20 + i * 25}%`,
-                animation: `float ${4 + i * 2}s ease-in-out infinite`,
-                animationDelay: `${i * 1.5}s`,
-                filter: 'blur(1px)',
-                transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.01 + i * 0.005)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.01 + i * 0.005)}px)`,
-                transition: 'transform 0.6s ease-out',
-              }}
-            />
-          ))}
+          {Array.from({
+          length: 3
+        }, (_, i) => <div key={i} className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10" style={{
+          width: `${60 + i * 20}px`,
+          height: `${60 + i * 20}px`,
+          left: `${20 + i * 30}%`,
+          top: `${20 + i * 25}%`,
+          animation: `float ${4 + i * 2}s ease-in-out infinite`,
+          animationDelay: `${i * 1.5}s`,
+          filter: 'blur(1px)',
+          transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.01 + i * 0.005)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.01 + i * 0.005)}px)`,
+          transition: 'transform 0.6s ease-out'
+        }} />)}
         </div>
 
         {/* Interactive Clickable Bubbles */}
         <div className="absolute inset-0 overflow-hidden">
-          {bubbles.map((bubble) => (
-            <div
-              key={bubble.id}
-              className="absolute rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 cursor-pointer hover:scale-110 transition-all duration-300"
-              style={{
-                width: `${bubble.size}px`,
-                height: `${bubble.size}px`,
-                left: `${bubble.x}%`,
-                top: `${bubble.y}%`,
-                opacity: bubble.opacity,
-                filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.4))',
-                animation: `float ${3 + (bubble.id % 3)}s ease-in-out infinite`,
-                animationDelay: `${bubble.id * 0.5}s`,
-              }}
-              onClick={() => handleBubblePop(bubble.id)}
-            />
-          ))}
+          {bubbles.map(bubble => <div key={bubble.id} className="absolute rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 cursor-pointer hover:scale-110 transition-all duration-300" style={{
+          width: `${bubble.size}px`,
+          height: `${bubble.size}px`,
+          left: `${bubble.x}%`,
+          top: `${bubble.y}%`,
+          opacity: bubble.opacity,
+          filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.4))',
+          animation: `float ${3 + bubble.id % 3}s ease-in-out infinite`,
+          animationDelay: `${bubble.id * 0.5}s`
+        }} onClick={() => handleBubblePop(bubble.id)} />)}
         </div>
 
         {/* Animated Grid Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0" style={{
-            backgroundImage: `
+          backgroundImage: `
               linear-gradient(rgba(0, 255, 255, 0.3) 1px, transparent 1px),
               linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px',
-            animation: 'grid-move 20s linear infinite',
-            filter: 'drop-shadow(0 0 2px cyan)'
-          }}></div>
+          backgroundSize: '50px 50px',
+          animation: 'grid-move 20s linear infinite',
+          filter: 'drop-shadow(0 0 2px cyan)'
+        }}></div>
         </div>
         
         {/* Subtle gradient overlay for depth */}
-        <motion.div className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5" animate={{
+        <motion.div animate={{
         background: ['linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)', 'linear-gradient(135deg, rgba(151,80,255,0.05) 0%, transparent 50%, rgba(47,128,255,0.05) 100%)', 'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)']
       }} transition={{
         duration: 8,
         repeat: Infinity,
         ease: "easeInOut"
-      }}></motion.div>
+      }} className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5 mx-[10px] my-[10px] px-[3px] py-[3px]"></motion.div>
         
         {/* Main Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 lg:px-8 text-center flex flex-col justify-center min-h-screen">
@@ -232,29 +209,35 @@ const Index = () => {
             {/* Geometric digital frame around logo */}
             <div className="absolute inset-0 -top-12 -bottom-12 -left-12 -right-12">
               {/* Outer rotating square */}
-              <div className="absolute inset-0 border border-cyan-400/30 animate-rotate-slow" style={{ 
-                clipPath: 'polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)' 
-              }}></div>
+              <div className="absolute inset-0 border border-cyan-400/30 animate-rotate-slow" style={{
+              clipPath: 'polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)'
+            }}></div>
               
               {/* Inner diamond shape */}
-              <div className="absolute inset-6 border-2 border-electric-azure/50 animate-pulse" style={{ 
-                transform: 'rotate(45deg)',
-                clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
-              }}></div>
+              <div className="absolute inset-6 border-2 border-electric-azure/50 animate-pulse" style={{
+              transform: 'rotate(45deg)',
+              clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+            }}></div>
               
               {/* Hexagon frame */}
-              <div className="absolute inset-4 border border-blue-400/40 animate-rotate-slow" style={{ 
-                animationDirection: 'reverse', 
-                animationDuration: '25s',
-                clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
-              }}></div>
+              <div className="absolute inset-4 border border-blue-400/40 animate-rotate-slow" style={{
+              animationDirection: 'reverse',
+              animationDuration: '25s',
+              clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+            }}></div>
             </div>
             
             {/* Corner accent elements */}
             <div className="absolute -top-6 -left-6 w-4 h-4 border-l-2 border-t-2 border-cyan-400 animate-pulse"></div>
-            <div className="absolute -top-6 -right-6 w-4 h-4 border-r-2 border-t-2 border-cyan-400 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute -bottom-6 -left-6 w-4 h-4 border-l-2 border-b-2 border-cyan-400 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute -bottom-6 -right-6 w-4 h-4 border-r-2 border-b-2 border-cyan-400 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute -top-6 -right-6 w-4 h-4 border-r-2 border-t-2 border-cyan-400 animate-pulse" style={{
+            animationDelay: '0.5s'
+          }}></div>
+            <div className="absolute -bottom-6 -left-6 w-4 h-4 border-l-2 border-b-2 border-cyan-400 animate-pulse" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute -bottom-6 -right-6 w-4 h-4 border-r-2 border-b-2 border-cyan-400 animate-pulse" style={{
+            animationDelay: '1.5s'
+          }}></div>
             
             {/* Main logo - enlarged */}
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-32 w-auto relative z-10" />
