@@ -180,11 +180,11 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
             {[
               "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
-              "/lovable-uploads/66696ff5-dbeb-4266-8e8e-91cafafbe6e7.png", 
+              "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png", 
               "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
-              "/lovable-uploads/c735c494-8f65-49b4-89b6-d6a1040a6168.png",
-              "/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png",
-              "/lovable-uploads/bdef0584-bc16-4946-90f8-c741502dc157.png"
+              "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png",
+              "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png",
+              "/lovable-uploads/3da330dd-37a1-4390-8477-67fa19da39c3.png"
             ].map((logo, index) => (
               <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
                 <img src={logo} alt={`Client logo ${index + 1}`} className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
