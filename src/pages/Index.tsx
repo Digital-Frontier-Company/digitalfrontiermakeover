@@ -229,7 +229,7 @@ const Index = () => {
           }}></div>
             
             {/* Main logo - enlarged */}
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-32 w-auto relative z-10" />
+            <img alt="Digital Frontier Logo" src="/lovable-uploads/fe849d65-e770-4dd6-95c2-8c67d0ec64a5.png" className="h-32 w-auto relative z-10 object-fill" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
