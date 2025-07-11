@@ -267,3 +267,13 @@
     opacity: 0;
   }
 }
+
+/* Circuit flow animation */
+@keyframes circuit-flow {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 30;
+  }
+}
