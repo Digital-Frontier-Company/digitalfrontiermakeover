@@ -29,7 +29,7 @@ const Index = () => {
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: 20 + Math.random() * 40,
-      speed: 0.5 + Math.random() * 1,
+      speed: 0.1 + Math.random() * 0.2,
       direction: Math.random() * 360,
       opacity: 0.3 + Math.random() * 0.4
     }))
@@ -46,7 +46,7 @@ const Index = () => {
           y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100,
         }))
       );
-    }, 50);
+    }, 100);
     return () => clearInterval(interval);
   }, []);
 
@@ -60,7 +60,7 @@ const Index = () => {
               x: Math.random() * 100,
               y: Math.random() * 100,
               size: 20 + Math.random() * 40,
-              speed: 0.5 + Math.random() * 1,
+              speed: 0.1 + Math.random() * 0.2,
               direction: Math.random() * 360,
               opacity: 0.3 + Math.random() * 0.4
             }
