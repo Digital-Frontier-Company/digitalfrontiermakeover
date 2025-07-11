@@ -252,13 +252,31 @@ const Index = () => {
       {/* CASE STUDY SLIDER - KPI-driven showcase */}
       <CaseStudySlider />
 
-      {/* NEW SERVICE CARDS SECTION */}
+      {/* NEW SERVICE CARDS SECTION with Image Carousel */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
-        {/* Animated background image with medium opacity */}
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-pulse opacity-40" style={{
-        backgroundImage: "url('/lovable-uploads/1382424c-884b-488c-a216-f685e32138c7.png')",
-        filter: 'blur(1px)'
-      }}></div>
+        {/* Image Carousel Background */}
+        <div className="absolute inset-0">
+          <div className="relative h-full w-full">
+            {[
+              "/lovable-uploads/a2ac7ae8-1bc5-411f-9ef9-ff10d8fdd4a7.png",
+              "/lovable-uploads/0d2360a9-25e2-44f5-be84-ff6da9ee399d.png", 
+              "/lovable-uploads/bc4175bf-e990-48ba-b6c6-bf010230dd00.png",
+              "/lovable-uploads/4a58c6fe-4743-4bee-adf3-2753ea2a7a37.png",
+              "/lovable-uploads/f0c22956-3fff-4d3e-9b62-c0f4058243d7.png"
+            ].map((image, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+                  index === currentSlide % 5 ? 'opacity-30' : 'opacity-0'
+                }`}
+                style={{
+                  backgroundImage: `url('${image}')`,
+                  filter: 'blur(1px)'
+                }}
+              />
+            ))}
+          </div>
+        </div>
         
         {/* Animated gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-purple-900/80 to-slate-900/80 animate-gradient-x"></div>
@@ -301,33 +319,8 @@ const Index = () => {
               </Link>
             </div>
 
-            {/* Data-Driven Insights Card */}
+            {/* Answer Engine Optimization Card - MIDDLE POSITION */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
-              <div className="mb-6">
-                <img alt="Data-Driven Insights" onError={e => {
-                console.error('Failed to load image:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png" />
-              </div>
-              <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
-                Data-Driven Insights
-              </h3>
-              <p className="mb-6 leading-relaxed text-base font-semibold text-slate-100">
-                Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-full bg-[#074192]/0">
-                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
-                    {feature}
-                  </li>)}
-              </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
-                See Our Analytics
-              </Link>
-            </div>
-
-            {/* Answer Engine Optimization Card */}
-            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 md:col-span-2 lg:col-span-1 bg-slate-950/80">
               <div className="mb-6">
                 <a href="https://generativesearch.pro" target="_blank" rel="dofollow" className="block">
                   <img src="/lovable-uploads/686610ee-b3cc-4985-adab-c751e816394f.png" alt="Generative Engine Optimization" className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" onError={e => {
@@ -356,6 +349,31 @@ const Index = () => {
               >
                 Visit GenerativeSearch.pro →
               </a>
+            </div>
+
+            {/* Data-Driven Insights Card */}
+            <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
+              <div className="mb-6">
+                <img alt="Data-Driven Insights" onError={e => {
+                console.error('Failed to load image:', e.currentTarget.src);
+                e.currentTarget.style.display = 'none';
+              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png" />
+              </div>
+              <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
+                Data-Driven Insights
+              </h3>
+              <p className="mb-6 leading-relaxed text-base font-semibold text-slate-100">
+                Transform raw data into actionable strategies that drive measurable business growth and competitive advantage.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {['Advanced analytics', 'Performance tracking', 'Custom reporting', 'Strategic insights'].map((feature, index) => <li key={index} className="flex items-center text-white rounded-full bg-[#074192]/0">
+                    <Check className="w-5 h-5 text-white mr-3 flex-shrink-0" />
+                    {feature}
+                  </li>)}
+              </ul>
+              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
+                See Our Analytics
+              </Link>
             </div>
           </div>
         </div>
