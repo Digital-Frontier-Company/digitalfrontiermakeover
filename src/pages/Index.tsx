@@ -9,6 +9,7 @@ import SEOSchema from "@/components/SEOSchema";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -229,7 +230,7 @@ const Index = () => {
           }}></div>
             
             {/* Main logo - enlarged */}
-            <img alt="Digital Frontier Logo" src="/lovable-uploads/abafd3ff-07d6-4c66-8b4e-5241984ba7a3.png" className="h-32 w-auto relative z-10 object-cover" />
+            <img alt="Digital Frontier Logo" src="/lovable-uploads/abafd3ff-07d6-4c66-8b4e-5241984ba7a3.png" className="h-40 w-auto relative z-10 object-cover" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
