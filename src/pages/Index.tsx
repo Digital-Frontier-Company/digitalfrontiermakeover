@@ -392,7 +392,7 @@ const Index = () => {
               Generative Search Pro
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Generative Engine optimization and Answer Engine Optimization is a Click away Free trail !
+              Turn every prompt into a spotlight. Generative + Answer Engine Optimization unlocked in a single tap. Try it free.
             </p>
           </div>
 
