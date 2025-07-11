@@ -84,6 +84,23 @@ const Index = () => {
   const logoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
   return <>
       <SEOSchema />
+      
+      {/* Falling cyan specs across entire page */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        {Array.from({ length: 12 }, (_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
+            style={{
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 10}s`,
+              animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
+              filter: 'drop-shadow(0 0 4px cyan)',
+            }}
+          />
+        ))}
+      </div>
+      
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
       <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
       background: 'var(--gradient-hero)',
@@ -100,22 +117,6 @@ const Index = () => {
             animation: 'grid-move 20s linear infinite',
             filter: 'drop-shadow(0 0 2px cyan)'
           }}></div>
-        </div>
-        
-        {/* Falling cyan specs */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 12 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 10}s`,
-                animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
-                filter: 'drop-shadow(0 0 4px cyan)',
-              }}
-            />
-          ))}
         </div>
         
         {/* Subtle gradient overlay for depth */}
