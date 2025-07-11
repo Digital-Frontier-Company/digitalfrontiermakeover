@@ -184,7 +184,7 @@ const Index = () => {
               "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
               "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png",
               "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png",
-              "/lovable-uploads/3da330dd-37a1-4390-8477-67fa19da39c3.png"
+              "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"
             ].map((logo, index) => (
               <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
                 <img src={logo} alt={`Client logo ${index + 1}`} className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
