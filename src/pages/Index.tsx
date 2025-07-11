@@ -121,17 +121,6 @@ const Index = () => {
   return <>
       <SEOSchema />
       
-      {/* Falling cyan specs across entire page */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {Array.from({
-        length: 12
-      }, (_, i) => <div key={i} className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60" style={{
-        left: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 10}s`,
-        animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
-        filter: 'drop-shadow(0 0 4px cyan)'
-      }} />)}
-      </div>
       
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
       <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
@@ -383,7 +372,7 @@ const Index = () => {
       {/* NEW SERVICE CARDS SECTION with Image Carousel */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
         {/* Image Carousel Background */}
-        <div className="absolute inset-0 rounded-sm bg-inherit">
+        <div className="absolute inset-0">
           <div className="relative h-full w-full">
             {["/lovable-uploads/a2ac7ae8-1bc5-411f-9ef9-ff10d8fdd4a7.png", "/lovable-uploads/0d2360a9-25e2-44f5-be84-ff6da9ee399d.png", "/lovable-uploads/bc4175bf-e990-48ba-b6c6-bf010230dd00.png", "/lovable-uploads/4a58c6fe-4743-4bee-adf3-2753ea2a7a37.png", "/lovable-uploads/f0c22956-3fff-4d3e-9b62-c0f4058243d7.png"].map((image, index) => <div key={index} className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${index === currentSlide % 5 ? 'opacity-30' : 'opacity-0'}`} style={{
             backgroundImage: `url('${image}')`,
@@ -400,10 +389,10 @@ const Index = () => {
           <div className="text-center mb-16">
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Turn Your Brand into a <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Revenue Engine</span>
+              Generative Search Pro
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              We don't just build campaigns—we engineer revenue machines that dominate markets and deliver measurable results.
+              Turn every prompt into a spotlight. Generative + Answer Engine Optimization unlocked in a single tap. Try it free.
             </p>
           </div>
 
@@ -428,7 +417,7 @@ const Index = () => {
                     {feature}
                   </li>)}
               </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
+              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
                 Explore AI Solutions
               </Link>
             </div>
@@ -466,7 +455,7 @@ const Index = () => {
                 <img alt="Data-Driven Insights" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png" />
+              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/72dd30ec-d978-4ba9-baad-aba941aa15c4.png" />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Data-Driven Insights
@@ -480,7 +469,7 @@ const Index = () => {
                     {feature}
                   </li>)}
               </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30">
+              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
                 See Our Analytics
               </Link>
             </div>
