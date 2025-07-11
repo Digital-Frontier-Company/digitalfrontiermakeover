@@ -124,7 +124,7 @@ const MorphingHero = () => {
               <img 
                 alt="Digital Frontier Company" 
                 className="h-16 w-auto drop-shadow-2xl"
-                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
+                src="/lovable-uploads/7776c86f-9ded-48de-8610-b283ef010a56.png" 
               />
             </div>
           </div>
