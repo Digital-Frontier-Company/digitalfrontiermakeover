@@ -7,7 +7,7 @@ const MainNavigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <img alt="Digital Frontier Company" src="/lovable-uploads/43aabc4a-e0b6-4c96-a4ff-115865e74fbb.png" className="max-h-20 " />
+            <img alt="Digital Frontier Company" src="/lovable-uploads/67d4ab65-6525-4a5d-801a-59264f47355b.png" className="max-h-24 " />
           </Link>
           
           <NavigationMenu>
