@@ -455,7 +455,7 @@ const Index = () => {
                 <img alt="Data-Driven Insights" onError={e => {
                 console.error('Failed to load image:', e.currentTarget.src);
                 e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/78ed0175-99f6-4e35-bc1b-6193e2493053.png" />
+              }} onLoad={() => console.log('Image loaded successfully')} className="w-full h-48 rounded-lg object-cover" src="/lovable-uploads/72dd30ec-d978-4ba9-baad-aba941aa15c4.png" />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">
                 Data-Driven Insights
