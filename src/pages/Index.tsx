@@ -9,7 +9,6 @@ import SEOSchema from "@/components/SEOSchema";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -78,96 +77,115 @@ const Index = () => {
   }, []);
 
   // Parallax scroll effects
-  const { scrollY } = useScroll();
+  const {
+    scrollY
+  } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, -150]);
   const logoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
-
-  return (
-    <>
+  return <>
       <SEOSchema />
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
-      <motion.section 
-        className="relative isolate overflow-hidden min-h-screen bg-deep-navy" 
-        style={{ background: 'var(--gradient-hero)', y: heroY }}
-      >
+      <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
+      background: 'var(--gradient-hero)',
+      y: heroY
+    }}>
         {/* Subtle gradient overlay for depth */}
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5"
-          animate={{ 
-            background: [
-              'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)',
-              'linear-gradient(135deg, rgba(151,80,255,0.05) 0%, transparent 50%, rgba(47,128,255,0.05) 100%)',
-              'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)'
-            ]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        ></motion.div>
+        <motion.div className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5" animate={{
+        background: ['linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)', 'linear-gradient(135deg, rgba(151,80,255,0.05) 0%, transparent 50%, rgba(47,128,255,0.05) 100%)', 'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)']
+      }} transition={{
+        duration: 8,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}></motion.div>
         
         {/* Main Content */}
         <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 lg:px-8 text-center flex flex-col justify-center min-h-screen">
           
           {/* Logo with Scale Animation */}
-          <motion.div 
-            className="flex justify-center mb-12"
-            style={{ scale: logoScale }}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <motion.div className="flex justify-center mb-12" style={{
+          scale: logoScale
+        }} initial={{
+          opacity: 0,
+          y: -20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }}>
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-20 w-auto" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
-          <motion.h1 
-            className="font-poppins font-semibold text-soft-white mb-8" 
-            style={{ fontSize: 'clamp(40px, 6vw, 64px)', lineHeight: '1.2', letterSpacing: '-0.01em', maxWidth: '70ch' }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
+          <motion.h1 className="font-poppins font-semibold text-soft-white mb-8" style={{
+          fontSize: 'clamp(40px, 6vw, 64px)',
+          lineHeight: '1.2',
+          letterSpacing: '-0.01em',
+          maxWidth: '70ch'
+        }} initial={{
+          opacity: 0,
+          y: 30
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 1,
+          delay: 0.2
+        }}>
             Stop Guessing, Start Growing with{' '}
-            <span className="text-electric-azure">AI-Powered Marketing</span>
+            <span className="text-electric-azure text-6xl font-extrabold">AI-Powered Marketing</span>
           </motion.h1>
 
           {/* Subheadline with Staggered Animation */}
-          <motion.p 
-            className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12" 
-            style={{ lineHeight: '1.55' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
+          <motion.p className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12" style={{
+          lineHeight: '1.55'
+        }} initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8,
+          delay: 0.4
+        }}>
             We build content engines that drive organic traffic and generate qualified leads for B2B tech companies. No guesswork—just measurable results.
           </motion.p>
 
           {/* CTA with Hover Animation */}
-          <motion.div 
-            className="mb-16"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link 
-                to="/contact" 
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg"
-                style={{ 
-                  boxShadow: '0 4px 20px -4px hsl(var(--electric-azure) / 0.3)',
-                  letterSpacing: '0.5px'
-                }}
-              >
+          <motion.div className="mb-16" initial={{
+          opacity: 0,
+          scale: 0.9
+        }} animate={{
+          opacity: 1,
+          scale: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 0.6
+        }}>
+            <motion.div whileHover={{
+            scale: 1.05
+          }} whileTap={{
+            scale: 0.95
+          }}>
+              <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg" style={{
+              boxShadow: '0 4px 20px -4px hsl(var(--electric-azure) / 0.3)',
+              letterSpacing: '0.5px'
+            }}>
                 Book a Strategy Call →
               </Link>
             </motion.div>
           </motion.div>
 
           {/* Trust indicators with Final Fade-in */}
-          <motion.div 
-            className="text-soft-white/60 text-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
+          <motion.div className="text-soft-white/60 text-sm" initial={{
+          opacity: 0
+        }} animate={{
+          opacity: 1
+        }} transition={{
+          duration: 0.6,
+          delay: 0.8
+        }}>
             <p>Trusted by 200+ B2B companies • Average 38% increase in SQLs</p>
           </motion.div>
         </div>
@@ -178,18 +196,9 @@ const Index = () => {
         <div className="mx-auto max-w-6xl px-6">
           <p className="text-center text-muted-foreground text-sm mb-12 font-medium">Trusted by industry leaders</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            {[
-              "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
-              "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png", 
-              "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
-              "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png",
-              "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png",
-              "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"
-            ].map((logo, index) => (
-              <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
+            {["/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png", "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png", "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png", "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png", "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png", "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"].map((logo, index) => <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
                 <img src={logo} alt={`Client logo ${index + 1}`} className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -198,7 +207,9 @@ const Index = () => {
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-16">
-            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}>
+            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{
+            fontSize: 'clamp(28px, 4vw, 40px)'
+          }}>
               The Digital Frontier Blueprint
             </h2>
             <p className="font-inter text-lg text-soft-white/70 max-w-2xl mx-auto">
@@ -207,35 +218,25 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "AI Marketing Intelligence",
-                description: "Deploy advanced algorithms to identify high-intent prospects and optimize your entire funnel in real-time.",
-                icon: "🤖"
-              },
-              {
-                title: "Data-Driven Insights", 
-                description: "Turn your marketing data into actionable intelligence with predictive analytics and performance forecasting.",
-                icon: "📊"
-              },
-              {
-                title: "Answer Engine Optimization",
-                description: "Dominate voice search and AI-powered search results with our proprietary AEO methodology.",
-                icon: "🎯"
-              }
-            ].map((card, index) => (
-              <div 
-                key={index}
-                className="interactive-card group bg-card border border-border p-8 rounded-2xl transition-all duration-300 hover:border-electric-azure"
-                style={{ 
-                  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                }}
-              >
+            {[{
+            title: "AI Marketing Intelligence",
+            description: "Deploy advanced algorithms to identify high-intent prospects and optimize your entire funnel in real-time.",
+            icon: "🤖"
+          }, {
+            title: "Data-Driven Insights",
+            description: "Turn your marketing data into actionable intelligence with predictive analytics and performance forecasting.",
+            icon: "📊"
+          }, {
+            title: "Answer Engine Optimization",
+            description: "Dominate voice search and AI-powered search results with our proprietary AEO methodology.",
+            icon: "🎯"
+          }].map((card, index) => <div key={index} className="interactive-card group bg-card border border-border p-8 rounded-2xl transition-all duration-300 hover:border-electric-azure" style={{
+            transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+          }}>
                 <div className="text-4xl mb-6">{card.icon}</div>
                 <h3 className="font-poppins font-medium text-xl text-soft-white mb-4">{card.title}</h3>
                 <p className="font-inter text-soft-white/70 leading-relaxed">{card.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -257,24 +258,10 @@ const Index = () => {
         {/* Image Carousel Background */}
         <div className="absolute inset-0">
           <div className="relative h-full w-full">
-            {[
-              "/lovable-uploads/a2ac7ae8-1bc5-411f-9ef9-ff10d8fdd4a7.png",
-              "/lovable-uploads/0d2360a9-25e2-44f5-be84-ff6da9ee399d.png", 
-              "/lovable-uploads/bc4175bf-e990-48ba-b6c6-bf010230dd00.png",
-              "/lovable-uploads/4a58c6fe-4743-4bee-adf3-2753ea2a7a37.png",
-              "/lovable-uploads/f0c22956-3fff-4d3e-9b62-c0f4058243d7.png"
-            ].map((image, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
-                  index === currentSlide % 5 ? 'opacity-30' : 'opacity-0'
-                }`}
-                style={{
-                  backgroundImage: `url('${image}')`,
-                  filter: 'blur(1px)'
-                }}
-              />
-            ))}
+            {["/lovable-uploads/a2ac7ae8-1bc5-411f-9ef9-ff10d8fdd4a7.png", "/lovable-uploads/0d2360a9-25e2-44f5-be84-ff6da9ee399d.png", "/lovable-uploads/bc4175bf-e990-48ba-b6c6-bf010230dd00.png", "/lovable-uploads/4a58c6fe-4743-4bee-adf3-2753ea2a7a37.png", "/lovable-uploads/f0c22956-3fff-4d3e-9b62-c0f4058243d7.png"].map((image, index) => <div key={index} className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${index === currentSlide % 5 ? 'opacity-30' : 'opacity-0'}`} style={{
+            backgroundImage: `url('${image}')`,
+            filter: 'blur(1px)'
+          }} />)}
           </div>
         </div>
         
@@ -341,12 +328,7 @@ const Index = () => {
                     {feature}
                   </li>)}
               </ul>
-              <a 
-                href="https://generativesearch.pro" 
-                target="_blank" 
-                rel="dofollow"
-                className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30"
-              >
+              <a href="https://generativesearch.pro" target="_blank" rel="dofollow" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
                 Visit GenerativeSearch.pro →
               </a>
             </div>
@@ -594,7 +576,9 @@ const Index = () => {
       <section className="relative py-16 bg-deep-navy border-t border-border">
         <div className="mx-auto max-w-4xl px-6 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}>
+            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{
+            fontSize: 'clamp(28px, 4vw, 40px)'
+          }}>
               Ready to Transform Your Marketing?
             </h2>
             <p className="font-inter text-lg text-soft-white/70 max-w-2xl mx-auto">
@@ -609,8 +593,6 @@ const Index = () => {
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-t from-electric-azure/5 via-transparent to-transparent pointer-events-none"></div>
       </section>
-    </>
-  );
+    </>;
 };
-
 export default Index;
