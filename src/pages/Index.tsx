@@ -102,6 +102,22 @@ const Index = () => {
           }}></div>
         </div>
         
+        {/* Falling cyan specs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {Array.from({ length: 12 }, (_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 10}s`,
+                animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
+                filter: 'drop-shadow(0 0 4px cyan)',
+              }}
+            />
+          ))}
+        </div>
+        
         {/* Subtle gradient overlay for depth */}
         <motion.div className="absolute inset-0 bg-gradient-to-br from-electric-azure/5 via-transparent to-ultraviolet/5" animate={{
         background: ['linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)', 'linear-gradient(135deg, rgba(151,80,255,0.05) 0%, transparent 50%, rgba(47,128,255,0.05) 100%)', 'linear-gradient(135deg, rgba(47,128,255,0.05) 0%, transparent 50%, rgba(151,80,255,0.05) 100%)']
