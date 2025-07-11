@@ -121,17 +121,6 @@ const Index = () => {
   return <>
       <SEOSchema />
       
-      {/* Falling cyan specs across entire page */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        {Array.from({
-        length: 12
-      }, (_, i) => <div key={i} className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-60" style={{
-        left: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 10}s`,
-        animation: `fall-specs ${8 + Math.random() * 4}s linear infinite`,
-        filter: 'drop-shadow(0 0 4px cyan)'
-      }} />)}
-      </div>
       
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
       <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
