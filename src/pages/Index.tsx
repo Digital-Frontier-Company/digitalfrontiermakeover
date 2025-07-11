@@ -106,72 +106,25 @@ const Index = () => {
       background: 'var(--gradient-hero)',
       y: heroY
     }}>
-        {/* Interactive Floating Elements */}
+        {/* Subtle Floating Orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Mouse-following geometric shapes */}
-          {Array.from({ length: 6 }, (_, i) => (
+          {Array.from({ length: 3 }, (_, i) => (
             <div
               key={i}
-              className="absolute w-8 h-8 border border-cyan-400/40 rounded-full"
+              className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.02 + i * 0.01)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.02 + i * 0.01)}px)`,
-                transition: 'transform 0.3s ease-out',
-                animation: `float ${3 + i}s ease-in-out infinite`,
-                animationDelay: `${i * 0.5}s`,
-                filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.6))',
-              }}
-            />
-          ))}
-          
-          {/* Pulsing connection nodes */}
-          {Array.from({ length: 4 }, (_, i) => (
-            <div
-              key={`node-${i}`}
-              className="absolute w-4 h-4 bg-cyan-400/60 rounded-full"
-              style={{
-                left: `${20 + i * 25}%`,
-                top: `${30 + (i % 2) * 40}%`,
-                animation: `pulse-glow ${2 + i * 0.5}s ease-in-out infinite`,
-                animationDelay: `${i * 0.3}s`,
+                width: `${60 + i * 20}px`,
+                height: `${60 + i * 20}px`,
+                left: `${20 + i * 30}%`,
+                top: `${20 + i * 25}%`,
+                animation: `float ${4 + i * 2}s ease-in-out infinite`,
+                animationDelay: `${i * 1.5}s`,
                 filter: 'blur(1px)',
+                transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.01 + i * 0.005)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.01 + i * 0.005)}px)`,
+                transition: 'transform 0.6s ease-out',
               }}
             />
           ))}
-          
-          {/* Animated circuit paths */}
-          <svg className="absolute inset-0 w-full h-full opacity-20" style={{
-            animation: 'fade-in 2s ease-out'
-          }}>
-            <defs>
-              <linearGradient id="circuit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#00ffff', stopOpacity: 0.8 }} />
-                <stop offset="50%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
-                <stop offset="100%" style={{ stopColor: '#8b5cf6', stopOpacity: 0.2 }} />
-              </linearGradient>
-            </defs>
-            <path
-              d="M100,100 Q300,50 500,200 T900,150"
-              stroke="url(#circuit-gradient)"
-              strokeWidth="2"
-              fill="none"
-              style={{
-                strokeDasharray: '10,5',
-                animation: 'circuit-flow 4s linear infinite'
-              }}
-            />
-            <path
-              d="M200,300 Q400,250 600,400 T1000,350"
-              stroke="url(#circuit-gradient)"
-              strokeWidth="1.5"
-              fill="none"
-              style={{
-                strokeDasharray: '8,4',
-                animation: 'circuit-flow 5s linear infinite reverse'
-              }}
-            />
-          </svg>
         </div>
 
         {/* Animated Grid Pattern Background */}
