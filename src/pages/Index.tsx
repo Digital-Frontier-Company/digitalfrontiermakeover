@@ -133,7 +133,7 @@ const Index = () => {
           delay: 0.2
         }}>
             Stop Guessing, Start Growing with{' '}
-            <span className="text-electric-azure text-6xl font-extrabold">AI-Powered Marketing</span>
+            <span className="bg-gradient-to-r from-electric-azure via-ultraviolet to-signal-lime bg-clip-text text-transparent text-6xl font-extrabold animate-pulse-glow">AI-Powered Marketing</span>
           </motion.h1>
 
           {/* Subheadline with Staggered Animation */}
