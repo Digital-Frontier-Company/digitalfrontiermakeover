@@ -229,7 +229,7 @@ const Index = () => {
           }}></div>
             
             {/* Main logo - enlarged */}
-            <img alt="Digital Frontier Logo" src="/lovable-uploads/fe849d65-e770-4dd6-95c2-8c67d0ec64a5.png" className="h-32 w-auto relative z-10 object-fill" />
+            <img alt="Digital Frontier Logo" src="/lovable-uploads/abafd3ff-07d6-4c66-8b4e-5241984ba7a3.png" className="h-32 w-auto relative z-10 object-cover" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
