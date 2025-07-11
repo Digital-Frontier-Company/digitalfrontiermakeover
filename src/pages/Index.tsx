@@ -90,14 +90,15 @@ const Index = () => {
       y: heroY
     }}>
         {/* Animated Grid Pattern Background */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-30">
           <div className="absolute inset-0" style={{
             backgroundImage: `
-              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(0, 255, 255, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px)
             `,
             backgroundSize: '50px 50px',
-            animation: 'grid-move 20s linear infinite'
+            animation: 'grid-move 20s linear infinite',
+            filter: 'drop-shadow(0 0 2px cyan)'
           }}></div>
         </div>
         
@@ -125,18 +126,32 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }}>
-            {/* Rotating digital rings around logo */}
-            <div className="absolute inset-0 -top-8 -bottom-8 -left-8 -right-8">
-              <div className="absolute inset-0 rounded-full border border-electric-azure/20 animate-rotate-slow"></div>
-              <div className="absolute inset-4 rounded-full border border-cyan-400/30 animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '15s' }}></div>
-              <div className="absolute inset-8 rounded-full border-2 border-electric-azure/40 animate-pulse"></div>
+            {/* Geometric digital frame around logo */}
+            <div className="absolute inset-0 -top-12 -bottom-12 -left-12 -right-12">
+              {/* Outer rotating square */}
+              <div className="absolute inset-0 border border-cyan-400/30 animate-rotate-slow" style={{ 
+                clipPath: 'polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)' 
+              }}></div>
+              
+              {/* Inner diamond shape */}
+              <div className="absolute inset-6 border-2 border-electric-azure/50 animate-pulse" style={{ 
+                transform: 'rotate(45deg)',
+                clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
+              }}></div>
+              
+              {/* Hexagon frame */}
+              <div className="absolute inset-4 border border-blue-400/40 animate-rotate-slow" style={{ 
+                animationDirection: 'reverse', 
+                animationDuration: '25s',
+                clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
+              }}></div>
             </div>
             
-            {/* Floating particles */}
-            <div className="absolute top-0 left-0 w-2 h-2 bg-electric-azure rounded-full animate-float" style={{ animationDelay: '0s' }}></div>
-            <div className="absolute top-4 right-0 w-1 h-1 bg-cyan-400 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute bottom-0 left-4 w-1.5 h-1.5 bg-blue-400 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-            <div className="absolute bottom-4 right-4 w-1 h-1 bg-electric-azure rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+            {/* Corner accent elements */}
+            <div className="absolute -top-6 -left-6 w-4 h-4 border-l-2 border-t-2 border-cyan-400 animate-pulse"></div>
+            <div className="absolute -top-6 -right-6 w-4 h-4 border-r-2 border-t-2 border-cyan-400 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute -bottom-6 -left-6 w-4 h-4 border-l-2 border-b-2 border-cyan-400 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute -bottom-6 -right-6 w-4 h-4 border-r-2 border-b-2 border-cyan-400 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
             
             {/* Main logo - enlarged */}
             <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-32 w-auto relative z-10" />
