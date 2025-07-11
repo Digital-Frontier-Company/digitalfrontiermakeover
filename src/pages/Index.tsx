@@ -392,7 +392,7 @@ const Index = () => {
               Generative Search Pro
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              We don't just build campaigns—we engineer revenue machines that dominate markets and deliver measurable results.
+              Generative Engine optimization and Answer Engine Optimization is a Click away Free trail !
             </p>
           </div>
 
