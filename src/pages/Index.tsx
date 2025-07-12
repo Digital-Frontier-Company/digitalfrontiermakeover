@@ -431,7 +431,21 @@ const Index = () => {
                     className="font-poppins font-semibold text-xl text-soft-white mb-4 group-hover:text-electric-azure transition-colors duration-300"
                     whileHover={{ x: 5 }}
                   >
-                    {card.title}
+                    {index === 0 && (
+                      <>
+                        <span className="bg-gradient-to-r from-signal-lime to-electric-azure bg-clip-text text-transparent font-extrabold">Predict. Persuade. Profit.</span>
+                      </>
+                    )}
+                    {index === 1 && (
+                      <>
+                        <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent font-extrabold">Data-Driven Insights</span>
+                      </>
+                    )}
+                    {index === 2 && (
+                      <>
+                        <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-extrabold">Answer Engine Optimization</span> <span className="text-soft-white">(AEO)</span>
+                      </>
+                    )}
                   </motion.h3>
                   
                    <motion.p 
