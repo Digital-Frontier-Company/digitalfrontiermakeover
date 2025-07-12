@@ -1,55 +1,33 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart";
-import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { TrendingUp, Target, Zap, Eye, Clock, Award } from "lucide-react";
 
 const AEOChartTabs = () => {
   const answerDistributionData = [
-    { name: 'Featured Snippets', value: 45, color: '#3b82f6' },
-    { name: 'Knowledge Panels', value: 28, color: '#8b5cf6' },
-    { name: 'Voice Responses', value: 17, color: '#f59e0b' },
-    { name: 'Rich Results', value: 10, color: '#10b981' }
+    { name: 'Featured Snippets', value: 45, color: 'bg-blue-500', description: 'Direct answers at the top of search results' },
+    { name: 'Knowledge Panels', value: 28, color: 'bg-purple-500', description: 'Informational boxes for entities and topics' },
+    { name: 'Voice Responses', value: 17, color: 'bg-amber-500', description: 'Answers delivered through voice assistants' },
+    { name: 'Rich Results', value: 10, color: 'bg-emerald-500', description: 'Enhanced listings with additional information' }
   ];
 
-  const COLORS = ['#3b82f6', '#8b5cf6', '#f59e0b', '#10b981'];
-
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
-    const RADIAN = Math.PI / 180;
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-    return (
-      <text 
-        x={x} 
-        y={y} 
-        fill="white" 
-        textAnchor={x > cx ? 'start' : 'end'} 
-        dominantBaseline="central"
-        fontSize="14"
-        fontWeight="bold"
-      >
-        {`${(percent * 100).toFixed(0)}%`}
-      </text>
-    );
-  };
-
   const factorsData = [
-    { factor: 'Question Relevance', impact: 90 },
-    { factor: 'Answer Conciseness', impact: 85 },
-    { factor: 'Structured Data', impact: 80 },
-    { factor: 'Voice-Search Ready', impact: 75 },
-    { factor: 'Content Quality', impact: 70 },
-    { factor: 'Page Authority', impact: 65 }
+    { factor: 'Question Relevance', impact: 90, icon: Target, description: 'Directly addressing the questions your audience is asking' },
+    { factor: 'Answer Conciseness', impact: 85, icon: Zap, description: 'Complete answers in the optimal 40-60 word range' },
+    { factor: 'Structured Data', impact: 80, icon: Eye, description: 'Proper schema markup for search engine understanding' },
+    { factor: 'Voice-Search Ready', impact: 75, icon: Clock, description: 'Optimized for voice assistant queries' },
+    { factor: 'Content Quality', impact: 70, icon: Award, description: 'High-quality, authoritative content' },
+    { factor: 'Page Authority', impact: 65, icon: TrendingUp, description: 'Strong domain and page-level authority signals' }
   ];
 
   const monthlyImprovementData = [
-    { month: 'Jan', improvement: 15 },
-    { month: 'Feb', improvement: 32 },
-    { month: 'Mar', improvement: 48 },
-    { month: 'Apr', improvement: 63 },
-    { month: 'May', improvement: 79 },
-    { month: 'Jun', improvement: 92 }
+    { month: 'Jan', improvement: 15, description: 'Initial optimization phase' },
+    { month: 'Feb', improvement: 32, description: 'Content restructuring effects' },
+    { month: 'Mar', improvement: 48, description: 'Schema markup implementation' },
+    { month: 'Apr', improvement: 63, description: 'Voice search optimization' },
+    { month: 'May', improvement: 79, description: 'Answer format refinement' },
+    { month: 'Jun', improvement: 92, description: 'Full AEO strategy maturation' }
   ];
 
   return (
@@ -57,146 +35,119 @@ const AEOChartTabs = () => {
       <TabsList className="grid w-full grid-cols-3 mb-6">
         <TabsTrigger value="distribution" className="text-base py-3">Answer Distribution</TabsTrigger>
         <TabsTrigger value="factors" className="text-base py-3">Optimization Factors</TabsTrigger>
-        <TabsTrigger value="improvement" className="text-base py-3">Improvement Over Time</TabsTrigger>
+        <TabsTrigger value="improvement" className="text-base py-3">Improvement Timeline</TabsTrigger>
       </TabsList>
       
-      <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2 h-[800px]">
-            <ChartContainer config={{
-              'Featured Snippets': { color: "#3b82f6" },
-              'Knowledge Panels': { color: "#8b5cf6" },
-              'Voice Responses': { color: "#f59e0b" },
-              'Rich Results': { color: "#10b981" }
-            }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart margin={{ top: 120, right: 120, bottom: 120, left: 120 }}>
-                  <Pie
-                    data={answerDistributionData}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={renderCustomizedLabel}
-                    outerRadius={120}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {answerDistributionData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip 
-                    content={<ChartTooltipContent />}
-                    formatter={(value, name) => [`${value}%`, name]}
-                  />
-                  <Legend 
-                    wrapperStyle={{ paddingTop: "40px" }}
-                    formatter={(value, entry) => `${value}: ${entry.payload.value}%`}
-                  />
-                </PieChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-          <div className="w-full md:w-1/2 p-6">
-            <h3 className="text-2xl font-semibold mb-8 text-slate-100">Answer Format Distribution</h3>
+      <TabsContent value="distribution" className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <h3 className="text-2xl font-semibold text-slate-100 mb-6">Answer Format Distribution</h3>
             <p className="text-slate-300 text-lg mb-8">
               Our AEO-optimized content appears in various answer formats across search results, with featured snippets 
-              representing the largest percentage at 45%. Understanding these formats is crucial for maximizing visibility.
+              representing the largest percentage at 45%.
             </p>
-            <ul className="space-y-6 text-slate-300 text-lg">
-              <li className="flex items-center gap-4">
-                <span className="h-5 w-5 rounded-full bg-[#3b82f6]"></span>
-                <span><strong>Featured Snippets (45%):</strong> Direct answers at the top of search results</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <span className="h-5 w-5 rounded-full bg-[#8b5cf6]"></span>
-                <span><strong>Knowledge Panels (28%):</strong> Informational boxes for entities and topics</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <span className="h-5 w-5 rounded-full bg-[#f59e0b]"></span>
-                <span><strong>Voice Responses (17%):</strong> Answers delivered through voice assistants</span>
-              </li>
-              <li className="flex items-center gap-4">
-                <span className="h-5 w-5 rounded-full bg-[#10b981]"></span>
-                <span><strong>Rich Results (10%):</strong> Enhanced listings with additional information</span>
-              </li>
-            </ul>
+            
+            {answerDistributionData.map((item, index) => (
+              <Card key={index} className="bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-colors">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-4 h-4 rounded-full ${item.color}`}></div>
+                      <span className="font-semibold text-slate-100">{item.name}</span>
+                    </div>
+                    <span className="text-2xl font-bold text-slate-100">{item.value}%</span>
+                  </div>
+                  <Progress value={item.value} className="mb-3" />
+                  <p className="text-slate-400 text-sm">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
-      </TabsContent>
-
-      <TabsContent value="factors" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2 h-[450px]">
-            <ChartContainer config={{ impact: { color: "#3b82f6" } }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart layout="vertical" data={factorsData} margin={{ top: 20, right: 30, left: 150, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis type="number" stroke="#9F9EA1" />
-                  <YAxis dataKey="factor" type="category" scale="band" stroke="#9F9EA1" />
-                  <Tooltip content={<ChartTooltipContent />} />
-                  <Bar dataKey="impact" fill="#3b82f6" name="Impact Score" />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-          <div className="w-full md:w-1/2 p-6">
-            <h3 className="text-2xl font-semibold mb-8 text-slate-100">Key Optimization Factors</h3>
-            <p className="text-slate-300 text-lg mb-8">
-              Our comprehensive approach targets the critical factors that influence answer selection. 
-              By optimizing these key areas, we maximize the likelihood of your content being featured in direct answers.
-            </p>
-            <div className="grid grid-cols-1 gap-6">
-              <div className="border border-slate-800 rounded p-5">
-                <h4 className="font-medium text-blue-400 mb-2 text-lg">Question Relevance</h4>
-                <p className="text-slate-300">Directly addressing the questions your audience is asking with properly formatted headings and content.</p>
+          
+          <div className="bg-slate-900/60 p-8 rounded-lg border border-slate-700">
+            <div className="text-center">
+              <div className="relative w-48 h-48 mx-auto mb-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-500 to-emerald-500 rounded-full opacity-20"></div>
+                <div className="absolute inset-4 bg-slate-900 rounded-full flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-slate-100">92%</div>
+                    <div className="text-slate-400">Coverage</div>
+                  </div>
+                </div>
               </div>
-              <div className="border border-slate-800 rounded p-5">
-                <h4 className="font-medium text-blue-400 mb-2 text-lg">Answer Conciseness</h4>
-                <p className="text-slate-300">Providing complete answers in the optimal 40-60 word range that search engines prefer for featured snippets.</p>
-              </div>
+              <h4 className="text-xl font-semibold text-slate-100 mb-3">Total Answer Visibility</h4>
+              <p className="text-slate-300">Combined presence across all major answer formats</p>
             </div>
           </div>
         </div>
       </TabsContent>
 
-      <TabsContent value="improvement" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="w-full md:w-1/2 h-[450px]">
-            <ChartContainer config={{ improvement: { color: "#3b82f6" } }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={monthlyImprovementData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="month" stroke="#9F9EA1" />
-                  <YAxis stroke="#9F9EA1" />
-                  <Tooltip content={<ChartTooltipContent />} />
-                  <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="improvement" 
-                    stroke="#3b82f6" 
-                    strokeWidth={3} 
-                    dot={{ r: 5 }} 
-                    activeDot={{ r: 10 }} 
-                    name="Monthly Improvement %" 
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-          <div className="w-full md:w-1/2 p-6">
-            <h3 className="text-2xl font-semibold mb-8 text-slate-100">Progressive Improvement</h3>
-            <p className="text-slate-300 text-lg mb-8">
-              Our AEO strategy delivers continuous improvement in answer visibility over time. As search engines evolve,
-              our optimization techniques adapt to maintain and enhance your content's prominence.
-            </p>
-            <div className="bg-slate-800/50 p-6 rounded-lg">
-              <h4 className="text-xl font-medium text-blue-400 mb-3">92% Improvement</h4>
-              <p className="text-slate-300 text-lg">
-                Clients typically see up to 92% improvement in answer visibility within 6 months of implementing our AEO strategies.
-              </p>
-            </div>
-          </div>
+      <TabsContent value="factors" className="space-y-8">
+        <div className="mb-8">
+          <h3 className="text-2xl font-semibold text-slate-100 mb-4">Key Optimization Factors</h3>
+          <p className="text-slate-300 text-lg">
+            Our comprehensive approach targets the critical factors that influence answer selection.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {factorsData.map((factor, index) => {
+            const IconComponent = factor.icon;
+            return (
+              <Card key={index} className="bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-all duration-300 hover:scale-105">
+                <CardHeader className="pb-3">
+                  <CardTitle className="flex items-center gap-3 text-slate-100">
+                    <div className="p-2 bg-blue-500/20 rounded-lg">
+                      <IconComponent className="w-5 h-5 text-blue-400" />
+                    </div>
+                    <span className="text-lg">{factor.factor}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-slate-300">Impact Score</span>
+                    <span className="text-2xl font-bold text-blue-400">{factor.impact}%</span>
+                  </div>
+                  <Progress value={factor.impact} className="mb-4" />
+                  <p className="text-slate-400 text-sm">{factor.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </TabsContent>
+
+      <TabsContent value="improvement" className="space-y-8">
+        <div className="mb-8">
+          <h3 className="text-2xl font-semibold text-slate-100 mb-4">Progressive Improvement Timeline</h3>
+          <p className="text-slate-300 text-lg">
+            Our AEO strategy delivers continuous improvement in answer visibility over time.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {monthlyImprovementData.map((month, index) => (
+            <Card key={index} className="bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-all duration-300 hover:scale-105">
+              <CardHeader className="text-center pb-3">
+                <div className="w-16 h-16 mx-auto bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center mb-3">
+                  <span className="text-white font-bold text-lg">{month.month}</span>
+                </div>
+                <CardTitle className="text-slate-100">{month.improvement}%</CardTitle>
+              </CardHeader>
+              <CardContent className="text-center">
+                <Progress value={month.improvement} className="mb-4" />
+                <p className="text-slate-400 text-sm">{month.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <div className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-8 rounded-lg border border-slate-700 text-center">
+          <TrendingUp className="w-12 h-12 text-blue-400 mx-auto mb-4" />
+          <h4 className="text-2xl font-bold text-slate-100 mb-3">92% Peak Improvement</h4>
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+            Clients typically see up to 92% improvement in answer visibility within 6 months of implementing our AEO strategies.
+          </p>
         </div>
       </TabsContent>
     </Tabs>
