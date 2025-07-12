@@ -204,9 +204,9 @@ const InfluencerMarketing2025 = () => {
             </div>
             <div className="mt-12 flex items-center space-x-6">
               <div className="flex -space-x-3">
-                <img className="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/44.jpg" alt="" />
-                <img className="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="" />
-                <img className="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/68.jpg" alt="" />
+                <img className="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Influencer Marketing Client Testimonial 1" width="40" height="40" loading="lazy" />
+                <img className="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Influencer Marketing Client Testimonial 2" width="40" height="40" loading="lazy" />
+                <img className="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Influencer Marketing Client Testimonial 3" width="40" height="40" loading="lazy" />
               </div>
               <p className="text-gray-400">Trusted by <span className="text-white">850+</span> creators worldwide</p>
             </div>

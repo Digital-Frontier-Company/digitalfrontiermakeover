@@ -229,7 +229,7 @@ const Index = () => {
           }}></div>
             
             {/* Main logo - enlarged */}
-            <img alt="Digital Frontier Logo" src="/lovable-uploads/b0838a55-4b01-431e-8756-b65d697c7271.png" className="h-80 w-auto relative z-10 object-cover" />
+            <img alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" src="/lovable-uploads/b0838a55-4b01-431e-8756-b65d697c7271.png" className="h-80 w-auto relative z-10 object-cover" loading="eager" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
@@ -617,7 +617,7 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="60" className="mx-auto mb-6" />
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company Icon - Generative Search Pro" width="60" height="60" className="mx-auto mb-6" loading="lazy" />
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Generative Search Pro
             </h2>
@@ -754,7 +754,7 @@ const Index = () => {
       <section className="df-what-youll-gain animate-on-scroll">
         <div className="container">
           <div className="text-center mb-5">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="" width="40" className="mb-4" />
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company Logo - What You'll Gain" width="40" height="40" className="mb-4" loading="lazy" />
             <h2 className="section-title" style={{
             fontSize: "32px",
             fontWeight: 700,
@@ -822,7 +822,7 @@ const Index = () => {
       <section className="df-final-cta animate-on-scroll">
         <div className="container">
           <div className="text-center mb-4">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company" width="80" className="mb-4" />
+            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company Logo - Contact Us" width="80" height="80" className="mb-4" loading="lazy" />
           </div>
           <h2>Ready to Own Your Digital Space?</h2>
           <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk. Click below, and let's build something legendary.</p>

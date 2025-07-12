@@ -122,9 +122,12 @@ const MorphingHero = () => {
               }}
             >
               <img 
-                alt="Digital Frontier Company" 
+                alt="Digital Frontier Company - AI Marketing Technology Logo" 
                 className="h-16 w-auto drop-shadow-2xl"
                 src="/lovable-uploads/7776c86f-9ded-48de-8610-b283ef010a56.png" 
+                width="64"
+                height="64"
+                loading="lazy"
               />
             </div>
           </div>

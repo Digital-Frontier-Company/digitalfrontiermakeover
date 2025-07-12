@@ -7,9 +7,10 @@ const AEOFrameworkSection = () => {
       <h2 className="text-3xl font-bold mb-12 text-slate-100">Your 6-Step AEO Playbook</h2>
       <div className="flex flex-col md:flex-row items-center gap-12">
         <img 
-          alt="6-Step AEO Framework" 
+          alt="6-Step Answer Engine Optimization Framework - Digital Frontier Company AEO Methodology" 
           className="w-full max-w-md rounded-lg shadow-lg border border-slate-700" 
           src="/lovable-uploads/6c3d2d6e-7ff3-40e9-be46-918e6ee0996c.png" 
+          loading="lazy"
         />
         <div className="space-y-6">
           <div className="bg-slate-800/40 p-6 rounded-lg">

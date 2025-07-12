@@ -5,9 +5,10 @@ const AEOHeroSection = () => {
   return (
     <section className="mb-24">
       <img 
-        alt="Answer Engine Optimization Services - AEO for ChatGPT and AI Search" 
+        alt="Answer Engine Optimization Services - AEO for ChatGPT and AI Search Results" 
         className="w-full max-w-3xl mx-auto rounded-lg shadow-xl mb-12" 
         src="/lovable-uploads/ee38718a-95d4-48fd-9ffb-203acff704f0.jpg" 
+        loading="lazy"
       />
       
       {/* Inverted Pyramid - Answer First */}
