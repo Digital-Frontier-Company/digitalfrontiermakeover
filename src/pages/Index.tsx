@@ -401,8 +401,7 @@ const Index = () => {
                 
                 {/* Animated border effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-electric-azure/50 via-transparent to-ultraviolet/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
-                  background: 'linear-gradient(45deg, transparent 30%, rgba(47,128,255,0.3) 50%, transparent 70%)',
-                  animation: 'shimmer 2s infinite'
+                  background: 'linear-gradient(45deg, transparent 30%, rgba(47,128,255,0.3) 50%, transparent 70%)'
                 }}></div>
                 
                 <div className="relative z-10">
