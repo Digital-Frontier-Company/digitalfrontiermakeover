@@ -361,8 +361,8 @@ const Index = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             {[{
-              title: "AI Marketing Intelligence",
-              description: "Deploy advanced algorithms to identify high-intent prospects and optimize your entire funnel in real-time.",
+              title: "Predict. Persuade. Profit.",
+              description: "Your AI bloodhound sniffs out hot-money prospects before they even blink—then drags them straight into a funnel that rewrites itself on the fly.",
               icon: "🤖",
               gradient: "from-cyan-400/20 to-blue-600/20",
               glowColor: "shadow-cyan-400/30"
@@ -424,12 +424,45 @@ const Index = () => {
                     {card.title}
                   </motion.h3>
                   
-                  <motion.p 
-                    className="font-inter text-soft-white/70 leading-relaxed group-hover:text-soft-white/90 transition-colors duration-300"
-                    whileHover={{ x: 5 }}
-                  >
-                    {card.description}
-                  </motion.p>
+                   <motion.p 
+                     className="font-inter text-soft-white/70 leading-relaxed group-hover:text-soft-white/90 transition-colors duration-300 mb-6"
+                     whileHover={{ x: 5 }}
+                   >
+                     {card.description}
+                   </motion.p>
+                   
+                   {/* Special content for first card */}
+                   {index === 0 && (
+                     <div className="space-y-4">
+                       <ul className="space-y-3 text-soft-white/80">
+                         <li className="flex items-start">
+                           <span className="text-signal-lime mr-2">⚡</span>
+                           <span className="text-sm">Live intent signals—no more finger-in-the-wind guessing</span>
+                         </li>
+                         <li className="flex items-start">
+                           <span className="text-ultraviolet mr-2">🧠</span>
+                           <span className="text-sm">Auto-personalized outreach that feels hand-typed (because it basically is)</span>
+                         </li>
+                         <li className="flex items-start">
+                           <span className="text-electric-azure mr-2">📈</span>
+                           <span className="text-sm">Real-time funnel tuning—watch those green arrows climb while you sip coffee</span>
+                         </li>
+                       </ul>
+                       
+                       <div className="mt-6">
+                         <motion.button
+                           className="bg-gradient-to-r from-signal-lime to-electric-azure text-deep-navy px-5 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
+                           whileHover={{ scale: 1.05 }}
+                           whileTap={{ scale: 0.95 }}
+                         >
+                           See It Hunt →
+                         </motion.button>
+                         <p className="text-xs text-soft-white/60 mt-3">
+                           Beta seats vanish fast—grab yours before your competitors wake up.
+                         </p>
+                       </div>
+                     </div>
+                   )}
                   
                   {/* Pulse effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-electric-azure/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500"></div>
