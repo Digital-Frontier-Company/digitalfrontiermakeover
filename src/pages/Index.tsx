@@ -407,7 +407,7 @@ const Index = () => {
                 
                 <div className="relative z-10">
                   <motion.div 
-                    className="mb-6 filter drop-shadow-lg flex justify-center items-center h-20"
+                    className="mb-6 filter drop-shadow-lg flex justify-center items-center h-32"
                     whileHover={{ 
                       scale: 1.2, 
                       rotate: [0, -10, 10, 0],
@@ -415,9 +415,9 @@ const Index = () => {
                     }}
                   >
                     {typeof card.icon === 'string' && card.icon.startsWith('/') ? (
-                      <img src={card.icon} alt={card.title} className="h-16 w-16 object-contain" />
+                      <img src={card.icon} alt={card.title} className="h-28 w-28 object-contain" />
                     ) : (
-                      <span className="text-5xl">{card.icon}</span>
+                      <span className="text-7xl">{card.icon}</span>
                     )}
                   </motion.div>
                   
