@@ -373,9 +373,9 @@ const Index = () => {
               gradient: "from-purple-400/20 to-pink-600/20",
               glowColor: "shadow-purple-400/30"
             }, {
-              title: "Answer Engine Optimization",
-              description: "Dominate voice search and AI-powered search results with our proprietary AEO methodology.", 
-              icon: "🎯",
+              title: "Answer Engine Optimization (AEO)",
+              description: "The old SEO is dying. The new game? Own the answers.", 
+              icon: "/lovable-uploads/183a006c-d7ab-43aa-b457-8d5284912ab6.png",
               gradient: "from-emerald-400/20 to-teal-600/20",
               glowColor: "shadow-emerald-400/30"
             }].map((card, index) => (
@@ -498,7 +498,40 @@ const Index = () => {
                           </p>
                         </div>
                       </div>
-                    )}
+                     )}
+                     
+                     {/* Special content for third card (AEO) */}
+                     {index === 2 && (
+                       <div className="space-y-4">
+                         <ul className="space-y-3 text-soft-white/80">
+                           <li className="flex items-start">
+                             <span className="text-electric-azure mr-3 text-lg">🎯</span>
+                             <span className="text-sm">Voice search ready – show up when they ask, "Hey Siri…" or bark at Alexa</span>
+                           </li>
+                           <li className="flex items-start">
+                             <span className="text-ultraviolet mr-3 text-lg">🤖</span>
+                             <span className="text-sm">AI-powered ranking – trained to make bots love you, and humans trust you</span>
+                           </li>
+                           <li className="flex items-start">
+                             <span className="text-signal-lime mr-3 text-lg">🛠️</span>
+                             <span className="text-sm">Proprietary methodology – built in the trenches, not from some guru's course</span>
+                           </li>
+                         </ul>
+                         
+                         <div className="mt-6">
+                           <motion.button
+                             className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
+                             whileHover={{ scale: 1.05 }}
+                             whileTap={{ scale: 0.95 }}
+                           >
+                             Own The Answer Box →
+                           </motion.button>
+                           <p className="text-xs text-soft-white/60 mt-3">
+                             Because whoever answers first... wins.
+                           </p>
+                         </div>
+                       </div>
+                     )}
                    
                    {/* Pulse effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-electric-azure/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500"></div>
