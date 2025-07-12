@@ -135,13 +135,20 @@ const InfluencerMarketing2025 = () => {
       {/* Navigation */}
       <nav className="relative z-50 py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold gradient-text">InfluenceX</Link>
+          <Link to="/" className="flex items-center">
+            <img src="/lovable-uploads/49a3dc2e-38e1-4c86-86db-8084af82d2d2.png" alt="Digital Frontier Company" className="h-10 w-auto mr-3" />
+            <span className="text-2xl font-bold gradient-text">Digital Frontier</span>
+          </Link>
           <div className="hidden md:flex items-center space-x-8">
             <a href="#differences" className="text-gray-300 hover:text-white transition">Differences</a>
             <a href="#tactics" className="text-gray-300 hover:text-white transition">Tactics</a>
             <a href="#kpis" className="text-gray-300 hover:text-white transition">KPIs</a>
             <a href="#packages" className="text-gray-300 hover:text-white transition">Packages</a>
-            <Link to="/contact" className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:opacity-90 transition">Get Started</Link>
+            <div className="flex space-x-4">
+              <Link to="/contact" className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:opacity-90 transition">Get Started</Link>
+              <Link to="/blog" className="text-gray-300 hover:text-white transition">Blog</Link>
+              <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link>
+            </div>
           </div>
           <button className="md:hidden text-gray-300">
             <i className="fas fa-bars text-2xl"></i>
@@ -157,7 +164,7 @@ const InfluencerMarketing2025 = () => {
               <span className="gradient-text">2025 Influencer</span> Marketing Playbook
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-lg">
-              Discover the platform-specific strategies that will set creators apart from traditional brands in the evolving digital landscape.
+              Discover the platform-specific strategies that will set creators apart from traditional brands in the evolving digital landscape. Learn more about our comprehensive <Link to="/answer-engine-optimization" className="text-indigo-400 hover:text-indigo-300 underline">Answer Engine Optimization</Link> approach.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#differences" className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition shadow-lg">
