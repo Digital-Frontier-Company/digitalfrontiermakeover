@@ -363,7 +363,7 @@ const Index = () => {
             {[{
               title: "Predict. Persuade. Profit.",
               description: "Your AI bloodhound sniffs out hot-money prospects before they even blink—then drags them straight into a funnel that rewrites itself on the fly.",
-              icon: "🤖",
+              icon: "/lovable-uploads/4ccc7a08-05c5-4500-9fba-149c0ec813cd.png",
               gradient: "from-cyan-400/20 to-blue-600/20",
               glowColor: "shadow-cyan-400/30"
             }, {
@@ -407,14 +407,18 @@ const Index = () => {
                 
                 <div className="relative z-10">
                   <motion.div 
-                    className="text-5xl mb-6 filter drop-shadow-lg"
+                    className="mb-6 filter drop-shadow-lg flex justify-center items-center h-20"
                     whileHover={{ 
                       scale: 1.2, 
                       rotate: [0, -10, 10, 0],
                       transition: { duration: 0.5 }
                     }}
                   >
-                    {card.icon}
+                    {typeof card.icon === 'string' && card.icon.startsWith('/') ? (
+                      <img src={card.icon} alt={card.title} className="h-16 w-16 object-contain" />
+                    ) : (
+                      <span className="text-5xl">{card.icon}</span>
+                    )}
                   </motion.div>
                   
                   <motion.h3 
