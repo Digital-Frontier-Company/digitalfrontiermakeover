@@ -459,7 +459,7 @@ const Index = () => {
                          </li>
                        </ul>
                        
-                       <div className="mt-6">
+                        <div className="mt-6 text-center">
                          <motion.button
                            className="bg-gradient-to-r from-signal-lime to-electric-azure text-deep-navy px-5 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
                            whileHover={{ scale: 1.05 }}
@@ -492,7 +492,7 @@ const Index = () => {
                           </li>
                         </ul>
                         
-                        <div className="mt-6">
+                         <div className="mt-6 text-center">
                           <motion.button
                             className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
                             whileHover={{ scale: 1.05 }}
@@ -525,7 +525,7 @@ const Index = () => {
                            </li>
                          </ul>
                          
-                         <div className="mt-6">
+                         <div className="mt-6 text-center">
                            <motion.button
                              className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
                              whileHover={{ scale: 1.05 }}
