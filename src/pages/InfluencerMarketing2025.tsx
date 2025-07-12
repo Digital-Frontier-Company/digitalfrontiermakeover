@@ -133,26 +133,25 @@ const InfluencerMarketing2025 = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="relative z-50 py-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center">
-            <img src="/lovable-uploads/49a3dc2e-38e1-4c86-86db-8084af82d2d2.png" alt="Digital Frontier Company" className="h-10 w-auto mr-3" />
-            <span className="text-2xl font-bold gradient-text">Digital Frontier</span>
-          </Link>
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#differences" className="text-gray-300 hover:text-white transition">Differences</a>
-            <a href="#tactics" className="text-gray-300 hover:text-white transition">Tactics</a>
-            <a href="#kpis" className="text-gray-300 hover:text-white transition">KPIs</a>
-            <a href="#packages" className="text-gray-300 hover:text-white transition">Packages</a>
-            <div className="flex space-x-4">
-              <Link to="/contact" className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:opacity-90 transition">Get Started</Link>
+      <nav className="border-b border-slate-800 bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 rounded-none py-[15px] px-[6px] mx-[3px] my-[3px]">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <Link to="/" className="flex items-center space-x-2">
+              <img alt="Digital Frontier Company" src="/lovable-uploads/67d4ab65-6525-4a5d-801a-59264f47355b.png" className="max-h-24" />
+            </Link>
+            
+            <div className="hidden md:flex items-center space-x-8">
+              <Link to="/answer-engine-optimization" className="text-gray-300 hover:text-white transition">AEO</Link>
+              <Link to="/generative-engine-optimization" className="text-gray-300 hover:text-white transition">GEO</Link>
+              <Link to="/search-engine-optimization" className="text-gray-300 hover:text-white transition">SEO</Link>
               <Link to="/blog" className="text-gray-300 hover:text-white transition">Blog</Link>
               <Link to="/about" className="text-gray-300 hover:text-white transition">About</Link>
+              <Link to="/contact" className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg hover:opacity-90 transition">Get Started</Link>
             </div>
+            <button className="md:hidden text-gray-300">
+              <i className="fas fa-bars text-2xl"></i>
+            </button>
           </div>
-          <button className="md:hidden text-gray-300">
-            <i className="fas fa-bars text-2xl"></i>
-          </button>
         </div>
       </nav>
 
