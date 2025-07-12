@@ -414,7 +414,14 @@ const Index = () => {
                     }}
                   >
                     {typeof card.icon === 'string' && card.icon.startsWith('/') ? (
-                      <img src={card.icon} alt={card.title} className="h-28 w-28 object-contain" />
+                      <img 
+                        src={card.icon} 
+                        alt={card.title} 
+                        className={`h-28 w-28 object-contain ${index === 1 ? 'brightness-0 saturate-100' : ''}`}
+                        style={index === 1 ? {
+                          filter: 'brightness(0) saturate(100%) invert(32%) sepia(77%) saturate(4574%) hue-rotate(270deg) brightness(97%) contrast(91%)'
+                        } : {}}
+                      />
                     ) : (
                       <span className="text-7xl">{card.icon}</span>
                     )}
