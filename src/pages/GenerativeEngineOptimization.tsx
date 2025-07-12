@@ -3,10 +3,11 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
-import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon, ArrowRight } from "lucide-react";
+import { ChartBarIcon, ChartPieIcon, ChartLineIcon, SquareIcon, ArrowRight, TrendingUp, Search, Zap } from "lucide-react";
 import FAQSection, { FAQItem } from "@/components/FAQSection";
 
 const GenerativeEngineOptimization = () => {
@@ -188,246 +189,326 @@ const GenerativeEngineOptimization = () => {
         </div>
       </section>
 
-      {/* Performance Comparison Card - Adjusted height and margins */}
+      {/* Performance Comparison Card - Replaced Chart with Cards */}
       <Card className="mb-28 border-slate-800 bg-slate-900/80">
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-6">
           <CardTitle className="flex items-center gap-2 text-2xl">
             <ChartBarIcon className="h-6 w-6 text-purple-400" />
-            Performance Comparison
+            Performance Comparison: Standard vs GEO-Optimized
           </CardTitle>
+          <p className="text-slate-300 text-lg">AI quotability performance over 6 months</p>
         </CardHeader>
         <CardContent>
-          <p className="mb-8 text-slate-300 text-lg">Standard vs GEO-Optimized Content Performance in AI Quotability</p>
-          <div className="h-[450px] w-full">
-            <ChartContainer config={{
-              standard: { color: "#9F9EA1" },
-              optimized: { color: "#8B5CF6" },
-            }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={optimizationData}
-                  margin={{ top: 50, right: 30, left: 20, bottom: 50 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="month" stroke="#9F9EA1" />
-                  <YAxis stroke="#9F9EA1" />
-                  <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
-                  <Bar dataKey="standard" fill="#9F9EA1" name="Standard Content" />
-                  <Bar dataKey="optimized" fill="#8B5CF6" name="GEO-Optimized" />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartContainer>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {optimizationData.map((data, index) => (
+              <Card key={index} className="bg-slate-800/40 border-slate-700">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-semibold text-slate-100">{data.month} 2024</h3>
+                    <div className="flex items-center gap-1 text-purple-400">
+                      <TrendingUp className="w-4 h-4" />
+                      <span className="text-sm font-medium">+{data.optimized - data.standard}%</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-slate-400">Standard Content</span>
+                        <span className="text-slate-300 font-medium">{data.standard}%</span>
+                      </div>
+                      <Progress value={data.standard} className="h-2" />
+                    </div>
+                    
+                    <div>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-purple-400">GEO-Optimized</span>
+                        <span className="text-purple-300 font-medium">{data.optimized}%</span>
+                      </div>
+                      <Progress value={data.optimized} className="h-2" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </CardContent>
       </Card>
 
-      {/* SEO vs AEO vs GEO Comparison Chart - Adjusted height and margins */}
+      {/* SEO vs AEO vs GEO Comparison - Replaced Chart with Cards */}
       <Card className="mb-32 border-slate-800 bg-slate-900/80">
-        <CardHeader className="pb-2">
+        <CardHeader className="pb-6">
           <CardTitle className="flex items-center gap-2 text-2xl">
             <ChartLineIcon className="h-6 w-6 text-purple-400" />
             Optimization Strategy Comparison
           </CardTitle>
+          <p className="text-slate-300 text-lg">SEO vs AEO vs GEO: Performance across key metrics</p>
         </CardHeader>
         <CardContent>
-          <p className="mb-8 text-slate-300 text-lg">SEO vs AEO vs GEO: Performance Across Key Metrics (Logarithmic Scale)</p>
-          <div className="h-[500px] w-full mb-8">
-            <ChartContainer config={{
-              seo: { color: "#22c55e" },
-              aeo: { color: "#3b82f6" },
-              geo: { color: "#8B5CF6" },
-            }}>
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  data={optimizationComparisonData}
-                  margin={{ top: 70, right: 30, left: 20, bottom: 70 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="name" stroke="#9F9EA1" />
-                  <YAxis 
-                    stroke="#9F9EA1" 
-                    scale="log" 
-                    domain={[1, 'auto']} 
-                    allowDataOverflow={true}
-                    tickFormatter={(value) => value.toLocaleString()}
-                  />
-                  <Tooltip content={<ChartTooltipContent />} />
-                  <Legend wrapperStyle={{ paddingTop: "30px", marginBottom: "10px" }} />
-                  <Bar dataKey="seo" fill="#22c55e" name="SEO" />
-                  <Bar dataKey="aeo" fill="#3b82f6" name="AEO" />
-                  <Bar dataKey="geo" fill="#8B5CF6" name="GEO" />
-                </BarChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 text-base pt-4">
-            <div className="p-4 bg-green-900/20 border border-green-800/30 rounded-lg">
-              <h4 className="font-medium text-green-400 mb-2">SEO</h4>
-              <p className="text-slate-300">Traditional search engine optimization focused on Google rankings and organic traffic.</p>
-            </div>
-            <div className="p-4 bg-blue-900/20 border border-blue-800/30 rounded-lg">
-              <h4 className="font-medium text-blue-400 mb-2">AEO</h4>
-              <p className="text-slate-300">Answer Engine Optimization targeting featured snippets and voice search results.</p>
-            </div>
-            <div className="p-4 bg-purple-900/20 border border-purple-800/30 rounded-lg">
-              <h4 className="font-medium text-purple-400 mb-2">GEO</h4>
-              <p className="text-slate-300">Generative Engine Optimization for maximum AI quotability and citation.</p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            {/* SEO Card */}
+            <Card className="bg-green-900/20 border-green-800/30 border">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-green-400 text-xl flex items-center gap-2">
+                  <Search className="w-5 h-5" />
+                  SEO
+                </CardTitle>
+                <p className="text-slate-300 text-sm">Traditional search engine optimization focused on Google rankings</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Search Visibility</span>
+                    <span className="text-slate-200 font-medium">53%</span>
+                  </div>
+                  <Progress value={53} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Direct Traffic</span>
+                    <span className="text-slate-200 font-medium">40%</span>
+                  </div>
+                  <Progress value={40} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Conversion Rate</span>
+                    <span className="text-slate-200 font-medium">2.8%</span>
+                  </div>
+                  <Progress value={(2.8/30)*100} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Content ROI</span>
+                    <span className="text-slate-200 font-medium">550%</span>
+                  </div>
+                  <Progress value={(550/1000)*100} className="h-2" />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* AEO Card */}
+            <Card className="bg-blue-900/20 border-blue-800/30 border">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-blue-400 text-xl flex items-center gap-2">
+                  <Zap className="w-5 h-5" />
+                  AEO
+                </CardTitle>
+                <p className="text-slate-300 text-sm">Answer Engine Optimization targeting featured snippets</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Search Visibility</span>
+                    <span className="text-slate-200 font-medium">41%</span>
+                  </div>
+                  <Progress value={41} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Direct Traffic</span>
+                    <span className="text-slate-200 font-medium">0%</span>
+                  </div>
+                  <Progress value={0} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Conversion Rate</span>
+                    <span className="text-slate-200 font-medium">24%</span>
+                  </div>
+                  <Progress value={(24/30)*100} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Content ROI</span>
+                    <span className="text-slate-200 font-medium">400%</span>
+                  </div>
+                  <Progress value={(400/1000)*100} className="h-2" />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* GEO Card */}
+            <Card className="bg-purple-900/20 border-purple-800/30 border">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-purple-400 text-xl flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5" />
+                  GEO
+                </CardTitle>
+                <p className="text-slate-300 text-sm">Generative Engine Optimization for maximum AI quotability</p>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Search Visibility</span>
+                    <span className="text-slate-200 font-medium">46%</span>
+                  </div>
+                  <Progress value={46} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Direct Traffic</span>
+                    <span className="text-slate-200 font-medium">45%</span>
+                  </div>
+                  <Progress value={45} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Conversion Rate</span>
+                    <span className="text-slate-200 font-medium">20%</span>
+                  </div>
+                  <Progress value={(20/30)*100} className="h-2" />
+                </div>
+                <div>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-slate-400 text-sm">Content ROI</span>
+                    <span className="text-slate-200 font-medium">400%</span>
+                  </div>
+                  <Progress value={(400/1000)*100} className="h-2" />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </CardContent>
       </Card>
 
-      {/* Tabs for Multiple Chart Views - Fixed pie chart height and margins */}
+      {/* Tabs for Multiple Chart Views - Replaced Charts with Cards */}
       <Tabs defaultValue="distribution" className="mb-32">
         <TabsList className="grid w-full grid-cols-3 mb-6">
           <TabsTrigger value="distribution" className="text-base py-3">Quote Position</TabsTrigger>
           <TabsTrigger value="factors" className="text-base py-3">Optimization Factors</TabsTrigger>
-          <TabsTrigger value="improvement" className="text-base py-3">Improvement Over Time</TabsTrigger>
+          <TabsTrigger value="improvement" className="text-base py-3">Improvement Timeline</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="distribution" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[800px]">
-              <ChartContainer config={{
-                'First Position': { color: "#8B5CF6" },
-                'Second Position': { color: "#D946EF" },
-                'Third Position': { color: "#F97316" },
-                'Lower Positions': { color: "#0EA5E9" },
-              }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart margin={{ top: 120, right: 120, bottom: 120, left: 120 }}>
-                    <Pie
-                      data={quoteDistributionData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      label={renderCustomizedLabel}
-                      outerRadius={120}
-                      fill="#8884d8"
-                      dataKey="value"
-                    >
-                      {quoteDistributionData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip content={<ChartTooltipContent />} />
-                    <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
-                  </PieChart>
-                </ResponsiveContainer>
-              </ChartContainer>
-            </div>
-            <div className="w-full md:w-1/2 p-6">
-              <h3 className="text-2xl font-semibold mb-8 text-slate-100">Quote Position Distribution</h3>
+        <TabsContent value="distribution" className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold text-slate-100 mb-6">Quote Position Distribution</h3>
               <p className="text-slate-300 text-lg mb-8">
-                Our GEO-optimized content appears in the first position of AI-generated responses 65% of the time.
-                This prime positioning ensures maximum visibility and establishes your content as the authoritative source.
+                Our GEO-optimized content achieves first position in AI responses 65% of the time.
               </p>
-              <ul className="space-y-6 text-slate-300 text-lg">
-                <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#8B5CF6]"></span>
-                  <span>First Position: Highest visibility and click-through rate</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#D946EF]"></span>
-                  <span>Second Position: Good visibility with strong performance</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#F97316]"></span>
-                  <span>Third Position: Moderate visibility but still impactful</span>
-                </li>
-                <li className="flex items-center gap-4">
-                  <span className="h-5 w-5 rounded-full bg-[#0EA5E9]"></span>
-                  <span>Lower Positions: Limited visibility in AI responses</span>
-                </li>
-              </ul>
+              
+              {quoteDistributionData.map((item, index) => (
+                <Card key={index} className="bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-colors">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-4 h-4 rounded-full`} style={{ backgroundColor: COLORS[index] }}></div>
+                        <span className="font-semibold text-slate-100">{item.name}</span>
+                      </div>
+                      <span className="text-2xl font-bold text-slate-100">{item.value}%</span>
+                    </div>
+                    <Progress value={item.value} className="mb-3" />
+                    <p className="text-slate-400 text-sm">
+                      {item.name === 'First Position' && 'Highest visibility and click-through rate'}
+                      {item.name === 'Second Position' && 'Good visibility with strong performance'}
+                      {item.name === 'Third Position' && 'Moderate visibility but still impactful'}
+                      {item.name === 'Lower Positions' && 'Limited visibility in AI responses'}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="factors" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[500px]">
-              <ChartContainer config={{
-                impact: { color: "#8B5CF6" },
-              }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    layout="vertical"
-                    data={factorsData}
-                    margin={{ top: 30, right: 30, left: 150, bottom: 30 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                    <XAxis type="number" stroke="#9F9EA1" />
-                    <YAxis dataKey="factor" type="category" scale="band" stroke="#9F9EA1" />
-                    <Tooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="impact" fill="#8B5CF6" name="Impact Score" />
-                  </BarChart>
-                </ResponsiveContainer>
-              </ChartContainer>
-            </div>
-            <div className="w-full md:w-1/2 p-6">
-              <h3 className="text-2xl font-semibold mb-8 text-slate-100">Key Optimization Factors</h3>
-              <p className="text-slate-300 text-lg mb-8">
-                Our comprehensive approach targets the critical factors that influence AI quote selection. 
-                By optimizing these key areas, we maximize the likelihood of your content being featured prominently.
-              </p>
-              <div className="grid grid-cols-1 gap-6">
-                <div className="border border-slate-800 rounded p-5">
-                  <h4 className="font-medium text-purple-400 mb-2 text-lg">Keyword Relevance</h4>
-                  <p className="text-slate-300">Strategic use of semantically-related terms that AI engines recognize as authoritative.</p>
+            
+            <div className="bg-slate-900/60 p-8 rounded-lg border border-slate-700">
+              <div className="text-center">
+                <div className="relative w-48 h-48 mx-auto mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500 rounded-full opacity-20"></div>
+                  <div className="absolute inset-4 bg-slate-900 rounded-full flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-slate-100">65%</div>
+                      <div className="text-slate-400">First Position</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="border border-slate-800 rounded p-5">
-                  <h4 className="font-medium text-purple-400 mb-2 text-lg">Content Quality</h4>
-                  <p className="text-slate-300">Clear, factual, and well-structured content that AI systems identify as reliable.</p>
-                </div>
+                <h4 className="text-xl font-semibold text-slate-100 mb-3">Premium Positioning</h4>
+                <p className="text-slate-300">Top-tier visibility in AI-generated responses</p>
               </div>
             </div>
           </div>
         </TabsContent>
 
-        <TabsContent value="improvement" className="border rounded-md border-slate-800 bg-slate-900/80 p-8">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="w-full md:w-1/2 h-[500px]">
-              <ChartContainer config={{
-                improvement: { color: "#8B5CF6" },
-              }}>
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart
-                    data={monthlyImprovementData}
-                    margin={{ top: 30, right: 30, left: 20, bottom: 30 }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                    <XAxis dataKey="month" stroke="#9F9EA1" />
-                    <YAxis stroke="#9F9EA1" />
-                    <Tooltip content={<ChartTooltipContent />} />
-                    <Legend wrapperStyle={{ paddingTop: "20px", marginBottom: "10px" }} />
-                    <Line 
-                      type="monotone" 
-                      dataKey="improvement" 
-                      stroke="#8B5CF6" 
-                      strokeWidth={3} 
-                      dot={{ r: 5 }}
-                      activeDot={{ r: 10 }}
-                      name="Monthly Improvement %" 
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
-              </ChartContainer>
-            </div>
-            <div className="w-full md:w-1/2 p-6">
-              <h3 className="text-2xl font-semibold mb-8 text-slate-100">Progressive Improvement</h3>
-              <p className="text-slate-300 text-lg mb-8">
-                Our GEO strategy delivers continuous improvement in AI quotability over time. As AI engines learn and update,
-                our optimization techniques adapt to maintain and enhance your content's prominence.
-              </p>
-              <div className="bg-slate-800/50 p-6 rounded-lg">
-                <h4 className="text-xl font-medium text-purple-400 mb-3">90% Improvement</h4>
-                <p className="text-slate-300 text-lg">
-                  Clients typically see up to 90% improvement in AI quotability within 6 months of implementing our GEO strategies.
-                </p>
-              </div>
-            </div>
+        <TabsContent value="factors" className="space-y-8">
+          <div className="mb-8">
+            <h3 className="text-2xl font-semibold text-slate-100 mb-4">Key Optimization Factors</h3>
+            <p className="text-slate-300 text-lg">
+              Critical factors that influence AI quote selection and positioning.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {factorsData.map((factor, index) => {
+              const icons = [TrendingUp, Zap, Search, ChartBarIcon, ChartLineIcon, ChartPieIcon];
+              const IconComponent = icons[index % icons.length];
+              return (
+                <Card key={index} className="bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-all duration-300 hover:scale-105">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-3 text-slate-100">
+                      <div className="p-2 bg-purple-500/20 rounded-lg">
+                        <IconComponent className="w-5 h-5 text-purple-400" />
+                      </div>
+                      <span className="text-lg">{factor.factor}</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-slate-300">Impact Score</span>
+                      <span className="text-2xl font-bold text-purple-400">{factor.impact}%</span>
+                    </div>
+                    <Progress value={factor.impact} className="mb-4" />
+                    <p className="text-slate-400 text-sm">
+                      {factor.factor === 'Keyword Relevance' && 'Strategic use of semantically-related terms that AI engines recognize as authoritative'}
+                      {factor.factor === 'Content Quality' && 'Clear, factual, and well-structured content that AI systems identify as reliable'}
+                      {factor.factor === 'Semantic Structure' && 'Proper entity relationships and structured data for AI understanding'}
+                      {factor.factor === 'Technical Optimization' && 'Vector-friendly formatting and token optimization'}
+                      {factor.factor === 'User Engagement' && 'High-quality interactions that signal content value'}
+                      {factor.factor === 'Entity Recognition' && 'Clear identification of brands, products, and key concepts'}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="improvement" className="space-y-8">
+          <div className="mb-8">
+            <h3 className="text-2xl font-semibold text-slate-100 mb-4">Progressive Improvement Timeline</h3>
+            <p className="text-slate-300 text-lg">
+              GEO strategy delivers continuous improvement in AI quotability over time.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {monthlyImprovementData.map((month, index) => (
+              <Card key={index} className="bg-slate-800/40 border-slate-700 hover:bg-slate-800/60 transition-all duration-300 hover:scale-105">
+                <CardHeader className="text-center pb-3">
+                  <div className="w-16 h-16 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mb-3">
+                    <span className="text-white font-bold text-lg">{month.month}</span>
+                  </div>
+                  <CardTitle className="text-slate-100">{month.improvement}%</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <Progress value={month.improvement} className="mb-4" />
+                  <p className="text-slate-400 text-sm">
+                    {month.month === 'Jan' && 'Initial optimization phase'}
+                    {month.month === 'Feb' && 'Content restructuring effects'}
+                    {month.month === 'Mar' && 'Entity mapping implementation'}
+                    {month.month === 'Apr' && 'Vector optimization results'}
+                    {month.month === 'May' && 'Authority signal enhancement'}
+                    {month.month === 'Jun' && 'Full GEO strategy maturation'}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 p-8 rounded-lg border border-slate-700 text-center">
+            <TrendingUp className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+            <h4 className="text-2xl font-bold text-slate-100 mb-3">90% Peak Improvement</h4>
+            <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+              Clients typically see up to 90% improvement in AI quotability within 6 months of implementing our GEO strategies.
+            </p>
           </div>
         </TabsContent>
       </Tabs>
