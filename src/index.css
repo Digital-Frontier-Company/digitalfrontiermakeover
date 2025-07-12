@@ -608,3 +608,9 @@
 .mb-5 { 
   margin-bottom:3rem; 
 }
+
+/* Shimmer animation for card effects */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

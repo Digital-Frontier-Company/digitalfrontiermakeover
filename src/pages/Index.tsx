@@ -319,40 +319,147 @@ const Index = () => {
         </div>
       </section>
 
-      {/* BLUEPRINT SECTION - 3 hover-cards */}
-      <section className="py-20 bg-background">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-poppins font-medium text-soft-white mb-4" style={{
-            fontSize: 'clamp(28px, 4vw, 40px)'
-          }}>
-              The Digital Frontier Blueprint
-            </h2>
-            <p className="font-inter text-lg text-soft-white/70 max-w-2xl mx-auto">
-              Three pillars that transform B2B marketing from guesswork to science
-            </p>
+      {/* BLUEPRINT SECTION - Enhanced with flashy animations */}
+      <section className="py-20 relative overflow-hidden">
+        {/* Animated background with gradient waves */}
+        <div className="absolute inset-0 bg-gradient-to-br from-deep-navy via-purple-900/20 to-electric-azure/10">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-electric-azure/5 to-transparent animate-pulse"></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-30">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-electric-azure/20 rounded-full blur-3xl animate-bounce" style={{ animationDuration: '6s' }}></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-ultraviolet/20 rounded-full blur-3xl animate-bounce" style={{ animationDuration: '8s', animationDelay: '2s' }}></div>
           </div>
+        </div>
+
+        <div className="mx-auto max-w-6xl px-6 relative z-10">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.h2 
+              className="font-poppins font-bold text-soft-white mb-4 bg-gradient-to-r from-electric-azure via-soft-white to-ultraviolet bg-clip-text text-transparent"
+              style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              The Digital Frontier Blueprint
+            </motion.h2>
+            <motion.p 
+              className="font-inter text-xl text-soft-white/80 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              Three pillars that transform B2B marketing from guesswork to science
+            </motion.p>
+          </motion.div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[{
-            title: "AI Marketing Intelligence",
-            description: "Deploy advanced algorithms to identify high-intent prospects and optimize your entire funnel in real-time.",
-            icon: "🤖"
-          }, {
-            title: "Data-Driven Insights",
-            description: "Turn your marketing data into actionable intelligence with predictive analytics and performance forecasting.",
-            icon: "📊"
-          }, {
-            title: "Answer Engine Optimization",
-            description: "Dominate voice search and AI-powered search results with our proprietary AEO methodology.",
-            icon: "🎯"
-          }].map((card, index) => <div key={index} className="interactive-card group bg-card border border-border p-8 rounded-2xl transition-all duration-300 hover:border-electric-azure" style={{
-            transition: 'transform 0.25s ease, box-shadow 0.25s ease'
-          }}>
-                <div className="text-4xl mb-6">{card.icon}</div>
-                <h3 className="font-poppins font-medium text-xl text-soft-white mb-4">{card.title}</h3>
-                <p className="font-inter text-soft-white/70 leading-relaxed">{card.description}</p>
-              </div>)}
+              title: "AI Marketing Intelligence",
+              description: "Deploy advanced algorithms to identify high-intent prospects and optimize your entire funnel in real-time.",
+              icon: "🤖",
+              gradient: "from-cyan-400/20 to-blue-600/20",
+              glowColor: "shadow-cyan-400/30"
+            }, {
+              title: "Data-Driven Insights", 
+              description: "Turn your marketing data into actionable intelligence with predictive analytics and performance forecasting.",
+              icon: "📊",
+              gradient: "from-purple-400/20 to-pink-600/20",
+              glowColor: "shadow-purple-400/30"
+            }, {
+              title: "Answer Engine Optimization",
+              description: "Dominate voice search and AI-powered search results with our proprietary AEO methodology.", 
+              icon: "🎯",
+              gradient: "from-emerald-400/20 to-teal-600/20",
+              glowColor: "shadow-emerald-400/30"
+            }].map((card, index) => (
+              <motion.div 
+                key={index} 
+                className={`group relative bg-card/80 backdrop-blur-sm border border-border/50 p-8 rounded-2xl transition-all duration-500 hover:border-electric-azure/50 hover:bg-card/90 hover:scale-105 hover:shadow-2xl ${card.glowColor}`}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2,
+                  type: "spring",
+                  stiffness: 100
+                }}
+                viewport={{ once: true }}
+                whileHover={{
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {/* Animated background gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                
+                {/* Animated border effect */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-electric-azure/50 via-transparent to-ultraviolet/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
+                  background: 'linear-gradient(45deg, transparent 30%, rgba(47,128,255,0.3) 50%, transparent 70%)',
+                  animation: 'shimmer 2s infinite'
+                }}></div>
+                
+                <div className="relative z-10">
+                  <motion.div 
+                    className="text-5xl mb-6 filter drop-shadow-lg"
+                    whileHover={{ 
+                      scale: 1.2, 
+                      rotate: [0, -10, 10, 0],
+                      transition: { duration: 0.5 }
+                    }}
+                  >
+                    {card.icon}
+                  </motion.div>
+                  
+                  <motion.h3 
+                    className="font-poppins font-semibold text-xl text-soft-white mb-4 group-hover:text-electric-azure transition-colors duration-300"
+                    whileHover={{ x: 5 }}
+                  >
+                    {card.title}
+                  </motion.h3>
+                  
+                  <motion.p 
+                    className="font-inter text-soft-white/70 leading-relaxed group-hover:text-soft-white/90 transition-colors duration-300"
+                    whileHover={{ x: 5 }}
+                  >
+                    {card.description}
+                  </motion.p>
+                  
+                  {/* Pulse effect on hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-electric-azure/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500"></div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Floating particles animation */}
+          <div className="absolute inset-0 pointer-events-none">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-2 h-2 bg-electric-azure/40 rounded-full"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                }}
+                animate={{
+                  y: [-20, -100, -20],
+                  opacity: [0, 1, 0],
+                  scale: [0, 1, 0],
+                }}
+                transition={{
+                  duration: 4 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 3,
+                }}
+              />
+            ))}
           </div>
         </div>
       </section>
