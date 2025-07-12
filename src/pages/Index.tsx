@@ -368,8 +368,8 @@ const Index = () => {
               glowColor: "shadow-cyan-400/30"
             }, {
               title: "Data-Driven Insights", 
-              description: "Turn your marketing data into actionable intelligence with predictive analytics and performance forecasting.",
-              icon: "📊",
+              description: "What gets measured gets mastered—and monetized.",
+              icon: "/lovable-uploads/ac9d962e-7efe-4768-9ec0-774cd30f2d5d.png",
               gradient: "from-purple-400/20 to-pink-600/20",
               glowColor: "shadow-purple-400/30"
             }, {
@@ -465,9 +465,42 @@ const Index = () => {
                          </p>
                        </div>
                      </div>
-                   )}
-                  
-                  {/* Pulse effect on hover */}
+                    )}
+                    
+                    {/* Special content for second card */}
+                    {index === 1 && (
+                      <div className="space-y-4">
+                        <ul className="space-y-3 text-soft-white/80">
+                          <li className="flex items-start">
+                            <span className="text-electric-azure mr-3 text-lg">📊</span>
+                            <span className="text-sm">Predictive analytics that show you who's buying next (before they even click)</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-ultraviolet mr-3 text-lg">🛰️</span>
+                            <span className="text-sm">Performance forecasting so sharp, it's practically time travel</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-signal-lime mr-3 text-lg">⚙️</span>
+                            <span className="text-sm">Actionable intelligence from your raw chaos of spreadsheets and dashboards</span>
+                          </li>
+                        </ul>
+                        
+                        <div className="mt-6">
+                          <motion.button
+                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            See The Future →
+                          </motion.button>
+                          <p className="text-xs text-soft-white/60 mt-3">
+                            Your gut's good. This makes it lethal.
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                   
+                   {/* Pulse effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-electric-azure/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500"></div>
                 </div>
               </motion.div>
