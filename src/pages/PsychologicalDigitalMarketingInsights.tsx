@@ -160,9 +160,12 @@ const PsychologicalDigitalMarketingInsights = () => {
           {/* Featured Image */}
           <div className="mb-8 rounded-lg overflow-hidden shadow-xl relative scroll-animate">
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
-              alt="Digital marketing concept" 
+              src="/lovable-uploads/6e340f33-4f2f-4d06-a240-7f89dbb8bd17.png" 
+              alt="The Psychology of Digital Marketing - Influencing Behavior Online with brain illustration and social media icons" 
               className="w-full h-64 md:h-96 object-cover"
+              width="1470"
+              height="980"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-6">
               <div>
