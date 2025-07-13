@@ -162,7 +162,7 @@ const PsychologicalDigitalMarketingInsights = () => {
             <img 
               src="/lovable-uploads/6e340f33-4f2f-4d06-a240-7f89dbb8bd17.png" 
               alt="The Psychology of Digital Marketing - Influencing Behavior Online with brain illustration and social media icons" 
-              className="w-full h-64 md:h-96 object-cover"
+              className="w-full h-64 md:h-96 object-contain"
               width="1470"
               height="980"
               loading="eager"
