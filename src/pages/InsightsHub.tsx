@@ -157,7 +157,7 @@ const InsightsHub = () => {
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="#featured-playbooks" className="inline-flex items-center justify-center px-8 py-4 bg-electric-azure text-deep-navy font-semibold rounded-lg hover:bg-electric-azure/90 transition-all duration-300">
+                <Link to="/browse-playbooks" className="inline-flex items-center justify-center px-8 py-4 bg-electric-azure text-deep-navy font-semibold rounded-lg hover:bg-electric-azure/90 transition-all duration-300">
                   <BookOpen className="w-5 h-5 mr-2" />
                   Browse Playbooks
                 </Link>
