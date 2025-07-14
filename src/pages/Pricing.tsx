@@ -19,8 +19,8 @@ const Pricing: React.FC = () => {
       currentPath={location.pathname}
     >
       {/* Hero Section */}
-      <div className="mb-12">
-        <h2 className="text-3xl font-bold mb-4 text-white">Transform Your Digital Presence</h2>
+      <section className="mb-12" aria-labelledby="pricing-hero-heading">
+        <h2 id="pricing-hero-heading" className="text-3xl font-bold mb-4 text-white">Transform Your Digital Presence</h2>
         <p className="text-xl text-slate-300 mb-6">
           Our specialized services help businesses thrive in the evolving digital landscape with customized solutions for search engines, answer engines, and generative AI platforms.
         </p>
@@ -38,7 +38,7 @@ const Pricing: React.FC = () => {
             </Link>
           </Button>
         </div>
-      </div>
+      </section>
 
       {/* Tab Navigation for Service Categories */}
       <Tabs defaultValue="seo-aeo-geo" className="mb-16">
@@ -50,15 +50,15 @@ const Pricing: React.FC = () => {
         
         {/* SEO, AEO & GEO Services Tab */}
         <TabsContent value="seo-aeo-geo" className="space-y-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+          <header className="text-center mb-8">
+            <h3 id="seo-services-heading" className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
               Search & Generative AI Optimization Services
             </h3>
             <p className="text-slate-300 max-w-3xl mx-auto">
               Comprehensive solutions to optimize your content for traditional search engines, 
               answer engines, and generative AI platforms.
             </p>
-          </div>
+          </header>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Monthly Retainer */}
@@ -130,14 +130,14 @@ const Pricing: React.FC = () => {
         
         {/* Social Media Marketing Tab */}
         <TabsContent value="social-media" className="space-y-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
+          <header className="text-center mb-8">
+            <h3 id="social-media-services-heading" className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-600 bg-clip-text text-transparent">
               Social Media Marketing Services
             </h3>
             <p className="text-slate-300 max-w-3xl mx-auto">
               Engage your audience and build your brand presence across all social media platforms with our specialized services.
             </p>
-          </div>
+          </header>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Monthly Retainer */}
@@ -198,14 +198,14 @@ const Pricing: React.FC = () => {
         
         {/* Email Marketing Tab */}
         <TabsContent value="email-marketing" className="space-y-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <header className="text-center mb-8">
+            <h3 id="email-marketing-services-heading" className="text-2xl font-bold mb-4 bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Email Marketing Solutions
             </h3>
             <p className="text-slate-300 max-w-3xl mx-auto">
               Build relationships and drive conversions with targeted, strategic email marketing campaigns and automations.
             </p>
-          </div>
+          </header>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             {/* Monthly Retainer */}

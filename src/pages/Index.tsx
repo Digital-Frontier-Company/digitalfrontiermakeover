@@ -307,10 +307,10 @@ const Index = () => {
         </div>
       </motion.section>
 
-      {/* TRUST BAR - 6-logo auto-grid */}
+          {/* TRUST BAR - 6-logo auto-grid */}
       <section className="py-16 bg-card">
         <div className="mx-auto max-w-6xl px-6">
-          <p className="text-center text-muted-foreground text-sm mb-12 font-medium">Trusted by industry leaders</p>
+          <h2 className="text-center text-muted-foreground text-sm mb-12 font-medium">Trusted by Industry Leaders</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
             {["/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png", "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png", "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png", "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png", "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png", "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"].map((logo, index) => <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
                 <img src={logo} alt={`Client logo ${index + 1}`} className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
@@ -320,7 +320,7 @@ const Index = () => {
       </section>
 
       {/* BLUEPRINT SECTION - Enhanced with flashy animations */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-20 relative overflow-hidden" aria-labelledby="blueprint-heading">
         {/* Animated background with gradient waves */}
         <div className="absolute inset-0 bg-gradient-to-br from-deep-navy via-purple-900/20 to-electric-azure/10">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-electric-azure/5 to-transparent animate-pulse"></div>
@@ -339,6 +339,7 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <motion.h2 
+              id="blueprint-heading"
               className="font-poppins font-bold text-soft-white mb-4 bg-gradient-to-r from-electric-azure via-soft-white to-ultraviolet bg-clip-text text-transparent"
               style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
               initial={{ scale: 0.9 }}

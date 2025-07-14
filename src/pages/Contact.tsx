@@ -141,9 +141,9 @@ const Contact = () => {
       currentPath={location.pathname}
     >
       {/* Hero section with persuasive copy */}
-      <section className="mb-10">
+      <section className="mb-10" aria-labelledby="contact-hero-heading">
         <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your <span className="text-blue-400">Digital Presence?</span></h2>
+          <h2 id="contact-hero-heading" className="text-3xl font-bold mb-4">Ready to Transform Your <span className="text-blue-400">Digital Presence?</span></h2>
           <p className="text-lg text-slate-300">
             Our team of AI specialists is ready to help you implement cutting-edge solutions that drive real business results.
             Fill out the form below to start your journey.
@@ -323,7 +323,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Why contact us section */}
             <div className="bg-gradient-to-br from-slate-800/70 to-slate-900/70 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">
-              <h3 className="text-xl font-bold mb-4">Why Work With Us?</h3>
+              <h3 id="why-work-with-us-heading" className="text-xl font-bold mb-4">Why Work With Us?</h3>
               <ul className="space-y-3 text-slate-300">
                 <li className="flex items-start gap-2">
                   <div className="rounded-full bg-blue-900/30 p-1 mt-1">
@@ -354,7 +354,7 @@ const Contact = () => {
             
             {/* Contact details card */}
             <div className="bg-slate-800/40 border-slate-700 p-6 rounded-xl backdrop-blur-sm">
-              <h3 className="text-xl font-bold mb-4">Get In Touch</h3>
+              <h3 id="contact-details-heading" className="text-xl font-bold mb-4">Get In Touch</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="bg-blue-900/30 p-3 rounded-full">
@@ -404,8 +404,8 @@ const Contact = () => {
       </div>
       
       {/* Testimonials section */}
-      <section className="mt-16">
-        <h3 className="text-2xl font-bold text-center mb-8">What Our Clients Say</h3>
+      <section className="mt-16" aria-labelledby="testimonials-heading">
+        <h3 id="testimonials-heading" className="text-2xl font-bold text-center mb-8">What Our Clients Say</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Testimonial 1 */}
           <div className="bg-slate-800/30 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">

@@ -126,7 +126,7 @@ const InsightsHub = () => {
 
       <motion.div initial="initial" animate="animate" variants={staggerContainer} className="min-h-screen bg-background">
         {/* Hero Section */}
-        <motion.section variants={fadeInUp} className="relative py-20 bg-gradient-to-br from-deep-navy via-card to-background overflow-hidden">
+        <motion.section variants={fadeInUp} className="relative py-20 bg-gradient-to-br from-deep-navy via-card to-background overflow-hidden" aria-labelledby="insights-hero-heading">
           <div className="absolute inset-0 bg-gradient-to-r from-electric-azure/10 via-transparent to-ultraviolet/10"></div>
           
           <div className="relative z-10 mx-auto max-w-6xl px-6">
@@ -143,7 +143,7 @@ const InsightsHub = () => {
                 <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Logo" className="h-16 w-auto mx-auto" />
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="font-poppins font-semibold text-soft-white mb-6" style={{
+              <motion.h1 id="insights-hero-heading" variants={fadeInUp} className="font-poppins font-semibold text-soft-white mb-6" style={{
               fontSize: 'clamp(36px, 5vw, 56px)',
               lineHeight: '1.2',
               letterSpacing: '-0.01em'
@@ -170,10 +170,10 @@ const InsightsHub = () => {
         </motion.section>
 
         {/* Featured Playbooks */}
-        <motion.section variants={fadeInUp} id="featured-playbooks" className="py-20 bg-background">
+        <motion.section variants={fadeInUp} id="featured-playbooks" className="py-20 bg-background" aria-labelledby="featured-playbooks-heading">
           <div className="mx-auto max-w-6xl px-6">
             <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="font-poppins font-medium text-soft-white mb-4" style={{
+              <h2 id="featured-playbooks-heading" className="font-poppins font-medium text-soft-white mb-4" style={{
               fontSize: 'clamp(28px, 4vw, 40px)'
             }}>
                 Featured Playbooks
@@ -232,10 +232,10 @@ const InsightsHub = () => {
         </motion.section>
 
         {/* Categories Section */}
-        <motion.section variants={fadeInUp} className="py-20 bg-card">
+        <motion.section variants={fadeInUp} className="py-20 bg-card" aria-labelledby="categories-heading">
           <div className="mx-auto max-w-6xl px-6">
             <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="font-poppins font-medium text-soft-white mb-4" style={{
+              <h2 id="categories-heading" className="font-poppins font-medium text-soft-white mb-4" style={{
               fontSize: 'clamp(28px, 4vw, 40px)'
             }}>
                 Browse by Category
@@ -259,10 +259,10 @@ const InsightsHub = () => {
         </motion.section>
 
         {/* Additional Playbooks Grid */}
-        <motion.section variants={fadeInUp} className="py-20 bg-background">
+        <motion.section variants={fadeInUp} className="py-20 bg-background" aria-labelledby="more-playbooks-heading">
           <div className="mx-auto max-w-6xl px-6">
             <motion.div variants={fadeInUp} className="text-center mb-16">
-              <h2 className="font-poppins font-medium text-soft-white mb-4" style={{
+              <h2 id="more-playbooks-heading" className="font-poppins font-medium text-soft-white mb-4" style={{
               fontSize: 'clamp(28px, 4vw, 40px)'
             }}>
                 More Playbooks
@@ -336,9 +336,9 @@ const InsightsHub = () => {
         </motion.section>
 
         {/* CTA Section */}
-        <motion.section variants={fadeInUp} className="py-20 bg-gradient-to-br from-electric-azure/10 via-transparent to-ultraviolet/10">
+        <motion.section variants={fadeInUp} className="py-20 bg-gradient-to-br from-electric-azure/10 via-transparent to-ultraviolet/10" aria-labelledby="implementation-cta-heading">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <motion.h2 variants={fadeInUp} className="font-poppins font-medium text-soft-white mb-6" style={{
+            <motion.h2 id="implementation-cta-heading" variants={fadeInUp} className="font-poppins font-medium text-soft-white mb-6" style={{
             fontSize: 'clamp(28px, 4vw, 40px)'
           }}>
               Ready to Implement These Strategies?
