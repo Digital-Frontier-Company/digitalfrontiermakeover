@@ -918,6 +918,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* FAQ Section with Schema Markup */}
+      <FAQAccordion />
+
       {/* HUBSPOT FORM SECTION - Fixed overlapping containers */}
       <section className="relative py-16 bg-deep-navy border-t border-border">
         <div className="mx-auto max-w-4xl px-6 relative z-10">

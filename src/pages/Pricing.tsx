@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CheckCircle, Mail, ArrowRight, ShoppingCart } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import FAQSection from "@/components/FAQSection";
 
 const Pricing: React.FC = () => {
   const location = useLocation();
@@ -313,43 +314,41 @@ const Pricing: React.FC = () => {
         </TabsContent>
       </Tabs>
 
-      {/* FAQ Section */}
-      <div className="mt-16 pt-8 border-t border-slate-800">
-        <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold mb-2">What's included in the monthly retainer packages?</h3>
-            <p className="text-slate-300">
-              Our monthly retainer packages include ongoing optimization, content strategy, 
-              technical improvements, regular reporting, and strategic consultations to continuously 
-              improve your digital presence across all relevant platforms.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2">How do I know which service is right for my business?</h3>
-            <p className="text-slate-300">
-              We recommend scheduling a consultation with our team. We'll analyze your current 
-              digital presence, business goals, and competitive landscape to recommend the most 
-              effective approach for your specific situation.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-2">Do you offer customized packages?</h3>
-            <p className="text-slate-300">
-              Yes! We understand that every business has unique needs. We're happy to create 
-              customized packages that combine different services to address your specific 
-              challenges and goals.
-            </p>
-          </div>
-        </div>
-        <div className="mt-8 text-center">
-          <Button asChild className="bg-blue-600 hover:bg-blue-700">
-            <Link to="/contact">
-              Contact Us For Customized Solutions
-              <ArrowRight className="ml-2" size={16} />
-            </Link>
-          </Button>
-        </div>
+      {/* FAQ Section with Schema Markup */}
+      <FAQSection 
+        title="Frequently Asked Questions"
+        faqs={[
+          {
+            question: "What's included in the monthly retainer packages?",
+            answer: "Our monthly retainer packages include ongoing optimization, content strategy, technical improvements, regular reporting, and strategic consultations to continuously improve your digital presence across all relevant platforms."
+          },
+          {
+            question: "How do I know which service is right for my business?",
+            answer: "We recommend scheduling a consultation with our team. We'll analyze your current digital presence, business goals, and competitive landscape to recommend the most effective approach for your specific situation."
+          },
+          {
+            question: "Do you offer customized packages?",
+            answer: "Yes! We understand that every business has unique needs. We're happy to create customized packages that combine different services to address your specific challenges and goals."
+          },
+          {
+            question: "What's the difference between SEO, AEO, and GEO?",
+            answer: "SEO focuses on traditional search engines like Google. AEO (Answer Engine Optimization) optimizes for AI assistants and voice search. GEO (Generative Engine Optimization) targets AI-powered content generation platforms like ChatGPT and Claude."
+          },
+          {
+            question: "How long does it take to see results?",
+            answer: "Results vary depending on the service and your current digital presence. Typically, you'll see initial improvements within 4-6 weeks, with significant results becoming apparent within 3-6 months of consistent optimization."
+          }
+        ]}
+        className="mt-16 pt-8 border-t border-slate-800"
+      />
+      
+      <div className="mt-8 text-center">
+        <Button asChild className="bg-blue-600 hover:bg-blue-700">
+          <Link to="/contact">
+            Contact Us For Customized Solutions
+            <ArrowRight className="ml-2" size={16} />
+          </Link>
+        </Button>
       </div>
     </PageLayout>
   );

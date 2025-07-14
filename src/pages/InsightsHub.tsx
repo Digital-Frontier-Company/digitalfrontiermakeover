@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { Search, Clock, TrendingUp, Brain, Target, Zap, Users, Award, BookOpen, Play } from "lucide-react";
+import FAQSection from "@/components/FAQSection";
 const InsightsHub = () => {
   const fadeInUp = {
     initial: {
@@ -299,6 +300,38 @@ const InsightsHub = () => {
                   </Link>
                 </motion.div>)}
             </div>
+          </div>
+        </motion.section>
+
+        {/* FAQ Section with Schema Markup */}
+        <motion.section variants={fadeInUp} className="py-20 bg-card">
+          <div className="mx-auto max-w-4xl px-6">
+            <FAQSection 
+              title="Frequently Asked Questions"
+              faqs={[
+                {
+                  question: "What's the difference between AEO and traditional SEO?",
+                  answer: "AEO (Answer Engine Optimization) focuses on optimizing content for AI-powered search engines like ChatGPT, Claude, and voice assistants, while traditional SEO targets standard search engines like Google. AEO requires structured data, direct answers, and conversational content formats."
+                },
+                {
+                  question: "How do I get started with AI marketing playbooks?",
+                  answer: "Start with our featured playbooks based on your immediate needs. If you're new to AI marketing, begin with the Complete AEO Playbook. For advanced users, explore our GEO strategies or predictive analytics guides. Each playbook includes step-by-step implementation instructions."
+                },
+                {
+                  question: "Are these strategies suitable for small businesses?",
+                  answer: "Absolutely! Our playbooks are designed to scale from small businesses to enterprise organizations. Each guide includes budget-friendly options and prioritized action items so you can implement strategies based on your resources and goals."
+                },
+                {
+                  question: "How often are the playbooks updated?",
+                  answer: "We update our playbooks monthly to reflect the latest AI marketing trends, algorithm changes, and best practices. Subscribers receive notifications when new content is added or existing guides are updated with fresh insights."
+                },
+                {
+                  question: "Can I get personalized help implementing these strategies?",
+                  answer: "Yes! We offer custom strategy sessions where our experts help you adapt these playbooks to your specific business needs, industry, and goals. Contact us to schedule a consultation and get hands-on implementation support."
+                }
+              ]}
+              className="bg-background/50 p-8 rounded-2xl"
+            />
           </div>
         </motion.section>
 

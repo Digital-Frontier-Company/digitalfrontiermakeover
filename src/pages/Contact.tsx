@@ -6,6 +6,7 @@ import * as z from "zod";
 import PageLayout from "@/components/layout/PageLayout";
 import { useLocation } from "react-router-dom";
 import { Mail, Phone, MapPin, User, MessageSquare, Send } from "lucide-react";
+import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -477,31 +478,38 @@ const Contact = () => {
         </div>
       </section>
       
-      {/* FAQ Section */}
+      {/* FAQ Section with Schema Markup */}
       <section className="mt-16">
-        <h3 className="text-2xl font-bold text-center mb-8">Frequently Asked Questions</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <div className="bg-slate-800/30 p-5 rounded-lg border border-slate-700">
-              <h4 className="font-semibold mb-2">How quickly can we start seeing results?</h4>
-              <p className="text-slate-300 text-sm">Most clients begin seeing measurable improvements within the first 30 days, with significant performance gains by the 90-day mark.</p>
-            </div>
-            <div className="bg-slate-800/30 p-5 rounded-lg border border-slate-700">
-              <h4 className="font-semibold mb-2">Do you work with companies of all sizes?</h4>
-              <p className="text-slate-300 text-sm">Yes, we have tailored packages for startups, SMBs, and enterprise clients with solutions scaled to your needs and budget.</p>
-            </div>
-          </div>
-          <div className="space-y-4">
-            <div className="bg-slate-800/30 p-5 rounded-lg border border-slate-700">
-              <h4 className="font-semibold mb-2">What makes your AI approach different?</h4>
-              <p className="text-slate-300 text-sm">Our proprietary blend of machine learning algorithms and human expertise creates advertising strategies that are both data-driven and creatively powerful.</p>
-            </div>
-            <div className="bg-slate-800/30 p-5 rounded-lg border border-slate-700">
-              <h4 className="font-semibold mb-2">What industries do you specialize in?</h4>
-              <p className="text-slate-300 text-sm">While our solutions work across sectors, we have deep expertise in e-commerce, SaaS, fintech, healthcare, and education.</p>
-            </div>
-          </div>
-        </div>
+        <FAQSection 
+          title="Frequently Asked Questions"
+          faqs={[
+            {
+              question: "How quickly can we start seeing results?",
+              answer: "Most clients begin seeing measurable improvements within the first 30 days, with significant performance gains by the 90-day mark. Our AI-powered strategies are designed for both immediate impact and long-term growth."
+            },
+            {
+              question: "Do you work with companies of all sizes?",
+              answer: "Yes, we work with startups to Fortune 500 companies. Our strategies scale based on your business size, budget, and goals. We tailor our approach to fit your specific needs and growth stage."
+            },
+            {
+              question: "What makes your AI marketing approach different?",
+              answer: "We combine cutting-edge AI technology with proven marketing fundamentals. Our approach focuses on Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), and predictive analytics to stay ahead of the evolving digital landscape."
+            },
+            {
+              question: "Do you offer ongoing support after initial implementation?",
+              answer: "Absolutely! We provide comprehensive ongoing support including monthly strategy reviews, performance optimization, and access to our team of AI marketing experts. We're committed to your long-term success."
+            },
+            {
+              question: "How do you measure the success of AI marketing campaigns?",
+              answer: "We use advanced analytics and AI-powered tracking to measure ROI, engagement rates, conversion optimization, and predictive lifetime value. You'll receive detailed reports with actionable insights and clear performance metrics."
+            },
+            {
+              question: "Can you help with both B2B and B2C marketing strategies?",
+              answer: "Yes, our AI marketing expertise spans both B2B and B2C markets. We adapt our strategies, messaging, and channels based on your target audience, whether you're reaching decision-makers in corporations or individual consumers."
+            }
+          ]}
+          className="bg-slate-800/20 p-6 rounded-lg"
+        />
       </section>
     </PageLayout>
   );

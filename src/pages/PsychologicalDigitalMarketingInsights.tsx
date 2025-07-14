@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import PageLayout from "@/components/layout/PageLayout";
+import FAQSection from "@/components/FAQSection";
 import { ChevronDown } from "lucide-react";
 
 const PsychologicalDigitalMarketingInsights = () => {
