@@ -6,6 +6,21 @@
 @tailwind utilities;
 @import './styles/animations.css';
 
+/* Line clamp utilities for text truncation */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @layer base {
   :root {
     /* New Digital Frontier Color System - High-Trust Corporate + High-Energy AI */
