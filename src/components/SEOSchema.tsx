@@ -4,11 +4,12 @@ export default function SEOSchema() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Digital Frontier Marketing",
-    "url": "https://digitalfrontier.marketing",
-    "logo": "https://digitalfrontier.marketing/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png",
-    "description": "AI-powered marketing agency specializing in Answer Engine Optimization and data-driven growth for B2B tech companies.",
-    "foundingDate": "2023",
+    "@id": "https://thedigitalfrontier.ai/#org",
+    "name": "Digital Frontier Company",
+    "url": "https://thedigitalfrontier.ai/",
+    "logo": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+    "description": "The Digital Frontier is an AI-powered content marketing and SEO agency that builds scalable content engines for B2B tech companies.",
+    "foundingDate": "2023-01-01",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "US"
@@ -16,28 +17,32 @@ export default function SEOSchema() {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "url": "https://digitalfrontier.marketing/contact"
+      "url": "https://thedigitalfrontier.ai/contact"
     },
     "sameAs": [
-      "https://linkedin.com/company/digitalfrontier",
-      "https://twitter.com/digitalfrontier"
+      "https://www.facebook.com/profile.php?id=61572896248731",
+      "https://x.com/DigitalFro14616",
+      "https://www.youtube.com/@Digital_FrontierCO",
+      "https://www.tiktok.com/@digital_frontier_company",
+      "https://www.instagram.com/digital_frontier_company/",
+      "https://www.linkedin.com/company/digital-frontier-company"
     ]
   };
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "AI-Powered Digital Marketing",
-    "provider": {
-      "@type": "Organization",
-      "name": "Digital Frontier Marketing"
+    "name": "AI-Powered Content Marketing",
+    "provider": { "@id": "https://thedigitalfrontier.ai/#org" },
+    "description": "AI-powered content marketing and SEO services that build scalable content engines for B2B tech companies.",
+    "serviceType": "Content Marketing",
+    "areaServed": {
+      "@type": "Place",
+      "name": "Worldwide"
     },
-    "description": "Comprehensive AI-powered marketing services including Answer Engine Optimization, predictive analytics, and automated growth systems.",
-    "serviceType": "Digital Marketing",
-    "areaServed": "Worldwide",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Digital Marketing Services",
+      "name": "Content Marketing Services",
       "itemListElement": [
         {
           "@type": "Offer",
@@ -46,13 +51,13 @@ export default function SEOSchema() {
         },
         {
           "@type": "Offer",
-          "name": "AI Marketing Automation",
-          "description": "Deploy advanced AI systems to automate and optimize marketing campaigns"
+          "name": "Generative Engine Optimization",
+          "description": "Scale content production using AI while maintaining expert-level quality"
         },
         {
           "@type": "Offer",
-          "name": "Data-Driven Insights",
-          "description": "Transform marketing data into actionable business intelligence"
+          "name": "SEO Strategy",
+          "description": "Data-driven SEO strategies to drive organic traffic and qualified leads"
         }
       ]
     }
@@ -97,7 +102,7 @@ export default function SEOSchema() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://digitalfrontier.marketing"
+        "item": "https://thedigitalfrontier.ai/"
       }
     ]
   };
