@@ -1,8 +1,8 @@
 
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import { generateOrganizationSchema, generateBreadcrumbSchema } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import { SEOHead } from "@/components/SEOHead";
+import { handleClientRedirect } from "@/utils/redirect";
 
 type PageLayoutProps = {
   children: React.ReactNode;
@@ -29,42 +29,15 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     .split("-")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-    
-  // Canonical URL with www prefix
-  const canonicalUrl = `https://www.thedigitalfrontier.ai${currentPath}`;
-  
-  // Generate schemas
-  const organizationSchema = generateOrganizationSchema();
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://www.thedigitalfrontier.ai" },
-    { name: title, url: canonicalUrl }
-  ]);
-  
-  // Generate Article schema if it's an article page
-  const articleSchema = pageType === 'article' ? {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`,
-    "author": {
-      "@type": "Organization",
-      "name": "Digital Frontier Company"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Digital Frontier Company",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png"
-      }
-    },
-    "datePublished": publishedDate || new Date().toISOString().split('T')[0],
-    "dateModified": modifiedDate || new Date().toISOString().split('T')[0],
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonicalUrl
+
+  // Handle URL redirects and canonical enforcement
+  useEffect(() => {
+    const redirectUrl = handleClientRedirect(window.location);
+    if (redirectUrl && redirectUrl !== window.location.href) {
+      window.location.replace(redirectUrl);
+      return;
     }
-  } : null;
+  }, []);
     
   // Effect to handle anchor link smooth scrolling
   useEffect(() => {
@@ -93,29 +66,14 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 
   return (
     <>
-      <Helmet>
-        <title>{title} | The Digital Frontier</title>
-        <meta name="description" content={subtitle || `Learn about ${title} - Digital marketing, AI, and digital transformation strategies by Digital Frontier.`} />
-        <link rel="canonical" href={canonicalUrl} />
-        <meta name="keywords" content="digital marketing, AI marketing, digital transformation, Digital Frontier, SEO, AEO, GEO, content marketing" />
-        
-        {/* Organization Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
-        
-        {/* Breadcrumb Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        
-        {/* Article Schema (if applicable) */}
-        {articleSchema && (
-          <script type="application/ld+json">
-            {JSON.stringify(articleSchema)}
-          </script>
-        )}
-      </Helmet>
+      <SEOHead 
+        path={currentPath}
+        title={title}
+        description={subtitle}
+        pageType={pageType === 'article' ? 'article' : 'website'}
+        publishedDate={publishedDate}
+        modifiedDate={modifiedDate}
+      />
       
       {/* Hero Section */}
       <section className="df-hero-section py-16">

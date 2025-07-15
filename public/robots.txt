@@ -1,5 +1,4 @@
 
-# Allow all web crawlers by default
 User-agent: *
 Allow: /
 
@@ -23,7 +22,4 @@ User-agent: Twitterbot
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.thedigitalfrontier.ai/sitemap.xml
-
-# Additional sitemap for HTML version
-Sitemap: https://www.thedigitalfrontier.ai/site-map
+Sitemap: https://thedigitalfrontier.ai/sitemap.xml
