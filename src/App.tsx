@@ -38,6 +38,7 @@ import TaxReductionGuide from "./pages/TaxReductionGuide";
 import InfluencerMarketing2025 from "./pages/InfluencerMarketing2025";
 import { Toaster } from 'react-hot-toast';
 import NotFound from '@/pages/NotFound';
+import ModernContactForm from '@/pages/ModernContactForm';
 
 // Create a query client instance
 const queryClient = new QueryClient();
@@ -85,6 +86,7 @@ function App() {
             <Route path="/seo-vs-aeo-vs-geo" element={<MainLayout><SEOvsAEOvsGEO /></MainLayout>} />
             <Route path="/insights" element={<MainLayout><div className="pt-16"><InsightsHub /></div></MainLayout>} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
+            <Route path="/modern-contact-form" element={<ModernContactForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

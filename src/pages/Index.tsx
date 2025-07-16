@@ -285,7 +285,7 @@ const Index = () => {
           }} whileTap={{
             scale: 0.95
           }}>
-              <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg" style={{
+              <Link to="/modern-contact-form" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-deep-navy bg-electric-azure rounded-lg transition-all duration-300 hover:shadow-lg" style={{
               boxShadow: '0 4px 20px -4px hsl(var(--electric-azure) / 0.3)',
               letterSpacing: '0.5px'
             }}>
