@@ -79,7 +79,7 @@ function App() {
             <Route path="/ai-bias-in-advertising" element={<MainLayout><AIBias /></MainLayout>} />
             <Route path="/ai-and-digital-marketing" element={<MainLayout><AIAndDigitalMarketing /></MainLayout>} />
             <Route path="/recommender-system-generalization" element={<MainLayout><RecommenderSystemGeneralization /></MainLayout>} />
-            <Route path="/influencer-marketing-2025" element={<InfluencerMarketing2025 />} />
+            <Route path="/influencer-marketing-2025" element={<MainLayout><InfluencerMarketing2025 /></MainLayout>} />
             <Route path="/ai-prompt-templates" element={<MainLayout><AIPromptTemplates /></MainLayout>} />
             <Route path="/information-architecture-prompts" element={<MainLayout><InformationArchitecturePrompts /></MainLayout>} />
             <Route path="/user-experience-prompts" element={<MainLayout><UserExperiencePrompts /></MainLayout>} />
