@@ -6,6 +6,7 @@ import CaseStudySlider from "@/components/CaseStudySlider";
 import PricingToggle from "@/components/PricingToggle";
 import FAQAccordion from "@/components/FAQAccordion";
 import SEOSchema from "@/components/SEOSchema";
+import ModernContactForm from "@/components/ModernContactForm";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -927,7 +928,7 @@ const Index = () => {
       {/* FAQ Section with Schema Markup */}
       <FAQAccordion />
 
-      {/* HUBSPOT FORM SECTION - Fixed overlapping containers */}
+      {/* MODERN CONTACT FORM SECTION */}
       <section className="relative py-16 bg-deep-navy border-t border-border">
         <div className="mx-auto max-w-4xl px-6 relative z-10">
           <div className="text-center mb-12">
@@ -940,9 +941,7 @@ const Index = () => {
               Get your free AI marketing audit and strategy session. Let's discuss your growth goals.
             </p>
           </div>
-          <div className="bg-card border border-border rounded-2xl p-8 shadow-2xl">
-            <div className="hs-form-frame" data-region="na1" data-form-id="5ab0be60-7598-4f9c-ac2f-72519d49d946" data-portal-id="48401342"></div>
-          </div>
+          <ModernContactForm />
         </div>
         
         {/* Background decoration */}
