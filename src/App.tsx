@@ -45,6 +45,8 @@ const queryClient = new QueryClient();
 
 function App() {
   console.log('App component rendering');
+  console.log('Current location:', window.location.pathname);
+  console.log('Window location object:', window.location);
   
   return (
     <HelmetProvider>
