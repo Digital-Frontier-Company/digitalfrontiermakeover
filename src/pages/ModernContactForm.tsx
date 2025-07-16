@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 
 const ModernContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,7 +35,7 @@ const ModernContactForm = () => {
       setSubmitMessage(data.message || 'Thank you! Your message has been sent successfully.');
       
       // Reset form
-      e.currentTarget.reset();
+      formRef.current?.reset();
       
     } catch (error: any) {
       console.error('Form submission error:', error);
@@ -203,7 +204,7 @@ const ModernContactForm = () => {
                 </div>
                 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div className="relative">
                     <label htmlFor="name" className="block text-sm font-medium text-cyan-200 mb-2">
