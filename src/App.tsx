@@ -30,6 +30,7 @@ import AIPromptTemplates from '@/pages/AIPromptTemplates';
 import InformationArchitecturePrompts from '@/pages/InformationArchitecturePrompts';
 import UserExperiencePrompts from '@/pages/UserExperiencePrompts';
 import InsightsHub from '@/pages/InsightsHub';
+import SEOvsAEOvsGEO from '@/pages/SEOvsAEOvsGEO';
 import BrowsePlaybooks from '@/pages/BrowsePlaybooks';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -79,6 +80,7 @@ function App() {
             <Route path="/ai-prompt-templates" element={<MainLayout><AIPromptTemplates /></MainLayout>} />
             <Route path="/information-architecture-prompts" element={<MainLayout><InformationArchitecturePrompts /></MainLayout>} />
             <Route path="/user-experience-prompts" element={<MainLayout><UserExperiencePrompts /></MainLayout>} />
+            <Route path="/seo-vs-aeo-vs-geo" element={<MainLayout><SEOvsAEOvsGEO /></MainLayout>} />
             <Route path="/insights" element={<MainLayout><div className="pt-16"><InsightsHub /></div></MainLayout>} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
             <Route path="*" element={<NotFound />} />
