@@ -6,8 +6,10 @@ const InfluencerMarketing2025 = () => {
   useEffect(() => {
     // Smooth scrolling for navigation links
     const anchors = document.querySelectorAll('a[href^="#"]');
+    const handlersMap = new Map();
+    
     anchors.forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
+      const handler = function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -15,7 +17,9 @@ const InfluencerMarketing2025 = () => {
             behavior: 'smooth'
           });
         }
-      });
+      };
+      handlersMap.set(anchor, handler);
+      anchor.addEventListener('click', handler);
     });
 
     // Animation on scroll
@@ -28,12 +32,17 @@ const InfluencerMarketing2025 = () => {
     }, {
       threshold: 0.1
     });
+    
     document.querySelectorAll('.hover-grow').forEach(element => {
       observer.observe(element);
     });
+    
     return () => {
       anchors.forEach(anchor => {
-        anchor.removeEventListener('click', () => {});
+        const handler = handlersMap.get(anchor);
+        if (handler) {
+          anchor.removeEventListener('click', handler);
+        }
       });
       observer.disconnect();
     };
