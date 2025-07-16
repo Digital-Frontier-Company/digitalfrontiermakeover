@@ -6,85 +6,84 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CheckCircle, TrendingUp, Target, Users, BarChart3, Search, Brain, Zap, Clock, Award, ArrowRight, MessageSquare, Globe, Lightbulb, User, BookOpen, Quote, Star, Download, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const SEOvsAEOvsGEO = () => {
-  const strategies = [
-    {
-      name: "SEO",
-      fullName: "Search Engine Optimization",
-      target: "Web page rankings on search engines",
-      metric: "Organic traffic and click-through rates",
-      behavior: "Users click through to websites",
-      timeline: "3-6 months",
-      icon: Search,
-      color: "bg-blue-500",
-      description: "The foundation strategy for driving organic website traffic",
-      bestFor: ["E-commerce companies", "SaaS businesses", "Content publishers", "Local businesses", "YouTubers with websites", "Bloggers"]
-    },
-    {
-      name: "AEO",
-      fullName: "Answer Engine Optimization",
-      target: "Featured snippets and answer boxes",
-      metric: "Answer box appearances and voice citations",
-      behavior: "Users get answers without clicking",
-      timeline: "2-4 months",
-      icon: MessageSquare,
-      color: "bg-green-500",
-      description: "Direct answer strategy for immediate user value",
-      bestFor: ["Professional services", "Healthcare providers", "Educational organizations", "Tech support", "Podcast hosts", "Instagram educators"]
-    },
-    {
-      name: "GEO",
-      fullName: "Generative Engine Optimization",
-      target: "AI-generated response citations",
-      metric: "Mention frequency in AI responses",
-      behavior: "Users discover brands through AI recommendations",
-      timeline: "1-3 months",
-      icon: Brain,
-      color: "bg-purple-500",
-      description: "AI citation strategy for thought leadership",
-      bestFor: ["Consulting firms", "Technology companies", "Research organizations", "Executive brands", "Digital creators", "Thought leaders", "LinkedIn influencers"]
-    }
-  ];
-
-  const budgetRecommendations = [
-    { type: "Established businesses", seo: 50, aeo: 30, geo: 20 },
-    { type: "Growth-stage companies", seo: 40, aeo: 35, geo: 25 },
-    { type: "Innovation leaders", seo: 30, aeo: 30, geo: 40 },
-    { type: "Local service businesses", seo: 60, aeo: 35, geo: 5 },
-    { type: "Digital creators & influencers", seo: 25, aeo: 35, geo: 40 }
-  ];
-
-  const evolutionSteps = [
-    {
-      era: "Traditional SEO Era",
-      period: "2000-2015",
-      description: "Users typed keywords, clicked blue links, consumed content on websites",
-      dominance: "Predictable search behavior"
-    },
-    {
-      era: "AEO Emergence",
-      period: "2015-2020",
-      description: "Voice search and featured snippets grew popular",
-      dominance: "Direct answer formats"
-    },
-    {
-      era: "GEO Revolution",
-      period: "2020-Present",
-      description: "AI platforms synthesize information from multiple sources",
-      dominance: "AI-powered recommendations"
-    }
-  ];
-
-  return (
-    <PageLayout
-      title="SEO vs AEO vs GEO: Complete Strategy Guide for 2025"
-      subtitle="Master all three optimization strategies for complete search dominance in the fragmented digital landscape"
-      currentPath="/seo-vs-aeo-vs-geo"
-      pageType="article"
-      publishedDate="2025-07-15"
-      modifiedDate="2025-07-15"
-    >
+  const strategies = [{
+    name: "SEO",
+    fullName: "Search Engine Optimization",
+    target: "Web page rankings on search engines",
+    metric: "Organic traffic and click-through rates",
+    behavior: "Users click through to websites",
+    timeline: "3-6 months",
+    icon: Search,
+    color: "bg-blue-500",
+    description: "The foundation strategy for driving organic website traffic",
+    bestFor: ["E-commerce companies", "SaaS businesses", "Content publishers", "Local businesses", "YouTubers with websites", "Bloggers"]
+  }, {
+    name: "AEO",
+    fullName: "Answer Engine Optimization",
+    target: "Featured snippets and answer boxes",
+    metric: "Answer box appearances and voice citations",
+    behavior: "Users get answers without clicking",
+    timeline: "2-4 months",
+    icon: MessageSquare,
+    color: "bg-green-500",
+    description: "Direct answer strategy for immediate user value",
+    bestFor: ["Professional services", "Healthcare providers", "Educational organizations", "Tech support", "Podcast hosts", "Instagram educators"]
+  }, {
+    name: "GEO",
+    fullName: "Generative Engine Optimization",
+    target: "AI-generated response citations",
+    metric: "Mention frequency in AI responses",
+    behavior: "Users discover brands through AI recommendations",
+    timeline: "1-3 months",
+    icon: Brain,
+    color: "bg-purple-500",
+    description: "AI citation strategy for thought leadership",
+    bestFor: ["Consulting firms", "Technology companies", "Research organizations", "Executive brands", "Digital creators", "Thought leaders", "LinkedIn influencers"]
+  }];
+  const budgetRecommendations = [{
+    type: "Established businesses",
+    seo: 50,
+    aeo: 30,
+    geo: 20
+  }, {
+    type: "Growth-stage companies",
+    seo: 40,
+    aeo: 35,
+    geo: 25
+  }, {
+    type: "Innovation leaders",
+    seo: 30,
+    aeo: 30,
+    geo: 40
+  }, {
+    type: "Local service businesses",
+    seo: 60,
+    aeo: 35,
+    geo: 5
+  }, {
+    type: "Digital creators & influencers",
+    seo: 25,
+    aeo: 35,
+    geo: 40
+  }];
+  const evolutionSteps = [{
+    era: "Traditional SEO Era",
+    period: "2000-2015",
+    description: "Users typed keywords, clicked blue links, consumed content on websites",
+    dominance: "Predictable search behavior"
+  }, {
+    era: "AEO Emergence",
+    period: "2015-2020",
+    description: "Voice search and featured snippets grew popular",
+    dominance: "Direct answer formats"
+  }, {
+    era: "GEO Revolution",
+    period: "2020-Present",
+    description: "AI platforms synthesize information from multiple sources",
+    dominance: "AI-powered recommendations"
+  }];
+  return <PageLayout title="SEO vs AEO vs GEO: Complete Strategy Guide for 2025" subtitle="Master all three optimization strategies for complete search dominance in the fragmented digital landscape" currentPath="/seo-vs-aeo-vs-geo" pageType="article" publishedDate="2025-07-15" modifiedDate="2025-07-15">
       <div className="space-y-16">
         
         {/* Executive Summary */}
@@ -147,7 +146,7 @@ const SEOvsAEOvsGEO = () => {
         </section>
 
         {/* Key Takeaways Alert */}
-        <Alert className="border-l-4 border-l-yellow-500 bg-yellow-50 dark:bg-yellow-950">
+        <Alert className="border-l-4 border-l-yellow-500 bg-pink-600 rounded-lg">
           <Lightbulb className="h-4 w-4 text-yellow-600" />
           <AlertDescription>
             <strong>2025 Reality Check:</strong> 65% of searches now end without a click. For digital creators and businesses, optimizing for AI citations (GEO) and voice answers (AEO) is no longer optional—it's essential for staying visible in the attention economy.
@@ -156,9 +155,8 @@ const SEOvsAEOvsGEO = () => {
         {/* Hero Stats */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {strategies.map((strategy, index) => {
-            const Icon = strategy.icon;
-            return (
-              <Card key={strategy.name} className="relative overflow-hidden group hover-scale">
+          const Icon = strategy.icon;
+          return <Card key={strategy.name} className="relative overflow-hidden group hover-scale">
                 <div className={`absolute top-0 left-0 w-1 h-full ${strategy.color.replace('bg-', 'bg-gradient-to-b from-')}`} />
                 <CardHeader className="pb-2">
                   <div className="flex items-center gap-3">
@@ -184,9 +182,8 @@ const SEOvsAEOvsGEO = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            );
-          })}
+              </Card>;
+        })}
         </section>
 
         {/* Comparison Table */}
@@ -205,8 +202,7 @@ const SEOvsAEOvsGEO = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {strategies.map((strategy, index) => (
-                    <tr key={strategy.name} className="border-b hover:bg-muted/30 transition-colors">
+                  {strategies.map((strategy, index) => <tr key={strategy.name} className="border-b hover:bg-muted/30 transition-colors">
                       <td className="p-4">
                         <div className="flex items-center gap-2">
                           <Badge variant="outline" className="font-semibold">{strategy.name}</Badge>
@@ -218,8 +214,7 @@ const SEOvsAEOvsGEO = () => {
                       <td className="p-4">
                         <Badge variant="secondary">{strategy.timeline}</Badge>
                       </td>
-                    </tr>
-                  ))}
+                    </tr>)}
                 </tbody>
               </table>
             </div>
@@ -232,8 +227,9 @@ const SEOvsAEOvsGEO = () => {
           <div className="relative">
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/20" />
             <div className="space-y-8">
-              {evolutionSteps.map((step, index) => (
-                <div key={index} className="relative flex items-start gap-6 animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+              {evolutionSteps.map((step, index) => <div key={index} className="relative flex items-start gap-6 animate-fade-in" style={{
+              animationDelay: `${index * 0.2}s`
+            }}>
                   <div className="relative z-10 flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground text-sm font-bold">
                     {index + 1}
                   </div>
@@ -252,8 +248,7 @@ const SEOvsAEOvsGEO = () => {
                       </div>
                     </CardContent>
                   </Card>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </section>
@@ -311,9 +306,7 @@ const SEOvsAEOvsGEO = () => {
                         Who Benefits Most from SEO?
                       </h4>
                       <ul className="space-y-2 text-sm text-muted-foreground">
-                        {strategies[0].bestFor.map((item, index) => (
-                          <li key={index}>• <strong>{item.split(' ')[0]}:</strong> {item}</li>
-                        ))}
+                        {strategies[0].bestFor.map((item, index) => <li key={index}>• <strong>{item.split(' ')[0]}:</strong> {item}</li>)}
                       </ul>
                       
                       <div className="mt-4 p-3 bg-secondary/20 rounded-lg">
@@ -370,9 +363,7 @@ const SEOvsAEOvsGEO = () => {
                         Who Should Prioritize AEO?
                       </h4>
                       <ul className="space-y-2 text-sm text-muted-foreground">
-                        {strategies[1].bestFor.map((item, index) => (
-                          <li key={index}>• <strong>{item.split(' ')[0]}:</strong> {item}</li>
-                        ))}
+                        {strategies[1].bestFor.map((item, index) => <li key={index}>• <strong>{item.split(' ')[0]}:</strong> {item}</li>)}
                       </ul>
                       
                       <div className="mt-4 p-3 bg-secondary/20 rounded-lg">
@@ -429,9 +420,7 @@ const SEOvsAEOvsGEO = () => {
                         Who Should Prioritize GEO?
                       </h4>
                       <ul className="space-y-2 text-sm text-muted-foreground">
-                        {strategies[2].bestFor.map((item, index) => (
-                          <li key={index}>• <strong>{item.split(' ')[0]}:</strong> {item}</li>
-                        ))}
+                        {strategies[2].bestFor.map((item, index) => <li key={index}>• <strong>{item.split(' ')[0]}:</strong> {item}</li>)}
                       </ul>
                       
                       <div className="mt-4 p-3 bg-secondary/20 rounded-lg">
@@ -501,8 +490,7 @@ const SEOvsAEOvsGEO = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                {budgetRecommendations.map((rec, index) => (
-                  <div key={index} className="space-y-2">
+                {budgetRecommendations.map((rec, index) => <div key={index} className="space-y-2">
                     <div className="flex items-center justify-between">
                       <h4 className="font-semibold">{rec.type}</h4>
                       <div className="flex gap-2">
@@ -513,13 +501,18 @@ const SEOvsAEOvsGEO = () => {
                     </div>
                     <div className="w-full bg-muted rounded-full h-3">
                       <div className="flex h-full rounded-full overflow-hidden">
-                        <div className="bg-blue-500 transition-all duration-300" style={{ width: `${rec.seo}%` }} />
-                        <div className="bg-green-500 transition-all duration-300" style={{ width: `${rec.aeo}%` }} />
-                        <div className="bg-purple-500 transition-all duration-300" style={{ width: `${rec.geo}%` }} />
+                        <div className="bg-blue-500 transition-all duration-300" style={{
+                      width: `${rec.seo}%`
+                    }} />
+                        <div className="bg-green-500 transition-all duration-300" style={{
+                      width: `${rec.aeo}%`
+                    }} />
+                        <div className="bg-purple-500 transition-all duration-300" style={{
+                      width: `${rec.geo}%`
+                    }} />
                       </div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </CardContent>
           </Card>
@@ -728,11 +721,7 @@ const SEOvsAEOvsGEO = () => {
                 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
                   <div className="flex-1">
-                    <input 
-                      type="email" 
-                      placeholder="Enter your email address" 
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
+                    <input type="email" placeholder="Enter your email address" className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" />
                   </div>
                   <Button className="group">
                     <Mail className="mr-2 h-4 w-4" />
@@ -748,8 +737,6 @@ const SEOvsAEOvsGEO = () => {
           </Card>
         </section>
       </div>
-    </PageLayout>
-  );
+    </PageLayout>;
 };
-
 export default SEOvsAEOvsGEO;
