@@ -230,7 +230,7 @@ const Index = () => {
           }}></div>
             
             {/* Main logo - enlarged */}
-            <img alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" src="/lovable-uploads/b0838a55-4b01-431e-8756-b65d697c7271.png" className="h-80 w-auto relative z-10 object-cover" loading="eager" />
+            <img alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" loading="eager" src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png" className="h-80 w-auto relative z-10 object-cover" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
@@ -331,140 +331,139 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-deep-navy via-purple-900/20 to-electric-azure/10">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-electric-azure/5 to-transparent animate-pulse"></div>
           <div className="absolute top-0 left-0 w-full h-full opacity-30">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-electric-azure/20 rounded-full blur-3xl animate-bounce" style={{ animationDuration: '6s' }}></div>
-            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-ultraviolet/20 rounded-full blur-3xl animate-bounce" style={{ animationDuration: '8s', animationDelay: '2s' }}></div>
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-electric-azure/20 rounded-full blur-3xl animate-bounce" style={{
+            animationDuration: '6s'
+          }}></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-ultraviolet/20 rounded-full blur-3xl animate-bounce" style={{
+            animationDuration: '8s',
+            animationDelay: '2s'
+          }}></div>
           </div>
         </div>
 
         <div className="mx-auto max-w-6xl px-6 relative z-10">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <motion.h2 
-              id="blueprint-heading"
-              className="font-poppins font-bold text-soft-white mb-4 bg-gradient-to-r from-electric-azure via-soft-white to-ultraviolet bg-clip-text text-transparent"
-              style={{ fontSize: 'clamp(32px, 5vw, 48px)' }}
-              initial={{ scale: 0.9 }}
-              whileInView={{ scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+          <motion.div className="text-center mb-16" initial={{
+          opacity: 0,
+          y: 30
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          duration: 0.8
+        }} viewport={{
+          once: true
+        }}>
+            <motion.h2 id="blueprint-heading" className="font-poppins font-bold text-soft-white mb-4 bg-gradient-to-r from-electric-azure via-soft-white to-ultraviolet bg-clip-text text-transparent" style={{
+            fontSize: 'clamp(32px, 5vw, 48px)'
+          }} initial={{
+            scale: 0.9
+          }} whileInView={{
+            scale: 1
+          }} transition={{
+            duration: 0.6,
+            delay: 0.2
+          }} viewport={{
+            once: true
+          }}>
               The Digital Frontier Blueprint
             </motion.h2>
-            <motion.p 
-              className="font-inter text-xl text-soft-white/80 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
+            <motion.p className="font-inter text-xl text-soft-white/80 max-w-2xl mx-auto" initial={{
+            opacity: 0
+          }} whileInView={{
+            opacity: 1
+          }} transition={{
+            duration: 0.6,
+            delay: 0.4
+          }} viewport={{
+            once: true
+          }}>
               Three pillars that transform B2B marketing from guesswork to science. Based on analysis of 10,000+ campaigns and validated by McKinsey's 2024 Digital Marketing Research.
             </motion.p>
           </motion.div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[{
-              title: "AI-Powered Lead Generation",
-              description: "Your AI bloodhound sniffs out hot-money prospects before they even blink—then drags them straight into a funnel that rewrites itself on the fly. Studies show AI-powered lead scoring improves conversion rates by 59% (Salesforce Research, 2024).",
-              icon: "/lovable-uploads/4ccc7a08-05c5-4500-9fba-149c0ec813cd.png",
-              gradient: "from-cyan-400/20 to-blue-600/20",
-              glowColor: "shadow-cyan-400/30"
-            }, {
-              title: "Data-Driven Insights", 
-              description: "What gets measured gets mastered—and monetized. Companies using data-driven marketing achieve 5-8x ROI compared to traditional methods (HubSpot, 2024).",
-              icon: "/lovable-uploads/ac9d962e-7efe-4768-9ec0-774cd30f2d5d.png",
-              gradient: "from-purple-400/20 to-pink-600/20",
-              glowColor: "shadow-purple-400/30"
-            }, {
-              title: "Answer Engine Optimization (AEO)",
-              description: "The old SEO is dying. The new game? Own the answers. AEO-optimized content gets cited 73% more often in AI responses (BrightEdge, 2024).",
-              icon: "/lovable-uploads/183a006c-d7ab-43aa-b457-8d5284912ab6.png",
-              gradient: "from-emerald-400/20 to-teal-600/20",
-              glowColor: "shadow-emerald-400/30"
-            }].map((card, index) => (
-              <motion.div 
-                key={index} 
-                className={`group relative bg-card/80 backdrop-blur-sm border border-border/50 p-8 rounded-2xl transition-all duration-500 hover:border-electric-azure/50 hover:bg-card/90 hover:scale-105 hover:shadow-2xl ${card.glowColor}`}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.2,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -10,
-                  transition: { duration: 0.3 }
-                }}
-              >
+            title: "AI-Powered Lead Generation",
+            description: "Your AI bloodhound sniffs out hot-money prospects before they even blink—then drags them straight into a funnel that rewrites itself on the fly. Studies show AI-powered lead scoring improves conversion rates by 59% (Salesforce Research, 2024).",
+            icon: "/lovable-uploads/4ccc7a08-05c5-4500-9fba-149c0ec813cd.png",
+            gradient: "from-cyan-400/20 to-blue-600/20",
+            glowColor: "shadow-cyan-400/30"
+          }, {
+            title: "Data-Driven Insights",
+            description: "What gets measured gets mastered—and monetized. Companies using data-driven marketing achieve 5-8x ROI compared to traditional methods (HubSpot, 2024).",
+            icon: "/lovable-uploads/ac9d962e-7efe-4768-9ec0-774cd30f2d5d.png",
+            gradient: "from-purple-400/20 to-pink-600/20",
+            glowColor: "shadow-purple-400/30"
+          }, {
+            title: "Answer Engine Optimization (AEO)",
+            description: "The old SEO is dying. The new game? Own the answers. AEO-optimized content gets cited 73% more often in AI responses (BrightEdge, 2024).",
+            icon: "/lovable-uploads/183a006c-d7ab-43aa-b457-8d5284912ab6.png",
+            gradient: "from-emerald-400/20 to-teal-600/20",
+            glowColor: "shadow-emerald-400/30"
+          }].map((card, index) => <motion.div key={index} className={`group relative bg-card/80 backdrop-blur-sm border border-border/50 p-8 rounded-2xl transition-all duration-500 hover:border-electric-azure/50 hover:bg-card/90 hover:scale-105 hover:shadow-2xl ${card.glowColor}`} initial={{
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+          }} whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1
+          }} transition={{
+            duration: 0.6,
+            delay: index * 0.2,
+            type: "spring",
+            stiffness: 100
+          }} viewport={{
+            once: true
+          }} whileHover={{
+            y: -10,
+            transition: {
+              duration: 0.3
+            }
+          }}>
                 {/* Animated background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                 
                 {/* Animated border effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-electric-azure/50 via-transparent to-ultraviolet/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
-                  background: 'linear-gradient(45deg, transparent 30%, rgba(47,128,255,0.3) 50%, transparent 70%)'
-                }}></div>
+              background: 'linear-gradient(45deg, transparent 30%, rgba(47,128,255,0.3) 50%, transparent 70%)'
+            }}></div>
                 
                 <div className="relative z-10">
-                  <motion.div 
-                    className="mb-6 filter drop-shadow-lg flex justify-center items-center h-32"
-                    whileHover={{ 
-                      scale: 1.2, 
-                      rotate: [0, -10, 10, 0],
-                      transition: { duration: 0.5 }
-                    }}
-                  >
-                    {typeof card.icon === 'string' && card.icon.startsWith('/') ? (
-                      <img 
-                        src={card.icon} 
-                        alt={card.title} 
-                        className={`h-28 w-28 object-contain ${index === 1 ? 'brightness-0 saturate-100' : ''}`}
-                        style={index === 1 ? {
-                          filter: 'brightness(0) saturate(100%) invert(32%) sepia(77%) saturate(4574%) hue-rotate(270deg) brightness(97%) contrast(91%)'
-                        } : {}}
-                      />
-                    ) : (
-                      <span className="text-7xl">{card.icon}</span>
-                    )}
+                  <motion.div className="mb-6 filter drop-shadow-lg flex justify-center items-center h-32" whileHover={{
+                scale: 1.2,
+                rotate: [0, -10, 10, 0],
+                transition: {
+                  duration: 0.5
+                }
+              }}>
+                    {typeof card.icon === 'string' && card.icon.startsWith('/') ? <img src={card.icon} alt={card.title} className={`h-28 w-28 object-contain ${index === 1 ? 'brightness-0 saturate-100' : ''}`} style={index === 1 ? {
+                  filter: 'brightness(0) saturate(100%) invert(32%) sepia(77%) saturate(4574%) hue-rotate(270deg) brightness(97%) contrast(91%)'
+                } : {}} /> : <span className="text-7xl">{card.icon}</span>}
                   </motion.div>
                   
-                  <motion.h3 
-                    className="font-poppins font-semibold text-xl text-soft-white mb-4 group-hover:text-electric-azure transition-colors duration-300"
-                    whileHover={{ x: 5 }}
-                  >
-                    {index === 0 && (
-                      <>
+                  <motion.h3 className="font-poppins font-semibold text-xl text-soft-white mb-4 group-hover:text-electric-azure transition-colors duration-300" whileHover={{
+                x: 5
+              }}>
+                    {index === 0 && <>
                         <span className="bg-gradient-to-r from-signal-lime to-electric-azure bg-clip-text text-transparent font-extrabold">Predict. Persuade. Profit.</span>
-                      </>
-                    )}
-                    {index === 1 && (
-                      <>
+                      </>}
+                    {index === 1 && <>
                         <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent font-extrabold">Data-Driven Insights</span>
-                      </>
-                    )}
-                    {index === 2 && (
-                      <>
+                      </>}
+                    {index === 2 && <>
                         <span className="bg-gradient-to-r from-emerald-500 to-teal-500 bg-clip-text text-transparent font-extrabold">Answer Engine Optimization</span> <span className="text-soft-white">(AEO)</span>
-                      </>
-                    )}
+                      </>}
                   </motion.h3>
                   
-                   <motion.p 
-                     className="font-inter text-soft-white/70 leading-relaxed group-hover:text-soft-white/90 transition-colors duration-300 mb-6"
-                     whileHover={{ x: 5 }}
-                   >
+                   <motion.p className="font-inter text-soft-white/70 leading-relaxed group-hover:text-soft-white/90 transition-colors duration-300 mb-6" whileHover={{
+                x: 5
+              }}>
                      {card.description}
                    </motion.p>
                    
                    {/* Special content for first card */}
-                   {index === 0 && (
-                     <div className="space-y-4">
+                   {index === 0 && <div className="space-y-4">
                        <ul className="space-y-3 text-soft-white/80">
                          <li className="flex items-start">
                            <span className="text-signal-lime mr-2">⚡</span>
@@ -481,23 +480,21 @@ const Index = () => {
                        </ul>
                        
                         <div className="mt-6 text-center">
-                         <motion.button
-                           className="bg-gradient-to-r from-signal-lime to-electric-azure text-deep-navy px-5 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
-                           whileHover={{ scale: 1.05 }}
-                           whileTap={{ scale: 0.95 }}
-                         >
+                         <motion.button className="bg-gradient-to-r from-signal-lime to-electric-azure text-deep-navy px-5 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200" whileHover={{
+                    scale: 1.05
+                  }} whileTap={{
+                    scale: 0.95
+                  }}>
                            See It Hunt →
                          </motion.button>
                          <p className="text-xs text-soft-white/60 mt-3">
                            Beta seats vanish fast—grab yours before your competitors wake up.
                          </p>
                        </div>
-                     </div>
-                    )}
+                     </div>}
                     
                     {/* Special content for second card */}
-                    {index === 1 && (
-                      <div className="space-y-4">
+                    {index === 1 && <div className="space-y-4">
                         <ul className="space-y-3 text-soft-white/80">
                           <li className="flex items-start">
                             <span className="text-electric-azure mr-3 text-lg">📊</span>
@@ -514,23 +511,21 @@ const Index = () => {
                         </ul>
                         
                          <div className="mt-6 text-center">
-                          <motion.button
-                            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
+                          <motion.button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200" whileHover={{
+                    scale: 1.05
+                  }} whileTap={{
+                    scale: 0.95
+                  }}>
                             See The Future →
                           </motion.button>
                           <p className="text-xs text-soft-white/60 mt-3">
                             Your gut's good. This makes it lethal.
                           </p>
                         </div>
-                      </div>
-                     )}
+                      </div>}
                      
                      {/* Special content for third card (AEO) */}
-                     {index === 2 && (
-                       <div className="space-y-4">
+                     {index === 2 && <div className="space-y-4">
                          <ul className="space-y-3 text-soft-white/80">
                            <li className="flex items-start">
                              <span className="text-electric-azure mr-3 text-lg">🎯</span>
@@ -547,49 +542,41 @@ const Index = () => {
                          </ul>
                          
                          <div className="mt-6 text-center">
-                           <motion.button
-                             className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200"
-                             whileHover={{ scale: 1.05 }}
-                             whileTap={{ scale: 0.95 }}
-                           >
+                           <motion.button className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-6 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-200" whileHover={{
+                    scale: 1.05
+                  }} whileTap={{
+                    scale: 0.95
+                  }}>
                              Own The Answer Box →
                            </motion.button>
                            <p className="text-xs text-soft-white/60 mt-3">
                              Because whoever answers first... wins.
                            </p>
                          </div>
-                       </div>
-                     )}
+                       </div>}
                    
                    {/* Pulse effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-electric-azure/10 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-500"></div>
                 </div>
-              </motion.div>
-            ))}
+              </motion.div>)}
           </div>
           
           {/* Floating particles animation */}
           <div className="absolute inset-0 pointer-events-none">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 bg-electric-azure/40 rounded-full"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [-20, -100, -20],
-                  opacity: [0, 1, 0],
-                  scale: [0, 1, 0],
-                }}
-                transition={{
-                  duration: 4 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 3,
-                }}
-              />
-            ))}
+            {Array.from({
+            length: 6
+          }).map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-electric-azure/40 rounded-full" style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`
+          }} animate={{
+            y: [-20, -100, -20],
+            opacity: [0, 1, 0],
+            scale: [0, 1, 0]
+          }} transition={{
+            duration: 4 + Math.random() * 2,
+            repeat: Infinity,
+            delay: Math.random() * 3
+          }} />)}
           </div>
         </div>
       </section>
