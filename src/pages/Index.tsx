@@ -596,7 +596,7 @@ const Index = () => {
 
       {/* STICKY MOBILE FOOTER CTA */}
       <div className="sticky-cta fixed bottom-0 left-0 right-0 z-50 md:hidden bg-electric-azure text-deep-navy text-center py-4 font-semibold shadow-lg">
-        <Link to="/contact" className="block">
+        <Link to="/modern-contact-form" className="block">
           Ready to Transform? Talk to an Expert
         </Link>
         {/* Progress bar */}
@@ -654,7 +654,7 @@ const Index = () => {
                     {feature}
                   </li>)}
               </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
+              <Link to="/modern-contact-form" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
                 Explore AI Solutions
               </Link>
             </div>
@@ -706,7 +706,7 @@ const Index = () => {
                     {feature}
                   </li>)}
               </ul>
-              <Link to="/contact" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
+              <Link to="/modern-contact-form" className="block w-full text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30">
                 See Our Analytics
               </Link>
             </div>
@@ -834,7 +834,7 @@ const Index = () => {
           <h2>Ready to Own Your Digital Space?</h2>
           <p>If you're ready to dominate your market and make your competitors irrelevant, let's talk. Click below, and let's build something legendary.</p>
           <div className="text-center">
-            <Link to="/contact" className="df-yellow-cta-button">Join Now</Link>
+            <Link to="/modern-contact-form" className="df-yellow-cta-button">Join Now</Link>
           </div>
           <p className="tagline mt-4">Digital Frontier—Marketing That Actually Works.</p>
         </div>
@@ -917,7 +917,7 @@ const Index = () => {
               <p className="text-slate-300">Learn more about our team, our mission, and how we're changing the digital marketing landscape.</p>
             </Link>
             
-            <Link to="/contact" className="bg-blue-900/20 p-6 rounded-lg border border-blue-700/30 hover:border-blue-500/50 hover:bg-blue-900/30 transition-all">
+            <Link to="/modern-contact-form" className="bg-blue-900/20 p-6 rounded-lg border border-blue-700/30 hover:border-blue-500/50 hover:bg-blue-900/30 transition-all">
               <h4 className="text-xl font-bold text-blue-300 mb-2">Ready to Transform Your Marketing?</h4>
               <p className="text-slate-300">Contact us today to discuss how we can help your business thrive in the digital frontier.</p>
             </Link>

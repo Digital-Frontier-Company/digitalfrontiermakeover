@@ -126,7 +126,7 @@ const AboutUs = () => {
             <p>Contact <Link to="/" className="text-blue-400 hover:underline">Digital Frontier</Link> today and discover how our transformative solutions can guide you to success in the digital age.</p>
             
             <div className="mt-6 flex justify-center">
-              <Link to="/contact" className="df-cta-button">Get in Touch</Link>
+              <Link to="/modern-contact-form" className="df-cta-button">Get in Touch</Link>
             </div>
           </div>
         </div>

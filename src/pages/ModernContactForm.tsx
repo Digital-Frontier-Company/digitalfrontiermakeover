@@ -1,4 +1,48 @@
+import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+
 const ModernContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const contactData = {
+        name: formData.get('text-1752650679296-0') as string,
+        email: formData.get('text-1752650807996-0') as string,
+        socialLink: formData.get('text-1752650925101-0') as string,
+        marketingNeeds: formData.get('select-1752651040594-0') as string,
+      };
+
+      console.log('Submitting form data:', contactData);
+
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: contactData
+      });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
+
+      console.log('Form submitted successfully:', data);
+      setSubmitMessage(data.message || 'Thank you! Your message has been sent successfully.');
+      
+      // Reset form
+      e.currentTarget.reset();
+      
+    } catch (error: any) {
+      console.error('Form submission error:', error);
+      setSubmitMessage(error.message || 'Sorry, there was an error sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <html lang="en">
       <head>
@@ -157,22 +201,21 @@ const ModernContactForm = () => {
                 </div>
                 
                 {/* Form */}
-                <form method="post" action="" className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Field */}
                   <div className="relative">
                     <label htmlFor="name" className="block text-sm font-medium text-cyan-200 mb-2">
                       <i className="fas fa-user mr-2"></i>Name: <span className="text-red-500">*</span>
                     </label>
                     <div className="relative">
-                      <input 
-                        type="text" 
-                        id="name"
-                        name="text-1752650679296-0"
-                        placeholder="First and Last" 
-                        defaultValue="Billy Bob"
-                        required
-                        className="w-full px-4 py-3 bg-dark-bg text-white neon-border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-300"
-                      />
+                        <input 
+                          type="text" 
+                          id="name"
+                          name="text-1752650679296-0"
+                          placeholder="First and Last" 
+                          required
+                          className="w-full px-4 py-3 bg-dark-bg text-white neon-border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition duration-300"
+                        />
                       <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                         <i className="fas fa-user text-cyan-400"></i>
                       </div>
@@ -249,12 +292,25 @@ const ModernContactForm = () => {
                   <div className="pt-4">
                     <button 
                       type="submit"
-                      className="w-full py-4 px-6 neon-btn text-dark-bg font-bold rounded-lg text-lg tracking-wider uppercase transition-all duration-300 transform hover:scale-[1.02]"
+                      disabled={isSubmitting}
+                      className="w-full py-4 px-6 neon-btn text-dark-bg font-bold rounded-lg text-lg tracking-wider uppercase transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <i className="fas fa-paper-plane mr-2"></i>Submit Request
+                      <i className="fas fa-paper-plane mr-2"></i>
+                      {isSubmitting ? 'Sending...' : 'Submit Request'}
                     </button>
                   </div>
                 </form>
+                
+                {/* Success/Error Message */}
+                {submitMessage && (
+                  <div className={`mt-6 p-4 rounded-lg text-center ${
+                    submitMessage.includes('error') || submitMessage.includes('Sorry') 
+                      ? 'bg-red-900/20 border border-red-500/30 text-red-300' 
+                      : 'bg-green-900/20 border border-green-500/30 text-green-300'
+                  }`}>
+                    <p>{submitMessage}</p>
+                  </div>
+                )}
               </div>
               
               {/* Footer note */}

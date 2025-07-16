@@ -157,7 +157,7 @@ export default function PricingToggle() {
               </ul>
 
               <Link
-                to="/contact"
+                to="/modern-contact-form"
                 className={`block w-full text-center py-4 px-6 rounded-lg font-semibold transition-all duration-300 ${
                   tier.popular
                     ? 'bg-signal-lime text-deep-navy hover:bg-signal-lime/90 hover:shadow-lg'
@@ -173,7 +173,7 @@ export default function PricingToggle() {
         <div className="text-center mt-12">
           <p className="text-soft-white/60 mb-4">Need something custom?</p>
           <Link 
-            to="/contact" 
+            to="/modern-contact-form" 
             className="inline-flex items-center text-electric-azure hover:text-electric-azure/80 font-medium"
           >
             Let's build a custom solution →

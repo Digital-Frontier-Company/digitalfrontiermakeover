@@ -184,7 +184,7 @@ const MorphingHero = () => {
           {/* Morphing CTA Section */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
             <Link 
-              to="/contact" 
+              to="/modern-contact-form" 
               className="group relative px-10 py-5 text-lg font-bold text-white bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 rounded-full overflow-hidden shadow-2xl transition-all duration-500 hover:scale-105 hover:shadow-blue-500/50 hover:shadow-2xl"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
