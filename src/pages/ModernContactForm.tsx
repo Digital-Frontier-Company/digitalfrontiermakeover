@@ -189,9 +189,11 @@ const ModernContactForm = () => {
                 {/* Header with animated logo */}
                 <div className="text-center mb-10">
                   <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center pulse">
-                      <i className="fas fa-satellite text-2xl text-white"></i>
-                    </div>
+                    <img 
+                      src="https://thedigitalfrontier.ai/lovable-uploads/7223877a-0a55-4ae4-9fbe-ad1c46acae0f.png" 
+                      alt="Digital Frontier Logo"
+                      className="h-24 w-auto pulse"
+                    />
                   </div>
                   <h1 className="text-3xl md:text-4xl font-bold mb-2 neon-text font-['Orbitron']">
                     DIGITAL FRONTIER COMPANY
