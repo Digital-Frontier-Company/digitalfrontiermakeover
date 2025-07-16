@@ -48,21 +48,8 @@ export const REDIRECT_RULES: RedirectRule[] = [
     reason: 'Redirect sitemap variant'
   },
   
-  // Handle common URL variations with query parameters
-  {
-    from: /^([^?]+)\?.*$/,
-    to: '$1',
-    type: 'pattern',
-    reason: 'Remove query parameters'
-  },
-  
-  // Handle hash fragments
-  {
-    from: /^([^#]+)#.*$/,
-    to: '$1',
-    type: 'pattern',
-    reason: 'Remove hash fragments'
-  },
+  // Only remove specific problematic query parameters, not all
+  // Commenting out aggressive query/hash removal that breaks navigation
   
   // Case normalization handled separately in checkRedirect function
   

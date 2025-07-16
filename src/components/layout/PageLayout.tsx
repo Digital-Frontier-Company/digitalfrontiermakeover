@@ -30,8 +30,15 @@ const PageLayout: React.FC<PageLayoutProps> = ({
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
-  // Handle URL redirects and canonical enforcement
+  // Only handle redirects in production or for specific cases
   useEffect(() => {
+    // Skip redirects in development/preview environments
+    if (window.location.hostname.includes('lovable') || 
+        window.location.hostname === 'localhost' ||
+        window.location.hostname.includes('127.0.0.1')) {
+      return;
+    }
+    
     const redirectUrl = handleClientRedirect(window.location);
     if (redirectUrl && redirectUrl !== window.location.href) {
       window.location.replace(redirectUrl);
