@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import MainLayout from "@/components/layout/MainLayout";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -85,7 +85,7 @@ const Blog = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <Helmet>
         <title>Blog | The Digital Frontier</title>
         <meta name="description" content="Latest insights on digital marketing, AI, and business transformation from Digital Frontier experts." />
@@ -145,7 +145,7 @@ const Blog = () => {
           ))}
         </div>
       </main>
-    </MainLayout>
+    </>
   );
 };
 

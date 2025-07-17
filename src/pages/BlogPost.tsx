@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import MainLayout from "@/components/layout/MainLayout";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -108,7 +108,7 @@ const BlogPost = () => {
   };
 
   return (
-    <MainLayout>
+    <>
       <Helmet>
         <title>{postData.title} | Digital Frontier Blog</title>
         <meta name="description" content={postData.description} />
@@ -342,7 +342,7 @@ const BlogPost = () => {
           </section>
         </div>
       </main>
-    </MainLayout>
+    </>
   );
 };
 
