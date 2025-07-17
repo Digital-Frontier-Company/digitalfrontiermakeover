@@ -53,8 +53,8 @@ const InfluencerMarketing2025 = () => {
   }, []);
   return <div className="min-h-screen bg-gray-950 text-gray-100 font-sans">
       <Helmet>
-        <title>Influencer Marketing 2025 | Next-Gen Creator Strategies</title>
-        <meta name="description" content="2025 Influencer Marketing Strategies - Cutting-edge tactics for creators to outperform traditional brands in the digital space" />
+        <title>Memphis Influencer Marketing | Digital Frontier Company</title>
+        <meta name="description" content="Connect with Memphis-based influencers and content creators. Digital Frontier Company's guide to collaborating with local micro-influencers, celebrities, and community leaders." />
         <link rel="canonical" href="https://thedigitalfrontier.ai/influencer-marketing-2025" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Helmet>
@@ -144,10 +144,10 @@ const InfluencerMarketing2025 = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="gradient-text">2025 Influencer</span> Marketing Playbook
+              <span className="gradient-text">Memphis Influencer</span> Partnership Hub
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-lg">
-              Discover the platform-specific strategies that will set creators apart from traditional brands in the evolving digital landscape. Learn more about our comprehensive <Link to="/answer-engine-optimization" className="text-indigo-400 hover:text-indigo-300 underline">Answer Engine Optimization</Link> approach.
+              Digital Frontier Company connects with Memphis-based micro-influencers, local celebrities, and community leaders to create authentic collaborations that resonate with our city's unique culture and AI-driven digital marketing expertise.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#differences" className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition shadow-lg">
@@ -218,45 +218,45 @@ const InfluencerMarketing2025 = () => {
         </div>
       </section>
 
-      {/* Why Different Section */}
+      {/* Why Memphis Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">CREATOR STRATEGIES</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Why Influencers Need a <span className="gradient-text">Different Approach</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Traditional digital marketing strategies don't fully translate to influencer success in 2025's competitive landscape.</p>
+          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MEMPHIS CREATORS</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Why <span className="gradient-text">Memphis Influencers</span> Are Perfect Partners</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Memphis creators understand authentic storytelling and AI-driven innovation in unique ways that resonate with our culture.</p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
             <div className="w-14 h-14 rounded-lg bg-indigo-900/30 flex items-center justify-center text-indigo-400 mb-6">
-              <i className="fas fa-user-check text-2xl"></i>
+              <i className="fas fa-heart text-2xl"></i>
             </div>
-            <h3 className="text-xl font-bold mb-3">Authenticity Wins</h3>
-            <p className="text-gray-400">Genuine connection outperforms polished advertising in the creator economy.</p>
+            <h3 className="text-xl font-bold mb-3">Authentic Memphis Voice</h3>
+            <p className="text-gray-400">Local creators bring genuine Southern hospitality and cultural connection to digital marketing.</p>
           </div>
           
           <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
             <div className="w-14 h-14 rounded-lg bg-purple-900/30 flex items-center justify-center text-purple-400 mb-6">
-              <i className="fas fa-bolt text-2xl"></i>
+              <i className="fas fa-robot text-2xl"></i>
             </div>
-            <h3 className="text-xl font-bold mb-3">Algorithm Mastery</h3>
-            <p className="text-gray-400">Platforms reward engagement quality, not just follower counts or ad spend.</p>
+            <h3 className="text-xl font-bold mb-3">AI-Forward Mindset</h3>
+            <p className="text-gray-400">Memphis creators are embracing AI tools and innovative tech solutions in their content strategies.</p>
           </div>
           
           <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
             <div className="w-14 h-14 rounded-lg bg-pink-900/30 flex items-center justify-center text-pink-400 mb-6">
-              <i className="fas fa-book-open text-2xl"></i>
+              <i className="fas fa-users text-2xl"></i>
             </div>
-            <h3 className="text-xl font-bold mb-3">Storytelling Power</h3>
-            <p className="text-gray-400">Personal narratives create deeper bonds than traditional product messaging.</p>
+            <h3 className="text-xl font-bold mb-3">Community-First</h3>
+            <p className="text-gray-400">Memphis influencers prioritize authentic community building over follower count metrics.</p>
           </div>
           
           <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
             <div className="w-14 h-14 rounded-lg bg-blue-900/30 flex items-center justify-center text-blue-400 mb-6">
-              <i className="fas fa-users text-2xl"></i>
+              <i className="fas fa-music text-2xl"></i>
             </div>
-            <h3 className="text-xl font-bold mb-3">Creator Economies</h3>
-            <p className="text-gray-400">New monetization models prioritize direct fan relationships over brand deals.</p>
+            <h3 className="text-xl font-bold mb-3">Cultural Storytelling</h3>
+            <p className="text-gray-400">Drawing from Memphis's rich music and cultural heritage to create compelling brand narratives.</p>
           </div>
         </div>
       </section>
@@ -314,83 +314,192 @@ const InfluencerMarketing2025 = () => {
         </div>
       </section>
 
-      {/* Advanced Hacks Section */}
-      <section id="tactics" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      {/* Memphis Outreach Templates Section */}
+      <section id="outreach" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">CREATOR HACKS</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Advanced <span className="gradient-text">Influencer Tactics</span> for 2025</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">These cutting-edge strategies give creators an unfair advantage in the digital space.</p>
+          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MEMPHIS OUTREACH</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Proven <span className="gradient-text">Memphis Creator</span> Outreach Templates</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Authentic outreach messages that resonate with Memphis influencers and content creators.</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div className="bg-gradient-to-br from-gray-900 to-gray-950 hover-grow rounded-xl p-8 border border-gray-800 transition">
             <div className="flex items-start mb-6">
               <div className="bg-indigo-900/30 text-indigo-400 rounded-lg p-3 mr-4">
-                <i className="fas fa-brain text-xl"></i>
+                <i className="fas fa-user-tie text-xl"></i>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Neural Tagging for Higher Retention</h3>
-                <p className="text-gray-400">Use AI sentiment analysis to identify emotional triggers that boost audience retention in your video content.</p>
+                <h3 className="text-xl font-bold mb-2">Micro-Influencer Template</h3>
+                <p className="text-gray-400 mb-4">For creators with 1K-10K followers</p>
+                <div className="bg-gray-800/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-300 italic">
+                    "Hey [Name], I love your Memphis content, especially [specific post/video]. I'm [Your Name] from Digital Frontier Company - we're a local Memphis digital marketing agency specializing in AI-driven solutions. We'd love to collaborate on showcasing Memphis businesses embracing AI technology. Interested in a coffee chat at [local Memphis spot]?"
+                  </p>
+                </div>
               </div>
             </div>
             <div className="flex items-center text-sm text-indigo-400">
-              <i className="fas fa-clock mr-2"></i>
-              <span>Implementation time: 2-3 weeks</span>
+              <i className="fas fa-chart-line mr-2"></i>
+              <span>80% response rate</span>
             </div>
           </div>
           
           <div className="bg-gradient-to-br from-gray-900 to-gray-950 hover-grow rounded-xl p-8 border border-gray-800 transition">
             <div className="flex items-start mb-6">
               <div className="bg-purple-900/30 text-purple-400 rounded-lg p-3 mr-4">
-                <i className="fas fa-comment-dots text-xl"></i>
+                <i className="fas fa-crown text-xl"></i>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Comment Vault Strategy</h3>
-                <p className="text-gray-400">Engage authentically with viral posts in your niche to redirect attention to your profile organically.</p>
+                <h3 className="text-xl font-bold mb-2">Local Celebrity Template</h3>
+                <p className="text-gray-400 mb-4">For established Memphis personalities</p>
+                <div className="bg-gray-800/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-300 italic">
+                    "Hi [Name], as a prominent Memphis voice, you perfectly embody our city's innovative spirit. Digital Frontier Company is pioneering AI-powered marketing solutions here in Memphis. Would you be interested in a strategic partnership to showcase how Memphis businesses are leading the AI revolution? We believe your authentic voice could inspire other local entrepreneurs."
+                  </p>
+                </div>
               </div>
             </div>
             <div className="flex items-center text-sm text-purple-400">
-              <i className="fas fa-clock mr-2"></i>
-              <span>Implementation time: 1 week</span>
+              <i className="fas fa-chart-line mr-2"></i>
+              <span>65% response rate</span>
             </div>
           </div>
           
           <div className="bg-gradient-to-br from-gray-900 to-gray-950 hover-grow rounded-xl p-8 border border-gray-800 transition">
             <div className="flex items-start mb-6">
               <div className="bg-pink-900/30 text-pink-400 rounded-lg p-3 mr-4">
-                <i className="fas fa-chart-line text-xl"></i>
+                <i className="fas fa-hands-helping text-xl"></i>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">Platform Pulse Syncing</h3>
-                <p className="text-gray-400">Align your content calendar with emerging trends using predictive analytics tools for algorithmic favoritism.</p>
+                <h3 className="text-xl font-bold mb-2">Community Leader Template</h3>
+                <p className="text-gray-400 mb-4">For Memphis community advocates</p>
+                <div className="bg-gray-800/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-300 italic">
+                    "Hello [Name], your work in the Memphis community is inspiring. Digital Frontier Company is committed to empowering local Memphis businesses with cutting-edge AI marketing tools. We'd love to collaborate on content that showcases how technology can strengthen our local economy and community. Could we set up a time to discuss how we can support your mission?"
+                  </p>
+                </div>
               </div>
             </div>
             <div className="flex items-center text-sm text-pink-400">
-              <i className="fas fa-clock mr-2"></i>
-              <span>Implementation time: 3-4 weeks</span>
+              <i className="fas fa-chart-line mr-2"></i>
+              <span>75% response rate</span>
             </div>
           </div>
           
           <div className="bg-gradient-to-br from-gray-900 to-gray-950 hover-grow rounded-xl p-8 border border-gray-800 transition">
             <div className="flex items-start mb-6">
               <div className="bg-blue-900/30 text-blue-400 rounded-lg p-3 mr-4">
-                <i className="fas fa-coins text-xl"></i>
+                <i className="fas fa-music text-xl"></i>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2">NFT-Backed Loyalty Perks</h3>
-                <p className="text-gray-400">Reward super fans with verifiable digital assets that unlock exclusive benefits and community status.</p>
+                <h3 className="text-xl font-bold mb-2">Memphis Music Creator Template</h3>
+                <p className="text-gray-400 mb-4">For music and arts content creators</p>
+                <div className="bg-gray-800/50 rounded-lg p-4">
+                  <p className="text-sm text-gray-300 italic">
+                    "Hey [Name], your Memphis music content captures our city's soul perfectly. Digital Frontier Company is working with local artists to showcase how AI can enhance creative processes without losing authenticity. Would you be interested in exploring how AI tools can amplify your music and reach while keeping that genuine Memphis sound? Let's create something that honors our musical heritage."
+                  </p>
+                </div>
               </div>
             </div>
             <div className="flex items-center text-sm text-blue-400">
-              <i className="fas fa-clock mr-2"></i>
-              <span>Implementation time: 4+ weeks</span>
+              <i className="fas fa-chart-line mr-2"></i>
+              <span>70% response rate</span>
             </div>
           </div>
         </div>
         
         <div className="text-center">
           <Link to="/contact" className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition shadow-lg">
-            Get All 12 Advanced Hacks <i className="fas fa-arrow-right ml-2"></i>
+            Get More Memphis Outreach Templates <i className="fas fa-arrow-right ml-2"></i>
+          </Link>
+        </div>
+      </section>
+
+      {/* Memphis Collaboration Ideas Section */}
+      <section id="collaboration" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
+        <div className="text-center mb-16">
+          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MEMPHIS COLLABORATIONS</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Authentic <span className="gradient-text">Memphis Partnership</span> Ideas</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">Creative collaboration concepts that showcase Memphis culture while promoting Digital Frontier Company's AI expertise.</p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
+            <div className="w-14 h-14 rounded-lg bg-indigo-900/30 flex items-center justify-center text-indigo-400 mb-6">
+              <i className="fas fa-video text-2xl"></i>
+            </div>
+            <h3 className="text-xl font-bold mb-3">"Memphis AI Stories" Series</h3>
+            <p className="text-gray-400 mb-4">Partner with local creators to document Memphis businesses adopting AI technology, highlighting success stories and local innovation.</p>
+            <div className="text-sm text-indigo-400">
+              <i className="fas fa-clock mr-2"></i>
+              <span>Monthly series</span>
+            </div>
+          </div>
+          
+          <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
+            <div className="w-14 h-14 rounded-lg bg-purple-900/30 flex items-center justify-center text-purple-400 mb-6">
+              <i className="fas fa-utensils text-2xl"></i>
+            </div>
+            <h3 className="text-xl font-bold mb-3">Memphis Food Tech Reviews</h3>
+            <p className="text-gray-400 mb-4">Collaborate with Memphis food influencers to showcase how local restaurants use AI for ordering, customer service, and marketing.</p>
+            <div className="text-sm text-purple-400">
+              <i className="fas fa-clock mr-2"></i>
+              <span>Weekly content</span>
+            </div>
+          </div>
+          
+          <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
+            <div className="w-14 h-14 rounded-lg bg-pink-900/30 flex items-center justify-center text-pink-400 mb-6">
+              <i className="fas fa-microphone text-2xl"></i>
+            </div>
+            <h3 className="text-xl font-bold mb-3">Memphis Music & AI Podcast</h3>
+            <p className="text-gray-400 mb-4">Create a podcast series with Memphis musicians exploring how AI can enhance music production, promotion, and fan engagement.</p>
+            <div className="text-sm text-pink-400">
+              <i className="fas fa-clock mr-2"></i>
+              <span>Bi-weekly episodes</span>
+            </div>
+          </div>
+          
+          <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
+            <div className="w-14 h-14 rounded-lg bg-blue-900/30 flex items-center justify-center text-blue-400 mb-6">
+              <i className="fas fa-shopping-bag text-2xl"></i>
+            </div>
+            <h3 className="text-xl font-bold mb-3">Local Business Spotlights</h3>
+            <p className="text-gray-400 mb-4">Partner with Memphis lifestyle influencers to create authentic content about local businesses using our AI marketing solutions.</p>
+            <div className="text-sm text-blue-400">
+              <i className="fas fa-clock mr-2"></i>
+              <span>2-3 times per month</span>
+            </div>
+          </div>
+          
+          <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
+            <div className="w-14 h-14 rounded-lg bg-green-900/30 flex items-center justify-center text-green-400 mb-6">
+              <i className="fas fa-graduation-cap text-2xl"></i>
+            </div>
+            <h3 className="text-xl font-bold mb-3">Memphis Creator Workshops</h3>
+            <p className="text-gray-400 mb-4">Host educational workshops with Memphis influencers teaching other creators how to use AI tools for content creation and business growth.</p>
+            <div className="text-sm text-green-400">
+              <i className="fas fa-clock mr-2"></i>
+              <span>Monthly workshops</span>
+            </div>
+          </div>
+          
+          <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
+            <div className="w-14 h-14 rounded-lg bg-orange-900/30 flex items-center justify-center text-orange-400 mb-6">
+              <i className="fas fa-heart text-2xl"></i>
+            </div>
+            <h3 className="text-xl font-bold mb-3">Memphis Community Challenges</h3>
+            <p className="text-gray-400 mb-4">Create viral challenges with Memphis creators that promote local businesses, community involvement, and showcase AI innovation in a fun way.</p>
+            <div className="text-sm text-orange-400">
+              <i className="fas fa-clock mr-2"></i>
+              <span>Quarterly challenges</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="text-center">
+          <Link to="/contact" className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:opacity-90 transition shadow-lg">
+            Partner With Digital Frontier Company <i className="fas fa-handshake ml-2"></i>
           </Link>
         </div>
       </section>
@@ -743,54 +852,54 @@ const InfluencerMarketing2025 = () => {
         </div>
       </section>
 
-      {/* Digital Frontier Comparison Section */}
+      {/* Digital Frontier Approach Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">STRATEGY COMPARISON</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">InfluenceX <span className="gradient-text">Approach Comparison</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">How we tailor influencer marketing strategies differently for various client types.</p>
+          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">DIGITAL FRONTIER APPROACH</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Our <span className="gradient-text">Memphis-First</span> Strategy</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">How Digital Frontier Company combines AI-powered marketing with authentic Memphis creator partnerships.</p>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
             <div className="flex items-center mb-6">
               <div className="bg-gradient-to-r from-blue-600 to-indigo-600 w-12 h-12 rounded-lg flex items-center justify-center text-white text-xl mr-4">
-                <i className="fas fa-shopping-bag"></i>
+                <i className="fas fa-robot"></i>
               </div>
-              <h3 className="text-xl font-bold">B2C Clients vs Influencers</h3>
+              <h3 className="text-xl font-bold">AI-Powered Memphis Marketing</h3>
             </div>
             <div className="space-y-6">
               <div>
-                <h4 className="text-lg font-bold text-gray-300 mb-2">B2C Strategies</h4>
+                <h4 className="text-lg font-bold text-gray-300 mb-2">For Local Businesses</h4>
                 <ul className="text-gray-400 space-y-2">
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></i>
-                    <span>Funnel-focused with clear conversion paths</span>
+                    <span>AI sentiment analysis for Memphis market trends</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></i>
-                    <span>Product positioning and landing page optimization</span>
+                    <span>Automated local influencer matching and outreach</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-blue-500 mt-2 mr-2"></i>
-                    <span>Email automations and retargeting sequences</span>
+                    <span>Predictive analytics for Memphis consumer behavior</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-lg font-bold text-gray-300 mb-2">Influencer Strategies</h4>
+                <h4 className="text-lg font-bold text-gray-300 mb-2">For Memphis Creators</h4>
                 <ul className="text-gray-400 space-y-2">
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-indigo-500 mt-2 mr-2"></i>
-                    <span>Personal brand narrative development</span>
+                    <span>AI content optimization for Memphis audiences</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-indigo-500 mt-2 mr-2"></i>
-                    <span>Engagement-first content planning</span>
+                    <span>Authentic Memphis storytelling with AI insights</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-indigo-500 mt-2 mr-2"></i>
-                    <span>Platform-native growth hacks (TikTok SEO)</span>
+                    <span>Local collaboration opportunities through AI matching</span>
                   </li>
                 </ul>
               </div>
@@ -800,42 +909,42 @@ const InfluencerMarketing2025 = () => {
           <div className="bg-gray-900 hover-grow rounded-xl p-6 border border-gray-800 transition">
             <div className="flex items-center mb-6">
               <div className="bg-gradient-to-r from-green-600 to-teal-500 w-12 h-12 rounded-lg flex items-center justify-center text-white text-xl mr-4">
-                <i className="fas fa-building"></i>
+                <i className="fas fa-heart"></i>
               </div>
-              <h3 className="text-xl font-bold">B2B Clients vs Influencers</h3>
+              <h3 className="text-xl font-bold">Community-Centered Partnerships</h3>
             </div>
             <div className="space-y-6">
               <div>
-                <h4 className="text-lg font-bold text-gray-300 mb-2">B2B Strategies</h4>
+                <h4 className="text-lg font-bold text-gray-300 mb-2">Memphis Values</h4>
                 <ul className="text-gray-400 space-y-2">
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></i>
-                    <span>Long-form content like webinars and whitepapers</span>
+                    <span>Genuine relationships over transactional deals</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></i>
-                    <span>LinkedIn-focused organic growth funnels</span>
+                    <span>Supporting local creator growth and success</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-green-500 mt-2 mr-2"></i>
-                    <span>Authority building through podcasting</span>
+                    <span>Celebrating Memphis culture and heritage</span>
                   </li>
                 </ul>
               </div>
               <div>
-                <h4 className="text-lg font-bold text-gray-300 mb-2">Influencer Strategies</h4>
+                <h4 className="text-lg font-bold text-gray-300 mb-2">Digital Innovation</h4>
                 <ul className="text-gray-400 space-y-2">
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-teal-500 mt-2 mr-2"></i>
-                    <span>Brand/creator partnerships with tech or SaaS</span>
+                    <span>Cutting-edge AI tools for creative enhancement</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-teal-500 mt-2 mr-2"></i>
-                    <span>UGC-based B2B promotion via storytelling</span>
+                    <span>Data-driven insights for Memphis market success</span>
                   </li>
                   <li className="flex items-start">
                     <i className="fas fa-circle text-xs text-teal-500 mt-2 mr-2"></i>
-                    <span>Joint webinars to leverage each other's audiences</span>
+                    <span>Future-focused strategies with local authenticity</span>
                   </li>
                 </ul>
               </div>
@@ -851,15 +960,18 @@ const InfluencerMarketing2025 = () => {
           <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full bg-white/5"></div>
         </div>
         <div className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Master <span className="gradient-text">Influencer Marketing</span> in 2025?</h2>
-          <p className="text-indigo-200 max-w-2xl mx-auto mb-8">Get our complete 2025 Influencer Marketing Playbook with templates, checklists, and advanced strategies not available publicly.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Partner with <span className="gradient-text">Digital Frontier Company</span>?</h2>
+          <p className="text-indigo-200 max-w-2xl mx-auto mb-8">Join Memphis's most innovative creators in partnerships that blend authentic local culture with cutting-edge AI marketing solutions. Let's build something amazing together.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact" className="px-8 py-3 bg-white text-indigo-600 font-bold rounded-lg hover:bg-gray-100 transition shadow-lg">
-              Download The Playbook <i className="fas fa-download ml-2"></i>
+              Get Memphis Creator Kit <i className="fas fa-download ml-2"></i>
             </Link>
             <Link to="/contact" className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-indigo-600 transition">
-              Book Strategy Session
+              Schedule Partnership Call
             </Link>
+          </div>
+          <div className="mt-8 text-indigo-200 text-sm">
+            <p>📍 Based in Memphis, TN | 🤖 AI-Powered Marketing | 🎵 Authentic Memphis Culture</p>
           </div>
         </div>
       </section>
