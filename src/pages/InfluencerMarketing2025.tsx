@@ -11,7 +11,6 @@ const InfluencerMarketing2025 = () => {
     // Smooth scrolling for navigation links
     const anchors = document.querySelectorAll('a[href^="#"]');
     const handlersMap = new Map();
-    
     anchors.forEach(anchor => {
       const handler = function (e) {
         e.preventDefault();
@@ -36,11 +35,9 @@ const InfluencerMarketing2025 = () => {
     }, {
       threshold: 0.1
     });
-    
     document.querySelectorAll('.hover-grow').forEach(element => {
       observer.observe(element);
     });
-    
     return () => {
       anchors.forEach(anchor => {
         const handler = handlersMap.get(anchor);
@@ -144,7 +141,7 @@ const InfluencerMarketing2025 = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              <span className="gradient-text">Memphis Influencer</span> Partnership Hub
+              <span className="gradient-text font-extrabold text-6xl mx-[10px] my-[10px]">Memphis Influencer</span> Partnership Hub
             </h1>
             <p className="text-xl text-gray-400 mb-8 max-w-lg">
               Digital Frontier Company connects with Memphis-based micro-influencers, local celebrities, and community leaders to create authentic collaborations that resonate with our city's unique culture and AI-driven digital marketing expertise.
@@ -221,8 +218,8 @@ const InfluencerMarketing2025 = () => {
       {/* Why Memphis Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MEMPHIS CREATORS</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Why <span className="gradient-text">Memphis Influencers</span> Are Perfect Partners</h2>
+          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-xl font-bold">MEMPHIS CREATORS</span>
+          <h2 className="text-3xl mt-2 mb-4 font-extrabold md:text-5xl">Why <span className="gradient-text">Memphis Influencers</span> Are Perfect Partners</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Memphis creators understand authentic storytelling and AI-driven innovation in unique ways that resonate with our culture.</p>
         </div>
         
@@ -264,8 +261,8 @@ const InfluencerMarketing2025 = () => {
       {/* Core Differences Section */}
       <section id="differences" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">KEY INSIGHTS</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Influencer Marketing <span className="gradient-text">vs Digital Marketing</span></h2>
+          <span className="font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-lg">KEY INSIGHTS</span>
+          <h2 className="text-3xl mt-2 mb-4 md:text-5xl font-extrabold">Influencer Marketing <span className="gradient-text">vs Digital Marketing</span></h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Traditional businesses and creators operate differently in the digital space.</p>
         </div>
         
@@ -317,8 +314,8 @@ const InfluencerMarketing2025 = () => {
       {/* Memphis Outreach Templates Section */}
       <section id="outreach" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MEMPHIS OUTREACH</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Proven <span className="gradient-text">Memphis Creator</span> Outreach Templates</h2>
+          <span className="font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-xl">MEMPHIS OUTREACH</span>
+          <h2 className="text-3xl mt-2 mb-4 md:text-5xl font-extrabold">Proven <span className="gradient-text">Memphis Creator</span> Outreach Templates</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Authentic outreach messages that resonate with Memphis influencers and content creators.</p>
         </div>
         
@@ -418,8 +415,8 @@ const InfluencerMarketing2025 = () => {
       {/* Memphis Collaboration Ideas Section */}
       <section id="collaboration" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MEMPHIS COLLABORATIONS</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Authentic <span className="gradient-text">Memphis Partnership</span> Ideas</h2>
+          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text font-extrabold text-lg">MEMPHIS COLLABORATIONS</span>
+          <h2 className="text-3xl mt-2 mb-4 md:text-4xl font-extrabold">Authentic <span className="gradient-text">Memphis Partnership</span> Ideas</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Creative collaboration concepts that showcase Memphis culture while promoting Digital Frontier Company's AI expertise.</p>
         </div>
         
@@ -507,8 +504,8 @@ const InfluencerMarketing2025 = () => {
       {/* Platform Specific Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">PLATFORM STRATEGIES</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4"><span className="gradient-text">Platform-Specific</span> Influencer Tactics</h2>
+          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-lg font-bold">PLATFORM STRATEGIES</span>
+          <h2 className="text-3xl mt-2 mb-4 md:text-5xl font-extrabold"><span className="gradient-text">Platform-Specific</span> Influencer Tactics</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Optimized strategies for each major platform in 2025's creator landscape.</p>
         </div>
         
@@ -610,8 +607,8 @@ const InfluencerMarketing2025 = () => {
       {/* Packages Section */}
       <section id="packages" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">MONETIZATION</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Influencer Marketing <span className="gradient-text">Packages</span></h2>
+          <span className="font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-xl">MONETIZATION</span>
+          <h2 className="text-3xl mt-2 mb-4 font-extrabold md:text-6xl">Influencer Marketing <span className="gradient-text">Packages</span></h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Understanding and pricing your influencer marketing packages effectively in 2025.</p>
         </div>
         
@@ -723,8 +720,8 @@ const InfluencerMarketing2025 = () => {
       {/* KPIs Section */}
       <section id="kpis" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">PERFORMANCE METRICS</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Influencer Marketing <span className="gradient-text">KPIs to Track</span></h2>
+          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-xl font-normal">PERFORMANCE METRICS</span>
+          <h2 className="text-3xl mt-2 mb-4 font-extrabold md:text-5xl">Influencer Marketing <span className="gradient-text">KPIs to Track</span></h2>
           <p className="text-gray-400 max-w-2xl mx-auto">Move beyond vanity metrics with these advanced influencer marketing KPIs that matter in 2025.</p>
         </div>
         
@@ -807,8 +804,8 @@ const InfluencerMarketing2025 = () => {
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="md:flex items-center gap-12">
           <div className="md:w-1/2 mb-12 md:mb-0">
-            <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">TEAM STRATEGY</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6">The Role of an <span className="gradient-text">Influencer Marketing Manager</span></h2>
+            <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-lg font-bold">TEAM STRATEGY</span>
+            <h2 className="text-3xl mt-2 mb-6 font-extrabold md:text-5xl">The Role of an <span className="gradient-text">Influencer Marketing Manager</span></h2>
             <p className="text-gray-400 mb-8">Behind every thriving influencer is often a sharp influencer marketing manager who coordinates the strategic and operational aspects of building a personal brand at scale.</p>
             
             <div className="space-y-6">
@@ -855,8 +852,8 @@ const InfluencerMarketing2025 = () => {
       {/* Digital Frontier Approach Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-gradient-to-br from-gray-900 to-gray-950 rounded-3xl my-12">
         <div className="text-center mb-16">
-          <span className="text-sm font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text">DIGITAL FRONTIER APPROACH</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Our <span className="gradient-text">Memphis-First</span> Strategy</h2>
+          <span className="bg-gradient-to-r from-indigo-600 to-purple-600 text-transparent bg-clip-text text-lg font-bold">DIGITAL FRONTIER APPROACH</span>
+          <h2 className="text-3xl mt-2 mb-4 font-extrabold md:text-5xl">Our <span className="gradient-text">Memphis-First</span> Strategy</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">How Digital Frontier Company combines AI-powered marketing with authentic Memphis creator partnerships.</p>
         </div>
         
