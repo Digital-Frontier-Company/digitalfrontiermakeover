@@ -27,7 +27,7 @@ const Blog = () => {
       readTime: "8 min read",
       date: "2024-12-15",
       slug: "mastering-digital-marketing",
-      image: "/lovable-uploads/3b21fa11-2a1d-4153-98dd-07178e0da505.png"
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ const Blog = () => {
       readTime: "6 min read",
       date: "2024-12-10",
       slug: "answer-engine-optimization-crypto-startups",
-      image: "/lovable-uploads/ee38718a-95d4-48fd-9ffb-203acff704f0.jpg"
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
     },
     {
       id: 3,
@@ -47,7 +47,7 @@ const Blog = () => {
       readTime: "15 min read",
       date: "2025-01-13",
       slug: "tax-reduction-wealth-building-guide",
-      image: "/lovable-uploads/3d7bf124-081a-4959-759c1e0dc150.png"
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
     }
   ];
 
