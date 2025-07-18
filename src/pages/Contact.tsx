@@ -256,9 +256,11 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-azure to-electric-purple flex items-center justify-center animate-pulse-slow">
-              <Satellite className="w-8 h-8 text-white" />
-            </div>
+            <img 
+              src="/lovable-uploads/96c27c11-7d92-44f1-9692-9070b59e3e1b.png" 
+              alt="Digital Frontier Company Logo" 
+              className="h-32 w-auto object-contain animate-pulse-slow"
+            />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent">
             DIGITAL FRONTIER CONTACT
