@@ -1,11 +1,9 @@
-
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import PageLayout from "@/components/layout/PageLayout";
 import { useLocation } from "react-router-dom";
-import { Mail, Phone, MapPin, User, MessageSquare, Send } from "lucide-react";
+import { Mail, Phone, MapPin, User, MessageSquare, Send, Satellite } from "lucide-react";
 import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,6 +27,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { submitToHubSpot } from "@/utils/hubspot";
+import { motion } from 'framer-motion';
 
 // Define form validation schema
 const formSchema = z.object({
@@ -47,6 +46,18 @@ const Contact = () => {
   const location = useLocation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [bubbles, setBubbles] = useState(() => 
+    Array.from({ length: 8 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 20 + Math.random() * 40,
+      speed: 0.1 + Math.random() * 0.2,
+      direction: Math.random() * 360,
+      opacity: 0.3 + Math.random() * 0.4
+    }))
+  );
   
   // Initialize form
   const form = useForm<z.infer<typeof formSchema>>({
@@ -126,6 +137,46 @@ const Contact = () => {
   // Create ref for the form to enable scrolling
   const formRef = React.useRef<HTMLDivElement>(null);
 
+  // Bubble movement animation
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBubbles(prevBubbles => 
+        prevBubbles.map(bubble => ({
+          ...bubble,
+          x: (bubble.x + Math.cos(bubble.direction) * bubble.speed + 100) % 100,
+          y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100
+        }))
+      );
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Track mouse movement for interactive effects
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Handle bubble pop
+  const handleBubblePop = (id: number) => {
+    setBubbles(prevBubbles => 
+      prevBubbles.map(bubble => 
+        bubble.id === id ? {
+          ...bubble,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          size: 20 + Math.random() * 40,
+          speed: 0.1 + Math.random() * 0.2,
+          direction: Math.random() * 360,
+          opacity: 0.3 + Math.random() * 0.4
+        } : bubble
+      )
+    );
+  };
+
   // Effect to handle scrolling to form when coming from other pages
   React.useEffect(() => {
     // Check if there's a hash in the URL or if a specific query param exists
@@ -135,384 +186,476 @@ const Contact = () => {
   }, [location]);
 
   return (
-    <PageLayout 
-      title="Contact Us" 
-      subtitle="Let's create your digital breakthrough together"
-      currentPath={location.pathname}
-    >
-      {/* Hero section with persuasive copy */}
-      <section className="mb-10" aria-labelledby="contact-hero-heading">
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 id="contact-hero-heading" className="text-3xl font-bold mb-4">Ready to Transform Your <span className="text-blue-400">Digital Presence?</span></h2>
-          <p className="text-lg text-slate-300">
-            Our team of AI specialists is ready to help you implement cutting-edge solutions that drive real business results.
-            Independent studies show our clients achieve an average 47% increase in qualified leads within 90 days.
-            Fill out the form below to start your journey.
-          </p>
-        </div>
-      </section>
+    <div className="relative min-h-screen bg-deep-navy" style={{ background: 'var(--gradient-hero)' }}>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating Orbs */}
+        {Array.from({ length: 3 }, (_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10"
+            style={{
+              width: `${60 + i * 20}px`,
+              height: `${60 + i * 20}px`,
+              left: `${20 + i * 30}%`,
+              top: `${20 + i * 25}%`,
+              animation: `float ${4 + i * 2}s ease-in-out infinite`,
+              animationDelay: `${i * 1.5}s`,
+              filter: 'blur(1px)',
+              transform: `translate(${(mousePosition.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0)) * (0.01 + i * 0.005)}px, ${(mousePosition.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0)) * (0.01 + i * 0.005)}px)`,
+              transition: 'transform 0.6s ease-out'
+            }}
+          />
+        ))}
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-        {/* Contact form section */}
-        <div className="md:col-span-7" id="contact-form" ref={formRef}>
-          <Card className="bg-slate-800/40 border-slate-700 backdrop-blur-sm shadow-xl">
-            <CardContent className="pt-6">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Name field */}
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2">
-                            <User className="h-4 w-4 text-blue-400" /> Your Name
-                          </FormLabel>
-                          <FormControl>
-                            <Input placeholder="John Smith" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    {/* Email field */}
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2">
-                            <Mail className="h-4 w-4 text-blue-400" /> Email Address
-                          </FormLabel>
-                          <FormControl>
-                            <Input placeholder="john@company.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Phone field */}
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2 mb-2">
-                            <Phone className="h-4 w-4 text-blue-400" /> Phone (Optional)
-                          </FormLabel>
-                          <FormControl>
-                            <Input placeholder="(555) 123-4567" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    {/* Company field */}
-                    <FormField
-                      control={form.control}
-                      name="company"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2 mb-2">
-                            <MessageSquare className="h-4 w-4 text-blue-400" /> Company (Optional)
-                          </FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your company name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  
-                  {/* Service selection */}
-                  <FormField
-                    control={form.control}
-                    name="service"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="mb-2">Service You're Interested In</FormLabel>
-                        <Select 
-                          onValueChange={field.onChange} 
-                          defaultValue={field.value}
+      {/* Interactive Clickable Bubbles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {bubbles.map(bubble => (
+          <div
+            key={bubble.id}
+            className="absolute rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 cursor-pointer hover:scale-110 transition-all duration-300"
+            style={{
+              width: `${bubble.size}px`,
+              height: `${bubble.size}px`,
+              left: `${bubble.x}%`,
+              top: `${bubble.y}%`,
+              opacity: bubble.opacity,
+              filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.4))',
+              animation: `float ${3 + bubble.id % 3}s ease-in-out infinite`,
+              animationDelay: `${bubble.id * 0.5}s`
+            }}
+            onClick={() => handleBubblePop(bubble.id)}
+          />
+        ))}
+      </div>
+
+      {/* Animated Grid Pattern Background */}
+      <div className="absolute inset-0 opacity-30">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(0, 255, 255, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            animation: 'grid-move 20s linear infinite',
+            filter: 'drop-shadow(0 0 2px cyan)'
+          }}
+        />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen">
+        {/* Header with modern styling */}
+        <motion.div 
+          className="text-center pt-20 pb-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-electric-azure to-electric-purple flex items-center justify-center animate-pulse-slow">
+              <Satellite className="w-8 h-8 text-white" />
+            </div>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent">
+            DIGITAL FRONTIER CONTACT
+          </h1>
+          <div className="h-1 w-32 bg-electric-azure mx-auto rounded-full mb-4 shadow-neon-sm"></div>
+          <p className="text-xl text-soft-white/80 max-w-3xl mx-auto">
+            Ready to Transform Your Digital Presence? Let's create your digital breakthrough together.
+          </p>
+        </motion.div>
+
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            {/* Contact form section */}
+            <div className="md:col-span-7" id="contact-form" ref={formRef}>
+              <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90 overflow-hidden">
+                {/* Neon top border */}
+                <div className="h-1 bg-gradient-to-r from-electric-azure to-electric-purple"></div>
+                <CardContent className="p-8 relative">
+                  {/* Grid pattern overlay */}
+                  <div className="absolute inset-0 opacity-5" style={{
+                    backgroundImage: `linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)`,
+                    backgroundSize: '30px 30px'
+                  }}></div>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Name field */}
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
+                                <User className="w-4 h-4 mr-2" /> Your Name <span className="text-red-400 ml-1">*</span>
+                              </FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Input 
+                                    placeholder="John Smith" 
+                                    {...field} 
+                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
+                                  />
+                                  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <User className="w-4 h-4 text-electric-azure/60" />
+                                  </div>
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        {/* Email field */}
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
+                                <Mail className="w-4 h-4 mr-2" /> Email Address <span className="text-red-400 ml-1">*</span>
+                              </FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Input 
+                                    placeholder="john@company.com" 
+                                    {...field} 
+                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
+                                  />
+                                  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <Mail className="w-4 h-4 text-electric-azure/60" />
+                                  </div>
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Phone field */}
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
+                                <Phone className="w-4 h-4 mr-2" /> Phone (Optional)
+                              </FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Input 
+                                    placeholder="(555) 123-4567" 
+                                    {...field} 
+                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
+                                  />
+                                  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <Phone className="w-4 h-4 text-electric-azure/60" />
+                                  </div>
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        {/* Company field */}
+                        <FormField
+                          control={form.control}
+                          name="company"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
+                                <MessageSquare className="w-4 h-4 mr-2" /> Company (Optional)
+                              </FormLabel>
+                              <FormControl>
+                                <div className="relative">
+                                  <Input 
+                                    placeholder="Your company name" 
+                                    {...field} 
+                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
+                                  />
+                                  <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <MessageSquare className="w-4 h-4 text-electric-azure/60" />
+                                  </div>
+                                </div>
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      {/* Service selection */}
+                      <FormField
+                        control={form.control}
+                        name="service"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2">Service You're Interested In</FormLabel>
+                            <Select 
+                              onValueChange={field.onChange} 
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50">
+                                  <SelectValue placeholder="Select a service" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent className="bg-deep-navy border-electric-azure/30">
+                                <SelectItem value="ai-advertising">AI-Powered Advertising</SelectItem>
+                                <SelectItem value="generative-engine">Generative Engine Optimization</SelectItem>
+                                <SelectItem value="ad-funnel">Ad Funnel Blueprint</SelectItem>
+                                <SelectItem value="content-automation">Content Automation</SelectItem>
+                                <SelectItem value="consulting">AI Strategy Consulting</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      {/* Message field */}
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
+                              <MessageSquare className="w-4 h-4 mr-2" /> Your Message
+                            </FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Tell us about your project or questions..." 
+                                className="min-h-[120px] bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" 
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      {/* Consent checkbox */}
+                      <FormField
+                        control={form.control}
+                        name="consent"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4 rounded-md border border-electric-azure/30 bg-deep-navy/50">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="text-electric-azure/90">
+                                I agree to be contacted about my inquiry and other relevant services
+                              </FormLabel>
+                              <FormMessage />
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                      
+                      {/* Submit button */}
+                      <div className="pt-4">
+                        <Button 
+                          type="submit" 
+                          disabled={isSubmitting}
+                          className="w-full bg-gradient-to-r from-electric-azure to-electric-purple hover:from-electric-azure/90 hover:to-electric-purple/90 text-white font-bold py-4 px-6 rounded-lg text-lg tracking-wider uppercase transition-all duration-300 transform hover:scale-[1.02] shadow-neon hover:shadow-neon-lg"
                         >
-                          <FormControl>
-                            <SelectTrigger className="w-full">
-                              <SelectValue placeholder="Select a service" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="ai-advertising">AI-Powered Advertising</SelectItem>
-                            <SelectItem value="generative-engine">Generative Engine Optimization</SelectItem>
-                            <SelectItem value="ad-funnel">Ad Funnel Blueprint</SelectItem>
-                            <SelectItem value="content-automation">Content Automation</SelectItem>
-                            <SelectItem value="consulting">AI Strategy Consulting</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  {/* Message field */}
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="flex items-center gap-2 mb-2">
-                          <MessageSquare className="h-4 w-4 text-blue-400" /> Your Message
-                        </FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder="Tell us about your project or questions..." 
-                            className="min-h-[120px]" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  {/* Consent checkbox */}
-                  <FormField
-                    control={form.control}
-                    name="consent"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4 rounded-md border border-slate-700 bg-slate-900/30">
-                        <FormControl>
-                          <Checkbox
-                            checked={field.value}
-                            onCheckedChange={field.onChange}
-                          />
-                        </FormControl>
-                        <div className="space-y-1 leading-none">
-                          <FormLabel>
-                            I agree to be contacted about my inquiry and other relevant services
-                          </FormLabel>
-                          <FormMessage />
+                          <Send className="w-5 h-5 mr-2" />
+                          {isSubmitting ? "Sending..." : "Submit Request"}
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
+
+                  {/* Footer note */}
+                  <div className="pt-4 text-center text-electric-azure/80 text-sm border-t border-electric-azure/20 mt-6">
+                    <p>Your data is encrypted and securely transmitted</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Contact information sidebar */}
+            <div className="md:col-span-5">
+              <div className="space-y-8">
+                {/* Why contact us section */}
+                <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
+                  <CardContent className="p-6">
+                    <h3 id="why-work-with-us-heading" className="text-xl font-bold mb-4 text-electric-azure">Why Work With Us?</h3>
+                    <ul className="space-y-3 text-soft-white/80">
+                      <li className="flex items-start gap-2">
+                        <div className="rounded-full bg-electric-azure/20 p-1 mt-1">
+                          <div className="rounded-full bg-electric-azure w-2 h-2"></div>
                         </div>
-                      </FormItem>
-                    )}
-                  />
-                  
-                  {/* Submit button */}
-                  <Button 
-                    type="submit" 
-                    disabled={isSubmitting}
-                    className="w-full py-6 text-lg font-medium flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-500 hover:to-blue-300 transition-all duration-300 disabled:opacity-50"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"} 
-                    <Send className="h-5 w-5" />
-                  </Button>
-                </form>
-              </Form>
-            </CardContent>
-          </Card>
+                        <span>Pioneers in AI-driven advertising solutions (certified by Google AI and Meta Business Partners)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="rounded-full bg-electric-azure/20 p-1 mt-1">
+                          <div className="rounded-full bg-electric-azure w-2 h-2"></div>
+                        </div>
+                        <span>Proven track record of increasing conversion rates by 38% on average (verified client data, 2024)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="rounded-full bg-electric-azure/20 p-1 mt-1">
+                          <div className="rounded-full bg-electric-azure w-2 h-2"></div>
+                        </div>
+                        <span>Tailored strategies for your specific industry</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="rounded-full bg-electric-azure/20 p-1 mt-1">
+                          <div className="rounded-full bg-electric-azure w-2 h-2"></div>
+                        </div>
+                        <span>Transparent reporting and continuous optimization</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+                
+                {/* Contact details card */}
+                <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
+                  <CardContent className="p-6">
+                    <h3 id="contact-details-heading" className="text-xl font-bold mb-4 text-electric-azure">Get In Touch</h3>
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <div className="bg-electric-azure/20 p-3 rounded-full">
+                          <Mail className="h-5 w-5 text-electric-azure" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-soft-white/60">Email Us</p>
+                          <p className="font-medium text-soft-white">david@digitalfrontier.app</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="bg-electric-azure/20 p-3 rounded-full">
+                          <Phone className="h-5 w-5 text-electric-azure" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-soft-white/60">Call Us</p>
+                          <p className="font-medium text-soft-white">901-657-5007</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="bg-electric-azure/20 p-3 rounded-full">
+                          <MapPin className="h-5 w-5 text-electric-azure" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-soft-white/60">Location</p>
+                          <p className="font-medium text-soft-white">Memphis, TN</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+                
+                {/* Response time guarantee */}
+                <Card className="backdrop-blur-sm border-electric-azure/20 bg-electric-azure/10">
+                  <CardContent className="p-5">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-medium text-soft-white">Average Response Time</h4>
+                      <span className="text-electric-azure font-semibold">4 hours</span>
+                    </div>
+                    <div className="mt-2 bg-deep-navy/30 h-2 rounded-full">
+                      <div className="bg-gradient-to-r from-electric-azure to-electric-purple w-3/4 h-2 rounded-full"></div>
+                    </div>
+                    <p className="text-sm text-soft-white/80 mt-2">
+                      We respond to all inquiries within 24 hours, typically much faster. Our average response time is 4.2 hours (tracked via CRM analytics).
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
         </div>
         
-        {/* Contact information sidebar */}
-        <div className="md:col-span-5">
-          <div className="space-y-8">
-            {/* Why contact us section */}
-            <div className="bg-gradient-to-br from-slate-800/70 to-slate-900/70 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">
-              <h3 id="why-work-with-us-heading" className="text-xl font-bold mb-4">Why Work With Us?</h3>
-              <ul className="space-y-3 text-slate-300">
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-blue-900/30 p-1 mt-1">
-                    <div className="rounded-full bg-blue-500 w-2 h-2"></div>
+        {/* Testimonials section */}
+        <section className="mt-16 relative z-10" aria-labelledby="testimonials-heading">
+          <div className="max-w-7xl mx-auto px-6">
+            <h3 id="testimonials-heading" className="text-2xl font-bold text-center mb-8 text-electric-azure">What Our Clients Say</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Testimonial 1 */}
+              <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className="text-yellow-400 text-lg">★</span>
+                    ))}
                   </div>
-                  <span>Pioneers in AI-driven advertising solutions (certified by Google AI and Meta Business Partners)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-blue-900/30 p-1 mt-1">
-                    <div className="rounded-full bg-blue-500 w-2 h-2"></div>
-                  </div>
-                  <span>Proven track record of increasing conversion rates by 38% on average (verified client data, 2024)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-blue-900/30 p-1 mt-1">
-                    <div className="rounded-full bg-blue-500 w-2 h-2"></div>
-                  </div>
-                  <span>Tailored strategies for your specific industry</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="rounded-full bg-blue-900/30 p-1 mt-1">
-                    <div className="rounded-full bg-blue-500 w-2 h-2"></div>
-                  </div>
-                  <span>Transparent reporting and continuous optimization</span>
-                </li>
-              </ul>
-            </div>
-            
-            {/* Contact details card */}
-            <div className="bg-slate-800/40 border-slate-700 p-6 rounded-xl backdrop-blur-sm">
-              <h3 id="contact-details-heading" className="text-xl font-bold mb-4">Get In Touch</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="bg-blue-900/30 p-3 rounded-full">
-                    <Mail className="h-5 w-5 text-blue-400" />
-                  </div>
+                  <p className="text-soft-white/80 mb-4 italic">"Digital Frontier transformed our lead generation completely. We saw a 73% increase in qualified leads within the first month of their AI-powered campaigns."</p>
                   <div>
-                    <p className="text-sm text-slate-400">Email Us</p>
-                    <p className="font-medium">david@digitalfrontier.app</p>
+                    <p className="font-semibold text-electric-azure">Sarah Chen</p>
+                    <p className="text-soft-white/60 text-sm">Marketing Director, TechFlow Solutions</p>
                   </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-blue-900/30 p-3 rounded-full">
-                    <Phone className="h-5 w-5 text-blue-400" />
+                </CardContent>
+              </Card>
+
+              {/* Testimonial 2 */}
+              <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className="text-yellow-400 text-lg">★</span>
+                    ))}
                   </div>
+                  <p className="text-soft-white/80 mb-4 italic">"The ROI speak for itself. Our content engagement increased 240% and conversion rates jumped 58% after implementing their Answer Engine Optimization strategy."</p>
                   <div>
-                    <p className="text-sm text-slate-400">Call Us</p>
-                    <p className="font-medium">901-657-5007</p>
+                    <p className="font-semibold text-electric-azure">Marcus Rodriguez</p>
+                    <p className="text-soft-white/60 text-sm">CEO, CloudScale Systems</p>
                   </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="bg-blue-900/30 p-3 rounded-full">
-                    <MapPin className="h-5 w-5 text-blue-400" />
+                </CardContent>
+              </Card>
+
+              {/* Testimonial 3 */}
+              <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star} className="text-yellow-400 text-lg">★</span>
+                    ))}
                   </div>
+                  <p className="text-soft-white/80 mb-4 italic">"Finally, a marketing team that understands B2B tech. Our MQLs increased 156% and our sales cycle shortened by 2 weeks on average."</p>
                   <div>
-                    <p className="text-sm text-slate-400">Location</p>
-                    <p className="font-medium">Memphis, TN</p>
+                    <p className="font-semibold text-electric-azure">Amanda Foster</p>
+                    <p className="text-soft-white/60 text-sm">VP Growth, DataVault Inc</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Response time guarantee */}
-            <div className="bg-blue-900/20 border border-blue-800/40 p-5 rounded-xl">
-              <div className="flex items-center justify-between">
-                <h4 className="font-medium">Average Response Time</h4>
-                <span className="text-blue-400 font-semibold">4 hours</span>
-              </div>
-              <div className="mt-2 bg-slate-700/30 h-2 rounded-full">
-                <div className="bg-gradient-to-r from-blue-500 to-blue-400 w-3/4 h-2 rounded-full"></div>
-              </div>
-              <p className="text-sm text-slate-300 mt-2">
-                We respond to all inquiries within 24 hours, typically much faster. Our average response time is 4.2 hours (tracked via CRM analytics).
-              </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
-        </div>
+        </section>
+        
+        {/* FAQ Section */}
+        <section className="mt-20 relative z-10">
+          <div className="max-w-7xl mx-auto px-6">
+            <FAQSection faqs={[
+              {
+                question: "How long does it take to see results?",
+                answer: "Most clients see initial improvements within 30 days, with significant results typically appearing within 60-90 days."
+              },
+              {
+                question: "What makes your AI approach different?",
+                answer: "We use proprietary algorithms that continuously learn and optimize your campaigns based on real-time performance data."
+              },
+              {
+                question: "Do you work with small businesses?",
+                answer: "Yes, we offer scalable solutions for businesses of all sizes, from startups to enterprise companies."
+              }
+            ]} />
+          </div>
+        </section>
       </div>
-      
-      {/* Testimonials section */}
-      <section className="mt-16" aria-labelledby="testimonials-heading">
-        <h3 id="testimonials-heading" className="text-2xl font-bold text-center mb-8">What Our Clients Say</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Testimonial 1 */}
-          <div className="bg-slate-800/30 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">
-            <div className="flex items-center gap-2 mb-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg key={star} className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            <blockquote className="text-slate-300 mb-4">
-              "Digital Frontier transformed our advertising strategy with their AI solutions. We've seen a 43% increase in lead conversion since implementing their recommendations."
-            </blockquote>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">
-                MJ
-              </div>
-              <div>
-                <p className="font-semibold">Michael Johnson</p>
-                <p className="text-sm text-slate-400">Marketing Director, TechCorp</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Testimonial 2 */}
-          <div className="bg-slate-800/30 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">
-            <div className="flex items-center gap-2 mb-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg key={star} className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            <blockquote className="text-slate-300 mb-4">
-              "The Ad Funnel Blueprint strategy completely revolutionized our customer acquisition process. Their team is responsive and deeply knowledgeable."
-            </blockquote>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-white font-bold">
-                SA
-              </div>
-              <div>
-                <p className="font-semibold">Sarah Adams</p>
-                <p className="text-sm text-slate-400">CEO, GrowthStartup</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Testimonial 3 */}
-          <div className="bg-slate-800/30 p-6 rounded-xl border border-slate-700 backdrop-blur-sm">
-            <div className="flex items-center gap-2 mb-4">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <svg key={star} className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              ))}
-            </div>
-            <blockquote className="text-slate-300 mb-4">
-              "Digital Frontier's Generative Engine Optimization helped us create content that truly resonates with our audience. Our engagement metrics have never been better."
-            </blockquote>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white font-bold">
-                DP
-              </div>
-              <div>
-                <p className="font-semibold">David Patel</p>
-                <p className="text-sm text-slate-400">CMO, E-Commerce Solutions</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* FAQ Section with Schema Markup */}
-      <section className="mt-16">
-        <FAQSection 
-          title="Frequently Asked Questions"
-          faqs={[
-            {
-              question: "How quickly can we start seeing results?",
-              answer: "Most clients begin seeing measurable improvements within the first 30 days, with significant performance gains by the 90-day mark. Our AI-powered strategies are designed for both immediate impact and long-term growth."
-            },
-            {
-              question: "Do you work with companies of all sizes?",
-              answer: "Yes, we work with startups to Fortune 500 companies. Our strategies scale based on your business size, budget, and goals. We tailor our approach to fit your specific needs and growth stage."
-            },
-            {
-              question: "What makes your AI marketing approach different?",
-              answer: "We combine cutting-edge AI technology with proven marketing fundamentals. Our approach focuses on Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), and predictive analytics to stay ahead of the evolving digital landscape."
-            },
-            {
-              question: "Do you offer ongoing support after initial implementation?",
-              answer: "Absolutely! We provide comprehensive ongoing support including monthly strategy reviews, performance optimization, and access to our team of AI marketing experts. We're committed to your long-term success."
-            },
-            {
-              question: "How do you measure the success of AI marketing campaigns?",
-              answer: "We use advanced analytics and AI-powered tracking to measure ROI, engagement rates, conversion optimization, and predictive lifetime value. You'll receive detailed reports with actionable insights and clear performance metrics."
-            },
-            {
-              question: "Can you help with both B2B and B2C marketing strategies?",
-              answer: "Yes, our AI marketing expertise spans both B2B and B2C markets. We adapt our strategies, messaging, and channels based on your target audience, whether you're reaching decision-makers in corporations or individual consumers."
-            }
-          ]}
-          className="bg-slate-800/20 p-6 rounded-lg"
-        />
-      </section>
-    </PageLayout>
+    </div>
   );
 };
 
