@@ -78,16 +78,34 @@ const AdFunnelBlueprint = () => {
   };
   
   return (
-    <PageLayout 
-      title="AI-Powered Ad Funnel Blueprint" 
-      subtitle="Navigate Your Customer Journey" 
-      currentPath={location.pathname}
-    >
-      <Helmet>
-        <link rel="canonical" href="https://thedigitalfrontier.ai/ad-funnel-blueprint" />
-      </Helmet>
+    <div className="relative min-h-screen">
+      {/* Background image with overlay */}
+      <div 
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: `url('/lovable-uploads/5aa13ef4-6453-462e-b5bf-bd88c1b20988.png')`,
+          opacity: 0.15,
+          zIndex: -2
+        }}
+      />
+      <div 
+        className="fixed inset-0 bg-slate-950"
+        style={{ 
+          opacity: 0.85,
+          zIndex: -1
+        }}
+      />
       
-      <div className="space-y-12">
+      <PageLayout 
+        title="AI-Powered Ad Funnel Blueprint" 
+        subtitle="Navigate Your Customer Journey" 
+        currentPath={location.pathname}
+      >
+        <Helmet>
+          <link rel="canonical" href="https://thedigitalfrontier.ai/ad-funnel-blueprint" />
+        </Helmet>
+        
+        <div className="space-y-12 relative z-10">
         {/* Introduction section with animated gradient */}
         <section className="relative overflow-hidden rounded-xl p-8 bg-gradient-to-br from-blue-900/40 to-purple-900/40 border border-blue-800/30 animate-fade-in">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
@@ -552,8 +570,9 @@ const AdFunnelBlueprint = () => {
             #DigitalFrontier #AIAdFunnel #MarketingAI #DigitalMarketing #AdvertisingTechnology #FutureOfAds
           </p>
         </section>
-      </div>
-    </PageLayout>
+        </div>
+      </PageLayout>
+    </div>
   );
 };
 
