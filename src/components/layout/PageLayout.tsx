@@ -3,8 +3,6 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
 import { handleClientRedirect } from "@/utils/redirect";
-import EnhancedBreadcrumb from "@/components/layout/EnhancedBreadcrumb";
-import InternalLinkingSection from "@/components/layout/InternalLinkingSection";
 
 type PageLayoutProps = {
   children: React.ReactNode;
@@ -14,8 +12,6 @@ type PageLayoutProps = {
   pageType?: 'article' | 'page';
   publishedDate?: string;
   modifiedDate?: string;
-  showInternalLinks?: boolean;
-  contentType?: string;
 };
 
 const PageLayout: React.FC<PageLayoutProps> = ({ 
@@ -25,9 +21,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   currentPath,
   pageType = 'page',
   publishedDate,
-  modifiedDate,
-  showInternalLinks = true,
-  contentType = 'marketing-strategy'
+  modifiedDate
 }) => {
   // Get the current page name from the path
   const pageName = currentPath.split("/").pop() || "";
@@ -99,7 +93,16 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         </div>
       </section>
 
-      <EnhancedBreadcrumb />
+      {/* Breadcrumb Navigation */}
+      <div className="bg-slate-900/60 border-y border-slate-800/80">
+        <div className="container mx-auto py-3 px-4">
+          <div className="flex text-sm text-slate-400">
+            <Link to="/" className="hover:text-blue-400">Home</Link>
+            <span className="mx-2">/</span>
+            <span className="text-slate-300">{formattedPageName || title}</span>
+          </div>
+        </div>
+      </div>
       
       {/* Main Content */}
       <main className="container mx-auto py-8 px-4 mt-4">
@@ -107,15 +110,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <article>
             <div className="space-y-8">
               {children}
-              
-              {/* Internal Linking Section */}
-              {showInternalLinks && (
-                <InternalLinkingSection 
-                  currentPath={currentPath}
-                  contentType={contentType}
-                  className="mt-12"
-                />
-              )}
             </div>
           </article>
         </div>
