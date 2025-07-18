@@ -148,10 +148,10 @@ const BlogPost = () => {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 blog-slide-up" style={{
             animationDelay: '0.4s'
           }}>
-              <Button className="bg-cyan-400 text-slate-900 px-6 py-3 rounded-md font-bold hover:bg-cyan-300 transition duration-300">
+              <Button className="bg-gradient-to-r from-cyan-400 to-blue-900 text-white px-6 py-3 rounded-md font-bold hover:from-cyan-300 hover:to-blue-800 transition duration-300">
                 Explore Strategies
               </Button>
-              <Button variant="outline" className="border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-md font-bold hover:bg-cyan-400 hover:bg-opacity-10 transition duration-300">
+              <Button variant="outline" className="border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-md font-bold hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-900 hover:text-white hover:border-transparent transition duration-300">
                 Read Case Studies 
               </Button>
             </div>
@@ -428,7 +428,7 @@ const BlogPost = () => {
                     At Digital Frontier Company, we empower businesses with AI-driven digital transformation solutions that encompass risk management to protect and propel your growth.
                   </p>
                   <Link to="/contact">
-                    <Button className="bg-cyan-400 text-slate-900 px-8 py-4 rounded-md font-bold hover:bg-cyan-300 transition duration-300 text-lg">
+                    <Button className="bg-gradient-to-r from-cyan-400 to-blue-900 text-white px-8 py-4 rounded-md font-bold hover:from-cyan-300 hover:to-blue-800 transition duration-300 text-lg">
                       🤖 Get Your Free AI Risk Assessment
                     </Button>
                   </Link>
