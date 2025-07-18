@@ -236,7 +236,9 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="md:w-1/3 flex justify-center">
-                    <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="w-48 h-48" />
+                    <div className="bg-lime-400 bg-opacity-30 rounded-full p-4">
+                      <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="w-48 h-48" />
+                    </div>
                   </div>
                 </div>
               </div>
