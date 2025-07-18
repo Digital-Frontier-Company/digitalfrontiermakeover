@@ -194,11 +194,11 @@ const BlogPost = () => {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4">
+                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
                       <img 
                         src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" 
                         alt="Security Shield" 
-                        className="w-6 h-6"
+                        className="w-8 h-8"
                       />
                     </div>
                     <h3 className="text-xl font-bold">The Importance of Business Resilience</h3>
@@ -209,11 +209,11 @@ const BlogPost = () => {
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4">
+                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
                       <img 
                         src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" 
                         alt="AI Technology" 
-                        className="w-6 h-6"
+                        className="w-8 h-8"
                       />
                     </div>
                     <h3 className="text-xl font-bold">AI Transforming Risk Management</h3>
@@ -253,18 +253,18 @@ const BlogPost = () => {
                         <div className="w-40 h-40 rounded-full bg-lime-400 bg-opacity-20 flex items-center justify-center">
                           <div className="w-32 h-32 rounded-full bg-lime-400 bg-opacity-30 flex items-center justify-center">
                             <img 
-                              src="/lovable-uploads/b71df8b7-a59a-4adc-acc9-f800cc441671.png" 
-                              alt="Analytics Chart" 
-                              className="w-12 h-12"
+                              src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" 
+                              alt="AI Analytics" 
+                              className="w-16 h-16"
                             />
                           </div>
                         </div>
                       </div>
                       <div className="absolute -bottom-4 -right-4 bg-black bg-opacity-70 p-3 rounded-full border-2 border-lime-400">
                         <img 
-                          src="/lovable-uploads/b71df8b7-a59a-4adc-acc9-f800cc441671.png" 
+                          src="/lovable-uploads/4d5dede6-a64d-443e-aef8-fd9c123b45a3.png" 
                           alt="Innovation" 
-                          className="w-6 h-6"
+                          className="w-8 h-8"
                         />
                       </div>
                     </div>
@@ -285,9 +285,9 @@ const BlogPost = () => {
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
                       <img 
-                        src="/lovable-uploads/b71df8b7-a59a-4adc-acc9-f800cc441671.png" 
-                        alt="Database" 
-                        className="w-8 h-8"
+                        src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" 
+                        alt="Data Security" 
+                        className="w-6 h-6"
                       />
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 1</span>
@@ -305,9 +305,9 @@ const BlogPost = () => {
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
                       <img 
-                        src="/lovable-uploads/b71df8b7-a59a-4adc-acc9-f800cc441671.png" 
-                        alt="Risk Assessment" 
-                        className="w-8 h-8"
+                        src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" 
+                        alt="AI Risk Assessment" 
+                        className="w-6 h-6"
                       />
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 2</span>
@@ -325,9 +325,9 @@ const BlogPost = () => {
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
                       <img 
-                        src="/lovable-uploads/b71df8b7-a59a-4adc-acc9-f800cc441671.png" 
-                        alt="Mitigation Planning" 
-                        className="w-8 h-8"
+                        src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" 
+                        alt="Security Planning" 
+                        className="w-6 h-6"
                       />
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 3</span>
@@ -349,9 +349,9 @@ const BlogPost = () => {
                   <div className="flex items-start">
                     <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
                       <img 
-                        src="/lovable-uploads/b71df8b7-a59a-4adc-acc9-f800cc441671.png" 
-                        alt="Check" 
-                        className="w-4 h-4"
+                        src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" 
+                        alt="Security Check" 
+                        className="w-5 h-5"
                       />
                     </div>
                     <div>
