@@ -39,6 +39,7 @@ import InfluencerMarketing2025 from "./pages/InfluencerMarketing2025";
 import { Toaster } from 'react-hot-toast';
 import NotFound from '@/pages/NotFound';
 import ModernContactForm from '@/pages/ModernContactForm';
+import { Analytics } from '@vercel/analytics/react';
 
 // Create a query client instance
 const queryClient = new QueryClient();
@@ -52,6 +53,7 @@ function App() {
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
         <Toaster />
+        <Analytics />
         <Router>
           <Routes>
             <Route path="/" element={<MainLayout><Index /></MainLayout>} />
