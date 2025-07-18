@@ -70,6 +70,7 @@ function App() {
             <Route path="/site-map" element={<MainLayout><SiteMap /></MainLayout>} />
             <Route path="/sitemap" element={<MainLayout><SiteMap /></MainLayout>} />
             <Route path="/blog" element={<MainLayout><Blog /></MainLayout>} />
+            <Route path="/blog/ai-driven-risk-management-business-resilience" element={<MainLayout><BlogPost /></MainLayout>} />
             <Route path="/blog/mastering-digital-marketing" element={<MainLayout><BlogPost /></MainLayout>} />
             <Route path="/blog/answer-engine-optimization-crypto-startups" element={<MainLayout><BlogPost /></MainLayout>} />
             <Route path="/resources/content-creation-agent" element={<MainLayout><ContentCreationAgent /></MainLayout>} />
