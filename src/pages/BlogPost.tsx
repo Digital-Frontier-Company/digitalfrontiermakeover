@@ -148,10 +148,10 @@ const BlogPost = () => {
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 blog-slide-up" style={{
             animationDelay: '0.4s'
           }}>
-              <Button className="bg-lime-400 text-slate-900 px-6 py-3 rounded-md font-bold hover:bg-lime-300 transition duration-300">
+              <Button className="bg-gradient-to-r from-cyan-400 to-blue-900 text-white px-6 py-3 rounded-md font-bold hover:from-cyan-300 hover:to-blue-800 transition duration-300">
                 Explore Strategies
               </Button>
-              <Button variant="outline" className="border-2 border-lime-400 text-lime-400 px-6 py-3 rounded-md font-bold hover:bg-lime-400 hover:bg-opacity-10 transition duration-300">
+              <Button variant="outline" className="border-2 border-cyan-400 text-cyan-400 px-6 py-3 rounded-md font-bold hover:bg-gradient-to-r hover:from-cyan-400 hover:to-blue-900 hover:text-white hover:border-transparent transition duration-300">
                 Read Case Studies 
               </Button>
             </div>
@@ -159,8 +159,8 @@ const BlogPost = () => {
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-l from-slate-900 to-transparent z-10 bg-[#000a0e]/10 rounded-md"></div>
-          <div className="absolute inset-0 flex items-center justify-center z-0 opacity-60">
-            <img src="/lovable-uploads/c83494e8-5014-41cd-90a9-67d3509066f8.png" alt="AI Brain Circuit" className="w-full h-full object-contain blog-pulse" />
+          <div className="absolute inset-0 flex items-center justify-center z-0 opacity-20">
+            <div className="text-[20rem] text-cyan-400 blog-pulse">🧠</div>
           </div>
         </div>
       </header>
@@ -171,8 +171,8 @@ const BlogPost = () => {
             {/* Introduction Section */}
             <section id="introduction" className="mb-20 blog-fade-in">
               <div className="flex items-center mb-8">
-                <div className="h-px bg-gradient-to-r from-lime-400 to-transparent w-16 mr-4"></div>
-                <h2 className="text-2xl font-bold text-lime-400">Introduction</h2>
+                <div className="h-px bg-gradient-to-r from-cyan-400 to-transparent w-16 mr-4"></div>
+                <h2 className="text-2xl font-bold text-cyan-400">Introduction</h2>
               </div>
               
               <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 md:p-8 mb-8 blog-card-hover border border-gray-800">
@@ -190,10 +190,10 @@ const BlogPost = () => {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Shield" className="w-8 h-8" />
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4">
+                      <div className="text-cyan-300">🛡️</div>
                     </div>
-                    <h3 className="mr-20 -mr-20 bg-cyan-200">The Importance of Business Resilience</h3>
+                    <h3 className="text-xl font-bold">The Importance of Business Resilience</h3>
                   </div>
                   <p className="text-gray-300">
                     Business resilience is the capacity of an organization to anticipate disruptions, adapt to changes, and recover quickly while maintaining core operations and value creation. In 2025, with the rapid pace of technological evolution and external uncertainties, resilience is no longer optional—it's a competitive imperative.
@@ -201,8 +201,8 @@ const BlogPost = () => {
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
-                      <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Technology" className="w-8 h-8" />
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4">
+                      <div className="text-cyan-300">🤖</div>
                     </div>
                     <h3 className="text-xl font-bold">AI Transforming Risk Management</h3>
                   </div>
@@ -218,34 +218,34 @@ const BlogPost = () => {
                     <h3 className="text-2xl font-bold mb-4">Key Statistics on AI in Risk Management</h3>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="bg-black bg-opacity-30 p-4 rounded-lg">
-                        <p className="text-lime-400 text-3xl font-bold mb-1">78%</p>
+                        <p className="text-cyan-400 text-3xl font-bold mb-1">78%</p>
                         <p className="text-sm">of organizations implemented AI in business functions</p>
                       </div>
                       <div className="bg-black bg-opacity-30 p-4 rounded-lg">
-                        <p className="text-lime-400 text-3xl font-bold mb-1">50%</p>
-                        <p className="text-sm rounded-full bg-cyan-950">faster recovery times for resilient companies</p>
+                        <p className="text-cyan-400 text-3xl font-bold mb-1">50%</p>
+                        <p className="text-sm">faster recovery times for resilient companies</p>
                       </div>
-                      <div className=" bg-lime-800-opacity-20 p-4 rounded-lg">
-                        <p className="text-lime-400 text-3xl font-bold mb-1">2.5x</p>
+                      <div className="bg-black bg-opacity-30 p-4 rounded-lg">
+                        <p className="text-cyan-400 text-3xl font-bold mb-1">2.5x</p>
                         <p className="text-sm">more likely to outperform peers</p>
                       </div>
                       <div className="bg-black bg-opacity-30 p-4 rounded-lg">
-                        <p className="text-lime-400 text-3xl font-bold mb-1">71%</p>
+                        <p className="text-cyan-400 text-3xl font-bold mb-1">71%</p>
                         <p className="text-sm">of businesses using generative AI in 2024</p>
                       </div>
                     </div>
                   </div>
                   <div className="md:w-1/3 flex justify-center">
                     <div className="relative">
-                      <div className="w-48 h-48 rounded-full bg-lime-400 bg-opacity-10 flex items-center justify-center">
-                        <div className="w-40 h-40 rounded-full bg-lime-400 bg-opacity-20 ">
-                          <div className="w-32 -bottom-1 bg-lime-400 bg-opacity-30 flex items-center justify-center rounded-bl-3xl ">
-                            <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="min-w-36 ,min-h-44 " />
+                      <div className="w-48 h-48 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-900/30 flex items-center justify-center">
+                        <div className="w-40 h-40 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-900/40 flex items-center justify-center">
+                          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400/40 to-blue-900/50 flex items-center justify-center">
+                            <div className="text-cyan-300 text-4xl">📊</div>
                           </div>
                         </div>
                       </div>
-                      <div className="absolute -bottom-4 -right-4 bg-black bg-opacity-70 p-3 rounded-full border-2 border-lime-400">
-                        <img src="/lovable-uploads/4d5dede6-a64d-443e-aef8-fd9c123b45a3.png" alt="Innovation" className="w-svw h-1/2 " />
+                      <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-blue-900/80 to-cyan-400/60 p-3 rounded-full border-2 border-cyan-400/60">
+                        <div className="text-cyan-200 text-xl">💡</div>
                       </div>
                     </div>
                   </div>
@@ -256,15 +256,15 @@ const BlogPost = () => {
             {/* Strategies Section */}
             <section id="strategies" className="mb-20 blog-fade-in">
               <div className="flex items-center mb-8">
-                <div className="h-px bg-gradient-to-r from-lime-400 to-transparent w-16 mr-4"></div>
-                <h2 className="text-2xl font-bold text-lime-400">AI Risk Management Strategies</h2>
+                <div className="h-px bg-gradient-to-r from-cyan-400 to-transparent w-16 mr-4"></div>
+                <h2 className="text-2xl font-bold text-cyan-400">AI Risk Management Strategies</h2>
               </div>
               
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Data Security" className="min-w-28 min-h-28 " />
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-3 rounded-lg">
+                      <div className="text-cyan-300 text-xl">🗄️</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 1</span>
                   </div>
@@ -272,15 +272,15 @@ const BlogPost = () => {
                   <p className="text-gray-300 mb-4">
                     Aggregating structured and unstructured data from internal systems, external sources, and IoT devices to create a holistic view.
                   </p>
-                  <div className="flex items-center text-sm text-lime-400">
+                  <div className="flex items-center text-sm text-cyan-400">
                     <span className="mr-2">→</span>
                     <span>Learn more</span>
                   </div>
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
-                      <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Risk Assessment" className="min-w-28 min-h-28 " />
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-3 rounded-lg">
+                      <div className="text-cyan-300 text-xl">📊</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 2</span>
                   </div>
@@ -288,15 +288,15 @@ const BlogPost = () => {
                   <p className="text-gray-300 mb-4">
                     Using machine learning algorithms to quantify risks based on probability and impact, often with dynamic scoring that updates in real-time.
                   </p>
-                  <div className="flex items-center text-sm text-lime-400">
+                  <div className="flex items-center text-sm text-cyan-400">
                     <span className="mr-2">→</span>
                     <span>Learn more</span>
                   </div>
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
-                  <div className="flex justify-between items-start mb-4 rounded-lg items-start ">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Planning" className="min-w-28 min-h-28 " />
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-3 rounded-lg">
+                      <div className="text-cyan-300 text-xl">⚙️</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 3</span>
                   </div>
@@ -304,7 +304,7 @@ const BlogPost = () => {
                   <p className="text-gray-300 mb-4">
                     Generating automated response plans, such as rerouting supply chains or activating cybersecurity protocols.
                   </p>
-                  <div className="flex items-center text-sm text-lime-400">
+                  <div className="flex items-center text-sm text-cyan-400">
                     <span className="mr-2">→</span>
                     <span>Learn more</span>
                   </div>
@@ -315,8 +315,8 @@ const BlogPost = () => {
                 <h3 className="text-2xl font-bold mb-6">Benefits of Implementing AI in Risk Mitigation</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex items-start">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-10 ">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Check" className="min-w-20 min-h-20 " />
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">✓</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Superior Accuracy and Precision</h4>
@@ -326,8 +326,8 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-10">
-                      <div className="text-lime-400">⚡</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">⚡</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Real-Time Insights</h4>
@@ -337,7 +337,9 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">💰</div>
+                    </div>
                     <div>
                       <h4 className="font-bold mb-2">Cost Savings</h4>
                       <p className="text-gray-300">
@@ -346,8 +348,8 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-10 ">
-                      <div className="text-lime-400">📈</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">📈</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Scalability</h4>
@@ -363,8 +365,8 @@ const BlogPost = () => {
             {/* Conclusion Section */}
             <section id="conclusion" className="blog-fade-in">
               <div className="flex items-center mb-8">
-                <div className="h-px bg-gradient-to-r from-lime-400 to-transparent w-16 mr-4"></div>
-                <h2 className="text-2xl font-bold text-lime-400">Conclusion</h2>
+                <div className="h-px bg-gradient-to-r from-cyan-400 to-transparent w-16 mr-4"></div>
+                <h2 className="text-2xl font-bold text-cyan-400">Conclusion</h2>
               </div>
               
               <div className="bg-gray-900 bg-opacity-50 rounded-xl p-8 mb-8 border border-gray-800 blog-card-hover">
@@ -373,12 +375,12 @@ const BlogPost = () => {
                   AI is essential for enduring resilience, turning risks into opportunities. As businesses face increasing uncertainty, AI-driven risk management provides the tools and insights needed to not just survive disruptions, but to thrive in their aftermath.
                 </p>
                 <div className="bg-black bg-opacity-30 p-6 rounded-lg mb-6">
-                  <h4 className="font-bold text-lime-400 mb-3">Future Trends in AI and Business Risk Management</h4>
+                  <h4 className="font-bold text-cyan-400 mb-3">Future Trends in AI and Business Risk Management</h4>
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="bg-gray-800 bg-opacity-50 p-3 rounded-lg">
                       <div className="flex items-center mb-2">
-                        <div className="bg-lime-400 bg-opacity-20 p-1 rounded-full mr-2">
-                          <div className="text-lime-400 text-xs">⚛️</div>
+                        <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-1 rounded-full mr-2">
+                          <div className="text-cyan-300 text-xs">⚛️</div>
                         </div>
                         <span className="font-bold text-sm">Generative AI</span>
                       </div>
@@ -388,8 +390,8 @@ const BlogPost = () => {
                     </div>
                     <div className="bg-gray-800 bg-opacity-50 p-3 rounded-lg">
                       <div className="flex items-center mb-2">
-                        <div className="bg-lime-400 bg-opacity-20 p-1 rounded-full mr-2">
-                          <div className="text-lime-400 text-xs">🔬</div>
+                        <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-1 rounded-full mr-2">
+                          <div className="text-cyan-300 text-xs">🔬</div>
                         </div>
                         <span className="font-bold text-sm">Quantum Computing</span>
                       </div>
@@ -399,8 +401,8 @@ const BlogPost = () => {
                     </div>
                     <div className="bg-gray-800 bg-opacity-50 p-3 rounded-lg">
                       <div className="flex items-center mb-2">
-                        <div className="bg-lime-400 bg-opacity-20 p-1 rounded-full mr-2">
-                          <div className="text-lime-400 text-xs">⚖️</div>
+                        <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-1 rounded-full mr-2">
+                          <div className="text-cyan-300 text-xs">⚖️</div>
                         </div>
                         <span className="font-bold text-sm">AI Ethics Frameworks</span>
                       </div>
@@ -426,7 +428,7 @@ const BlogPost = () => {
                     At Digital Frontier Company, we empower businesses with AI-driven digital transformation solutions that encompass risk management to protect and propel your growth.
                   </p>
                   <Link to="/contact">
-                    <Button className="bg-lime-400 text-slate-900 px-8 py-4 rounded-md font-bold hover:bg-lime-300 transition duration-300 text-lg">
+                    <Button className="bg-gradient-to-r from-cyan-400 to-blue-900 text-white px-8 py-4 rounded-md font-bold hover:from-cyan-300 hover:to-blue-800 transition duration-300 text-lg">
                       🤖 Get Your Free AI Risk Assessment
                     </Button>
                   </Link>
