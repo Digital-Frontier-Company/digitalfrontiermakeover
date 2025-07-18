@@ -190,8 +190,8 @@ const BlogPost = () => {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-cyan-400 bg-opacity-20 p-2 rounded-full mr-4">
-                      <div className="text-cyan-400">🛡️</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4">
+                      <div className="text-cyan-300">🛡️</div>
                     </div>
                     <h3 className="text-xl font-bold">The Importance of Business Resilience</h3>
                   </div>
@@ -201,8 +201,8 @@ const BlogPost = () => {
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-cyan-400 bg-opacity-20 p-2 rounded-full mr-4">
-                      <div className="text-cyan-400">🤖</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4">
+                      <div className="text-cyan-300">🤖</div>
                     </div>
                     <h3 className="text-xl font-bold">AI Transforming Risk Management</h3>
                   </div>
@@ -237,15 +237,15 @@ const BlogPost = () => {
                   </div>
                   <div className="md:w-1/3 flex justify-center">
                     <div className="relative">
-                      <div className="w-48 h-48 rounded-full bg-cyan-400 bg-opacity-10 flex items-center justify-center">
-                        <div className="w-40 h-40 rounded-full bg-cyan-400 bg-opacity-20 flex items-center justify-center">
-                          <div className="w-32 h-32 rounded-full bg-cyan-400 bg-opacity-30 flex items-center justify-center">
-                            <div className="text-cyan-400 text-4xl">📊</div>
+                      <div className="w-48 h-48 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-900/30 flex items-center justify-center">
+                        <div className="w-40 h-40 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-900/40 flex items-center justify-center">
+                          <div className="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400/40 to-blue-900/50 flex items-center justify-center">
+                            <div className="text-cyan-300 text-4xl">📊</div>
                           </div>
                         </div>
                       </div>
-                      <div className="absolute -bottom-4 -right-4 bg-black bg-opacity-70 p-3 rounded-full border-2 border-cyan-400">
-                        <div className="text-cyan-400 text-xl">💡</div>
+                      <div className="absolute -bottom-4 -right-4 bg-gradient-to-br from-blue-900/80 to-cyan-400/60 p-3 rounded-full border-2 border-cyan-400/60">
+                        <div className="text-cyan-200 text-xl">💡</div>
                       </div>
                     </div>
                   </div>
@@ -263,8 +263,8 @@ const BlogPost = () => {
               <div className="grid md:grid-cols-3 gap-8 mb-12">
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-cyan-400 bg-opacity-20 p-3 rounded-lg">
-                      <div className="text-cyan-400 text-xl">🗄️</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-3 rounded-lg">
+                      <div className="text-cyan-300 text-xl">🗄️</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 1</span>
                   </div>
@@ -279,8 +279,8 @@ const BlogPost = () => {
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-cyan-400 bg-opacity-20 p-3 rounded-lg">
-                      <div className="text-cyan-400 text-xl">📊</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-3 rounded-lg">
+                      <div className="text-cyan-300 text-xl">📊</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 2</span>
                   </div>
@@ -295,8 +295,8 @@ const BlogPost = () => {
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="bg-cyan-400 bg-opacity-20 p-3 rounded-lg">
-                      <div className="text-cyan-400 text-xl">⚙️</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-3 rounded-lg">
+                      <div className="text-cyan-300 text-xl">⚙️</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 3</span>
                   </div>
@@ -315,8 +315,8 @@ const BlogPost = () => {
                 <h3 className="text-2xl font-bold mb-6">Benefits of Implementing AI in Risk Mitigation</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex items-start">
-                    <div className="bg-cyan-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
-                      <div className="text-cyan-400">✓</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">✓</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Superior Accuracy and Precision</h4>
@@ -326,8 +326,8 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-cyan-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
-                      <div className="text-cyan-400">⚡</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">⚡</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Real-Time Insights</h4>
@@ -337,8 +337,8 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-cyan-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
-                      <div className="text-cyan-400">💰</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">💰</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Cost Savings</h4>
@@ -348,8 +348,8 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-cyan-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
-                      <div className="text-cyan-400">📈</div>
+                    <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-cyan-300">📈</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Scalability</h4>
@@ -379,8 +379,8 @@ const BlogPost = () => {
                   <div className="grid md:grid-cols-3 gap-4">
                     <div className="bg-gray-800 bg-opacity-50 p-3 rounded-lg">
                       <div className="flex items-center mb-2">
-                        <div className="bg-cyan-400 bg-opacity-20 p-1 rounded-full mr-2">
-                          <div className="text-cyan-400 text-xs">⚛️</div>
+                        <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-1 rounded-full mr-2">
+                          <div className="text-cyan-300 text-xs">⚛️</div>
                         </div>
                         <span className="font-bold text-sm">Generative AI</span>
                       </div>
@@ -390,8 +390,8 @@ const BlogPost = () => {
                     </div>
                     <div className="bg-gray-800 bg-opacity-50 p-3 rounded-lg">
                       <div className="flex items-center mb-2">
-                        <div className="bg-cyan-400 bg-opacity-20 p-1 rounded-full mr-2">
-                          <div className="text-cyan-400 text-xs">🔬</div>
+                        <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-1 rounded-full mr-2">
+                          <div className="text-cyan-300 text-xs">🔬</div>
                         </div>
                         <span className="font-bold text-sm">Quantum Computing</span>
                       </div>
@@ -401,8 +401,8 @@ const BlogPost = () => {
                     </div>
                     <div className="bg-gray-800 bg-opacity-50 p-3 rounded-lg">
                       <div className="flex items-center mb-2">
-                        <div className="bg-cyan-400 bg-opacity-20 p-1 rounded-full mr-2">
-                          <div className="text-cyan-400 text-xs">⚖️</div>
+                        <div className="bg-gradient-to-br from-cyan-400/30 to-blue-900/40 p-1 rounded-full mr-2">
+                          <div className="text-cyan-300 text-xs">⚖️</div>
                         </div>
                         <span className="font-bold text-sm">AI Ethics Frameworks</span>
                       </div>
