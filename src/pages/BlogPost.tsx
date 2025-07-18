@@ -159,8 +159,12 @@ const BlogPost = () => {
         </div>
         <div className="absolute top-0 right-0 w-1/2 h-full hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-l from-slate-900 to-transparent z-10 bg-[#000a0e]/10 rounded-md"></div>
-          <div className="absolute inset-0 flex items-center justify-center z-0 opacity-20">
-            <div className="text-[20rem] text-lime-400 blog-pulse">🧠</div>
+          <div className="absolute inset-0 flex items-center justify-center z-0 opacity-60">
+            <img 
+              src="/lovable-uploads/c83494e8-5014-41cd-90a9-67d3509066f8.png" 
+              alt="AI Brain Circuit" 
+              className="w-full h-full object-contain blog-pulse"
+            />
           </div>
         </div>
       </header>
