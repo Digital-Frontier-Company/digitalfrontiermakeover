@@ -133,7 +133,12 @@ const BlogPost = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <header className="relative overflow-hidden py-20 md:py-32">
+      <header 
+        className="relative overflow-hidden py-20 md:py-32 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('/lovable-uploads/c7dccd8e-96e5-4472-81fd-46eead5b47e0.png')`
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="md:w-2/3 lg:w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 blog-slide-up">
