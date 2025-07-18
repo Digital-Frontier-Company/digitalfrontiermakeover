@@ -236,18 +236,7 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="md:w-1/3 flex justify-center">
-                    <div className="relative">
-                      <div className="w-48 h-48 rounded-full bg-lime-400 bg-opacity-10 flex items-center justify-center">
-                        <div className="w-40 h-40 rounded-full bg-lime-400 bg-opacity-20 ">
-                          <div className="w-32 -bottom-1 bg-lime-400 bg-opacity-30 flex items-center justify-center rounded-bl-3xl ">
-                            <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="min-w-36 ,min-h-44 " />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="absolute -bottom-4 -right-4 bg-black bg-opacity-70 p-3 rounded-full border-2 border-lime-400">
-                        <img src="/lovable-uploads/4d5dede6-a64d-443e-aef8-fd9c123b45a3.png" alt="Innovation" className="w-svw h-1/2 " />
-                      </div>
-                    </div>
+                    <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="w-48 h-48" />
                   </div>
                 </div>
               </div>
