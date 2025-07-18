@@ -4,16 +4,15 @@ import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { generateOrganizationSchema, generateBreadcrumbSchema, formatDate } from "@/lib/utils";
 import "../styles/blogPost.css";
-
 const BlogPost = () => {
   const location = useLocation();
   const canonicalUrl = `https://www.thedigitalfrontier.ai${location.pathname}`;
-  
+
   // Determine which blog post based on the URL
   const isAIRiskManagement = location.pathname.includes('ai-driven-risk-management');
   const isTaxGuide = location.pathname.includes('tax-reduction');
   const isCryptoAEO = location.pathname.includes('crypto-startups');
-  
+
   // Blog post data
   const postData = isAIRiskManagement ? {
     title: "Building Resilience in Businesses with AI-Driven Risk Management",
@@ -36,7 +35,7 @@ const BlogPost = () => {
     description: "Learn how crypto startups can leverage AEO strategies to improve their visibility in AI-powered search results.",
     publishedDate: "2024-12-10",
     modifiedDate: "2024-12-18",
-    category: "AEO Strategy", 
+    category: "AEO Strategy",
     readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
   } : {
@@ -48,15 +47,20 @@ const BlogPost = () => {
     readTime: "8 min read",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
   };
-  
+
   // Generate schemas
   const organizationSchema = generateOrganizationSchema();
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: "Home", url: "https://www.thedigitalfrontier.ai" },
-    { name: "Blog", url: "https://www.thedigitalfrontier.ai/blog" },
-    { name: postData.title, url: canonicalUrl }
-  ]);
-  
+  const breadcrumbSchema = generateBreadcrumbSchema([{
+    name: "Home",
+    url: "https://www.thedigitalfrontier.ai"
+  }, {
+    name: "Blog",
+    url: "https://www.thedigitalfrontier.ai/blog"
+  }, {
+    name: postData.title,
+    url: canonicalUrl
+  }]);
+
   // Article schema for the blog post
   const articleSchema = {
     "@context": "https://schema.org",
@@ -88,9 +92,7 @@ const BlogPost = () => {
     "inLanguage": "en-US",
     "articleSection": postData.category
   };
-
-  return (
-    <div className="blog-gradient-bg text-gray-100 min-h-screen">
+  return <div className="blog-gradient-bg text-gray-100 min-h-screen">
       <Helmet>
         <title>{postData.title} | Digital Frontier Blog</title>
         <meta name="description" content={postData.description} />
@@ -135,13 +137,17 @@ const BlogPost = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="md:w-2/3 lg:w-1/2">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 blog-slide-up">
-              Building <span className="blog-gradient-text">Resilience</span> in Businesses with{" "}
+              Building <span className="blog-gradient-text text-6xl font-extrabold">Resilience</span> in Businesses with{" "}
               <span className="blog-highlight">AI-Driven Risk Management</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 mb-8 blog-slide-up" style={{animationDelay: '0.2s'}}>
+            <p className="text-lg md:text-xl text-gray-300 mb-8 blog-slide-up" style={{
+            animationDelay: '0.2s'
+          }}>
               Transform your business into an adaptable, future-proof enterprise with cutting-edge AI risk management strategies.
             </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 blog-slide-up" style={{animationDelay: '0.4s'}}>
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 blog-slide-up" style={{
+            animationDelay: '0.4s'
+          }}>
               <Button className="bg-lime-400 text-slate-900 px-6 py-3 rounded-md font-bold hover:bg-lime-300 transition duration-300">
                 Explore Strategies
               </Button>
@@ -161,8 +167,7 @@ const BlogPost = () => {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {isAIRiskManagement ? (
-          <>
+        {isAIRiskManagement ? <>
             {/* Introduction Section */}
             <section id="introduction" className="mb-20 blog-fade-in">
               <div className="flex items-center mb-8">
@@ -414,7 +419,9 @@ const BlogPost = () => {
               
               <div className="relative rounded-xl overflow-hidden blog-card-hover">
                 <div className="absolute inset-0 bg-gradient-to-r from-slate-900 to-black opacity-90 z-10"></div>
-                <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{backgroundImage: 'url(https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'}}></div>
+                <div className="absolute inset-0 bg-cover bg-center opacity-20" style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)'
+            }}></div>
                 <div className="relative z-20 p-8 md:p-12 text-center">
                   <h3 className="text-3xl font-bold mb-6">Ready to Transform Your Risk Management with AI?</h3>
                   <p className="text-xl mb-8 max-w-3xl mx-auto">
@@ -428,11 +435,8 @@ const BlogPost = () => {
                 </div>
               </div>
             </section>
-          </>
-        ) : (
-          <div className="prose prose-lg prose-invert max-w-none">
-            {isTaxGuide ? (
-              <>
+          </> : <div className="prose prose-lg prose-invert max-w-none">
+            {isTaxGuide ? <>
                 <p>
                   Building wealth while minimizing taxes isn't just about making money—it's about keeping more of what you earn. This comprehensive guide reveals advanced strategies used by high-net-worth individuals and financial experts to reduce tax burden while building resilient wealth that weathers any economic storm.
                 </p>
@@ -456,9 +460,7 @@ const BlogPost = () => {
                 <p>
                   Transform these strategies into actionable steps. From setting up tax-advantaged accounts to implementing investment strategies, this section provides clear guidance on executing these wealth-building techniques in your own financial life.
                 </p>
-              </>
-            ) : isCryptoAEO ? (
-              <>
+              </> : isCryptoAEO ? <>
                 <p>
                   The cryptocurrency landscape is evolving rapidly, and traditional SEO strategies aren't enough to capture visibility in AI-powered search results. Crypto startups need to optimize for answer engines like ChatGPT, Claude, and voice assistants to stay ahead of the competition.
                 </p>
@@ -482,9 +484,7 @@ const BlogPost = () => {
                 <p>
                   Track your AEO performance through voice search rankings, featured snippet appearances, and AI-generated content mentions. Monitor how often your content appears in AI assistant responses and adjust your strategy accordingly.
                 </p>
-              </>
-            ) : (
-              <>
+              </> : <>
                 <p>
                   The digital marketing landscape in 2024 is defined by AI integration, privacy-first strategies, and authentic customer connections. As we navigate this new terrain, successful brands are those that embrace innovation while maintaining human authenticity.
                 </p>
@@ -508,8 +508,7 @@ const BlogPost = () => {
                 <p>
                   As we move forward, the most successful marketers will be those who balance technological innovation with human insight. The future belongs to brands that can harness AI's power while never losing sight of the human element that drives all meaningful connections.
                 </p>
-              </>
-            )}
+              </>}
             
             {/* Call to Action Section */}
             <div className="my-12 p-8 bg-gradient-to-r from-[#0066FF]/20 to-[#00BFFF]/20 rounded-xl border border-[#0066FF]/30 text-center">
@@ -523,11 +522,8 @@ const BlogPost = () => {
                 </Button>
               </Link>
             </div>
-          </div>
-        )}
+          </div>}
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default BlogPost;
