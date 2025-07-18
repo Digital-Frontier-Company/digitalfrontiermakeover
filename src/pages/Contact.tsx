@@ -6,23 +6,10 @@ import { useLocation } from "react-router-dom";
 import { Mail, Phone, MapPin, User, MessageSquare, Send, Satellite } from "lucide-react";
 import FAQSection from "@/components/FAQSection";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
@@ -31,34 +18,46 @@ import { motion } from 'framer-motion';
 
 // Define form validation schema
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Invalid email address" }),
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters"
+  }),
+  email: z.string().email({
+    message: "Invalid email address"
+  }),
   phone: z.string().optional(),
   company: z.string().optional(),
-  service: z.string().min(1, { message: "Please select a service" }),
-  message: z.string().min(10, { message: "Message should be at least 10 characters" }),
-  consent: z.boolean().refine(value => value === true, {
-    message: "You must agree to be contacted",
+  service: z.string().min(1, {
+    message: "Please select a service"
   }),
+  message: z.string().min(10, {
+    message: "Message should be at least 10 characters"
+  }),
+  consent: z.boolean().refine(value => value === true, {
+    message: "You must agree to be contacted"
+  })
 });
-
 const Contact = () => {
   const location = useLocation();
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [bubbles, setBubbles] = useState(() => 
-    Array.from({ length: 8 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: 20 + Math.random() * 40,
-      speed: 0.1 + Math.random() * 0.2,
-      direction: Math.random() * 360,
-      opacity: 0.3 + Math.random() * 0.4
-    }))
-  );
-  
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
+  const [bubbles, setBubbles] = useState(() => Array.from({
+    length: 8
+  }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: 20 + Math.random() * 40,
+    speed: 0.1 + Math.random() * 0.2,
+    direction: Math.random() * 360,
+    opacity: 0.3 + Math.random() * 0.4
+  })));
+
   // Initialize form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,14 +68,13 @@ const Contact = () => {
       company: "",
       service: "",
       message: "",
-      consent: false,
-    },
+      consent: false
+    }
   });
 
   // Form submission handler
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
-    
     try {
       // Prepare data for HubSpot
       const hubspotData = {
@@ -93,40 +91,35 @@ const Contact = () => {
       // Check if HubSpot is configured
       const portalId = localStorage.getItem('hubspot_portal_id');
       const formId = localStorage.getItem('hubspot_form_id');
-      
       if (portalId && formId) {
         // Submit to HubSpot
         await submitToHubSpot(hubspotData);
-        
         toast({
           title: "Message sent successfully!",
-          description: "Your message has been submitted to our CRM. We'll get back to you soon.",
+          description: "Your message has been submitted to our CRM. We'll get back to you soon."
         });
       } else {
         // Fallback: log to console and show informative message
         console.log('Form submission data:', values);
-        
         toast({
           title: "Form submitted!",
-          description: "HubSpot not configured. Please check HubSpot settings or contact david@digitalfrontier.app directly.",
+          description: "HubSpot not configured. Please check HubSpot settings or contact david@digitalfrontier.app directly."
         });
       }
-      
+
       // Reset the form
       form.reset();
-      
     } catch (error) {
       console.error('Error submitting form:', error);
-      
+
       // Fallback for any errors
       console.log('Form submission data (fallback):', values);
-      
       toast({
         title: "Submission received",
         description: "There was an issue with our form system, but your message has been logged. We'll contact you at " + values.email,
-        variant: "default",
+        variant: "default"
       });
-      
+
       // Still reset the form on fallback
       form.reset();
     } finally {
@@ -140,13 +133,11 @@ const Contact = () => {
   // Bubble movement animation
   useEffect(() => {
     const interval = setInterval(() => {
-      setBubbles(prevBubbles => 
-        prevBubbles.map(bubble => ({
-          ...bubble,
-          x: (bubble.x + Math.cos(bubble.direction) * bubble.speed + 100) % 100,
-          y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100
-        }))
-      );
+      setBubbles(prevBubbles => prevBubbles.map(bubble => ({
+        ...bubble,
+        x: (bubble.x + Math.cos(bubble.direction) * bubble.speed + 100) % 100,
+        y: (bubble.y + Math.sin(bubble.direction) * bubble.speed + 100) % 100
+      })));
     }, 100);
     return () => clearInterval(interval);
   }, []);
@@ -154,7 +145,10 @@ const Contact = () => {
   // Track mouse movement for interactive effects
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY
+      });
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -162,105 +156,88 @@ const Contact = () => {
 
   // Handle bubble pop
   const handleBubblePop = (id: number) => {
-    setBubbles(prevBubbles => 
-      prevBubbles.map(bubble => 
-        bubble.id === id ? {
-          ...bubble,
-          x: Math.random() * 100,
-          y: Math.random() * 100,
-          size: 20 + Math.random() * 40,
-          speed: 0.1 + Math.random() * 0.2,
-          direction: Math.random() * 360,
-          opacity: 0.3 + Math.random() * 0.4
-        } : bubble
-      )
-    );
+    setBubbles(prevBubbles => prevBubbles.map(bubble => bubble.id === id ? {
+      ...bubble,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: 20 + Math.random() * 40,
+      speed: 0.1 + Math.random() * 0.2,
+      direction: Math.random() * 360,
+      opacity: 0.3 + Math.random() * 0.4
+    } : bubble));
   };
 
   // Effect to handle scrolling to form when coming from other pages
   React.useEffect(() => {
     // Check if there's a hash in the URL or if a specific query param exists
     if (location.hash === "#contact-form" && formRef.current) {
-      formRef.current.scrollIntoView({ behavior: "smooth" });
+      formRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   }, [location]);
-
-  return (
-    <div className="relative min-h-screen bg-deep-navy" style={{ background: 'var(--gradient-hero)' }}>
+  return <div className="relative min-h-screen bg-deep-navy" style={{
+    background: 'var(--gradient-hero)'
+  }}>
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Floating Orbs */}
-        {Array.from({ length: 3 }, (_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10"
-            style={{
-              width: `${60 + i * 20}px`,
-              height: `${60 + i * 20}px`,
-              left: `${20 + i * 30}%`,
-              top: `${20 + i * 25}%`,
-              animation: `float ${4 + i * 2}s ease-in-out infinite`,
-              animationDelay: `${i * 1.5}s`,
-              filter: 'blur(1px)',
-              transform: `translate(${(mousePosition.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0)) * (0.01 + i * 0.005)}px, ${(mousePosition.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0)) * (0.01 + i * 0.005)}px)`,
-              transition: 'transform 0.6s ease-out'
-            }}
-          />
-        ))}
+        {Array.from({
+        length: 3
+      }, (_, i) => <div key={i} className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10" style={{
+        width: `${60 + i * 20}px`,
+        height: `${60 + i * 20}px`,
+        left: `${20 + i * 30}%`,
+        top: `${20 + i * 25}%`,
+        animation: `float ${4 + i * 2}s ease-in-out infinite`,
+        animationDelay: `${i * 1.5}s`,
+        filter: 'blur(1px)',
+        transform: `translate(${(mousePosition.x - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0)) * (0.01 + i * 0.005)}px, ${(mousePosition.y - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0)) * (0.01 + i * 0.005)}px)`,
+        transition: 'transform 0.6s ease-out'
+      }} />)}
       </div>
 
       {/* Interactive Clickable Bubbles */}
       <div className="absolute inset-0 overflow-hidden">
-        {bubbles.map(bubble => (
-          <div
-            key={bubble.id}
-            className="absolute rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 cursor-pointer hover:scale-110 transition-all duration-300"
-            style={{
-              width: `${bubble.size}px`,
-              height: `${bubble.size}px`,
-              left: `${bubble.x}%`,
-              top: `${bubble.y}%`,
-              opacity: bubble.opacity,
-              filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.4))',
-              animation: `float ${3 + bubble.id % 3}s ease-in-out infinite`,
-              animationDelay: `${bubble.id * 0.5}s`
-            }}
-            onClick={() => handleBubblePop(bubble.id)}
-          />
-        ))}
+        {bubbles.map(bubble => <div key={bubble.id} className="absolute rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-500/20 cursor-pointer hover:scale-110 transition-all duration-300" style={{
+        width: `${bubble.size}px`,
+        height: `${bubble.size}px`,
+        left: `${bubble.x}%`,
+        top: `${bubble.y}%`,
+        opacity: bubble.opacity,
+        filter: 'drop-shadow(0 0 8px rgba(0, 255, 255, 0.4))',
+        animation: `float ${3 + bubble.id % 3}s ease-in-out infinite`,
+        animationDelay: `${bubble.id * 0.5}s`
+      }} onClick={() => handleBubblePop(bubble.id)} />)}
       </div>
 
       {/* Animated Grid Pattern Background */}
       <div className="absolute inset-0 opacity-30">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
+        <div className="absolute inset-0" style={{
+        backgroundImage: `
               linear-gradient(rgba(0, 255, 255, 0.3) 1px, transparent 1px),
               linear-gradient(90deg, rgba(0, 255, 255, 0.3) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px',
-            animation: 'grid-move 20s linear infinite',
-            filter: 'drop-shadow(0 0 2px cyan)'
-          }}
-        />
+        backgroundSize: '50px 50px',
+        animation: 'grid-move 20s linear infinite',
+        filter: 'drop-shadow(0 0 2px cyan)'
+      }} />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 min-h-screen">
         {/* Header with modern styling */}
-        <motion.div 
-          className="text-center pt-20 pb-10"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <motion.div className="text-center pt-20 pb-10" initial={{
+        opacity: 0,
+        y: 30
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        duration: 0.8
+      }}>
           <div className="flex justify-center mb-6">
-            <img 
-              src="/lovable-uploads/96c27c11-7d92-44f1-9692-9070b59e3e1b.png" 
-              alt="Digital Frontier Company Logo" 
-              className="h-32 w-auto object-contain animate-pulse-slow"
-            />
+            <img src="/lovable-uploads/96c27c11-7d92-44f1-9692-9070b59e3e1b.png" alt="Digital Frontier Company Logo" className="shadow-amber-700-min-h-64 min-w-56 " />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent">
             DIGITAL FRONTIER CONTACT
@@ -281,130 +258,93 @@ const Contact = () => {
                 <CardContent className="p-8 relative">
                   {/* Grid pattern overlay */}
                   <div className="absolute inset-0 opacity-5" style={{
-                    backgroundImage: `linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)`,
-                    backgroundSize: '30px 30px'
-                  }}></div>
+                  backgroundImage: `linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px)`,
+                  backgroundSize: '30px 30px'
+                }}></div>
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Name field */}
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
+                        <FormField control={form.control} name="name" render={({
+                        field
+                      }) => <FormItem>
                               <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
                                 <User className="w-4 h-4 mr-2" /> Your Name <span className="text-red-400 ml-1">*</span>
                               </FormLabel>
                               <FormControl>
                                 <div className="relative">
-                                  <Input 
-                                    placeholder="John Smith" 
-                                    {...field} 
-                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
-                                  />
+                                  <Input placeholder="John Smith" {...field} className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" />
                                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                                     <User className="w-4 h-4 text-electric-azure/60" />
                                   </div>
                                 </div>
                               </FormControl>
                               <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                            </FormItem>} />
                         
                         {/* Email field */}
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
+                        <FormField control={form.control} name="email" render={({
+                        field
+                      }) => <FormItem>
                               <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
                                 <Mail className="w-4 h-4 mr-2" /> Email Address <span className="text-red-400 ml-1">*</span>
                               </FormLabel>
                               <FormControl>
                                 <div className="relative">
-                                  <Input 
-                                    placeholder="john@company.com" 
-                                    {...field} 
-                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
-                                  />
+                                  <Input placeholder="john@company.com" {...field} className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" />
                                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                                     <Mail className="w-4 h-4 text-electric-azure/60" />
                                   </div>
                                 </div>
                               </FormControl>
                               <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                            </FormItem>} />
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Phone field */}
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
+                        <FormField control={form.control} name="phone" render={({
+                        field
+                      }) => <FormItem>
                               <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
                                 <Phone className="w-4 h-4 mr-2" /> Phone (Optional)
                               </FormLabel>
                               <FormControl>
                                 <div className="relative">
-                                  <Input 
-                                    placeholder="(555) 123-4567" 
-                                    {...field} 
-                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
-                                  />
+                                  <Input placeholder="(555) 123-4567" {...field} className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" />
                                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                                     <Phone className="w-4 h-4 text-electric-azure/60" />
                                   </div>
                                 </div>
                               </FormControl>
                               <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                            </FormItem>} />
                         
                         {/* Company field */}
-                        <FormField
-                          control={form.control}
-                          name="company"
-                          render={({ field }) => (
-                            <FormItem>
+                        <FormField control={form.control} name="company" render={({
+                        field
+                      }) => <FormItem>
                               <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
                                 <MessageSquare className="w-4 h-4 mr-2" /> Company (Optional)
                               </FormLabel>
                               <FormControl>
                                 <div className="relative">
-                                  <Input 
-                                    placeholder="Your company name" 
-                                    {...field} 
-                                    className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300"
-                                  />
+                                  <Input placeholder="Your company name" {...field} className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" />
                                   <div className="absolute inset-y-0 right-0 flex items-center pr-3">
                                     <MessageSquare className="w-4 h-4 text-electric-azure/60" />
                                   </div>
                                 </div>
                               </FormControl>
                               <FormMessage />
-                            </FormItem>
-                          )}
-                        />
+                            </FormItem>} />
                       </div>
                       
                       {/* Service selection */}
-                      <FormField
-                        control={form.control}
-                        name="service"
-                        render={({ field }) => (
-                          <FormItem>
+                      <FormField control={form.control} name="service" render={({
+                      field
+                    }) => <FormItem>
                             <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2">Service You're Interested In</FormLabel>
-                            <Select 
-                              onValueChange={field.onChange} 
-                              defaultValue={field.value}
-                            >
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                 <SelectTrigger className="bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50">
                                   <SelectValue placeholder="Select a service" />
@@ -420,42 +360,27 @@ const Contact = () => {
                               </SelectContent>
                             </Select>
                             <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                          </FormItem>} />
                       
                       {/* Message field */}
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
+                      <FormField control={form.control} name="message" render={({
+                      field
+                    }) => <FormItem>
                             <FormLabel className="block text-sm font-medium text-electric-azure/90 mb-2 flex items-center">
                               <MessageSquare className="w-4 h-4 mr-2" /> Your Message
                             </FormLabel>
                             <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your project or questions..." 
-                                className="min-h-[120px] bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" 
-                                {...field} 
-                              />
+                              <Textarea placeholder="Tell us about your project or questions..." className="min-h-[120px] bg-deep-navy border-electric-azure/30 text-white focus:border-electric-azure focus:ring-electric-azure/50 transition-all duration-300" {...field} />
                             </FormControl>
                             <FormMessage />
-                          </FormItem>
-                        )}
-                      />
+                          </FormItem>} />
                       
                       {/* Consent checkbox */}
-                      <FormField
-                        control={form.control}
-                        name="consent"
-                        render={({ field }) => (
-                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4 rounded-md border border-electric-azure/30 bg-deep-navy/50">
+                      <FormField control={form.control} name="consent" render={({
+                      field
+                    }) => <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4 rounded-md border border-electric-azure/30 bg-deep-navy/50">
                             <FormControl>
-                              <Checkbox
-                                checked={field.value}
-                                onCheckedChange={field.onChange}
-                              />
+                              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                             </FormControl>
                             <div className="space-y-1 leading-none">
                               <FormLabel className="text-electric-azure/90">
@@ -463,17 +388,11 @@ const Contact = () => {
                               </FormLabel>
                               <FormMessage />
                             </div>
-                          </FormItem>
-                        )}
-                      />
+                          </FormItem>} />
                       
                       {/* Submit button */}
                       <div className="pt-4">
-                        <Button 
-                          type="submit" 
-                          disabled={isSubmitting}
-                          className="w-full bg-gradient-to-r from-electric-azure to-electric-purple hover:from-electric-azure/90 hover:to-electric-purple/90 text-white font-bold py-4 px-6 rounded-lg text-lg tracking-wider uppercase transition-all duration-300 transform hover:scale-[1.02] shadow-neon hover:shadow-neon-lg"
-                        >
+                        <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-electric-azure to-electric-purple hover:from-electric-azure/90 hover:to-electric-purple/90 text-white font-bold py-4 px-6 rounded-lg text-lg tracking-wider uppercase transition-all duration-300 transform hover:scale-[1.02] shadow-neon hover:shadow-neon-lg">
                           <Send className="w-5 h-5 mr-2" />
                           {isSubmitting ? "Sending..." : "Submit Request"}
                         </Button>
@@ -590,9 +509,7 @@ const Contact = () => {
               <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span key={star} className="text-yellow-400 text-lg">★</span>
-                    ))}
+                    {[1, 2, 3, 4, 5].map(star => <span key={star} className="text-yellow-400 text-lg">★</span>)}
                   </div>
                   <p className="text-soft-white/80 mb-4 italic">"Digital Frontier transformed our lead generation completely. We saw a 73% increase in qualified leads within the first month of their AI-powered campaigns."</p>
                   <div>
@@ -606,9 +523,7 @@ const Contact = () => {
               <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span key={star} className="text-yellow-400 text-lg">★</span>
-                    ))}
+                    {[1, 2, 3, 4, 5].map(star => <span key={star} className="text-yellow-400 text-lg">★</span>)}
                   </div>
                   <p className="text-soft-white/80 mb-4 italic">"The ROI speak for itself. Our content engagement increased 240% and conversion rates jumped 58% after implementing their Answer Engine Optimization strategy."</p>
                   <div>
@@ -622,9 +537,7 @@ const Contact = () => {
               <Card className="backdrop-blur-sm border-electric-azure/20 bg-card/90">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <span key={star} className="text-yellow-400 text-lg">★</span>
-                    ))}
+                    {[1, 2, 3, 4, 5].map(star => <span key={star} className="text-yellow-400 text-lg">★</span>)}
                   </div>
                   <p className="text-soft-white/80 mb-4 italic">"Finally, a marketing team that understands B2B tech. Our MQLs increased 156% and our sales cycle shortened by 2 weeks on average."</p>
                   <div>
@@ -640,25 +553,19 @@ const Contact = () => {
         {/* FAQ Section */}
         <section className="mt-20 relative z-10">
           <div className="max-w-7xl mx-auto px-6">
-            <FAQSection faqs={[
-              {
-                question: "How long does it take to see results?",
-                answer: "Most clients see initial improvements within 30 days, with significant results typically appearing within 60-90 days."
-              },
-              {
-                question: "What makes your AI approach different?",
-                answer: "We use proprietary algorithms that continuously learn and optimize your campaigns based on real-time performance data."
-              },
-              {
-                question: "Do you work with small businesses?",
-                answer: "Yes, we offer scalable solutions for businesses of all sizes, from startups to enterprise companies."
-              }
-            ]} />
+            <FAQSection faqs={[{
+            question: "How long does it take to see results?",
+            answer: "Most clients see initial improvements within 30 days, with significant results typically appearing within 60-90 days."
+          }, {
+            question: "What makes your AI approach different?",
+            answer: "We use proprietary algorithms that continuously learn and optimize your campaigns based on real-time performance data."
+          }, {
+            question: "Do you work with small businesses?",
+            answer: "Yes, we offer scalable solutions for businesses of all sizes, from startups to enterprise companies."
+          }]} />
           </div>
         </section>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
