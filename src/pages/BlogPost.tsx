@@ -193,7 +193,7 @@ const BlogPost = () => {
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
                       <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Shield" className="w-8 h-8" />
                     </div>
-                    <h3 className="text-xl font-bold">The Importance of Business Resilience</h3>
+                    <h3 className="mr-20 bg-lime-400">The Importance of Business Resilience</h3>
                   </div>
                   <p className="text-gray-300">
                     Business resilience is the capacity of an organization to anticipate disruptions, adapt to changes, and recover quickly while maintaining core operations and value creation. In 2025, with the rapid pace of technological evolution and external uncertainties, resilience is no longer optional—it's a competitive imperative.
@@ -223,9 +223,9 @@ const BlogPost = () => {
                       </div>
                       <div className="bg-black bg-opacity-30 p-4 rounded-lg">
                         <p className="text-lime-400 text-3xl font-bold mb-1">50%</p>
-                        <p className="text-sm">faster recovery times for resilient companies</p>
+                        <p className="text-sm rounded-full bg-[#01590a]/[0.71]">faster recovery times for resilient companies</p>
                       </div>
-                      <div className="bg-black bg-opacity-30 p-4 rounded-lg">
+                      <div className=" bg-lime-800-opacity-20 p-4 rounded-lg">
                         <p className="text-lime-400 text-3xl font-bold mb-1">2.5x</p>
                         <p className="text-sm">more likely to outperform peers</p>
                       </div>
@@ -236,8 +236,17 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="md:w-1/3 flex justify-center">
-                    <div className="bg-lime-400 bg-opacity-30 rounded-full p-4">
-                      <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="w-48 h-48" />
+                    <div className="relative">
+                      <div className="w-48 h-48 rounded-full bg-lime-400 bg-opacity-10 flex items-center justify-center">
+                        <div className="w-40 h-40 rounded-full bg-lime-400 bg-opacity-20 ">
+                          <div className="w-32 -bottom-1 bg-lime-400 bg-opacity-30 flex items-center justify-center rounded-bl-3xl ">
+                            <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="min-w-36 ,min-h-44 " />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute -bottom-4 -right-4 bg-black bg-opacity-70 p-3 rounded-full border-2 border-lime-400">
+                        <img src="/lovable-uploads/4d5dede6-a64d-443e-aef8-fd9c123b45a3.png" alt="Innovation" className="w-svw h-1/2 " />
+                      </div>
                     </div>
                   </div>
                 </div>
