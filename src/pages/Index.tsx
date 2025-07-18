@@ -391,7 +391,7 @@ const Index = () => {
           }, {
             title: "Data-Driven Insights",
             description: "What gets measured gets mastered—and monetized. Companies using data-driven marketing achieve 5-8x ROI compared to traditional methods (HubSpot, 2024).",
-            icon: "/lovable-uploads/ac9d962e-7efe-4768-9ec0-774cd30f2d5d.png",
+            icon: "/lovable-uploads/77a7a6e8-ba24-4511-808d-e7ce4724f3d3.png",
             gradient: "from-purple-400/20 to-pink-600/20",
             glowColor: "shadow-purple-400/30"
           }, {
