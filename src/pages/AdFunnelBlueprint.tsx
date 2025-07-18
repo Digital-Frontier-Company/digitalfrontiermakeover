@@ -84,14 +84,14 @@ const AdFunnelBlueprint = () => {
         className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url('/lovable-uploads/5aa13ef4-6453-462e-b5bf-bd88c1b20988.png')`,
-          opacity: 0.15,
+          opacity: 0.4,
           zIndex: -2
         }}
       />
       <div 
         className="fixed inset-0 bg-slate-950"
         style={{ 
-          opacity: 0.85,
+          opacity: 0.6,
           zIndex: -1
         }}
       />
