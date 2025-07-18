@@ -309,16 +309,16 @@ const Index = () => {
       </motion.section>
 
           {/* TRUST BAR - 6-logo auto-grid */}
-      <section className="py-16 bg-card">
+      <section className="-bottom-1 bg-[#040b29] mx-[32px] my-[32px] py-[32px] px-[32px] rounded-xl">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-center text-muted-foreground text-sm mb-12 font-medium">Trusted by Industry Leaders</h2>
+          <h2 className="text-center mb-12 text-cyan-300 font-extrabold text-base">Trusted by Industry Leaders</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center">
             {["/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png", "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png", "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png", "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png", "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png", "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"].map((logo, index) => <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
-                <img src={logo} alt={`Client logo ${index + 1}`} className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
+                <img src={logo} alt={`Client logo ${index + 1}`} className="h-32 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
               </div>)}
             <div className="opacity-60 hover:opacity-100 transition-opacity duration-300">
               <a href="https://makementors.com" target="_blank" rel="noopener noreferrer">
-                <img src="/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" alt="MakeMentors.io" className="h-12 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
+                <img src="/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" alt="MakeMentors.io" className="h-24 min-w-24 " />
               </a>
             </div>
           </div>
@@ -330,7 +330,7 @@ const Index = () => {
         {/* Animated background with gradient waves */}
         <div className="absolute inset-0 bg-gradient-to-br from-deep-navy via-purple-900/20 to-electric-azure/10">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-electric-azure/5 to-transparent animate-pulse"></div>
-          <div className="absolute top-0 left-0 w-full h-full opacity-30">
+          <div className="absolute top-0 left-0 w-full h-full opacity-30 my-0 py-[32px]">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-electric-azure/20 rounded-full blur-3xl animate-bounce" style={{
             animationDuration: '6s'
           }}></div>
@@ -391,7 +391,7 @@ const Index = () => {
           }, {
             title: "Data-Driven Insights",
             description: "What gets measured gets mastered—and monetized. Companies using data-driven marketing achieve 5-8x ROI compared to traditional methods (HubSpot, 2024).",
-            icon: "/lovable-uploads/77a7a6e8-ba24-4511-808d-e7ce4724f3d3.png",
+            icon: "/lovable-uploads/ac9d962e-7efe-4768-9ec0-774cd30f2d5d.png",
             gradient: "from-purple-400/20 to-pink-600/20",
             glowColor: "shadow-purple-400/30"
           }, {
