@@ -160,7 +160,11 @@ const BlogPost = () => {
         <div className="absolute top-0 right-0 w-1/2 h-full hidden md:block">
           <div className="absolute inset-0 bg-gradient-to-l from-slate-900 to-transparent z-10 bg-[#000a0e]/10 rounded-md"></div>
           <div className="absolute inset-0 flex items-center justify-center z-0 opacity-60">
-            <img src="/lovable-uploads/c83494e8-5014-41cd-90a9-67d3509066f8.png" alt="AI Brain Circuit" className="w-full h-full object-contain blog-pulse" />
+            <img 
+              src="/lovable-uploads/c83494e8-5014-41cd-90a9-67d3509066f8.png" 
+              alt="AI Brain Circuit" 
+              className="w-full h-full object-contain blog-pulse"
+            />
           </div>
         </div>
       </header>
@@ -190,10 +194,10 @@ const BlogPost = () => {
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Shield" className="w-8 h-8" />
+                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4">
+                      <div className="text-lime-400">🛡️</div>
                     </div>
-                    <h3 className="mr-20 bg-lime-400">The Importance of Business Resilience</h3>
+                    <h3 className="text-xl font-bold">The Importance of Business Resilience</h3>
                   </div>
                   <p className="text-gray-300">
                     Business resilience is the capacity of an organization to anticipate disruptions, adapt to changes, and recover quickly while maintaining core operations and value creation. In 2025, with the rapid pace of technological evolution and external uncertainties, resilience is no longer optional—it's a competitive imperative.
@@ -201,8 +205,8 @@ const BlogPost = () => {
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex items-center mb-4">
-                    <div className="bg-lime-400 bg-opacity-20 p-3 rounded-full mr-4">
-                      <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Technology" className="w-8 h-8" />
+                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4">
+                      <div className="text-lime-400">🤖</div>
                     </div>
                     <h3 className="text-xl font-bold">AI Transforming Risk Management</h3>
                   </div>
@@ -223,9 +227,9 @@ const BlogPost = () => {
                       </div>
                       <div className="bg-black bg-opacity-30 p-4 rounded-lg">
                         <p className="text-lime-400 text-3xl font-bold mb-1">50%</p>
-                        <p className="text-sm rounded-full bg-[#01590a]/[0.71]">faster recovery times for resilient companies</p>
+                        <p className="text-sm">faster recovery times for resilient companies</p>
                       </div>
-                      <div className=" bg-lime-800-opacity-20 p-4 rounded-lg">
+                      <div className="bg-black bg-opacity-30 p-4 rounded-lg">
                         <p className="text-lime-400 text-3xl font-bold mb-1">2.5x</p>
                         <p className="text-sm">more likely to outperform peers</p>
                       </div>
@@ -238,14 +242,14 @@ const BlogPost = () => {
                   <div className="md:w-1/3 flex justify-center">
                     <div className="relative">
                       <div className="w-48 h-48 rounded-full bg-lime-400 bg-opacity-10 flex items-center justify-center">
-                        <div className="w-40 h-40 rounded-full bg-lime-400 bg-opacity-20 ">
-                          <div className="w-32 -bottom-1 bg-lime-400 bg-opacity-30 flex items-center justify-center rounded-bl-3xl ">
-                            <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Analytics" className="min-w-36 ,min-h-44 " />
+                        <div className="w-40 h-40 rounded-full bg-lime-400 bg-opacity-20 flex items-center justify-center">
+                          <div className="w-32 h-32 rounded-full bg-lime-400 bg-opacity-30 flex items-center justify-center">
+                            <div className="text-lime-400 text-4xl">📊</div>
                           </div>
                         </div>
                       </div>
                       <div className="absolute -bottom-4 -right-4 bg-black bg-opacity-70 p-3 rounded-full border-2 border-lime-400">
-                        <img src="/lovable-uploads/4d5dede6-a64d-443e-aef8-fd9c123b45a3.png" alt="Innovation" className="w-svw h-1/2 " />
+                        <div className="text-lime-400 text-xl">💡</div>
                       </div>
                     </div>
                   </div>
@@ -264,7 +268,7 @@ const BlogPost = () => {
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Data Security" className="min-w-28 min-h-28 " />
+                      <div className="text-lime-400 text-xl">🗄️</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 1</span>
                   </div>
@@ -280,7 +284,7 @@ const BlogPost = () => {
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
                   <div className="flex justify-between items-start mb-4">
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
-                      <img src="/lovable-uploads/d01b4beb-ff23-4e15-8695-245f1fc8e7c8.png" alt="AI Risk Assessment" className="min-w-28 min-h-28 " />
+                      <div className="text-lime-400 text-xl">📊</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 2</span>
                   </div>
@@ -294,9 +298,9 @@ const BlogPost = () => {
                   </div>
                 </div>
                 <div className="bg-gray-900 bg-opacity-50 rounded-xl p-6 border border-gray-800 blog-card-hover">
-                  <div className="flex justify-between items-start mb-4 rounded-lg items-start ">
+                  <div className="flex justify-between items-start mb-4">
                     <div className="bg-lime-400 bg-opacity-20 p-3 rounded-lg">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Planning" className="min-w-28 min-h-28 " />
+                      <div className="text-lime-400 text-xl">⚙️</div>
                     </div>
                     <span className="text-xs bg-black bg-opacity-50 px-2 py-1 rounded">Step 3</span>
                   </div>
@@ -315,8 +319,8 @@ const BlogPost = () => {
                 <h3 className="text-2xl font-bold mb-6">Benefits of Implementing AI in Risk Mitigation</h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="flex items-start">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-10 ">
-                      <img src="/lovable-uploads/623e420b-9c29-413a-8552-ea825d35d912.png" alt="Security Check" className="min-w-20 min-h-20 " />
+                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-lime-400">✓</div>
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">Superior Accuracy and Precision</h4>
@@ -326,7 +330,7 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-10">
+                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
                       <div className="text-lime-400">⚡</div>
                     </div>
                     <div>
@@ -337,7 +341,9 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    
+                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
+                      <div className="text-lime-400">💰</div>
+                    </div>
                     <div>
                       <h4 className="font-bold mb-2">Cost Savings</h4>
                       <p className="text-gray-300">
@@ -346,7 +352,7 @@ const BlogPost = () => {
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-10 ">
+                    <div className="bg-lime-400 bg-opacity-20 p-2 rounded-full mr-4 mt-1">
                       <div className="text-lime-400">📈</div>
                     </div>
                     <div>
