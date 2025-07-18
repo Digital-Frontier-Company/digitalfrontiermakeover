@@ -78,10 +78,9 @@ const AdFunnelBlueprint = () => {
   };
   
   return (
-    <div className="relative min-h-screen">
+    <div className="relative max-h-fill">
       {/* Background image with overlay */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat"
         style={{ 
           backgroundImage: `url('/lovable-uploads/5aa13ef4-6453-462e-b5bf-bd88c1b20988.png')`,
           opacity: 0.3,
@@ -91,7 +90,7 @@ const AdFunnelBlueprint = () => {
       <div 
         className="fixed inset-0 bg-slate-950"
         style={{ 
-          opacity: 0.7,
+          opacity: 0.4,
           zIndex: -1
         }}
       />
