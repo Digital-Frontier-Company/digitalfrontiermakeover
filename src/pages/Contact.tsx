@@ -237,7 +237,7 @@ const Contact = () => {
         duration: 0.8
       }}>
           <div className="flex justify-center mb-6">
-            <img src="/lovable-uploads/96c27c11-7d92-44f1-9692-9070b59e3e1b.png" alt="Digital Frontier Company Logo" className="min-h-12 min-w-10" />
+            <img src="/lovable-uploads/96c27c11-7d92-44f1-9692-9070b59e3e1b.png" alt="Digital Frontier Company Logo" className="h-8 w-8" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent">
             DIGITAL FRONTIER CONTACT
