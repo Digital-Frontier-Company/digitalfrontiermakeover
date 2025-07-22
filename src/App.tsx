@@ -36,6 +36,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
 import InfluencerMarketing2025 from "./pages/InfluencerMarketing2025";
+import BlogPostDigitalMarketingRevolution2025 from './pages/BlogPostDigitalMarketingRevolution2025';
 import { Toaster } from 'react-hot-toast';
 import NotFound from '@/pages/NotFound';
 import ModernContactForm from '@/pages/ModernContactForm';
@@ -91,6 +92,7 @@ function App() {
             <Route path="/seo-vs-aeo-vs-geo" element={<MainLayout><SEOvsAEOvsGEO /></MainLayout>} />
             <Route path="/insights" element={<MainLayout><div className="pt-16"><InsightsHub /></div></MainLayout>} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
+            <Route path="/blog/digital-marketing-revolution-july-2025" element={<MainLayout><BlogPostDigitalMarketingRevolution2025 /></MainLayout>} />
             <Route path="/modern-contact-form" element={<ModernContactForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
