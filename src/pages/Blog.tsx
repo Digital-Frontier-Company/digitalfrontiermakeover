@@ -68,6 +68,16 @@ const Blog = () => {
       date: "2025-01-13",
       slug: "tax-reduction-wealth-building-guide",
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 6,
+      title: "Answer Engine Optimization for Crypto Startups",
+      excerpt: "Deep dive into AEO strategies specifically designed for cryptocurrency and blockchain startups to dominate AI-powered search results.",
+      category: "AEO Strategy",
+      readTime: "8 min read",
+      date: "2025-01-10",
+      slug: "aeo-crypto-marketing",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
     }
   ];
 

@@ -37,6 +37,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
 import InfluencerMarketing2025 from "./pages/InfluencerMarketing2025";
 import BlogPostDigitalMarketingRevolution2025 from './pages/BlogPostDigitalMarketingRevolution2025';
+import BlogPostAEOCrypto from './pages/BlogPostAEOCrypto';
+import EmotionalMarketingPlaybook from './pages/EmotionalMarketingPlaybook';
+import KPIs from './pages/KPIs';
+import RecommenderSystem from './pages/RecommenderSystem';
 import { Toaster } from 'react-hot-toast';
 import NotFound from '@/pages/NotFound';
 import ModernContactForm from '@/pages/ModernContactForm';
@@ -73,7 +77,7 @@ function App() {
             <Route path="/blog" element={<MainLayout><Blog /></MainLayout>} />
             <Route path="/blog/ai-driven-risk-management-business-resilience" element={<MainLayout><BlogPost /></MainLayout>} />
             <Route path="/blog/mastering-digital-marketing" element={<MainLayout><BlogPost /></MainLayout>} />
-            <Route path="/blog/answer-engine-optimization-crypto-startups" element={<MainLayout><BlogPost /></MainLayout>} />
+            <Route path="/blog/aeo-crypto-marketing" element={<MainLayout><BlogPostAEOCrypto /></MainLayout>} />
             <Route path="/resources/content-creation-agent" element={<MainLayout><ContentCreationAgent /></MainLayout>} />
             <Route path="/psychological-digital-marketing-insights" element={<MainLayout><PsychologicalDigitalMarketingInsights /></MainLayout>} />
             <Route path="/blog/tax-reduction-wealth-building-guide" element={<TaxReductionGuide />} />
@@ -93,6 +97,9 @@ function App() {
             <Route path="/insights" element={<MainLayout><div className="pt-16"><InsightsHub /></div></MainLayout>} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
             <Route path="/blog/digital-marketing-revolution-july-2025" element={<MainLayout><BlogPostDigitalMarketingRevolution2025 /></MainLayout>} />
+            <Route path="/emotional-marketing-playbook" element={<MainLayout><EmotionalMarketingPlaybook /></MainLayout>} />
+            <Route path="/kpis" element={<MainLayout><KPIs /></MainLayout>} />
+            <Route path="/recommender-system" element={<MainLayout><RecommenderSystem /></MainLayout>} />
             <Route path="/modern-contact-form" element={<ModernContactForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
