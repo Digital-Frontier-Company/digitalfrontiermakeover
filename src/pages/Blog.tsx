@@ -51,16 +51,6 @@ const Blog = () => {
     },
     {
       id: 4,
-      title: "Answer Engine Optimization for Crypto Startups",
-      excerpt: "Learn how crypto startups can leverage AEO strategies to improve their visibility in AI-powered search results.",
-      category: "AEO Strategy",
-      readTime: "6 min read",
-      date: "2024-12-10",
-      slug: "answer-engine-optimization-crypto-startups",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 5,
       title: "Ultimate Guide to Tax Reduction & All-Weather Wealth-Building",
       excerpt: "Master advanced tax reduction tactics and build resilient wealth with proven strategies from financial experts.",
       category: "Financial Strategy",
@@ -70,7 +60,7 @@ const Blog = () => {
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: 6,
+      id: 5,
       title: "Answer Engine Optimization for Crypto Startups",
       excerpt: "Deep dive into AEO strategies specifically designed for cryptocurrency and blockchain startups to dominate AI-powered search results.",
       category: "AEO Strategy",
