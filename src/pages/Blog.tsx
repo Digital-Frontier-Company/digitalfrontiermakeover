@@ -21,6 +21,16 @@ const Blog = () => {
   const blogPosts = [
     {
       id: 1,
+      title: "The Digital Marketing Revolution of July 2025: AI Overviews, Algorithm Upheavals & the Future of Search",
+      excerpt: "July 2025 recap: Google's huge core update, AI Overviews, social-media algorithm shifts, privacy rules & winning tactics for marketers.",
+      category: "Digital Marketing Trends",
+      readTime: "10 min read",
+      date: "2025-07-22",
+      slug: "digital-marketing-revolution-july-2025",
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 2,
       title: "Building Resilience in Businesses with AI-Driven Risk Management",
       excerpt: "Discover how AI-driven risk management strategies can transform reactive approaches into proactive defenses, helping businesses build resilience in an uncertain world.",
       category: "AI & Risk Management",
@@ -30,7 +40,7 @@ const Blog = () => {
       image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: 2,
+      id: 3,
       title: "Mastering Digital Marketing in 2024",
       excerpt: "Discover the latest strategies and trends that are shaping the digital marketing landscape this year.",
       category: "Digital Marketing",
@@ -40,7 +50,7 @@ const Blog = () => {
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: 3,
+      id: 4,
       title: "Answer Engine Optimization for Crypto Startups",
       excerpt: "Learn how crypto startups can leverage AEO strategies to improve their visibility in AI-powered search results.",
       category: "AEO Strategy",
@@ -50,7 +60,7 @@ const Blog = () => {
       image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
     },
     {
-      id: 4,
+      id: 5,
       title: "Ultimate Guide to Tax Reduction & All-Weather Wealth-Building",
       excerpt: "Master advanced tax reduction tactics and build resilient wealth with proven strategies from financial experts.",
       category: "Financial Strategy",
