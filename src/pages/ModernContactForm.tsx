@@ -16,26 +16,29 @@ const ModernContactForm = () => {
       const contactData = {
         name: formData.get('text-1752650679296-0') as string,
         email: formData.get('text-1752650807996-0') as string,
-        socialLink: formData.get('text-1752650925101-0') as string,
-        marketingNeeds: formData.get('select-1752651040594-0') as string,
+        message: `Social Link: ${formData.get('text-1752650925101-0') as string}\nMarketing Needs: ${formData.get('select-1752651040594-0') as string}`,
+        form_type: 'Modern Contact Page Form',
       };
 
-      console.log('Submitting form data:', contactData);
+      console.log('Submitting to Lindy webhook:', contactData);
 
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: contactData
+      const response = await fetch('https://public.lindy.ai/api/v1/webhooks/lindy/26e30680-521e-45e0-a00b-0ed2ac52aeef', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contactData),
       });
 
-      if (error) {
-        console.error('Supabase function error:', error);
-        throw error;
+      if (response.ok) {
+        console.log('Webhook response successful');
+        setSubmitMessage('Thank you! Your message has been sent successfully. We\'ll get back to you within 24 hours.');
+        
+        // Reset form
+        formRef.current?.reset();
+      } else {
+        throw new Error('Failed to submit form to webhook');
       }
-
-      console.log('Form submitted successfully:', data);
-      setSubmitMessage(data.message || 'Thank you! Your message has been sent successfully.');
-      
-      // Reset form
-      formRef.current?.reset();
       
     } catch (error: any) {
       console.error('Form submission error:', error);

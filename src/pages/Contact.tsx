@@ -76,52 +76,35 @@ const Contact = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     try {
-      // Prepare data for HubSpot
-      const hubspotData = {
-        firstName: values.name.split(' ')[0],
-        lastName: values.name.split(' ').slice(1).join(' ') || '',
-        email: values.email,
-        phone: values.phone || '',
-        company: values.company || '',
-        service_interest: values.service,
-        message: values.message,
-        consent: values.consent.toString()
-      };
-
-      // Check if HubSpot is configured
-      const portalId = localStorage.getItem('hubspot_portal_id');
-      const formId = localStorage.getItem('hubspot_form_id');
-      if (portalId && formId) {
-        // Submit to HubSpot
-        await submitToHubSpot(hubspotData);
-        toast({
-          title: "Message sent successfully!",
-          description: "Your message has been submitted to our CRM. We'll get back to you soon."
-        });
-      } else {
-        // Fallback: log to console and show informative message
-        console.log('Form submission data:', values);
-        toast({
-          title: "Form submitted!",
-          description: "HubSpot not configured. Please check HubSpot settings or contact david@digitalfrontier.app directly."
-        });
-      }
-
-      // Reset the form
-      form.reset();
-    } catch (error) {
-      console.error('Error submitting form:', error);
-
-      // Fallback for any errors
-      console.log('Form submission data (fallback):', values);
-      toast({
-        title: "Submission received",
-        description: "There was an issue with our form system, but your message has been logged. We'll contact you at " + values.email,
-        variant: "default"
+      const response = await fetch('https://public.lindy.ai/api/v1/webhooks/lindy/26e30680-521e-45e0-a00b-0ed2ac52aeef', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          message: `Phone: ${values.phone || 'Not provided'}\nCompany: ${values.company || 'Not provided'}\nService Interest: ${values.service}\nMessage: ${values.message}\nConsent: ${values.consent}`,
+          form_type: 'Main Contact Form'
+        }),
       });
 
-      // Still reset the form on fallback
-      form.reset();
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Your message has been sent. We'll get back to you within 24 hours."
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to submit form');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly.",
+        variant: "destructive"
+      });
     } finally {
       setIsSubmitting(false);
     }

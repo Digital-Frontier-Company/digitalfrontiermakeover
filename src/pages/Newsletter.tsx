@@ -47,20 +47,35 @@ const Newsletter = () => {
     setIsSubmitting(true);
     
     try {
-      await submitToHubSpot(formData);
-      
-      toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter!",
+      const response = await fetch('https://public.lindy.ai/api/v1/webhooks/lindy/26e30680-521e-45e0-a00b-0ed2ac52aeef', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          message: `Newsletter subscription. Marketing consent: ${formData.subscribeToMarketing ? 'Yes' : 'No'}`,
+          form_type: 'Newsletter Subscription'
+        }),
       });
-      
-      // Reset form after successful submission
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        subscribeToMarketing: false
-      });
+
+      if (response.ok) {
+        toast({
+          title: "Success!",
+          description: "Thank you for subscribing to our newsletter!",
+        });
+        
+        // Reset form after successful submission
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subscribeToMarketing: false
+        });
+      } else {
+        throw new Error('Failed to submit newsletter subscription');
+      }
     } catch (error) {
       toast({
         title: "Submission Error",
