@@ -25,6 +25,7 @@ import Sectors from '@/pages/Sectors';
 import Future from '@/pages/Future';
 import AIBias from '@/pages/AIBias';
 import AIAndDigitalMarketing from '@/pages/AIAndDigitalMarketing';
+import Docs from '@/pages/Docs';
 import RecommenderSystemGeneralization from '@/pages/RecommenderSystemGeneralization';
 import AIPromptTemplates from '@/pages/AIPromptTemplates';
 import InformationArchitecturePrompts from '@/pages/InformationArchitecturePrompts';
@@ -69,6 +70,7 @@ function App() {
             <Route path="/crypto-marketing" element={<MainLayout><CryptoMarketing /></MainLayout>} />
             <Route path="/about-us" element={<MainLayout><AboutUs /></MainLayout>} />
             <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
+            <Route path="/docs" element={<MainLayout><Docs /></MainLayout>} />
             <Route path="/pricing" element={<MainLayout><Pricing /></MainLayout>} />
             <Route path="/faq" element={<MainLayout><FAQ /></MainLayout>} />
             <Route path="/newsletter" element={<MainLayout><Newsletter /></MainLayout>} />
