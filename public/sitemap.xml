@@ -20,6 +20,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thedigitalfrontier.ai/docs</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://thedigitalfrontier.ai/pricing</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>

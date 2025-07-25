@@ -91,6 +91,15 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     pageType: 'website'
   },
   {
+    path: '/docs',
+    title: 'Documentation - Digital Frontier Service Guides',
+    description: 'Comprehensive documentation and guides for Digital Frontier\'s AI-powered content marketing and SEO services.',
+    keywords: 'digital frontier documentation, service guides, content marketing help',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'website'
+  },
+  {
     path: '/newsletter',
     title: 'Newsletter - Stay Updated on AI Marketing Trends',
     description: 'Subscribe to Digital Frontier\'s newsletter for the latest AI marketing insights, content strategies, and industry trends.',

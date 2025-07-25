@@ -4,21 +4,29 @@ export default function SEOSchema() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://thedigitalfrontier.ai/#org",
+    "@id": "https://thedigitalfrontier.ai/#organization",
     "name": "Digital Frontier Company",
+    "alternateName": "Digital Frontier",
     "url": "https://thedigitalfrontier.ai/",
-    "logo": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thedigitalfrontier.ai/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+      "width": 512,
+      "height": 512
+    },
     "description": "The Digital Frontier is an AI-powered content marketing and SEO agency that builds scalable content engines for B2B tech companies.",
     "foundingDate": "2023-01-01",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "US"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "url": "https://thedigitalfrontier.ai/contact"
-    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://thedigitalfrontier.ai/contact"
+      }
+    ],
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61572896248731",
       "https://x.com/DigitalFro14616",
@@ -33,7 +41,7 @@ export default function SEOSchema() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "AI-Powered Content Marketing",
-    "provider": { "@id": "https://thedigitalfrontier.ai/#org" },
+    "provider": { "@id": "https://thedigitalfrontier.ai/#organization" },
     "description": "AI-powered content marketing and SEO services that build scalable content engines for B2B tech companies.",
     "serviceType": "Content Marketing",
     "areaServed": {
@@ -94,6 +102,26 @@ export default function SEOSchema() {
     ]
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://thedigitalfrontier.ai/#website",
+    "url": "https://thedigitalfrontier.ai/",
+    "name": "Digital Frontier Company",
+    "description": "AI-powered content marketing and SEO agency",
+    "publisher": { "@id": "https://thedigitalfrontier.ai/#organization" },
+    "potentialAction": [
+      {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://thedigitalfrontier.ai/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    ]
+  };
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -117,6 +145,9 @@ export default function SEOSchema() {
       </script>
       <script type="application/ld+json">
         {JSON.stringify(faqSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(websiteSchema)}
       </script>
       <script type="application/ld+json">
         {JSON.stringify(breadcrumbSchema)}
