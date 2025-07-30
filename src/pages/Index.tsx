@@ -912,8 +912,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section with Schema Markup */}
-      <FAQAccordion />
 
       {/* MODERN CONTACT FORM SECTION */}
       <section className="relative py-16 bg-deep-navy border-t border-border">
