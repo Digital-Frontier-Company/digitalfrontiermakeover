@@ -111,6 +111,9 @@ const DigitalFrontierServices = () => {
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossOrigin="anonymous" referrerPolicy="no-referrer"></script>
       
       <div className="bg-black text-white font-sans min-h-screen" style={{ fontFamily: 'Inter, sans-serif' }}>
+        {/* Animated Mesh Gradient Background */}
+        <div className="animated-mesh-bg"></div>
+        
         {/* Particles Background */}
         <div id="particles" className="particles"></div>
 
@@ -131,7 +134,7 @@ const DigitalFrontierServices = () => {
         <main className="relative z-10">
           {/* Hero Section */}
           <section className="text-center px-4 md:px-12 py-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: 'var(--df-bright-blue)' }}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 typewriter" style={{ color: 'var(--df-bright-blue)' }}>
               Digital Frontier Services
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
