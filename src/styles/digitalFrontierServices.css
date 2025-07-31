@@ -25,12 +25,12 @@ html, body {
   height: 100%;
   z-index: -2;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(0, 238, 255, 0.6) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.7) 0%, transparent 50%),
-    radial-gradient(circle at 40% 80%, rgba(34, 211, 238, 0.5) 0%, transparent 50%),
-    radial-gradient(circle at 90% 70%, rgba(0, 238, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
-    linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 75%, #16213e 100%);
+    radial-gradient(circle at 20% 50%, rgba(0, 238, 255, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(34, 211, 238, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(0, 238, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.18) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a1a 0%, #0f1419 25%, #1a1a2e 50%, #0a0a1a 75%, #0f1419 100%);
   background-size: 200% 200%, 300% 300%, 250% 250%, 180% 180%, 220% 220%, 100% 100%;
   animation: meshShift 15s ease-in-out infinite;
 }
