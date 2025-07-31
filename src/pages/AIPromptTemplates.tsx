@@ -5,6 +5,7 @@ import PageLayout from "@/components/layout/PageLayout";
 import AIPromptHeroSection from "@/components/ai-prompts/AIPromptHeroSection";
 import AIPromptCategories from "@/components/ai-prompts/AIPromptCategories";
 import AIPromptLibrary from "@/components/ai-prompts/AIPromptLibrary";
+import AIPromptAdvancedSection from "@/components/ai-prompts/AIPromptAdvancedSection";
 import AIPromptUsageGuide from "@/components/ai-prompts/AIPromptUsageGuide";
 import AIPromptCallToAction from "@/components/ai-prompts/AIPromptCallToAction";
 
@@ -23,6 +24,7 @@ const AIPromptTemplates = () => {
       <AIPromptHeroSection />
       <AIPromptCategories />
       <AIPromptLibrary />
+      <AIPromptAdvancedSection />
       <AIPromptUsageGuide />
       <AIPromptCallToAction />
     </PageLayout>
