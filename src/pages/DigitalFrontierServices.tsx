@@ -13,7 +13,8 @@ const DigitalFrontierServices = () => {
       features: ["Natural language patterns", "Emotional intelligence integration", "Contextual awareness"],
       icon: "fa-solid fa-robot",
       category: "ai",
-      badge: "AI AGENT"
+      badge: "AI AGENT",
+      link: "/services/ai-humanizer-agent"
     },
     {
       id: 2,
@@ -22,7 +23,8 @@ const DigitalFrontierServices = () => {
       features: ["Brand voice consistency", "SEO optimization", "Multi-format outputs"],
       icon: "fa-solid fa-pen-fancy",
       category: "ai",
-      badge: "AI AGENT"
+      badge: "AI AGENT",
+      link: "/resources/content-creation-agent"
     },
     {
       id: 3,
@@ -31,7 +33,8 @@ const DigitalFrontierServices = () => {
       features: ["Future-proof SEO", "Voice search optimization", "AI visibility enhancement"],
       icon: "fa-solid fa-magnifying-glass",
       category: "marketing",
-      badge: "MARKETING"
+      badge: "MARKETING",
+      link: "/answer-engine-optimization"
     },
     {
       id: 4,
@@ -40,7 +43,8 @@ const DigitalFrontierServices = () => {
       features: ["Data-driven strategies", "Competitive advantage", "Measurable ROI"],
       icon: "fa-solid fa-chart-line",
       category: "marketing",
-      badge: "MARKETING"
+      badge: "MARKETING",
+      link: "/services/digital-marketing-strategy"
     },
     {
       id: 5,
@@ -49,7 +53,8 @@ const DigitalFrontierServices = () => {
       features: ["Future-focused insights", "Risk mitigation", "Strategic advantage"],
       icon: "fa-solid fa-brain",
       category: "ai",
-      badge: "AI AGENT"
+      badge: "AI AGENT",
+      link: "/services/predictive-analytics-agent"
     },
     {
       id: 6,
@@ -58,7 +63,8 @@ const DigitalFrontierServices = () => {
       features: ["Customized AI roadmap", "Technical expertise", "Change management support"],
       icon: "fa-solid fa-comments",
       category: "consulting",
-      badge: "CONSULTING"
+      badge: "CONSULTING",
+      link: "/services/ai-implementation-consulting"
     }
   ];
 
@@ -332,8 +338,9 @@ const DigitalFrontierServices = () => {
                         ))}
                       </ul>
                     </div>
-                    <button 
-                      className="py-2 px-6 rounded-lg transition-all w-full border"
+                    <Link 
+                      to={service.link}
+                      className="py-2 px-6 rounded-lg transition-all w-full border inline-block text-center"
                       style={{ 
                         borderColor: 'var(--df-cyan)',
                         color: 'var(--df-cyan)'
@@ -346,7 +353,7 @@ const DigitalFrontierServices = () => {
                       }}
                     >
                       Learn More
-                    </button>
+                    </Link>
                   </div>
                 ))}
               </div>

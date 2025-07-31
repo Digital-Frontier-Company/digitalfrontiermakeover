@@ -17,6 +17,10 @@ import SiteMap from '@/pages/SiteMap';
 import Blog from '@/pages/Blog';
 import BlogPost from '@/pages/BlogPost';
 import ContentCreationAgent from '@/pages/ContentCreationAgent';
+import AIHumanizerAgent from '@/pages/AIHumanizerAgent';
+import PredictiveAnalyticsAgent from '@/pages/PredictiveAnalyticsAgent';
+import AIImplementationConsulting from '@/pages/AIImplementationConsulting';
+import DigitalMarketingStrategy from '@/pages/DigitalMarketingStrategy';
 import PsychologicalDigitalMarketingInsights from '@/pages/PsychologicalDigitalMarketingInsights';
 import Technical from '@/pages/Technical';
 import Evolution from '@/pages/Evolution';
@@ -83,6 +87,10 @@ function App() {
             <Route path="/blog/mastering-digital-marketing" element={<MainLayout><BlogPost /></MainLayout>} />
             <Route path="/blog/aeo-crypto-marketing" element={<MainLayout><BlogPostAEOCrypto /></MainLayout>} />
             <Route path="/resources/content-creation-agent" element={<MainLayout><ContentCreationAgent /></MainLayout>} />
+            <Route path="/services/ai-humanizer-agent" element={<MainLayout><AIHumanizerAgent /></MainLayout>} />
+            <Route path="/services/predictive-analytics-agent" element={<MainLayout><PredictiveAnalyticsAgent /></MainLayout>} />
+            <Route path="/services/ai-implementation-consulting" element={<MainLayout><AIImplementationConsulting /></MainLayout>} />
+            <Route path="/services/digital-marketing-strategy" element={<MainLayout><DigitalMarketingStrategy /></MainLayout>} />
             <Route path="/psychological-digital-marketing-insights" element={<MainLayout><PsychologicalDigitalMarketingInsights /></MainLayout>} />
             <Route path="/blog/tax-reduction-wealth-building-guide" element={<TaxReductionGuide />} />
             <Route path="/technical" element={<MainLayout><Technical /></MainLayout>} />
