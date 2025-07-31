@@ -1,282 +1,350 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Bot, TrendingUp, Users, Globe, Zap, BarChart3, Target, MessageSquare, Search, Palette, Code, Database, Shield } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import "../styles/digitalFrontierServices.css";
 
 const DigitalFrontierServices = () => {
-  const aiServices = [
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const services = [
     {
-      title: "AI-Powered Content Creation",
-      description: "Generate high-quality, SEO-optimized content using advanced AI algorithms that understand your brand voice and target audience.",
-      features: ["Blog posts & articles", "Social media content", "Email campaigns", "Product descriptions"],
-      icon: <Bot className="w-8 h-8" />
+      id: 1,
+      title: "AI Humanizer Agent",
+      description: "Transform machine-generated content into natural human language. Perfect for content creators who need to humanize AI outputs.",
+      features: ["Natural language patterns", "Emotional intelligence integration", "Contextual awareness"],
+      icon: "fa-solid fa-robot",
+      category: "ai",
+      badge: "AI AGENT"
     },
     {
-      title: "Intelligent Marketing Automation",
-      description: "Streamline your marketing processes with AI-driven automation that personalizes customer journeys and maximizes conversions.",
-      features: ["Lead scoring", "Behavioral triggers", "Personalized campaigns", "Predictive analytics"],
-      icon: <Zap className="w-8 h-8" />
+      id: 2,
+      title: "Content Creation Agent",
+      description: "Automated content generation for blogs, social media, and marketing materials with your brand voice and style.",
+      features: ["Brand voice consistency", "SEO optimization", "Multi-format outputs"],
+      icon: "fa-solid fa-pen-fancy",
+      category: "ai",
+      badge: "AI AGENT"
     },
     {
-      title: "AI Analytics & Insights",
-      description: "Leverage machine learning to uncover hidden patterns in your data and make data-driven decisions that drive growth.",
-      features: ["Customer behavior analysis", "Performance predictions", "ROI optimization", "Trend forecasting"],
-      icon: <BarChart3 className="w-8 h-8" />
+      id: 3,
+      title: "Answer Engine Optimization",
+      description: "Optimize for AI-powered search and answer engines to dominate where AI determines relevancy.",
+      features: ["Future-proof SEO", "Voice search optimization", "AI visibility enhancement"],
+      icon: "fa-solid fa-magnifying-glass",
+      category: "marketing",
+      badge: "MARKETING"
+    },
+    {
+      id: 4,
+      title: "Digital Marketing Strategy",
+      description: "Comprehensive AI-enhanced marketing strategies for businesses seeking growth and market domination.",
+      features: ["Data-driven strategies", "Competitive advantage", "Measurable ROI"],
+      icon: "fa-solid fa-chart-line",
+      category: "marketing",
+      badge: "MARKETING"
+    },
+    {
+      id: 5,
+      title: "Predictive Analytics Agent",
+      description: "Harness the power of predictive AI to forecast market trends, customer behavior, and business opportunities.",
+      features: ["Future-focused insights", "Risk mitigation", "Strategic advantage"],
+      icon: "fa-solid fa-brain",
+      category: "ai",
+      badge: "AI AGENT"
+    },
+    {
+      id: 6,
+      title: "AI Implementation Consulting",
+      description: "Expert guidance on integrating AI solutions into your business operations for maximum efficiency and competitive edge.",
+      features: ["Customized AI roadmap", "Technical expertise", "Change management support"],
+      icon: "fa-solid fa-comments",
+      category: "consulting",
+      badge: "CONSULTING"
     }
   ];
 
-  const marketingServices = [
-    {
-      title: "Search Engine Optimization (SEO)",
-      description: "Dominate search results with our comprehensive SEO strategies that increase organic visibility and drive qualified traffic.",
-      features: ["Keyword research", "On-page optimization", "Link building", "Technical SEO"],
-      icon: <Search className="w-8 h-8" />
-    },
-    {
-      title: "Pay-Per-Click Advertising (PPC)",
-      description: "Maximize your ad spend with targeted PPC campaigns that generate immediate results and measurable ROI.",
-      features: ["Google Ads management", "Facebook advertising", "Conversion optimization", "Budget management"],
-      icon: <Target className="w-8 h-8" />
-    },
-    {
-      title: "Social Media Marketing",
-      description: "Build brand awareness and engage your audience across all major social media platforms with compelling content.",
-      features: ["Content strategy", "Community management", "Influencer partnerships", "Social advertising"],
-      icon: <MessageSquare className="w-8 h-8" />
-    },
-    {
-      title: "Web Design & Development",
-      description: "Create stunning, responsive websites that convert visitors into customers and provide exceptional user experiences.",
-      features: ["Custom web design", "E-commerce development", "Mobile optimization", "User experience design"],
-      icon: <Palette className="w-8 h-8" />
-    }
-  ];
+  const filteredServices = activeFilter === 'all' 
+    ? services 
+    : services.filter(service => service.category === activeFilter);
 
-  const consultingServices = [
-    {
-      title: "Digital Strategy Consulting",
-      description: "Develop comprehensive digital strategies that align with your business goals and drive sustainable growth.",
-      features: ["Market analysis", "Competitive research", "Growth planning", "Technology roadmap"],
-      icon: <TrendingUp className="w-8 h-8" />
-    },
-    {
-      title: "Marketing Technology Integration",
-      description: "Seamlessly integrate marketing tools and platforms to create a unified ecosystem that maximizes efficiency.",
-      features: ["CRM setup", "Marketing automation", "Analytics configuration", "Tool integration"],
-      icon: <Database className="w-8 h-8" />
-    },
-    {
-      title: "Performance Optimization",
-      description: "Continuously monitor and optimize your digital marketing performance to ensure maximum ROI and growth.",
-      features: ["Conversion rate optimization", "A/B testing", "Performance audits", "Growth optimization"],
-      icon: <Shield className="w-8 h-8" />
+  // Create particles effect
+  useEffect(() => {
+    const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
+
+    // Clear existing particles
+    particlesContainer.innerHTML = '';
+    
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      
+      // Random position
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      
+      // Random size
+      const size = Math.random() * 4 + 1;
+      
+      // Random animation duration
+      const duration = Math.random() * 20 + 10;
+      
+      // Random delay
+      const delay = Math.random() * 10;
+      
+      particle.style.left = `${posX}%`;
+      particle.style.top = `${posY}%`;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.animationDuration = `${duration}s`;
+      particle.style.animationDelay = `${delay}s`;
+      
+      particlesContainer.appendChild(particle);
     }
-  ];
+  }, []);
 
   return (
-    <div className="gradient-bg">
-      {/* Floating Particles */}
-      <div className="floating-particles">
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-      </div>
+    <>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossOrigin="anonymous" referrerPolicy="no-referrer"></script>
+      
+      <div className="bg-black text-white font-sans min-h-screen" style={{ fontFamily: 'Inter, sans-serif' }}>
+        {/* Particles Background */}
+        <div id="particles" className="particles"></div>
 
-      {/* Header Navigation */}
-      <nav className="relative z-50 p-6">
-        <div className="container mx-auto flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <img 
-              src="/lovable-uploads/7223877a-0a55-4ae4-9fbe-ad1c46acae0f.png" 
-              alt="Digital Frontier Company Logo" 
-              className="h-12 w-auto"
-            />
-          </Link>
-          <div className="flex items-center space-x-6">
-            <Link to="/contact" className="cta-button-secondary">
-              Get Started
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center max-w-4xl mx-auto fade-in-up">
-          <h1 className="hero-title">
-            Digital Frontier Services
-          </h1>
-          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Revolutionize your digital presence with our cutting-edge AI-powered marketing solutions. 
-            We combine advanced technology with proven strategies to deliver exceptional results.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/contact" className="cta-button">
-              Start Your Journey
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/about" className="cta-button-secondary">
-              Learn More About Us
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Services Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center mb-16 slide-in-left">
-          <div className="badge-ai inline-block mb-4">AI-Powered Solutions</div>
-          <h2 className="category-header">Artificial Intelligence Services</h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Harness the power of artificial intelligence to transform your marketing efforts and stay ahead of the competition.
-          </p>
-        </div>
-        
-        <div className="services-grid">
-          {aiServices.map((service, index) => (
-            <div key={index} className="service-card fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="text-frontier-cyan mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-400 flex items-center">
-                    <div className="w-2 h-2 bg-frontier-cyan rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+        {/* Header */}
+        <header className="py-6 px-4 md:px-12 relative z-10">
+          <div className="container mx-auto flex justify-center">
+            <div className="w-48">
+              <img 
+                className="w-full" 
+                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/266be7c04d-104d09277f8e90e98ef8.png" 
+                alt="digital frontier company logo with mountain peak and tech elements, cyan blue color"
+              />
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Marketing Services Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center mb-16 slide-in-left">
-          <div className="badge-marketing inline-block mb-4">Digital Marketing</div>
-          <h2 className="category-header">Core Marketing Services</h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Comprehensive digital marketing solutions designed to increase your online visibility and drive measurable results.
-          </p>
-        </div>
-        
-        <div className="services-grid">
-          {marketingServices.map((service, index) => (
-            <div key={index} className="service-card fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="text-frontier-cyan mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-400 flex items-center">
-                    <div className="w-2 h-2 bg-frontier-cyan rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Consulting Services Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
-        <div className="text-center mb-16 slide-in-left">
-          <div className="badge-consulting inline-block mb-4">Strategic Consulting</div>
-          <h2 className="category-header">Consulting & Strategy</h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Expert guidance and strategic planning to help your business navigate the digital landscape and achieve sustainable growth.
-          </p>
-        </div>
-        
-        <div className="services-grid">
-          {consultingServices.map((service, index) => (
-            <div key={index} className="service-card fade-in-up" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="text-frontier-cyan mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-              <ul className="space-y-2">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-400 flex items-center">
-                    <div className="w-2 h-2 bg-frontier-cyan rounded-full mr-3"></div>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
-        <div className="dark-container p-12 text-center fade-in-up">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Digital Presence?
-          </h2>
-          <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-            Join hundreds of businesses that have already revolutionized their marketing with our innovative solutions.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/contact" className="cta-button">
-              Get Your Free Consultation
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/pricing" className="cta-button-secondary">
-              View Pricing Plans
-            </Link>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* Contact Section */}
-      <section className="relative z-10 container mx-auto px-6 py-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Get In Touch</h2>
-            <p className="text-gray-300 text-lg">
-              Ready to start your digital transformation? Contact us today for a personalized consultation.
+        {/* Main Content */}
+        <main className="relative z-10">
+          {/* Hero Section */}
+          <section className="text-center px-4 md:px-12 py-16">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: 'var(--df-bright-blue)' }}>
+              Digital Frontier Services
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
+              AI-Powered Solutions for Market Domination. From custom AI agents to strategic marketing, we engineer your path to digital supremacy with cutting-edge technology and proven strategies.
             </p>
+            
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
+              <button 
+                onClick={() => setActiveFilter('all')}
+                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                  activeFilter === 'all' 
+                    ? 'text-white' 
+                    : 'border text-white hover:bg-opacity-80 hover:border-blue-400'
+                }`}
+                style={{
+                  backgroundColor: activeFilter === 'all' ? 'var(--df-bright-blue)' : 'var(--df-glass-bg)',
+                  borderColor: activeFilter === 'all' ? 'transparent' : 'var(--df-cyan)'
+                }}
+              >
+                All Services
+              </button>
+              <button 
+                onClick={() => setActiveFilter('ai')}
+                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                  activeFilter === 'ai' 
+                    ? 'text-white' 
+                    : 'border text-white hover:bg-opacity-80 hover:border-blue-400'
+                }`}
+                style={{
+                  backgroundColor: activeFilter === 'ai' ? 'var(--df-bright-blue)' : 'var(--df-glass-bg)',
+                  borderColor: activeFilter === 'ai' ? 'transparent' : 'var(--df-cyan)'
+                }}
+              >
+                AI Agents
+              </button>
+              <button 
+                onClick={() => setActiveFilter('marketing')}
+                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                  activeFilter === 'marketing' 
+                    ? 'text-white' 
+                    : 'border text-white hover:bg-opacity-80 hover:border-blue-400'
+                }`}
+                style={{
+                  backgroundColor: activeFilter === 'marketing' ? 'var(--df-bright-blue)' : 'var(--df-glass-bg)',
+                  borderColor: activeFilter === 'marketing' ? 'transparent' : 'var(--df-cyan)'
+                }}
+              >
+                Marketing
+              </button>
+              <button 
+                onClick={() => setActiveFilter('consulting')}
+                className={`px-6 py-3 rounded-full font-medium transition-all ${
+                  activeFilter === 'consulting' 
+                    ? 'text-white' 
+                    : 'border text-white hover:bg-opacity-80 hover:border-blue-400'
+                }`}
+                style={{
+                  backgroundColor: activeFilter === 'consulting' ? 'var(--df-bright-blue)' : 'var(--df-glass-bg)',
+                  borderColor: activeFilter === 'consulting' ? 'transparent' : 'var(--df-cyan)'
+                }}
+              >
+                Consulting
+              </button>
+            </div>
+          </section>
+
+          {/* Services Grid */}
+          <section className="px-4 md:px-12 pb-24">
+            <div className="container mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredServices.map((service) => (
+                  <div key={service.id} className="glass-card rounded-xl p-6 transition-all duration-300">
+                    <div className="flex items-center mb-4">
+                      <div className="p-3 rounded-full mr-4" style={{ backgroundColor: 'rgba(0, 238, 255, 0.2)' }}>
+                        <i className={`${service.icon} text-xl`} style={{ color: 'var(--df-cyan)' }}></i>
+                      </div>
+                      <span 
+                        className="text-xs px-3 py-1 rounded-full"
+                        style={{ 
+                          backgroundColor: 'rgba(0, 238, 255, 0.2)',
+                          color: 'var(--df-cyan)'
+                        }}
+                      >
+                        {service.badge}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--df-bright-blue)' }}>
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4">{service.description}</p>
+                    <div className="mb-6">
+                      <h4 className="text-sm mb-2" style={{ color: 'var(--df-cyan)' }}>KEY BENEFITS:</h4>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <i className="fa-solid fa-check mt-1 mr-2" style={{ color: 'var(--df-cyan)' }}></i>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <button 
+                      className="py-2 px-6 rounded-lg transition-all w-full border"
+                      style={{ 
+                        borderColor: 'var(--df-cyan)',
+                        color: 'var(--df-cyan)'
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLElement).style.backgroundColor = 'rgba(0, 238, 255, 0.1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                      }}
+                    >
+                      Learn More
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Why Choose Section */}
+          <section className="px-4 md:px-12 py-16 mx-4 md:mx-12 rounded-xl mb-24 glass-card">
+            <div className="container mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: 'var(--df-bright-blue)' }}>
+                Why Choose Digital Frontier?
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="p-6">
+                  <div className="text-4xl font-bold mb-2" style={{ color: 'var(--df-cyan)' }}>850+</div>
+                  <p className="text-gray-300">Successful Projects</p>
+                </div>
+                <div className="p-6">
+                  <div className="text-4xl font-bold mb-2" style={{ color: 'var(--df-cyan)' }}>4.9/5</div>
+                  <p className="text-gray-300">Client Satisfaction</p>
+                </div>
+                <div className="p-6">
+                  <div className="text-4xl font-bold mb-2" style={{ color: 'var(--df-cyan)' }}>24/7</div>
+                  <p className="text-gray-300">Support & Assistance</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        {/* Footer */}
+        <footer className="py-12 px-4 md:px-12 border-t border-gray-800 relative z-10">
+          <div className="container mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="mb-6 md:mb-0">
+                <div className="w-32 mx-auto md:mx-0">
+                  <img 
+                    className="w-full" 
+                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/266be7c04d-104d09277f8e90e98ef8.png" 
+                    alt="digital frontier company logo with mountain peak and tech elements, cyan blue color"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-center gap-8">
+                <span className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">Home</span>
+                <span className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">About Us</span>
+                <span className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">Services</span>
+                <span className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">Blog</span>
+                <span className="text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">Contact</span>
+              </div>
+              <div className="mt-6 md:mt-0 flex gap-4">
+                <span 
+                  className="p-3 rounded-full hover:bg-opacity-20 transition-all cursor-pointer"
+                  style={{ backgroundColor: 'var(--df-glass-bg)' }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(0, 238, 255, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--df-glass-bg)';
+                  }}
+                >
+                  <i className="fa-brands fa-linkedin-in" style={{ color: 'var(--df-cyan)' }}></i>
+                </span>
+                <span 
+                  className="p-3 rounded-full hover:bg-opacity-20 transition-all cursor-pointer"
+                  style={{ backgroundColor: 'var(--df-glass-bg)' }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(0, 238, 255, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--df-glass-bg)';
+                  }}
+                >
+                  <i className="fa-brands fa-twitter" style={{ color: 'var(--df-cyan)' }}></i>
+                </span>
+                <span 
+                  className="p-3 rounded-full hover:bg-opacity-20 transition-all cursor-pointer"
+                  style={{ backgroundColor: 'var(--df-glass-bg)' }}
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'rgba(0, 238, 255, 0.2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLElement).style.backgroundColor = 'var(--df-glass-bg)';
+                  }}
+                >
+                  <i className="fa-brands fa-instagram" style={{ color: 'var(--df-cyan)' }}></i>
+                </span>
+              </div>
+            </div>
+            <div className="text-center mt-12 text-gray-500">
+              <p>© 2023 Digital Frontier. All rights reserved.</p>
+            </div>
           </div>
-          
-          <div className="contact-form">
-            <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-white mb-2">Name</label>
-                <input type="text" className="form-input" placeholder="Your full name" />
-              </div>
-              <div>
-                <label className="block text-white mb-2">Email</label>
-                <input type="email" className="form-input" placeholder="your@email.com" />
-              </div>
-              <div>
-                <label className="block text-white mb-2">Company</label>
-                <input type="text" className="form-input" placeholder="Your company name" />
-              </div>
-              <div>
-                <label className="block text-white mb-2">Phone</label>
-                <input type="tel" className="form-input" placeholder="Your phone number" />
-              </div>
-              <div className="md:col-span-2">
-                <label className="block text-white mb-2">Message</label>
-                <textarea className="form-input h-32" placeholder="Tell us about your project..."></textarea>
-              </div>
-              <div className="md:col-span-2 text-center">
-                <button type="submit" className="cta-button">
-                  Send Message
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </div>
+        </footer>
+      </div>
+    </>
   );
 };
 
