@@ -98,7 +98,7 @@ function App() {
             <Route path="/information-architecture-prompts" element={<MainLayout><InformationArchitecturePrompts /></MainLayout>} />
             <Route path="/user-experience-prompts" element={<MainLayout><UserExperiencePrompts /></MainLayout>} />
             <Route path="/seo-vs-aeo-vs-geo" element={<MainLayout><SEOvsAEOvsGEO /></MainLayout>} />
-            <Route path="/insights" element={<MainLayout><div className="pt-16"><InsightsHub /></div></MainLayout>} />
+            <Route path="/insights" element={<InsightsHub />} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
             <Route path="/blog/digital-marketing-revolution-july-2025" element={<MainLayout><BlogPostDigitalMarketingRevolution2025 /></MainLayout>} />
             <Route path="/emotional-marketing-playbook" element={<MainLayout><EmotionalMarketingPlaybook /></MainLayout>} />

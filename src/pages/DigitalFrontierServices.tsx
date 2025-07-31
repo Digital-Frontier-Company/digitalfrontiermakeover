@@ -117,12 +117,12 @@ const DigitalFrontierServices = () => {
         {/* Header */}
         <header className="py-6 px-4 md:px-12 relative z-10">
           <div className="container mx-auto flex justify-center">
-            <div className="w-48">
-              <img 
-                className="w-full" 
-                src="https://storage.googleapis.com/uxpilot-auth.appspot.com/266be7c04d-104d09277f8e90e98ef8.png" 
-                alt="digital frontier company logo with mountain peak and tech elements, cyan blue color"
-              />
+          <div className="w-48">
+            <img 
+              className="w-full" 
+              src="/lovable-uploads/82ac39f2-c264-42ef-bb92-fa6731db497e.png" 
+              alt="Digital Frontier Company logo with mountain peak design in cyan blue"
+            />
             </div>
           </div>
         </header>
@@ -287,8 +287,8 @@ const DigitalFrontierServices = () => {
                 <div className="w-32 mx-auto md:mx-0">
                   <img 
                     className="w-full" 
-                    src="https://storage.googleapis.com/uxpilot-auth.appspot.com/266be7c04d-104d09277f8e90e98ef8.png" 
-                    alt="digital frontier company logo with mountain peak and tech elements, cyan blue color"
+                    src="/lovable-uploads/82ac39f2-c264-42ef-bb92-fa6731db497e.png" 
+                    alt="Digital Frontier Company logo"
                   />
                 </div>
               </div>
