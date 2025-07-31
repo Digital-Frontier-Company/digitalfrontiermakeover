@@ -8,8 +8,8 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const AboutUs = () => {
   return (
     <PageLayout 
-      title="About Us" 
-      subtitle="Your Partner in Digital Marketing Excellence"
+      title="About Digital Frontier: Expert Digital Marketing & AI Implementation Team | Memphis-Based Innovation Leaders"
+      subtitle="Meet the experts behind cutting-edge digital marketing strategies, AI solutions, and proven business transformation techniques"
       currentPath="/about-us"
     >
       {/* David Thompson Logo Banner */}

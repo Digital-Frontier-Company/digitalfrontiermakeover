@@ -133,8 +133,8 @@ const SearchEngineOptimization: React.FC = () => {
 
   return (
     <PageLayout 
-      title="Search Engine Optimization" 
-      subtitle="The AI-Powered Semantic Evolution of SEO"
+      title="Search Engine Optimization: Complete SEO Guide with AI-Powered Strategies & Proven Techniques | Expert Implementation"
+      subtitle="Master modern SEO with expert AI-powered strategies, proven semantic search techniques, and actionable tactics for dominating search results"
       currentPath={location.pathname}
     >
       <Helmet>

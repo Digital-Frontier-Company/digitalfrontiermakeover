@@ -49,8 +49,8 @@ const AnswerEngineOptimization = () => {
 
   return (
     <PageLayout
-      title="Answer Engine Optimization Services | AEO Company Memphis"
-      subtitle="Get Your Business Featured in ChatGPT, Voice Search & AI Results"
+      title="Answer Engine Optimization: Expert AEO Services & Proven ChatGPT SEO Strategies | Get Featured in AI Results"
+      subtitle="Master Answer Engine Optimization with expert AEO strategies, proven ChatGPT SEO techniques, and actionable tips to dominate AI search results"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-11-15"

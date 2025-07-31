@@ -8,8 +8,8 @@ const PredictiveAnalyticsAgent = () => {
 
   return (
     <PageLayout 
-      title="Predictive Analytics Agent"
-      subtitle="Harness the power of predictive AI to forecast market trends and opportunities"
+      title="Predictive Analytics Agent: AI-Powered Business Forecasting & Market Trend Analysis | Expert Insights & Strategies"
+      subtitle="Master predictive AI with proven forecasting techniques, expert market analysis strategies, and actionable insights to outperform competitors"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-10-01"

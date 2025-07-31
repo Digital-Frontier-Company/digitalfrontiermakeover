@@ -87,8 +87,8 @@ const AIAndDigitalMarketing = () => {
 
   return (
     <PageLayout 
-      title="AI & Digital Marketing Revolution"
-      subtitle="Transform your marketing strategy through artificial intelligence and machine learning technologies"
+      title="AI in Digital Marketing: Complete Strategy Guide with Proven Techniques & Advanced Implementation Tips | Transform Your Business"
+      subtitle="Master artificial intelligence in marketing with expert strategies, practical implementation guides, and proven techniques that drive measurable results"
       currentPath={location.pathname}
     >
       <Helmet>

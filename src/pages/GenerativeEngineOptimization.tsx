@@ -109,8 +109,8 @@ const GenerativeEngineOptimization = () => {
 
   return (
     <PageLayout
-      title="Generative Engine Optimization"
-      subtitle="That Makes AI Engines Quote You First"
+      title="Generative Engine Optimization: Expert GEO Strategies & Proven AI Citation Techniques | Get Quoted by AI"
+      subtitle="Master Generative Engine Optimization with expert GEO strategies, proven AI citation techniques, and actionable methods to dominate generative search"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-12-01"

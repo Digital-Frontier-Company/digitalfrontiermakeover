@@ -8,8 +8,8 @@ const AIHumanizerAgent = () => {
 
   return (
     <PageLayout 
-      title="AI Humanizer Agent"
-      subtitle="Transform machine-generated content into natural human language"
+      title="AI Humanizer Agent: Expert Content Transformation Tool & Natural Language Conversion Strategies | Convert AI to Human Text"
+      subtitle="Transform machine-generated content into natural human language with proven techniques, expert tips, and actionable strategies"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-10-01"

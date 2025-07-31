@@ -83,7 +83,7 @@ const SEOvsAEOvsGEO = () => {
     description: "AI platforms synthesize information from multiple sources",
     dominance: "AI-powered recommendations"
   }];
-  return <PageLayout title="SEO vs AEO vs GEO: Complete Strategy Guide for 2025" subtitle="Master all three optimization strategies for complete search dominance in the fragmented digital landscape" currentPath="/seo-vs-aeo-vs-geo" pageType="article" publishedDate="2025-07-15" modifiedDate="2025-07-15">
+  return <PageLayout title="SEO vs AEO vs GEO: Complete Strategy Guide with Expert Tactics & Proven Implementation Methods | Master All Three" subtitle="Master all three optimization strategies with expert guidance, proven techniques, and actionable tactics for complete search dominance in 2025" currentPath="/seo-vs-aeo-vs-geo" pageType="article" publishedDate="2025-07-15" modifiedDate="2025-07-15">
       <div className="space-y-16">
         
         {/* Executive Summary */}

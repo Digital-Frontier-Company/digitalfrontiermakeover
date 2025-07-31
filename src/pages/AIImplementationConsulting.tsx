@@ -8,8 +8,8 @@ const AIImplementationConsulting = () => {
 
   return (
     <PageLayout 
-      title="AI Implementation Consulting"
-      subtitle="Expert guidance on integrating AI solutions into your business operations"
+      title="AI Implementation Consulting: Expert Business Integration Strategies & Proven Deployment Methods | Transform Your Operations"
+      subtitle="Expert guidance on integrating AI solutions into your business with proven strategies, practical tips, and actionable implementation roadmaps"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-10-01"

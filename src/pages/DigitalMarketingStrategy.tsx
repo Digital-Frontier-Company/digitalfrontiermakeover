@@ -8,8 +8,8 @@ const DigitalMarketingStrategy = () => {
 
   return (
     <PageLayout 
-      title="Digital Marketing Strategy"
-      subtitle="Comprehensive AI-enhanced marketing strategies for business growth and market domination"
+      title="Digital Marketing Strategy: Complete AI-Enhanced Business Growth Guide & Proven Tactics | Dominate Your Market"
+      subtitle="Master comprehensive AI-enhanced marketing strategies with expert tactics, actionable frameworks, and proven techniques for explosive business growth"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-10-01"

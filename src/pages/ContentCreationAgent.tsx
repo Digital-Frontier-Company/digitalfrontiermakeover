@@ -8,8 +8,8 @@ const ContentCreationAgent = () => {
 
   return (
     <PageLayout 
-      title="Content Creation Agent"
-      subtitle="Generate SEO-optimized content for your digital marketing needs"
+      title="Content Creation Agent: Expert AI Writing Tools & SEO Content Strategies | Generate High-Converting Copy"
+      subtitle="Master AI content creation with proven writing tools, expert SEO strategies, and actionable techniques for high-converting marketing copy"
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-10-01"

@@ -68,8 +68,8 @@ const AIBias = () => {
 
   return (
     <PageLayout 
-      title="AI Bias in Advertising: Ethics & Solutions"
-      subtitle="Understanding and addressing bias in AI-powered marketing technologies for ethical practice"
+      title="AI Bias in Marketing: Expert Guide to Ethical Advertising Solutions & Bias Prevention Strategies | Build Fair AI Systems"
+      subtitle="Master ethical AI marketing with proven bias detection techniques, practical solutions, and actionable strategies for fair advertising"
       currentPath={location.pathname}
     >
       <Helmet>

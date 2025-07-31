@@ -57,8 +57,8 @@ const AdFunnelBlueprint = () => {
       />
       
       <PageLayout 
-        title="AI-Powered Ad Funnel Blueprint" 
-        subtitle="Navigate Your Customer Journey" 
+        title="AI-Powered Ad Funnel Blueprint: Complete Customer Journey Strategy & Conversion Optimization Guide | Expert Marketing Tactics"
+        subtitle="Master AI-powered ad funnels with proven customer journey strategies, expert conversion optimization techniques, and actionable marketing blueprints"
         currentPath={location.pathname}
       >
         <Helmet>

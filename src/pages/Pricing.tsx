@@ -14,8 +14,8 @@ const Pricing: React.FC = () => {
 
   return (
     <PageLayout 
-      title="Digital Marketing Services" 
-      subtitle="SEO, AEO, GEO & Social Media Marketing Solutions" 
+      title="Digital Marketing Services Pricing: Expert SEO, AEO & GEO Solutions | Proven Strategies & ROI-Focused Packages"
+      subtitle="Master digital marketing with expert pricing strategies, proven service packages, and actionable solutions for SEO, AEO, GEO & social media marketing" 
       currentPath={location.pathname}
     >
       {/* Hero Section */}
