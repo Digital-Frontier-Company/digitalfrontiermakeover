@@ -33,6 +33,7 @@ import UserExperiencePrompts from '@/pages/UserExperiencePrompts';
 import InsightsHub from '@/pages/InsightsHub';
 import SEOvsAEOvsGEO from '@/pages/SEOvsAEOvsGEO';
 import BrowsePlaybooks from '@/pages/BrowsePlaybooks';
+import DigitalFrontierServices from '@/pages/DigitalFrontierServices';
 import { HelmetProvider } from 'react-helmet-async';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import TaxReductionGuide from "./pages/TaxReductionGuide";
@@ -71,6 +72,7 @@ function App() {
             <Route path="/about-us" element={<MainLayout><AboutUs /></MainLayout>} />
             <Route path="/contact" element={<MainLayout><Contact /></MainLayout>} />
             <Route path="/docs" element={<MainLayout><Docs /></MainLayout>} />
+            <Route path="/digital-frontier-services" element={<DigitalFrontierServices />} />
             <Route path="/pricing" element={<MainLayout><Pricing /></MainLayout>} />
             <Route path="/faq" element={<MainLayout><FAQ /></MainLayout>} />
             <Route path="/newsletter" element={<MainLayout><Newsletter /></MainLayout>} />

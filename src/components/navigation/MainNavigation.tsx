@@ -29,14 +29,12 @@ const MainNavigation = () => {
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <a 
-                    href="https://jsdocalw.manus.space/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Link 
+                    to="/digital-frontier-services"
                     className="bg-slate-950 hover:bg-slate-800 text-cyan-400 transition-all duration-300 hover:scale-110 inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium"
                   >
                     Digital Frontier Services
-                  </a>
+                  </Link>
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
