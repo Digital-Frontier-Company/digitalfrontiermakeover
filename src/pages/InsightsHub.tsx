@@ -104,7 +104,7 @@ const InsightsHub = () => {
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap" />
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossOrigin="anonymous" referrerPolicy="no-referrer"></script>
       
-      <div className="bg-black text-white font-sans min-h-screen" style={{ fontFamily: 'Inter, sans-serif' }}>
+      <div className="text-white font-sans min-h-screen relative" style={{ fontFamily: 'Inter, sans-serif' }}>
         {/* Animated Mesh Gradient Background */}
         <div className="animated-mesh-bg"></div>
         
