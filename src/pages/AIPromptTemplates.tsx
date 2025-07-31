@@ -14,8 +14,8 @@ const AIPromptTemplates = () => {
 
   return (
     <PageLayout
-      title="AI Prompt Templates for Memphis Marketing | ChatGPT Business Prompts"
-      subtitle="50+ Proven ChatGPT Prompts for Memphis Businesses to Boost Marketing Results"
+      title="Master AI Prompt Engineering: 50+ ChatGPT Templates for Digital Marketing Success | Expert Strategies & Advanced Techniques"
+      subtitle="Transform your marketing with proven AI prompt templates, advanced chains, and recursive techniques. Get actionable strategies that drive real results for your business."
       currentPath={location.pathname}
       pageType="article"
       publishedDate="2024-12-18"
