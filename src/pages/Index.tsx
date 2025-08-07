@@ -650,7 +650,7 @@ const Index = () => {
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
                 <a href="https://generativesearch.pro" target="_blank" rel="dofollow" className="block">
-                  <img src="/lovable-uploads/686610ee-b3cc-4985-adab-c751e816394f.png" alt="Generative Engine Optimization" className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" onError={e => {
+                  <img src="/lovable-uploads/46440d18-7e50-459a-9423-09e65df49121.png" alt="Generative Engine Optimization" className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" onError={e => {
                   console.error('Failed to load image:', e.currentTarget.src);
                   e.currentTarget.style.display = 'none';
                 }} onLoad={() => console.log('Image loaded successfully')} />
