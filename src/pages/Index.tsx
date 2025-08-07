@@ -230,7 +230,7 @@ const Index = () => {
           }}></div>
             
             {/* Main logo - enlarged */}
-            <img alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" loading="eager" src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png" className="h-80 w-auto relative z-10 object-cover" />
+            <img alt="GenerativeSearch.pro logo - Generative Search marketing" loading="eager" src="/lovable-uploads/dc59b652-3e94-42f4-871f-7c456846e787.png" className="h-80 w-auto relative z-10 object-cover" />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
