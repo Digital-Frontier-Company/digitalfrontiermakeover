@@ -15,8 +15,8 @@ interface PricingTier {
 const projectPricing: PricingTier[] = [
   {
     name: "Growth Sprint",
-    price: "$4,500",
-    period: "one-time",
+    price: "$2,000",
+    period: "project",
     description: "Perfect for testing our methodology with a focused campaign",
     features: [
       "30-day intensive campaign",
