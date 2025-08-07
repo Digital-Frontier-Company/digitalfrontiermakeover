@@ -397,7 +397,7 @@ const Index = () => {
           }, {
             title: "Answer Engine Optimization (AEO)",
             description: "The old SEO is dying. The new game? Own the answers. AEO-optimized content gets cited 73% more often in AI responses (BrightEdge, 2024).",
-            icon: "/lovable-uploads/183a006c-d7ab-43aa-b457-8d5284912ab6.png",
+            icon: "/lovable-uploads/1a75ee2a-f9f2-44bd-9e56-c933ed965d29.png",
             gradient: "from-emerald-400/20 to-teal-600/20",
             glowColor: "shadow-emerald-400/30"
           }].map((card, index) => <motion.div key={index} className={`group relative bg-card/80 backdrop-blur-sm border border-border/50 p-8 rounded-2xl transition-all duration-500 hover:border-electric-azure/50 hover:bg-card/90 hover:scale-105 hover:shadow-2xl ${card.glowColor}`} initial={{
