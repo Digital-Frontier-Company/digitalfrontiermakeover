@@ -48,8 +48,8 @@ const projectPricing: PricingTier[] = [
 const retainerPricing: PricingTier[] = [
   {
     name: "Growth Partner",
-    price: "$3,500",
-    period: "monthly",
+    price: "$999.99",
+    period: "month",
     description: "Ongoing partnership for sustained growth and optimization",
     features: [
       "Monthly strategy optimization",
