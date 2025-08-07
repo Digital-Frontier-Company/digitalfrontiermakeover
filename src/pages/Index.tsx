@@ -125,7 +125,10 @@ const Index = () => {
       
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
       <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
-      background: 'var(--gradient-hero)',
+      backgroundImage: `url('/lovable-uploads/bf9f20f5-cb42-4cb7-b13c-6dea496c103f.png'), var(--gradient-hero)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundBlendMode: 'overlay',
       y: heroY
     }}>
         {/* Subtle Floating Orbs */}
