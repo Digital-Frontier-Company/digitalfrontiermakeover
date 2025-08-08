@@ -307,7 +307,7 @@ const Index = () => {
           duration: 0.6,
           delay: 0.8
         }}>
-            <p>Trusted by 200+ B2B companies • Average 38% increase in SQLs • 84% client retention rate (verified by independent audit)</p>
+            <p className="text-white font-semibold">Trusted by 200+ B2B companies • Average 38% increase in SQLs • 84% client retention rate (verified by independent audit)</p>
           </motion.div>
         </div>
       </motion.section>
