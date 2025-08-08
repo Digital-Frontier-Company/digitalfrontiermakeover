@@ -125,7 +125,7 @@ const Index = () => {
       
       {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
       <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
-      backgroundImage: `url('/lovable-uploads/bf9f20f5-cb42-4cb7-b13c-6dea496c103f.png'), var(--gradient-hero)`,
+      backgroundImage: `url('/lovable-uploads/437eedfa-5c80-4a7d-9af4-21878ea732d7.png'), var(--gradient-hero)`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundBlendMode: 'overlay',
