@@ -9,7 +9,7 @@ import SEOSchema from "@/components/SEOSchema";
 import ModernContactForm from "@/components/ModernContactForm";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -119,6 +119,37 @@ const Index = () => {
   } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, -150]);
   const logoScale = useTransform(scrollY, [0, 300], [1, 1.1]);
+
+  const marqueeControls = useAnimation();
+  const trustedLogos = [
+    "/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png",
+    "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png",
+    "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png",
+    "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png",
+    "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png",
+    "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"
+  ];
+  const extraTrustedImages = [
+    "/lovable-uploads/3c96b100-6325-4881-925d-941fa1d28582.png",
+    "/lovable-uploads/a8a47af6-c1fb-4ef5-9186-0149566a84ae.png",
+    "/lovable-uploads/605b3988-ccd7-4c5d-9c40-fe5ea991729b.png",
+    "/lovable-uploads/06143896-3705-4777-8c31-5f139371be88.png",
+    "/lovable-uploads/eb7443f0-3f7a-4b83-9d12-c669af95a5d8.png",
+    "/lovable-uploads/51cb98d5-156b-4bca-8c82-34d3ec317ca3.png"
+  ];
+  const marqueeItems = [
+    ...trustedLogos,
+    "/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png",
+    ...extraTrustedImages
+  ];
+
+  useEffect(() => {
+    marqueeControls.start({
+      x: ["0%", "-50%"],
+      transition: { duration: 30, ease: "linear", repeat: Infinity }
+    });
+  }, [marqueeControls]);
+
   return <>
       <SEOSchema />
       
@@ -316,15 +347,37 @@ const Index = () => {
       <section className="-bottom-1 bg-[#040b29] mx-[32px] my-[32px] py-[32px] px-[32px] rounded-xl">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center mb-12 text-cyan-300 font-extrabold text-base">Trusted by Industry Leaders</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 items-center justify-items-center">
-            {["/lovable-uploads/2486421b-6ca3-4c32-b686-a49ac0da182b.png", "/lovable-uploads/998924f0-2fc2-41d7-98d1-5b927c64c09e.png", "/lovable-uploads/914a27cb-e153-438e-8c3b-3937b1598283.png", "/lovable-uploads/dd9a50a2-11ff-45a3-bdef-97597bd967b7.png", "/lovable-uploads/006c1b20-0f5a-4e81-804c-dac4a28eb855.png", "/lovable-uploads/966b64a4-e3f7-488f-b15e-0d2d8e61d442.png"].map((logo, index) => <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300">
-                <img src={logo} alt={`Client logo ${index + 1}`} className="h-32 w-auto grayscale hover:grayscale-0 transition-all duration-300" />
-              </div>)}
-            <div className="opacity-60 hover:opacity-100 transition-opacity duration-300">
-              <a href="https://makementors.com" target="_blank" rel="noopener noreferrer">
-                <img src="/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" alt="MakeMentors.io" className="h-24 min-w-24 " />
-              </a>
-            </div>
+          <div
+            className="relative overflow-hidden"
+            onMouseEnter={() => marqueeControls.stop()}
+            onMouseLeave={() =>
+              marqueeControls.start({
+                x: ["0%", "-50%"],
+                transition: { duration: 30, ease: "linear", repeat: Infinity },
+              })
+            }
+          >
+            <motion.div
+              className="flex items-center gap-12 whitespace-nowrap will-change-transform"
+              animate={marqueeControls}
+            >
+              {[...marqueeItems, ...marqueeItems].map((src, index) => (
+                <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
+                  {src === "/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" ? (
+                    <a href="https://makementors.com" target="_blank" rel="noopener noreferrer">
+                      <img src={src} alt="MakeMentors logo" className="h-24 w-auto" loading="lazy" />
+                    </a>
+                  ) : (
+                    <img
+                      src={src}
+                      alt={`Trusted brand ${((index % marqueeItems.length) + 1)}`}
+                      className="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
