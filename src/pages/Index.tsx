@@ -257,7 +257,7 @@ const Index = () => {
           </motion.h1>
 
           {/* Subheadline with Staggered Animation */}
-          <motion.p className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12" style={{
+          <motion.p style={{
           lineHeight: '1.55'
         }} initial={{
           opacity: 0,
@@ -268,7 +268,7 @@ const Index = () => {
         }} transition={{
           duration: 0.8,
           delay: 0.4
-        }}>
+        }} className="font-inter text-lg md:text-xl text-soft-white/80 leading-relaxed max-w-3xl mx-auto mb-12 font-semibold text-[#fafcfd]">
             We build content engines that drive organic traffic and generate qualified leads for B2B tech companies. No guesswork—just measurable results backed by industry data showing 94% of B2B buyers research online before purchasing (Demand Gen Report, 2023).
           </motion.p>
 
