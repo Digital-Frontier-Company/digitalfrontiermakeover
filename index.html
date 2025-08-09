@@ -53,6 +53,12 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://thedigitalfrontier.ai/" />
+
+    <!-- Discovery links for crawlers and LLMs -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="robots" href="/robots.txt" />
+    <link rel="alternate" type="text/plain" href="/llm.txt" />
+    <link rel="alternate" type="text/html" href="/ai-preview.html" title="AI-readable site snapshot" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -225,6 +231,32 @@
 
   <body>
     <div id="root"></div>
+
+    <noscript>
+      <header>
+        <h1>Digital Frontier — AI-Powered Marketing, AEO & GEO</h1>
+      </header>
+      <main>
+        <p>We build human+AI content engines for durable growth: Answer Engine Optimization (AEO), Generative Engine Optimization (GEO), SEO, and revenue-focused digital marketing.</p>
+        <nav aria-label="Key pages">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/answer-engine-optimization">Answer Engine Optimization (AEO)</a></li>
+            <li><a href="/generative-engine-optimization">Generative Engine Optimization (GEO)</a></li>
+            <li><a href="/search-engine-optimization">Search Engine Optimization (SEO)</a></li>
+            <li><a href="/digital-marketing-strategy">Digital Marketing Strategy</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/insights">Insights Hub</a></li>
+            <li><a href="/newsletter">Newsletter</a></li>
+            <li><a href="/llm.txt">LLM Guide</a></li>
+            <li><a href="/ai-preview.html">Static AI Preview</a></li>
+          </ul>
+        </nav>
+      </main>
+    </noscript>
+
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
