@@ -277,3 +277,36 @@
     stroke-dashoffset: 30;
   }
 }
+
+/* Logo interactive strobe glow */
+@keyframes logo-strobe {
+  0% {
+    filter: drop-shadow(0 0 0 hsl(var(--electric-azure) / 0));
+  }
+  25% {
+    filter: drop-shadow(0 0 8px hsl(var(--electric-azure) / 0.25));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px hsl(var(--electric-azure) / 0.45)) drop-shadow(0 0 28px hsl(var(--ultraviolet) / 0.25));
+  }
+  75% {
+    filter: drop-shadow(0 0 10px hsl(var(--electric-azure) / 0.35));
+  }
+  100% {
+    filter: drop-shadow(0 0 0 hsl(var(--electric-azure) / 0));
+  }
+}
+
+.animate-logo-strobe {
+  animation: logo-strobe 2.6s ease-in-out infinite;
+}
+
+.logo-interactive {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: filter, transform;
+}
+
+.logo-interactive:hover {
+  transform: scale(1.04);
+}
+
