@@ -44,6 +44,7 @@ import TaxReductionGuide from "./pages/TaxReductionGuide";
 import InfluencerMarketing2025 from "./pages/InfluencerMarketing2025";
 import BlogPostDigitalMarketingRevolution2025 from './pages/BlogPostDigitalMarketingRevolution2025';
 import BlogPostAEOCrypto from './pages/BlogPostAEOCrypto';
+import BlogPostAIRevolution2025 from './pages/BlogPostAIRevolution2025';
 import EmotionalMarketingPlaybook from './pages/EmotionalMarketingPlaybook';
 import KPIs from './pages/KPIs';
 import RecommenderSystem from './pages/RecommenderSystem';
@@ -109,6 +110,7 @@ function App() {
             <Route path="/insights" element={<InsightsHub />} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
             <Route path="/blog/digital-marketing-revolution-july-2025" element={<MainLayout><BlogPostDigitalMarketingRevolution2025 /></MainLayout>} />
+            <Route path="/blog/ai-revolution-digital-marketing-2025" element={<MainLayout><BlogPostAIRevolution2025 /></MainLayout>} />
             <Route path="/emotional-marketing-playbook" element={<MainLayout><EmotionalMarketingPlaybook /></MainLayout>} />
             <Route path="/kpis" element={<MainLayout><KPIs /></MainLayout>} />
             <Route path="/recommender-system" element={<MainLayout><RecommenderSystem /></MainLayout>} />
