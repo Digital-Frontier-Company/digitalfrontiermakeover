@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import MainNavigation from "../navigation/MainNavigation";
 import Footer from "./Footer";
+import ConversationManager from "../conversation/ConversationManager";
 
 const MainLayout = ({
   children
@@ -44,6 +45,9 @@ const MainLayout = ({
       </main>
 
       <Footer />
+      
+      {/* Conversational Interfaces */}
+      <ConversationManager />
     </div>
   );
 };
