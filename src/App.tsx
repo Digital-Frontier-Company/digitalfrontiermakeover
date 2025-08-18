@@ -50,6 +50,10 @@ import KPIs from './pages/KPIs';
 import RecommenderSystem from './pages/RecommenderSystem';
 import GTMStrategyBlueprint from './pages/GTMStrategyBlueprint';
 import SEOAuditDashboard from './pages/SEOAuditDashboard';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import AuthorPage from './pages/AuthorPage';
+import SearchPage from './pages/SearchPage';
 import { Toaster } from 'react-hot-toast';
 import NotFound from '@/pages/NotFound';
 import ModernContactForm from '@/pages/ModernContactForm';
@@ -118,6 +122,10 @@ function App() {
             <Route path="/recommender-system" element={<MainLayout><RecommenderSystem /></MainLayout>} />
             <Route path="/gtm-strategy-blueprint" element={<MainLayout><GTMStrategyBlueprint /></MainLayout>} />
             <Route path="/seo-audit-dashboard" element={<MainLayout><SEOAuditDashboard /></MainLayout>} />
+            <Route path="/terms-of-service" element={<MainLayout><TermsOfService /></MainLayout>} />
+            <Route path="/privacy-policy" element={<MainLayout><PrivacyPolicy /></MainLayout>} />
+            <Route path="/authors" element={<MainLayout><AuthorPage /></MainLayout>} />
+            <Route path="/search" element={<MainLayout><SearchPage /></MainLayout>} />
             <Route path="/modern-contact-form" element={<ModernContactForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

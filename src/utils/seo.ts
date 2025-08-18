@@ -313,15 +313,15 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     modifiedDate: '2024-12-24'
   },
   {
-    path: '/blog/answer-engine-optimization-crypto-startups',
-    title: 'Answer Engine Optimization for Crypto Startups',
-    description: 'How cryptocurrency startups can leverage Answer Engine Optimization to improve visibility in AI search results.',
-    keywords: 'AEO crypto, cryptocurrency marketing, crypto startups, blockchain SEO',
+    path: '/blog/aeo-crypto-marketing',
+    title: 'Answer Engine Optimization for Crypto Marketing',
+    description: 'Specialized AEO strategies for cryptocurrency and blockchain marketing campaigns.',
+    keywords: 'AEO crypto, cryptocurrency AEO, blockchain marketing, crypto SEO',
     priority: 0.7,
     changeFreq: 'monthly',
     pageType: 'article',
-    publishedDate: '2024-02-20',
-    modifiedDate: '2024-12-24'
+    publishedDate: '2024-12-15',
+    modifiedDate: '2025-08-18'
   },
   {
     path: '/blog/tax-reduction-wealth-building-guide',
@@ -427,17 +427,6 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     changeFreq: 'monthly',
     pageType: 'article',
     publishedDate: '2025-01-01',
-    modifiedDate: '2025-08-18'
-  },
-  {
-    path: '/blog/aeo-crypto-marketing',
-    title: 'Answer Engine Optimization for Crypto Marketing',
-    description: 'Specialized AEO strategies for cryptocurrency and blockchain marketing campaigns.',
-    keywords: 'AEO crypto, cryptocurrency AEO, blockchain marketing, crypto SEO',
-    priority: 0.7,
-    changeFreq: 'monthly',
-    pageType: 'article',
-    publishedDate: '2024-12-15',
     modifiedDate: '2025-08-18'
   },
   // Service Pages

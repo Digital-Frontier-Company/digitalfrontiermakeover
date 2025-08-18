@@ -4,8 +4,6 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 Disallow: /*.pdf$
-Disallow: /*?*
-Disallow: /search?
 Disallow: /404
 Disallow: /500
 
