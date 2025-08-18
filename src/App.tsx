@@ -48,6 +48,8 @@ import BlogPostAIRevolution2025 from './pages/BlogPostAIRevolution2025';
 import EmotionalMarketingPlaybook from './pages/EmotionalMarketingPlaybook';
 import KPIs from './pages/KPIs';
 import RecommenderSystem from './pages/RecommenderSystem';
+import GTMStrategyBlueprint from './pages/GTMStrategyBlueprint';
+import SEOAuditDashboard from './pages/SEOAuditDashboard';
 import { Toaster } from 'react-hot-toast';
 import NotFound from '@/pages/NotFound';
 import ModernContactForm from '@/pages/ModernContactForm';
@@ -114,6 +116,8 @@ function App() {
             <Route path="/emotional-marketing-playbook" element={<MainLayout><EmotionalMarketingPlaybook /></MainLayout>} />
             <Route path="/kpis" element={<MainLayout><KPIs /></MainLayout>} />
             <Route path="/recommender-system" element={<MainLayout><RecommenderSystem /></MainLayout>} />
+            <Route path="/gtm-strategy-blueprint" element={<MainLayout><GTMStrategyBlueprint /></MainLayout>} />
+            <Route path="/seo-audit-dashboard" element={<MainLayout><SEOAuditDashboard /></MainLayout>} />
             <Route path="/modern-contact-form" element={<ModernContactForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

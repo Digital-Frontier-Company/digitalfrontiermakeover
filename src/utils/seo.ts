@@ -343,7 +343,163 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     changeFreq: 'monthly',
     pageType: 'article',
     publishedDate: '2024-11-15',
-    modifiedDate: '2024-12-24'
+    modifiedDate: '2025-08-18'
+  },
+  // Additional Service Pages
+  {
+    path: '/gtm-strategy-blueprint',
+    title: 'GTM Strategy Blueprint - Go-to-Market Planning',
+    description: 'Comprehensive go-to-market strategy blueprint for launching products and services effectively.',
+    keywords: 'go-to-market strategy, GTM blueprint, product launch, market strategy',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/seo-audit-dashboard',
+    title: 'SEO Audit Dashboard - Complete Website Ranking Diagnosis Tool',
+    description: 'Comprehensive SEO analysis & optimization recommendations with real-time audit tools.',
+    keywords: 'SEO audit, website analysis, SEO tools, ranking diagnosis, SEO dashboard',
+    priority: 0.8,
+    changeFreq: 'weekly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/kpis',
+    title: 'KPI Dashboard - Marketing Performance Metrics',
+    description: 'Track and analyze key performance indicators for digital marketing campaigns and strategies.',
+    keywords: 'KPI dashboard, marketing metrics, performance tracking, analytics',
+    priority: 0.6,
+    changeFreq: 'monthly',
+    pageType: 'website',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/recommender-system',
+    title: 'Recommender System - Personalized Marketing Solutions',
+    description: 'Advanced recommendation systems for personalized marketing and content delivery.',
+    keywords: 'recommender system, personalization, marketing AI, content recommendations',
+    priority: 0.6,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/emotional-marketing-playbook',
+    title: 'Emotional Marketing Playbook - Psychology-Driven Campaigns',
+    description: 'Master emotional marketing strategies to create compelling, psychology-driven marketing campaigns.',
+    keywords: 'emotional marketing, psychology marketing, emotional campaigns, behavioral marketing',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/seo-vs-aeo-vs-geo',
+    title: 'SEO vs AEO vs GEO - Complete Optimization Comparison',
+    description: 'Comprehensive comparison of Search Engine Optimization, Answer Engine Optimization, and Generative Engine Optimization.',
+    keywords: 'SEO vs AEO vs GEO, optimization comparison, search optimization, AI optimization',
+    priority: 0.8,
+    changeFreq: 'monthly',
+    pageType: 'article',
+    modifiedDate: '2025-08-18'
+  },
+  // Additional Blog Posts
+  {
+    path: '/blog/digital-marketing-revolution-july-2025',
+    title: 'Digital Marketing Revolution July 2025',
+    description: 'Latest trends and revolutionary changes in digital marketing for July 2025.',
+    keywords: 'digital marketing 2025, marketing revolution, marketing trends, future marketing',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'article',
+    publishedDate: '2025-07-01',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/blog/ai-revolution-digital-marketing-2025',
+    title: 'AI Revolution in Digital Marketing 2025',
+    description: 'How artificial intelligence is revolutionizing digital marketing strategies and campaigns in 2025.',
+    keywords: 'AI marketing 2025, AI revolution, digital marketing AI, marketing automation',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'article',
+    publishedDate: '2025-01-01',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/blog/aeo-crypto-marketing',
+    title: 'Answer Engine Optimization for Crypto Marketing',
+    description: 'Specialized AEO strategies for cryptocurrency and blockchain marketing campaigns.',
+    keywords: 'AEO crypto, cryptocurrency AEO, blockchain marketing, crypto SEO',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'article',
+    publishedDate: '2024-12-15',
+    modifiedDate: '2025-08-18'
+  },
+  // Service Pages
+  {
+    path: '/services/ai-humanizer-agent',
+    title: 'AI Humanizer Agent - Natural Content Creation',
+    description: 'Advanced AI humanizer for creating natural, human-like content that passes AI detection.',
+    keywords: 'AI humanizer, content humanization, natural AI content, AI detection bypass',
+    priority: 0.6,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/services/predictive-analytics-agent',
+    title: 'Predictive Analytics Agent - Marketing Intelligence',
+    description: 'Predictive analytics solutions for data-driven marketing decisions and campaign optimization.',
+    keywords: 'predictive analytics, marketing intelligence, data analytics, campaign optimization',
+    priority: 0.6,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/services/ai-implementation-consulting',
+    title: 'AI Implementation Consulting - Strategic AI Integration',
+    description: 'Expert consulting for implementing AI solutions in marketing and business operations.',
+    keywords: 'AI consulting, AI implementation, marketing AI, business AI strategy',
+    priority: 0.6,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/services/digital-marketing-strategy',
+    title: 'Digital Marketing Strategy - Comprehensive Planning',
+    description: 'Complete digital marketing strategy development for businesses of all sizes.',
+    keywords: 'digital marketing strategy, marketing planning, marketing consultation, business marketing',
+    priority: 0.7,
+    changeFreq: 'monthly',
+    pageType: 'service',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/digital-frontier-services',
+    title: 'Digital Frontier Services - Complete Service Portfolio',
+    description: 'Explore our complete portfolio of AI-powered digital marketing and SEO services.',
+    keywords: 'digital frontier services, marketing services, AI services, SEO services',
+    priority: 0.8,
+    changeFreq: 'monthly',
+    pageType: 'website',
+    modifiedDate: '2025-08-18'
+  },
+  {
+    path: '/modern-contact-form',
+    title: 'Contact Form - Get in Touch with Digital Frontier',
+    description: 'Modern contact form to connect with Digital Frontier for marketing consultation and services.',
+    keywords: 'contact form, get in touch, marketing consultation, contact digital frontier',
+    priority: 0.6,
+    changeFreq: 'monthly',
+    pageType: 'website',
+    modifiedDate: '2025-08-18'
   }
 ];
 
@@ -428,7 +584,7 @@ export function generateMetaTags(
  * Generate sitemap XML content
  */
 export function generateSitemap(): string {
-  const now = new Date().toISOString().split('T')[0];
+  const now = '2025-08-18';
   
   const urlEntries = ROUTE_CONFIGS.map(route => {
     const url = getCanonicalUrl(route.path);
