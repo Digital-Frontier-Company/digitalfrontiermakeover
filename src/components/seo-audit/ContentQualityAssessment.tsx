@@ -1,95 +1,31 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Textarea } from "@/components/ui/textarea";
-import { FileText, Bot, Copy, BookOpen, Zap, AlertTriangle } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { 
+  CheckCircle, 
+  AlertTriangle,
+  TrendingUp,
+  BarChart3
+} from "lucide-react";
 
 const ContentQualityAssessment = () => {
-  const [contentInput, setContentInput] = useState("");
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [activeTab, setActiveTab] = useState("overview");
 
-  const qualityMetrics = [
-    { 
-      name: "AI Content Detection", 
-      score: 25, 
-      threshold: 50, 
-      status: "pass",
-      description: "Content is 75% original (25% AI-detected)",
-      icon: Bot 
-    },
-    { 
-      name: "External Uniqueness", 
-      score: 100, 
-      threshold: 80, 
-      status: "pass",
-      description: "100% unique across the web",
-      icon: Copy 
-    },
-    { 
-      name: "Internal Uniqueness", 
-      score: 95, 
-      threshold: 90, 
-      status: "pass",
-      description: "5% similarity within your site",
-      icon: FileText 
-    },
-    { 
-      name: "Grammar Score", 
-      score: 92, 
-      threshold: 95, 
-      status: "warning",
-      description: "3 grammar issues detected",
-      icon: BookOpen 
-    },
-    { 
-      name: "Readability", 
-      score: 88, 
-      threshold: 80, 
-      status: "pass",
-      description: "Grade 8 reading level",
-      icon: Zap 
-    },
-  ];
-
-  const contentAnalysis = {
-    wordCount: 1247,
-    averageWordsPerSentence: 18,
-    averageSentencesPerParagraph: 4,
-    passiveVoicePercentage: 12,
-    transitionWords: 15,
-    headingStructure: {
-      h1: 1,
-      h2: 5,
-      h3: 8,
-      h4: 2,
-    },
+  const qualityMetrics = {
+    originality: 73,
+    readability: 88,
+    uniqueness: 95,
+    grammar: 91,
+    structure: 82,
+    engagement: 67,
   };
 
-  const handleAnalyze = () => {
-    setIsAnalyzing(true);
-    setTimeout(() => setIsAnalyzing(false), 3000);
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "pass": return "text-green-500";
-      case "warning": return "text-yellow-500";
-      case "fail": return "text-red-500";
-      default: return "text-gray-500";
-    }
-  };
-
-  const getStatusBadge = (status: string) => {
-    switch (status) {
-      case "pass": return "default";
-      case "warning": return "secondary";
-      case "fail": return "destructive";
-      default: return "outline";
-    }
-  };
+  const overallScore = Math.round(
+    Object.values(qualityMetrics).reduce((sum, score) => sum + score, 0) / 
+    Object.keys(qualityMetrics).length
+  );
 
   return (
     <section className="py-16">
@@ -98,205 +34,132 @@ const ContentQualityAssessment = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Content Quality Assessment</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Advanced content analysis including AI detection, originality, grammar, and readability scoring
+              Comprehensive analysis of content originality, readability, and user engagement metrics
             </p>
           </div>
 
-          <Tabs defaultValue="overview" className="w-full">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="overview">Quality Overview</TabsTrigger>
-              <TabsTrigger value="analyzer">Content Analyzer</TabsTrigger>
-              <TabsTrigger value="structure">Structure Analysis</TabsTrigger>
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="detailed">Detailed Analysis</TabsTrigger>
+              <TabsTrigger value="recommendations">Recommendations</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview">
-              <div className="grid lg:grid-cols-2 gap-8">
+              <div className="grid lg:grid-cols-3 gap-8">
                 <Card>
+                  <CardHeader className="text-center">
+                    <CardTitle>Content Quality Score</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <div className="relative w-32 h-32 mx-auto mb-4">
+                      <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 100 100">
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          stroke="currentColor"
+                          strokeWidth="8"
+                          fill="transparent"
+                          className="text-muted"
+                        />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          stroke="currentColor"
+                          strokeWidth="8"
+                          fill="transparent"
+                          strokeDasharray={`${2 * Math.PI * 40}`}
+                          strokeDashoffset={`${2 * Math.PI * 40 * (1 - overallScore / 100)}`}
+                          className="text-primary"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-3xl font-bold">{overallScore}</span>
+                      </div>
+                    </div>
+                    <Badge variant={overallScore >= 80 ? "default" : overallScore >= 60 ? "secondary" : "destructive"}>
+                      {overallScore >= 80 ? "High Quality" : overallScore >= 60 ? "Good Quality" : "Needs Improvement"}
+                    </Badge>
+                  </CardContent>
+                </Card>
+
+                <Card className="lg:col-span-2">
                   <CardHeader>
                     <CardTitle>Quality Metrics</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-6">
-                      {qualityMetrics.map((metric, index) => {
-                        const IconComponent = metric.icon;
-                        return (
-                          <div key={index} className="space-y-2">
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2">
-                                <IconComponent className="w-5 h-5" />
-                                <span className="font-medium">{metric.name}</span>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <span className={`font-bold ${getStatusColor(metric.status)}`}>
-                                  {metric.score}%
-                                </span>
-                                <Badge variant={getStatusBadge(metric.status) as any}>
-                                  {metric.status}
-                                </Badge>
-                              </div>
-                            </div>
-                            <Progress 
-                              value={metric.score} 
-                              className="h-2"
-                            />
-                            <p className="text-sm text-muted-foreground">
-                              {metric.description}
-                            </p>
+                    <div className="space-y-4">
+                      {Object.entries(qualityMetrics).map(([metric, score]) => (
+                        <div key={metric} className="space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="font-medium capitalize">
+                              {metric.replace(/([A-Z])/g, ' $1').trim()}
+                            </span>
+                            <span className="font-bold">{score}%</span>
                           </div>
-                        );
-                      })}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Content Statistics</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center p-4 border rounded-lg">
-                        <div className="text-2xl font-bold mb-1">{contentAnalysis.wordCount}</div>
-                        <p className="text-sm text-muted-foreground">Total Words</p>
-                      </div>
-                      <div className="text-center p-4 border rounded-lg">
-                        <div className="text-2xl font-bold mb-1">{contentAnalysis.averageWordsPerSentence}</div>
-                        <p className="text-sm text-muted-foreground">Avg Words/Sentence</p>
-                      </div>
-                      <div className="text-center p-4 border rounded-lg">
-                        <div className="text-2xl font-bold mb-1">{contentAnalysis.passiveVoicePercentage}%</div>
-                        <p className="text-sm text-muted-foreground">Passive Voice</p>
-                      </div>
-                      <div className="text-center p-4 border rounded-lg">
-                        <div className="text-2xl font-bold mb-1">{contentAnalysis.transitionWords}</div>
-                        <p className="text-sm text-muted-foreground">Transition Words</p>
-                      </div>
-                    </div>
-
-                    <div className="mt-6">
-                      <h4 className="font-medium mb-3">Heading Distribution</h4>
-                      <div className="space-y-2">
-                        {Object.entries(contentAnalysis.headingStructure).map(([heading, count]) => (
-                          <div key={heading} className="flex items-center justify-between">
-                            <span className="text-sm font-mono">{heading.toUpperCase()}</span>
-                            <div className="flex items-center gap-2">
-                              <div className="w-24 bg-muted rounded-full h-2">
-                                <div 
-                                  className="bg-primary h-2 rounded-full" 
-                                  style={{ width: `${(count / 10) * 100}%` }}
-                                />
-                              </div>
-                              <span className="text-sm font-medium w-6">{count}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                          <Progress value={score} className="h-2" />
+                        </div>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
               </div>
             </TabsContent>
 
-            <TabsContent value="analyzer">
+            <TabsContent value="detailed">
               <Card>
                 <CardHeader>
-                  <CardTitle>Real-time Content Analyzer</CardTitle>
+                  <CardTitle>Detailed Analysis</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
-                    <Textarea
-                      placeholder="Paste your content here for real-time analysis..."
-                      value={contentInput}
-                      onChange={(e) => setContentInput(e.target.value)}
-                      className="min-h-40"
-                    />
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm text-muted-foreground">
-                        {contentInput.split(' ').filter(word => word.length > 0).length} words
-                      </div>
-                      <Button 
-                        onClick={handleAnalyze}
-                        disabled={!contentInput.trim() || isAnalyzing}
-                      >
-                        <FileText className="w-4 h-4 mr-2" />
-                        {isAnalyzing ? "Analyzing..." : "Analyze Content"}
-                      </Button>
-                    </div>
-
-                    {contentInput && (
-                      <div className="grid md:grid-cols-3 gap-4 mt-6">
-                        <div className="p-4 border rounded-lg text-center">
-                          <div className="text-lg font-bold text-green-500">92%</div>
-                          <p className="text-sm text-muted-foreground">Originality</p>
-                        </div>
-                        <div className="p-4 border rounded-lg text-center">
-                          <div className="text-lg font-bold text-yellow-500">85%</div>
-                          <p className="text-sm text-muted-foreground">Readability</p>
-                        </div>
-                        <div className="p-4 border rounded-lg text-center">
-                          <div className="text-lg font-bold text-blue-500">88%</div>
-                          <p className="text-sm text-muted-foreground">SEO Score</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <p className="text-muted-foreground">Detailed content analysis coming soon...</p>
                 </CardContent>
               </Card>
             </TabsContent>
 
-            <TabsContent value="structure">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Content Structure Analysis</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <h4 className="font-medium mb-3">Structure Issues</h4>
-                        <div className="space-y-3">
-                          <div className="flex items-start gap-3 p-3 border rounded-lg">
-                            <AlertTriangle className="w-5 h-5 text-yellow-500 mt-0.5" />
-                            <div>
-                              <p className="font-medium">Missing H2 after introduction</p>
-                              <p className="text-sm text-muted-foreground">
-                                Consider adding subheadings to break up long content blocks
-                              </p>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-3 p-3 border rounded-lg">
-                            <AlertTriangle className="w-5 h-5 text-yellow-500 mt-0.5" />
-                            <div>
-                              <p className="font-medium">Long paragraphs detected</p>
-                              <p className="text-sm text-muted-foreground">
-                                3 paragraphs exceed 150 words - consider breaking them up
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-medium mb-3">Optimization Suggestions</h4>
-                        <div className="space-y-3">
-                          <div className="p-3 border rounded-lg">
-                            <p className="font-medium">Add more lists and bullet points</p>
-                            <p className="text-sm text-muted-foreground">
-                              Improve scannability with formatted lists
-                            </p>
-                          </div>
-                          <div className="p-3 border rounded-lg">
-                            <p className="font-medium">Include more transition words</p>
-                            <p className="text-sm text-muted-foreground">
-                              Enhance flow between sentences and paragraphs
-                            </p>
-                          </div>
-                        </div>
+            <TabsContent value="recommendations">
+              <div className="grid md:grid-cols-2 gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <TrendingUp className="w-5 h-5" />
+                      Quick Wins
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="p-3 border rounded-lg">
+                        <h4 className="font-semibold mb-1">Add Visual Elements</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Include images, charts, or infographics to break up text
+                        </p>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <BarChart3 className="w-5 h-5" />
+                      Long-term Improvements
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      <div className="p-3 border rounded-lg">
+                        <h4 className="font-semibold mb-1">Add Personal Experience</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Include first-hand experiences and case studies
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </TabsContent>
           </Tabs>
         </div>
