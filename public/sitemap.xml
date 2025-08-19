@@ -97,7 +97,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thedigitalfrontier.ai/resources/content-creation-agent</loc>
+    <loc>https://thedigitalfrontier.ai/content-creation-agent</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -247,25 +247,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thedigitalfrontier.ai/services/ai-humanizer-agent</loc>
+    <loc>https://thedigitalfrontier.ai/ai-humanizer-agent</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://thedigitalfrontier.ai/services/predictive-analytics-agent</loc>
+    <loc>https://thedigitalfrontier.ai/predictive-analytics-agent</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://thedigitalfrontier.ai/services/ai-implementation-consulting</loc>
+    <loc>https://thedigitalfrontier.ai/ai-implementation-consulting</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://thedigitalfrontier.ai/services/digital-marketing-strategy</loc>
+    <loc>https://thedigitalfrontier.ai/digital-marketing-strategy</loc>
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -281,5 +281,29 @@
     <lastmod>2025-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thedigitalfrontier.ai/terms-of-service</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://thedigitalfrontier.ai/privacy-policy</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://thedigitalfrontier.ai/author</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://thedigitalfrontier.ai/search</loc>
+    <lastmod>2025-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

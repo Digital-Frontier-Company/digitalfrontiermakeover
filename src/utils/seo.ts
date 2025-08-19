@@ -183,7 +183,7 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
   },
   // Resource Pages
   {
-    path: '/resources/content-creation-agent',
+    path: '/content-creation-agent',
     title: 'Content Creation Agent - AI Content Assistant',
     description: 'Advanced AI content creation tool for generating high-quality marketing content, blog posts, and copy.',
     keywords: 'AI content creation, content generator, marketing copy, automated writing',
@@ -431,7 +431,7 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
   },
   // Service Pages
   {
-    path: '/services/ai-humanizer-agent',
+    path: '/ai-humanizer-agent',
     title: 'AI Humanizer Agent - Natural Content Creation',
     description: 'Advanced AI humanizer for creating natural, human-like content that passes AI detection.',
     keywords: 'AI humanizer, content humanization, natural AI content, AI detection bypass',
@@ -441,7 +441,7 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     modifiedDate: '2025-08-18'
   },
   {
-    path: '/services/predictive-analytics-agent',
+    path: '/predictive-analytics-agent',
     title: 'Predictive Analytics Agent - Marketing Intelligence',
     description: 'Predictive analytics solutions for data-driven marketing decisions and campaign optimization.',
     keywords: 'predictive analytics, marketing intelligence, data analytics, campaign optimization',
@@ -451,7 +451,7 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     modifiedDate: '2025-08-18'
   },
   {
-    path: '/services/ai-implementation-consulting',
+    path: '/ai-implementation-consulting',
     title: 'AI Implementation Consulting - Strategic AI Integration',
     description: 'Expert consulting for implementing AI solutions in marketing and business operations.',
     keywords: 'AI consulting, AI implementation, marketing AI, business AI strategy',
@@ -461,7 +461,7 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     modifiedDate: '2025-08-18'
   },
   {
-    path: '/services/digital-marketing-strategy',
+    path: '/digital-marketing-strategy',
     title: 'Digital Marketing Strategy - Comprehensive Planning',
     description: 'Complete digital marketing strategy development for businesses of all sizes.',
     keywords: 'digital marketing strategy, marketing planning, marketing consultation, business marketing',
@@ -489,6 +489,48 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
     changeFreq: 'monthly',
     pageType: 'website',
     modifiedDate: '2025-08-18'
+  },
+  // Legal Pages
+  {
+    path: '/terms-of-service',
+    title: 'Terms of Service - Digital Frontier Legal Terms',
+    description: 'Terms of service and user agreement for Digital Frontier marketing services and website usage.',
+    keywords: 'terms of service, legal terms, user agreement, service terms',
+    priority: 0.3,
+    changeFreq: 'yearly',
+    pageType: 'website',
+    modifiedDate: '2025-08-19'
+  },
+  {
+    path: '/privacy-policy',
+    title: 'Privacy Policy - Digital Frontier Data Protection',
+    description: 'Privacy policy outlining how Digital Frontier collects, uses, and protects your personal information.',
+    keywords: 'privacy policy, data protection, GDPR, privacy rights',
+    priority: 0.3,
+    changeFreq: 'yearly',
+    pageType: 'website',
+    modifiedDate: '2025-08-19'
+  },
+  // Author and Search Pages
+  {
+    path: '/author',
+    title: 'Author Bio - Digital Frontier Content Team',
+    description: 'Meet the expert content creators and marketing strategists behind Digital Frontier.',
+    keywords: 'author bio, content team, marketing experts, about authors',
+    priority: 0.5,
+    changeFreq: 'monthly',
+    pageType: 'website',
+    modifiedDate: '2025-08-19'
+  },
+  {
+    path: '/search',
+    title: 'Search - Find Digital Frontier Content',
+    description: 'Search through Digital Frontier\'s extensive library of marketing insights, guides, and resources.',
+    keywords: 'search, find content, marketing resources, content search',
+    priority: 0.5,
+    changeFreq: 'monthly',
+    pageType: 'website',
+    modifiedDate: '2025-08-19'
   }
 ];
 
