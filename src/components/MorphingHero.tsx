@@ -17,28 +17,56 @@ const MorphingHero = () => {
   ];
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
+    let rafId: number;
+    let cachedRect: DOMRect | null = null;
+    let lastTime = 0;
+    
+    const updateRect = () => {
       if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        setMousePosition({ 
-          x: (e.clientX - rect.left) / rect.width, 
-          y: (e.clientY - rect.top) / rect.height 
-        });
+        cachedRect = heroRef.current.getBoundingClientRect();
       }
     };
-
-    const handleScroll = () => {
-      const scrolled = window.pageYOffset;
-      const parallaxElements = document.querySelectorAll('.parallax-morph');
-      parallaxElements.forEach((element, index) => {
-        const speed = 0.5 + (index * 0.1);
-        const yPos = -(scrolled * speed);
-        (element as HTMLElement).style.transform = `translateY(${yPos}px) rotateX(${scrolled * 0.05}deg)`;
+    
+    const handleMouseMove = (e: MouseEvent) => {
+      const now = performance.now();
+      if (now - lastTime < 16) return; // Throttle to ~60fps
+      lastTime = now;
+      
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        if (heroRef.current && cachedRect) {
+          setMousePosition({ 
+            x: (e.clientX - cachedRect.left) / cachedRect.width, 
+            y: (e.clientY - cachedRect.top) / cachedRect.height 
+          });
+        }
       });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.parallax-morph');
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5 + (index * 0.1);
+          const yPos = -(scrolled * speed);
+          (element as HTMLElement).style.transform = `translateY(${yPos}px)`;
+        });
+      });
+    };
+
+    // Cache rect on mount and resize
+    updateRect();
+    window.addEventListener('resize', updateRect, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Text cycling animation
     const textInterval = setInterval(() => {
@@ -51,12 +79,16 @@ const MorphingHero = () => {
     }, 2000);
 
     return () => {
+      window.removeEventListener('resize', updateRect);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('scroll', handleScroll);
       clearInterval(textInterval);
       clearInterval(orbInterval);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
     };
-  }, []);
+  }, [dynamicTexts.length]);
 
   return (
     <section ref={heroRef} className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-800">

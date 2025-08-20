@@ -125,16 +125,35 @@ const Contact = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Track mouse movement for interactive effects
+  // Track mouse movement for interactive effects - Optimized for performance
   useEffect(() => {
+    let rafId: number;
+    let lastTime = 0;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
+      const now = performance.now();
+      if (now - lastTime < 16) return; // Throttle to ~60fps
+      lastTime = now;
+      
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        setMousePosition({
+          x: e.clientX,
+          y: e.clientY
+        });
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   // Handle bubble pop

@@ -62,16 +62,35 @@ const Index = () => {
     } : bubble));
   };
 
-  // Track mouse movement for interactive effects
+  // Track mouse movement for interactive effects - Optimized for performance
   useEffect(() => {
+    let rafId: number;
+    let lastTime = 0;
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY
+      const now = performance.now();
+      if (now - lastTime < 16) return; // Throttle to ~60fps
+      lastTime = now;
+      
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        setMousePosition({
+          x: e.clientX,
+          y: e.clientY
+        });
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 
   // Carousel rotation effect
@@ -82,17 +101,25 @@ const Index = () => {
     return () => clearInterval(interval);
   }, [carouselSlides.length]);
 
-  // Intersection observer for animations
+  // Intersection observer for animations - Optimized
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
       }
-    }, {
-      threshold: 0.1
-    });
+    );
+    
     const sections = document.querySelectorAll('.animate-on-scroll');
     sections.forEach(section => observer.observe(section));
+    
     return () => {
       sections.forEach(section => observer.unobserve(section));
     };

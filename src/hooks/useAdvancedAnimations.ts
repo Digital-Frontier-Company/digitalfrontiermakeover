@@ -61,19 +61,55 @@ export const useMagneticEffect = () => {
     const element = ref.current;
     if (!element) return;
 
+    let rafId: number;
+    let cachedRect: DOMRect | null = null;
+    let lastTime = 0;
+    
+    const updateRect = () => {
+      if (element) {
+        cachedRect = element.getBoundingClientRect();
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = element.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
+      const now = performance.now();
+      if (now - lastTime < 16) return; // Throttle to ~60fps
+      lastTime = now;
       
-      element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        if (cachedRect) {
+          const x = e.clientX - cachedRect.left - cachedRect.width / 2;
+          const y = e.clientY - cachedRect.top - cachedRect.height / 2;
+          element.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+        }
+      });
     };
 
     const handleMouseLeave = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
       element.style.transform = 'translate(0, 0)';
     };
 
-    element.addEventListener('mousemove', handleMouseMove);
+    // Cache rect on mount and resize
+    updateRect();
+    window.addEventListener('resize', updateRect, { passive: true });
+    element.addEventListener('mousemove', handleMouseMove, { passive: true });
+    element.addEventListener('mouseleave', handleMouseLeave, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', updateRect);
+      element.removeEventListener('mousemove', handleMouseMove);
+      element.removeEventListener('mouseleave', handleMouseLeave);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
     element.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
