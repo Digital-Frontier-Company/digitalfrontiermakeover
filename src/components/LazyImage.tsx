@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { 
+  getOptimizedImageUrl, 
+  generateResponsiveSrcSet, 
+  getResponsiveSizes,
+  getBrowserImageSupport,
+  type ImageOptimizationOptions 
+} from '@/utils/imageOptimization';
 
 interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -8,6 +15,9 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackSrc?: string;
   placeholder?: React.ReactNode;
   lowQualitySrc?: string;
+  optimization?: ImageOptimizationOptions;
+  displayWidth?: number;
+  displayHeight?: number;
 }
 
 export const LazyImage: React.FC<LazyImageProps> = ({
@@ -17,12 +27,22 @@ export const LazyImage: React.FC<LazyImageProps> = ({
   fallbackSrc = '/placeholder.svg',
   placeholder,
   lowQualitySrc,
+  optimization = {},
+  displayWidth,
+  displayHeight,
+  width,
+  height,
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [browserSupport] = useState(() => getBrowserImageSupport());
   const imgRef = useRef<HTMLImageElement>(null);
+
+  // Determine optimal dimensions
+  const finalWidth = displayWidth || (typeof width === 'number' ? width : 300);
+  const finalHeight = displayHeight || (typeof height === 'number' ? height : 200);
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -59,24 +79,34 @@ export const LazyImage: React.FC<LazyImageProps> = ({
     setHasError(true);
   };
 
-  // Generate WebP fallback if supported
-  const getOptimizedSrc = (originalSrc: string) => {
-    if (originalSrc.includes('lovable-uploads') && !originalSrc.includes('.webp')) {
-      // Check if browser supports WebP
-      if (typeof window !== 'undefined') {
-        const canvas = document.createElement('canvas');
-        const canSupportsWebP = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        
-        if (canSupportsWebP) {
-          return originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-        }
-      }
+  // Generate optimized image sources
+  const getOptimizedSources = () => {
+    if (hasError || !src.includes('lovable-uploads')) {
+      return { src: hasError ? fallbackSrc : src };
     }
-    return originalSrc;
+
+    // Determine best format based on browser support
+    const preferredFormat = browserSupport.avif ? 'avif' : browserSupport.webp ? 'webp' : 'png';
+    
+    const optimizedSrc = getOptimizedImageUrl(
+      src, 
+      finalWidth, 
+      finalHeight, 
+      optimization.format || preferredFormat
+    );
+
+    const srcSet = generateResponsiveSrcSet(src, finalWidth, finalHeight);
+    const sizes = optimization.sizes || getResponsiveSizes(finalWidth);
+
+    return {
+      src: optimizedSrc,
+      srcSet,
+      sizes
+    };
   };
 
-  const imageSrc = hasError ? fallbackSrc : getOptimizedSrc(src);
-  const shouldLoad = isInView || isLoaded;
+  const imageProps = getOptimizedSources();
+  const shouldLoad = isInView || isLoaded || optimization.priority;
 
   return (
     <div 
@@ -85,15 +115,21 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         "relative overflow-hidden bg-muted/20",
         className
       )}
-      style={{ aspectRatio: props.width && props.height ? `${props.width}/${props.height}` : undefined }}
+      style={{ 
+        aspectRatio: finalWidth && finalHeight ? `${finalWidth}/${finalHeight}` : undefined,
+        width: finalWidth,
+        height: finalHeight
+      }}
     >
-      {/* Low quality placeholder or skeleton */}
+      {/* Low quality placeholder */}
       {!isLoaded && lowQualitySrc && shouldLoad && (
         <img
           src={lowQualitySrc}
           alt=""
           className="absolute inset-0 w-full h-full object-cover filter blur-sm scale-110 transition-opacity duration-300"
           aria-hidden="true"
+          width={finalWidth}
+          height={finalHeight}
         />
       )}
 
@@ -104,26 +140,46 @@ export const LazyImage: React.FC<LazyImageProps> = ({
         </div>
       )}
 
-      {/* Main image */}
+      {/* Main optimized image */}
       {shouldLoad && (
-        <img
-          {...props}
-          src={imageSrc}
-          alt={alt}
-          onLoad={handleLoad}
-          onError={handleError}
-          loading="lazy"
-          decoding="async"
-          className={cn(
-            "w-full h-full object-cover transition-opacity duration-300",
-            isLoaded ? "opacity-100" : "opacity-0",
-            className
+        <picture>
+          {/* AVIF source for modern browsers */}
+          {browserSupport.avif && src.includes('lovable-uploads') && (
+            <source
+              srcSet={generateResponsiveSrcSet(src, finalWidth, finalHeight)}
+              sizes={imageProps.sizes}
+              type="image/avif"
+            />
           )}
-          style={{
-            ...props.style,
-            aspectRatio: props.width && props.height ? `${props.width}/${props.height}` : undefined
-          }}
-        />
+          
+          {/* WebP source for supported browsers */}
+          {browserSupport.webp && src.includes('lovable-uploads') && (
+            <source
+              srcSet={generateResponsiveSrcSet(src, finalWidth, finalHeight)}
+              sizes={imageProps.sizes}
+              type="image/webp"
+            />
+          )}
+          
+          {/* Fallback image */}
+          <img
+            {...props}
+            src={imageProps.src}
+            srcSet={imageProps.srcSet}
+            sizes={imageProps.sizes}
+            alt={alt}
+            width={finalWidth}
+            height={finalHeight}
+            onLoad={handleLoad}
+            onError={handleError}
+            loading={optimization.priority ? "eager" : "lazy"}
+            decoding="async"
+            className={cn(
+              "w-full h-full object-cover transition-opacity duration-300",
+              isLoaded ? "opacity-100" : "opacity-0"
+            )}
+          />
+        </picture>
       )}
 
       {/* Loading overlay */}

@@ -261,8 +261,16 @@ const Index = () => {
               <div className="absolute inset-0 border border-cyan-400/50 animate-pulse rounded-full"></div>
             </div>
             
-            {/* Main logo - enlarged */}
-            <img alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" loading="eager" src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png" className="h-80 w-auto relative z-10 object-cover logo-interactive animate-logo-strobe" />
+            {/* Main logo - optimized */}
+            <img 
+              alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" 
+              loading="eager" 
+              src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png" 
+              className="h-80 w-auto relative z-10 object-cover logo-interactive animate-logo-strobe"
+              width="480"
+              height="320"
+              decoding="async"
+            />
           </motion.div>
 
           {/* Presidential Headline with Fade-in */}
@@ -363,7 +371,15 @@ const Index = () => {
                 <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
                   {src === "/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" ? (
                     <a href="https://makementors.com" target="_blank" rel="noopener noreferrer">
-                      <img src={src} alt="MakeMentors logo" className="h-24 w-auto" loading="lazy" />
+                      <img 
+                        src={src} 
+                        alt="MakeMentors logo" 
+                        className="h-24 w-auto" 
+                        loading="lazy" 
+                        width="96" 
+                        height="96"
+                        decoding="async" 
+                      />
                     </a>
                   ) : (
                     <img
@@ -371,6 +387,9 @@ const Index = () => {
                       alt={`Trusted brand ${index + 1}`}
                       className="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                       loading="lazy"
+                      width="144"
+                      height="96"
+                      decoding="async"
                     />
                   )}
                 </div>
@@ -659,7 +678,15 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <img src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" alt="Digital Frontier Company Icon - Generative Search Pro" width="60" height="60" className="mx-auto mb-6" loading="lazy" />
+            <img 
+              src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
+              alt="Digital Frontier Company Icon - Generative Search Pro" 
+              width="60" 
+              height="60" 
+              className="mx-auto mb-6" 
+              loading="lazy"
+              decoding="async" 
+            />
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Generative Search Pro
             </h2>
@@ -672,10 +699,15 @@ const Index = () => {
             {/* AI-Powered Marketing Card */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
-                <img src="/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png" alt="AI-Powered Marketing" className="w-full h-48 object-cover rounded-lg" onError={e => {
-                console.error('Failed to load image:', e.currentTarget.src);
-                e.currentTarget.style.display = 'none';
-              }} onLoad={() => console.log('Image loaded successfully')} />
+                <img 
+                  src="/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png" 
+                  alt="AI-Powered Marketing" 
+                  className="w-full h-48 object-cover rounded-lg" 
+                  width="307"
+                  height="192"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-xl text-cyan-300 text-center">
                 AI-Powered Marketing
@@ -698,10 +730,15 @@ const Index = () => {
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
                 <a href="https://generativesearch.pro" target="_blank" rel="dofollow" className="block">
-                  <img src="/lovable-uploads/46440d18-7e50-459a-9423-09e65df49121.png" alt="Generative Engine Optimization" className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" onError={e => {
-                  console.error('Failed to load image:', e.currentTarget.src);
-                  e.currentTarget.style.display = 'none';
-                }} onLoad={() => console.log('Image loaded successfully')} />
+                  <img 
+                    src="/lovable-uploads/46440d18-7e50-459a-9423-09e65df49121.png" 
+                    alt="Generative Engine Optimization" 
+                    className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" 
+                    width="283"
+                    height="283"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </a>
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-cyan-300 text-xl text-center">

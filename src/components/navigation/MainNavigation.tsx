@@ -7,7 +7,15 @@ const MainNavigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2 hover-scale">
-            <img alt="Digital Frontier Company - Memphis Digital Marketing Agency Logo" className="max-h-24 transition-transform duration-300" src="/lovable-uploads/7223877a-0a55-4ae4-9fbe-ad1c46acae0f.png" width="96" height="96" loading="eager" />
+            <img 
+              alt="Digital Frontier Company - Memphis Digital Marketing Agency Logo" 
+              className="max-h-24 transition-transform duration-300" 
+              src="/lovable-uploads/7223877a-0a55-4ae4-9fbe-ad1c46acae0f.png" 
+              width="96" 
+              height="96" 
+              loading="eager"
+              decoding="async"
+            />
           </Link>
           
           <div className="flex items-center space-x-6">
