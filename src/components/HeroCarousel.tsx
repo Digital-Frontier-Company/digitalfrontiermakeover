@@ -90,15 +90,15 @@ const HeroCarousel: React.FC = () => {
             <CarouselItem key={index} className="relative min-w-full">
               <div className="relative z-10 flex flex-col items-center justify-center h-80 md:h-96 text-center px-6">
                 {slide.text && (
-                  <h1 className="text-3xl md:text-5xl mb-4 text-white text-center font-extrabold">
+                  <h2 className="text-3xl md:text-5xl mb-4 text-white text-center font-extrabold">
                     {slide.text}
-                  </h1>
+                  </h2>
                 )}
                 
                 {slide.highlightText && (
-                  <h1 className="text-4xl md:text-6xl mb-6 text-[var(--df-light-blue)] mx-0 my-8 px-2 py-2 font-extrabold border border-cyan-500 text-cyan-400 capitalize shadow-[0_0_15px_rgba(0,255,255,0.6)] rounded-sm">
+                  <h2 className="text-4xl md:text-6xl mb-6 text-[var(--df-light-blue)] mx-0 my-8 px-2 py-2 font-extrabold border border-cyan-500 text-cyan-400 capitalize shadow-[0_0_15px_rgba(0,255,255,0.6)] rounded-sm">
                     {slide.highlightText}
-                  </h1>
+                  </h2>
                 )}
                 
                 {slide.subText && (

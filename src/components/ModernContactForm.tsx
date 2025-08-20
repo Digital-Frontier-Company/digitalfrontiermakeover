@@ -111,9 +111,9 @@ const ModernContactForm = () => {
                 <Satellite className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h1 className="form-header text-3xl md:text-4xl font-bold mb-2 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent font-['Orbitron']">
+            <h2 className="form-header text-3xl md:text-4xl font-bold mb-2 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent font-['Orbitron']">
               DIGITAL FRONTIER COMPANY
-            </h1>
+            </h2>
             <div className="h-1 w-32 bg-electric-azure mx-auto rounded-full mb-3 shadow-neon-sm"></div>
             <p className="text-electric-azure/80 font-light">Enter the digital frontier</p>
           </div>

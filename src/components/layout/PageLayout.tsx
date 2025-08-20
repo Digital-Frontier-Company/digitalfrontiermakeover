@@ -120,7 +120,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
           <article itemScope itemType={pageType === 'article' ? "https://schema.org/Article" : "https://schema.org/WebPage"}>
             {pageType === 'article' && (
               <header className="mb-8">
-                <h1 className="sr-only" itemProp="headline">{title}</h1>
+                <h2 className="sr-only" itemProp="headline">{title}</h2>
                 {publishedDate && (
                   <time dateTime={publishedDate} itemProp="datePublished" className="text-sm text-muted-foreground">
                     Published: {new Date(publishedDate).toLocaleDateString()}

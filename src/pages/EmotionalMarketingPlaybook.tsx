@@ -165,9 +165,9 @@ const EmotionalMarketingPlaybook = () => {
           {/* Hero Section */}
           <section className="mb-12 scroll-animate">
             <div className="bg-gradient-to-r from-slate-800/50 to-cyan-900/30 p-8 rounded-lg text-center scroll-animate">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Master the Art of <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Strategic Marketing</span>
-              </h1>
+              </h2>
               <p className="text-xl max-w-3xl mx-auto mb-8 text-slate-300">
                 Discover proven strategies to elevate your business, personal growth, and competitive edge in any market.
               </p>
