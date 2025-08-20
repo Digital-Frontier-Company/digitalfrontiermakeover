@@ -3,6 +3,9 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SEOHead } from "@/components/SEOHead";
 import { handleClientRedirect } from "@/utils/redirect";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { SEOAdvanced } from "@/components/SEOAdvanced";
 
 type PageLayoutProps = {
   children: React.ReactNode;
@@ -81,39 +84,63 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         publishedDate={publishedDate}
         modifiedDate={modifiedDate}
       />
+      <SEOAdvanced 
+        enableWebVitals={true}
+        enableCriticalCSS={true}
+        enablePreloadHints={true}
+        criticalImageUrls={["/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png"]}
+      />
+      
+      {/* Enhanced Breadcrumb Navigation */}
+      <Breadcrumbs />
       
       {/* Hero Section */}
-      <section className="df-hero-section py-16">
+      <section className="df-hero-section py-16" itemScope itemType="https://schema.org/WebPageElement">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company - Memphis Digital Marketing Experts" className="df-logo mx-auto mb-6" width="180" height="180" loading="lazy" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-            {subtitle && <h2 className="text-xl text-slate-300">{subtitle}</h2>}
+            <img 
+              src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" 
+              alt="Digital Frontier Company - AI-Powered Marketing Solutions" 
+              className="df-logo mx-auto mb-6" 
+              width="180" 
+              height="180" 
+              loading="eager"
+              decoding="async"
+            />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4" itemProp="headline">{title}</h1>
+            {subtitle && <h2 className="text-xl text-slate-300" itemProp="description">{subtitle}</h2>}
           </div>
         </div>
       </section>
-
-      {/* Breadcrumb Navigation */}
-      <div className="bg-slate-900/60 border-y border-slate-800/80">
-        <div className="container mx-auto py-3 px-4">
-          <div className="flex text-sm text-slate-400">
-            <Link to="/" className="hover:text-blue-400">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-slate-300">{formattedPageName || title}</span>
-          </div>
-        </div>
-      </div>
       
-      {/* Main Content */}
-      <main className="container mx-auto py-8 px-4 mt-4">
+      {/* Main Content with Semantic HTML */}
+      <main className="container mx-auto py-8 px-4 mt-4" role="main">
         <div className="max-w-4xl mx-auto bg-slate-900/60 backdrop-blur-sm p-6 md:p-10 rounded-2xl border border-slate-800 shadow-lg">
-          <article>
-            <div className="space-y-8">
+          <article itemScope itemType={pageType === 'article' ? "https://schema.org/Article" : "https://schema.org/WebPage"}>
+            {pageType === 'article' && (
+              <header className="mb-8">
+                <h1 className="sr-only" itemProp="headline">{title}</h1>
+                {publishedDate && (
+                  <time dateTime={publishedDate} itemProp="datePublished" className="text-sm text-muted-foreground">
+                    Published: {new Date(publishedDate).toLocaleDateString()}
+                  </time>
+                )}
+                {modifiedDate && (
+                  <time dateTime={modifiedDate} itemProp="dateModified" className="text-sm text-muted-foreground ml-4">
+                    Updated: {new Date(modifiedDate).toLocaleDateString()}
+                  </time>
+                )}
+              </header>
+            )}
+            <div className="space-y-8" itemProp="mainEntity">
               {children}
             </div>
           </article>
         </div>
       </main>
+      
+      {/* Performance Monitor */}
+      <PerformanceMonitor />
     </>
   );
 };
