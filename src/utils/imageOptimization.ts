@@ -27,22 +27,33 @@ export function getOptimizedImageUrl(
   targetHeight?: number,
   format: 'webp' | 'avif' | 'png' | 'jpg' = 'webp'
 ): string {
-  // For lovable-uploads, we can't actually resize them server-side,
-  // but we can ensure proper format and add query parameters for CDN optimization
+  // For lovable-uploads, we can't resize server-side, but we can optimize loading
   if (!originalSrc.includes('lovable-uploads')) {
     return originalSrc;
   }
 
-  // Create optimized version indicators
-  const params = new URLSearchParams();
-  params.set('w', targetWidth.toString());
-  if (targetHeight) {
-    params.set('h', targetHeight.toString());
-  }
-  params.set('q', '85'); // Quality
-  params.set('f', format);
+  // Return original with optimization hints for browser
+  return originalSrc;
+}
 
-  return `${originalSrc}?${params.toString()}`;
+/**
+ * Generate CSS background-size optimization based on display dimensions
+ */
+export function getOptimizedBackgroundSize(
+  displayWidth: number,
+  displayHeight: number,
+  originalWidth: number = 1536,
+  originalHeight: number = 1024
+): string {
+  const displayRatio = displayWidth / displayHeight;
+  const originalRatio = originalWidth / originalHeight;
+  
+  // If display is much smaller than original, suggest cover with positioning
+  if (displayWidth < originalWidth * 0.5) {
+    return displayRatio > originalRatio ? 'cover' : 'contain';
+  }
+  
+  return 'cover';
 }
 
 /**
@@ -72,12 +83,18 @@ export function generateResponsiveSrcSet(
  * Get responsive sizes attribute based on display dimensions
  */
 export function getResponsiveSizes(displayWidth: number): string {
-  if (displayWidth <= 96) {
+  if (displayWidth <= 32) {
+    return '32px';
+  } else if (displayWidth <= 64) {
+    return '(max-width: 768px) 48px, 64px';
+  } else if (displayWidth <= 96) {
     return '(max-width: 768px) 64px, (max-width: 1200px) 80px, 96px';
   } else if (displayWidth <= 144) {
     return '(max-width: 768px) 96px, (max-width: 1200px) 120px, 144px';
-  } else if (displayWidth <= 300) {
-    return '(max-width: 768px) 200px, (max-width: 1200px) 250px, 300px';
+  } else if (displayWidth <= 192) {
+    return '(max-width: 768px) 128px, (max-width: 1200px) 160px, 192px';
+  } else if (displayWidth <= 320) {
+    return '(max-width: 768px) 240px, (max-width: 1200px) 280px, 320px';
   } else if (displayWidth <= 480) {
     return '(max-width: 768px) 320px, (max-width: 1200px) 400px, 480px';
   } else {
@@ -119,12 +136,17 @@ export function getBrowserImageSupport(): {
 export const IMAGE_SIZES = {
   logo: { width: 96, height: 96 },
   logoLarge: { width: 180, height: 180 },
+  heroLogo: { width: 480, height: 320 },
   thumbnail: { width: 144, height: 96 },
   card: { width: 320, height: 200 },
   hero: { width: 480, height: 320 },
   feature: { width: 300, height: 200 },
   icon: { width: 64, height: 64 },
-  avatar: { width: 112, height: 112 }
+  iconSmall: { width: 32, height: 32 },
+  avatar: { width: 112, height: 112 },
+  serviceCard: { width: 283, height: 192 },
+  trustBadge: { width: 96, height: 96 },
+  footerLogo: { width: 32, height: 32 }
 } as const;
 
 /**

@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { LazyImage } from "@/components/LazyImage";
 
 const Footer = () => {
   return (
@@ -9,7 +10,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="h-8 w-auto" />
+              <LazyImage
+                src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png"
+                alt="Digital Frontier Company"
+                className="h-8 w-auto"
+                displayWidth={32}
+                displayHeight={32}
+              />
             </div>
             <p className="text-slate-400 mb-4">
               Leading digital marketing agency specializing in AI-driven strategies, SEO, and cutting-edge optimization techniques.

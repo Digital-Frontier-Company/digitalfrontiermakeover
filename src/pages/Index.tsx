@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import useFaqToggle from "@/hooks/useFaqToggle";
 import SEOSchema from "@/components/SEOSchema";
+import { LazyImage } from "@/components/LazyImage";
+import { IMAGE_SIZES, getImageDimensions } from "@/utils/imageOptimization";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
@@ -267,15 +269,14 @@ const Index = () => {
               <div className="absolute inset-0 border border-cyan-400/50 animate-pulse rounded-full"></div>
             </div>
             
-            {/* Main logo - optimized */}
-            <img 
-              alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" 
-              loading="eager" 
-              src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png" 
+            {/* Main logo - optimized with responsive sizing */}
+            <LazyImage
+              src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png"
+              alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency"
               className="h-80 w-auto relative z-10 object-cover logo-interactive animate-logo-strobe"
-              width="480"
-              height="320"
-              decoding="async"
+              displayWidth={480}
+              displayHeight={320}
+              optimization={{ priority: true }}
             />
           </motion.div>
 
@@ -377,25 +378,21 @@ const Index = () => {
                 <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
                   {src === "/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" ? (
                     <a href="https://makementors.com" target="_blank" rel="noopener noreferrer">
-                      <img 
-                        src={src} 
-                        alt="MakeMentors logo" 
-                        className="h-24 w-auto" 
-                        loading="lazy" 
-                        width="96" 
-                        height="96"
-                        decoding="async" 
+                      <LazyImage
+                        src={src}
+                        alt="MakeMentors logo"
+                        className="h-24 w-auto"
+                        displayWidth={96}
+                        displayHeight={96}
                       />
                     </a>
                   ) : (
-                    <img
+                    <LazyImage
                       src={src}
                       alt={`Trusted brand ${index + 1}`}
                       className="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
-                      loading="lazy"
-                      width="144"
-                      height="96"
-                      decoding="async"
+                      displayWidth={144}
+                      displayHeight={96}
                     />
                   )}
                 </div>
@@ -686,14 +683,12 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <img 
-              src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png" 
-              alt="Digital Frontier Company Icon - Generative Search Pro" 
-              width="60" 
-              height="60" 
-              className="mx-auto mb-6" 
-              loading="lazy"
-              decoding="async" 
+            <LazyImage
+              src="/lovable-uploads/a057b6bc-52ff-4437-92a0-6951b11267fe.png"
+              alt="Digital Frontier Company Icon - Generative Search Pro"
+              displayWidth={60}
+              displayHeight={60}
+              className="mx-auto mb-6"
             />
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Generative Search Pro
@@ -707,14 +702,12 @@ const Index = () => {
             {/* AI-Powered Marketing Card */}
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
-                <img 
-                  src="/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png" 
-                  alt="AI-Powered Marketing" 
-                  className="w-full h-48 object-cover rounded-lg" 
-                  width="307"
-                  height="192"
-                  loading="lazy"
-                  decoding="async"
+                <LazyImage
+                  src="/lovable-uploads/e54d0fa9-0841-4307-be48-9729f84a20b3.png"
+                  alt="AI-Powered Marketing"
+                  className="w-full h-48 object-cover rounded-lg"
+                  displayWidth={307}
+                  displayHeight={192}
                 />
               </div>
               <h3 className="mb-4 transition-colors font-extrabold text-xl text-cyan-300 text-center">
@@ -738,14 +731,12 @@ const Index = () => {
             <div className="group backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 bg-slate-950/80">
               <div className="mb-6">
                 <a href="https://generativesearch.pro" target="_blank" rel="dofollow" className="block">
-                  <img 
-                    src="/lovable-uploads/46440d18-7e50-459a-9423-09e65df49121.png" 
-                    alt="Generative Engine Optimization" 
-                    className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity" 
-                    width="283"
-                    height="283"
-                    loading="lazy"
-                    decoding="async"
+                  <LazyImage
+                    src="/lovable-uploads/46440d18-7e50-459a-9423-09e65df49121.png"
+                    alt="Generative Engine Optimization"
+                    className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity"
+                    displayWidth={283}
+                    displayHeight={283}
                   />
                 </a>
               </div>
