@@ -18,9 +18,9 @@ const NotFound = () => {
         <div className="max-w-2xl mx-auto px-4 text-center">
           {/* Error Code */}
           <div className="mb-8">
-            <h1 className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
+            <h2 className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
               404
-            </h1>
+            </h2>
             <h2 className="text-3xl font-bold text-slate-100 mb-4">
               Page Not Found
             </h2>

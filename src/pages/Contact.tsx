@@ -241,9 +241,9 @@ const Contact = () => {
           <div className="flex justify-center mb-6">
             
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient bg-gradient-to-r from-electric-azure to-electric-purple bg-clip-text text-transparent">
             DIGITAL FRONTIER CONTACT
-          </h1>
+          </h2>
           <div className="h-1 w-32 bg-electric-azure mx-auto rounded-full mb-4 shadow-neon-sm"></div>
           <p className="text-xl text-soft-white/80 max-w-3xl mx-auto">
             Ready to Transform Your Digital Presence? Let's create your digital breakthrough together.

@@ -144,9 +144,9 @@ const InsightsHub = () => {
           {/* Hero Section */}
           <section className="text-center px-4 md:px-12 py-16 h-[400px] flex items-center justify-center">
             <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 typewriter" style={{ color: 'var(--df-bright-blue)' }}>
+              <h2 className="text-4xl md:text-6xl font-bold mb-4 typewriter" style={{ color: 'var(--df-bright-blue)' }}>
                 Insights & Articles
-              </h1>
+              </h2>
               <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
                 Stay ahead of the curve with our expert analysis on AI, marketing strategies, and industry consulting trends.
               </p>

@@ -143,7 +143,7 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="text-center">
             <img src="/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png" alt="Digital Frontier Company" className="df-logo mx-auto mb-6" width="180" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h2>
             <h2 className="text-xl text-slate-300">Insights on Digital Marketing, AI, and Business Transformation</h2>
           </div>
         </div>

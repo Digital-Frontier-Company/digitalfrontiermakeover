@@ -29,7 +29,7 @@ const DigitalMarketingStrategy = () => {
               <i className="fa-solid fa-chart-line text-6xl text-cyan-400"></i>
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-6">Digital Marketing Strategy</h1>
+          <h2 className="text-5xl font-bold mb-6">Digital Marketing Strategy</h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
             Transform your business with comprehensive AI-enhanced marketing strategies designed for explosive growth, market domination, and sustainable competitive advantage.
           </p>

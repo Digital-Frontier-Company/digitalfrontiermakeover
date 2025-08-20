@@ -113,7 +113,7 @@ const TaxReductionGuide: React.FC = () => {
         </div>
 
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Ultimate Guide to Tax Reduction & All-Weather Wealth-Building</h1>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ultimate Guide to Tax Reduction & All-Weather Wealth-Building</h2>
           <div className="flex items-center text-sm text-slate-400 space-x-4 mt-4">
             <span>{formatDate(new Date())}</span>
             <span>•</span>

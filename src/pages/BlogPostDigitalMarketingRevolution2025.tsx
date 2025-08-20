@@ -87,9 +87,9 @@ const BlogPostDigitalMarketingRevolution2025 = () => {
                   </Badge>
                 </div>
                 
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
                   The Digital Marketing Revolution of July 2025
-                </h1>
+                </h2>
                 
                 <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
                   AI Overviews, Algorithm Upheavals & the Future of Search

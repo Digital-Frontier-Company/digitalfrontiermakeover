@@ -16,7 +16,7 @@ const TermsOfService = () => {
     >
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <div className="prose prose-lg mx-auto">
-          <h1 className="text-4xl font-bold text-primary mb-8">Terms of Service</h1>
+          <h2 className="text-4xl font-bold text-primary mb-8">Terms of Service</h2>
           
           <p className="text-lg text-muted-foreground mb-8">
             Last updated: August 18, 2025

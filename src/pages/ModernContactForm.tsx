@@ -199,9 +199,9 @@ const ModernContactForm = () => {
                       className="h-24 w-auto pulse"
                     />
                   </div>
-                  <h1 className="text-3xl md:text-4xl font-bold mb-2 neon-text font-['Orbitron']">
+                  <h2 className="text-3xl md:text-4xl font-bold mb-2 neon-text font-['Orbitron']">
                     DIGITAL FRONTIER COMPANY
-                  </h1>
+                  </h2>
                   <div className="h-1 w-32 bg-neon-cyan mx-auto rounded-full mb-3"></div>
                   <p className="text-cyan-300 font-light">Enter the digital frontier</p>
                 </div>

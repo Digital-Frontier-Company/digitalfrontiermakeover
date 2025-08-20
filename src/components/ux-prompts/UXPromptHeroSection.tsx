@@ -6,9 +6,9 @@ const UXPromptHeroSection = () => {
   return (
     <section className="text-center mb-16">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-100">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-100">
           User Experience AI Prompts for SEO
-        </h1>
+        </h2>
         <p className="text-xl text-slate-300 mb-8 leading-relaxed">
           300 proven ChatGPT prompts to optimize user experience and boost SEO performance. 
           Better UX signals directly impact search rankings and conversions.

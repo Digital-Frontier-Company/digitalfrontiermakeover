@@ -76,10 +76,10 @@ export function GTMHeroSection() {
 
             {/* Main Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground leading-tight">
                 Launch Smarter with
                 <span className="block text-primary">AI-Powered Strategy</span>
-              </h1>
+              </h2>
               
               {/* Morphing Value Proposition */}
               <div className="h-8 overflow-hidden">

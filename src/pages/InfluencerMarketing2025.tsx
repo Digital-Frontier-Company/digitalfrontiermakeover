@@ -140,9 +140,9 @@ const InfluencerMarketing2025 = () => {
       <section className="relative pt-12 pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               <span className="gradient-text font-extrabold text-6xl my-[10px] mx-0 px-0 text-center">Memphis Influencer</span> Partnership Hub
-            </h1>
+            </h2>
             <p className="text-xl mb-8 max-w-lg text-slate-50">
               Digital Frontier Company connects with Memphis-based micro-influencers, local celebrities, and community leaders to create authentic collaborations that resonate with our city's unique culture and AI-driven digital marketing expertise.
             </p>

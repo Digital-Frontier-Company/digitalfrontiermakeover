@@ -29,7 +29,7 @@ const AIImplementationConsulting = () => {
               <i className="fa-solid fa-comments text-6xl text-cyan-400"></i>
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-6">AI Implementation Consulting</h1>
+          <h2 className="text-5xl font-bold mb-6">AI Implementation Consulting</h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
             Transform your business with expert AI integration guidance. We help you implement AI solutions that drive real results, maximize efficiency, and give you a competitive edge.
           </p>

@@ -235,9 +235,9 @@ const DigitalFrontierServices = () => {
         <main className="relative z-10">
           {/* Hero Section */}
           <section className="text-center px-4 md:px-12 py-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 typewriter" style={{ color: 'var(--df-bright-blue)' }}>
+            <h2 className="text-4xl md:text-6xl font-bold mb-4 typewriter" style={{ color: 'var(--df-bright-blue)' }}>
               Digital Frontier Services
-            </h1>
+            </h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
               AI-Powered Solutions for Market Domination. From custom AI agents to strategic marketing, we engineer your path to digital supremacy with cutting-edge technology and proven strategies.
             </p>

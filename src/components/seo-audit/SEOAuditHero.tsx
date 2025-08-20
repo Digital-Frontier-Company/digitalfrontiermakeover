@@ -26,9 +26,9 @@ const SEOAuditHero = () => {
             Ultimate SEO Diagnosis Tool
           </Badge>
           
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             Complete SEO Ranking Diagnosis
-          </h1>
+          </h2>
           
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             Comprehensive 9-section SEO audit based on Google's latest ranking factors. 

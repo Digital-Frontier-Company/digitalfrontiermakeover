@@ -87,9 +87,9 @@ const BlogPostAIRevolution2025 = () => {
                   </Badge>
                 </div>
                 
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-cyan-200 to-blue-200 bg-clip-text text-transparent leading-tight">
                   The AI Revolution in Digital Marketing
-                </h1>
+                </h2>
                 
                 <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
                   5 Game-Changing Trends Reshaping 2025

@@ -171,10 +171,10 @@ const PsychologicalDigitalMarketingInsights = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex items-end p-6">
               <div>
                 <span className="bg-cyan-400 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">PSYCHOLOGY</span>
-                <h1 className="text-3xl md:text-5xl font-bold mt-2 leading-tight text-white">
+                <h2 className="text-3xl md:text-5xl font-bold mt-2 leading-tight text-white">
                   The Psychology of Digital Marketing:<br/>
                   <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Influencing Behavior Online</span>
-                </h1>
+                </h2>
               </div>
             </div>
           </div>

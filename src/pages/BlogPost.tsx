@@ -141,10 +141,10 @@ const BlogPost = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="md:w-2/3 lg:w-1/2">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 blog-slide-up">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 blog-slide-up">
               Building <span className="blog-gradient-text text-6xl font-extrabold">Resilience</span> in Businesses with{" "}
               <span className="blog-highlight">AI-Driven Risk Management</span>
-            </h1>
+            </h2>
             <p className="text-lg md:text-xl text-gray-300 mb-8 blog-slide-up" style={{
             animationDelay: '0.2s'
           }}>

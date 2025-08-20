@@ -29,7 +29,7 @@ const AIHumanizerAgent = () => {
               <i className="fa-solid fa-robot text-6xl text-cyan-400"></i>
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-6">AI Humanizer Agent</h1>
+          <h2 className="text-5xl font-bold mb-6">AI Humanizer Agent</h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
             Transform machine-generated content into natural, engaging human language that resonates with your audience and passes AI detection.
           </p>

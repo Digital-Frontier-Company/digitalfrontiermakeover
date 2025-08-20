@@ -166,7 +166,7 @@ const MorphingHero = () => {
 
           {/* Dynamic Headline with Morphing Text */}
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white mb-6">
+            <h2 className="text-5xl md:text-7xl font-bold leading-tight text-white mb-6">
               <span className="block mb-2">We don't just</span>
               <span 
                 className="block bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent transition-all duration-1000"
@@ -180,7 +180,7 @@ const MorphingHero = () => {
               <span className="block mt-2 text-4xl md:text-5xl text-gray-300">
                 We <em className="text-yellow-400">Dominate</em>
               </span>
-            </h1>
+            </h2>
           </div>
 
           {/* Interactive Feature Orbs */}

@@ -30,9 +30,9 @@ const Regulations = () => {
       <header className="container mx-auto py-6 px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-500">
               The Digital Frontier
-            </h1>
+            </h2>
             <p className="text-slate-300 mt-1">Navigating the Future of Technology & Ethics</p>
           </div>
           
