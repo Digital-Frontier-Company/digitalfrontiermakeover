@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import useFaqToggle from "@/hooks/useFaqToggle";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import CaseStudySlider from "@/components/CaseStudySlider";
-import PricingToggle from "@/components/PricingToggle";
-import FAQAccordion from "@/components/FAQAccordion";
 import SEOSchema from "@/components/SEOSchema";
-import ModernContactForm from "@/components/ModernContactForm";
 import Typed from 'typed.js';
 import { ChevronDown, Zap, Target, Rocket, TrendingUp, Users, Award, Check } from 'lucide-react';
 import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
+
+// Lazy load below-the-fold components for performance
+const TestimonialsSection = lazy(() => import("@/components/TestimonialsSection"));
+const CaseStudySlider = lazy(() => import("@/components/CaseStudySlider"));
+const PricingToggle = lazy(() => import("@/components/PricingToggle"));
+const FAQAccordion = lazy(() => import("@/components/FAQAccordion"));
+const ModernContactForm = lazy(() => import("@/components/ModernContactForm"));
 const Index = () => {
   // Use the FAQ toggle hook
   useFaqToggle();
@@ -662,7 +664,9 @@ const Index = () => {
       </div>
 
       {/* CASE STUDY SLIDER - KPI-driven showcase */}
-      <CaseStudySlider />
+      <Suspense fallback={<div className="py-20 bg-slate-900/50 animate-pulse"></div>}>
+        <CaseStudySlider />
+      </Suspense>
 
       {/* NEW SERVICE CARDS SECTION with Image Carousel */}
       <section className="py-20 relative overflow-hidden animate-on-scroll">
@@ -877,10 +881,14 @@ const Index = () => {
       </section>
 
       {/* PRICING TOGGLE - Project/Retainer choice */}
-      <PricingToggle />
+      <Suspense fallback={<div className="py-12 bg-slate-900/50 animate-pulse"></div>}>
+        <PricingToggle />
+      </Suspense>
 
       {/* FAQ ACCORDION - Radix UI powered */}
-      <FAQAccordion />
+      <Suspense fallback={<div className="py-12 bg-slate-900/50 animate-pulse"></div>}>
+        <FAQAccordion />
+      </Suspense>
 
       {/* FINAL CTA */}
       <section className="df-final-cta animate-on-scroll">
@@ -949,7 +957,9 @@ const Index = () => {
               Get your free AI marketing audit and strategy session. Let's discuss your growth goals.
             </p>
           </div>
-          <ModernContactForm />
+          <Suspense fallback={<div className="py-8 bg-slate-900/30 animate-pulse rounded-lg"></div>}>
+            <ModernContactForm />
+          </Suspense>
         </div>
         
         {/* Background decoration */}
