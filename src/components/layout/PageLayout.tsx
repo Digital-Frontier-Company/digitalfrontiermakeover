@@ -89,6 +89,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
         enableCriticalCSS={true}
         enablePreloadHints={true}
         criticalImageUrls={["/lovable-uploads/c5fced4b-35a7-421b-bdf8-12f09b2accdf.png"]}
+        lcpImageUrl="/lovable-uploads/437eedfa-5c80-4a7d-9af4-21878ea732d7.png"
       />
       
       {/* Enhanced Breadcrumb Navigation */}

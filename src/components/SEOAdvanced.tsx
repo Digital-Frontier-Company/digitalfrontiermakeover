@@ -7,6 +7,7 @@ interface SEOAdvancedProps {
   enablePreloadHints?: boolean;
   criticalImageUrls?: string[];
   preloadFonts?: string[];
+  lcpImageUrl?: string;
 }
 
 export const SEOAdvanced: React.FC<SEOAdvancedProps> = ({
@@ -16,7 +17,8 @@ export const SEOAdvanced: React.FC<SEOAdvancedProps> = ({
   criticalImageUrls = [],
   preloadFonts = [
     'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2'
-  ]
+  ],
+  lcpImageUrl
 }) => {
   
   // Core Web Vitals measurement and reporting
@@ -131,6 +133,16 @@ export const SEOAdvanced: React.FC<SEOAdvancedProps> = ({
           crossOrigin="anonymous"
         />
       ))}
+
+      {/* LCP image preloading with high priority */}
+      {enablePreloadHints && lcpImageUrl && (
+        <link
+          rel="preload"
+          href={lcpImageUrl}
+          as="image"
+          fetchPriority="high"
+        />
+      )}
 
       {/* Critical image preloading */}
       {enablePreloadHints && criticalImageUrls.map((imageUrl, index) => (

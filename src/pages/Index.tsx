@@ -181,14 +181,18 @@ const Index = () => {
       <SEOSchema />
       
       
-      {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax */}
-      <motion.section className="relative isolate overflow-hidden min-h-screen bg-deep-navy" style={{
-      backgroundImage: `url('/lovable-uploads/437eedfa-5c80-4a7d-9af4-21878ea732d7.png'), var(--gradient-hero)`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundBlendMode: 'overlay',
-      y: heroY
-    }}>
+      {/* PRESIDENTIAL-LEVEL HERO SECTION with Parallax - LCP Optimized */}
+      <motion.section 
+        className="relative isolate overflow-hidden min-h-screen bg-deep-navy" 
+        style={{
+          backgroundImage: `url('/lovable-uploads/437eedfa-5c80-4a7d-9af4-21878ea732d7.png'), var(--gradient-hero)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundBlendMode: 'overlay',
+          y: heroY
+        }}
+        data-lcp-element="true"
+      >
         {/* Subtle Floating Orbs - Reduced count */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {Array.from({
