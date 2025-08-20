@@ -25,7 +25,7 @@ const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [showFullText, setShowFullText] = useState(false);
   const [bubbles, setBubbles] = useState(() => Array.from({
-    length: 8
+    length: 3
   }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
@@ -162,10 +162,10 @@ const Index = () => {
       backgroundBlendMode: 'overlay',
       y: heroY
     }}>
-        {/* Subtle Floating Orbs */}
+        {/* Subtle Floating Orbs - Reduced count */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {Array.from({
-          length: 3
+          length: 2
         }, (_, i) => <div key={i} className="absolute rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/10" style={{
           width: `${60 + i * 20}px`,
           height: `${60 + i * 20}px`,
@@ -173,9 +173,7 @@ const Index = () => {
           top: `${20 + i * 25}%`,
           animation: `float ${4 + i * 2}s ease-in-out infinite`,
           animationDelay: `${i * 1.5}s`,
-          filter: 'blur(1px)',
-          transform: `translate(${(mousePosition.x - window.innerWidth / 2) * (0.01 + i * 0.005)}px, ${(mousePosition.y - window.innerHeight / 2) * (0.01 + i * 0.005)}px)`,
-          transition: 'transform 0.6s ease-out'
+          filter: 'blur(1px)'
         }} />)}
         </div>
 
@@ -230,38 +228,11 @@ const Index = () => {
         }} transition={{
           duration: 0.8
         }}>
-            {/* Geometric digital frame around logo */}
-            <div className="absolute inset-0 -top-12 -bottom-12 -left-12 -right-12">
-              {/* Outer rotating square */}
-              <div className="absolute inset-0 border border-cyan-400/30 animate-rotate-slow" style={{
-              clipPath: 'polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%)'
-            }}></div>
-              
-              {/* Inner diamond shape */}
-              <div className="absolute inset-6 border-2 border-electric-azure/50 animate-pulse" style={{
-              transform: 'rotate(45deg)',
-              clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'
-            }}></div>
-              
-              {/* Hexagon frame */}
-              <div className="absolute inset-4 border border-blue-400/40 animate-rotate-slow" style={{
-              animationDirection: 'reverse',
-              animationDuration: '25s',
-              clipPath: 'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)'
-            }}></div>
+            {/* Simplified geometric frame around logo */}
+            <div className="absolute inset-0 -top-6 -bottom-6 -left-6 -right-6">
+              {/* Single animated border */}
+              <div className="absolute inset-0 border border-cyan-400/50 animate-pulse rounded-full"></div>
             </div>
-            
-            {/* Corner accent elements */}
-            <div className="absolute -top-6 -left-6 w-4 h-4 border-l-2 border-t-2 border-cyan-400 animate-pulse"></div>
-            <div className="absolute -top-6 -right-6 w-4 h-4 border-r-2 border-t-2 border-cyan-400 animate-pulse" style={{
-            animationDelay: '0.5s'
-          }}></div>
-            <div className="absolute -bottom-6 -left-6 w-4 h-4 border-l-2 border-b-2 border-cyan-400 animate-pulse" style={{
-            animationDelay: '1s'
-          }}></div>
-            <div className="absolute -bottom-6 -right-6 w-4 h-4 border-r-2 border-b-2 border-cyan-400 animate-pulse" style={{
-            animationDelay: '1.5s'
-          }}></div>
             
             {/* Main logo - enlarged */}
             <img alt="Digital Frontier Company - Leading Memphis Digital Marketing Agency" loading="eager" src="/lovable-uploads/0a290708-5a9c-4d58-8a79-88d6ed6a5e66.png" className="h-80 w-auto relative z-10 object-cover logo-interactive animate-logo-strobe" />
@@ -361,7 +332,7 @@ const Index = () => {
               className="flex items-center gap-12 whitespace-nowrap will-change-transform"
               animate={marqueeControls}
             >
-              {[...marqueeItems, ...marqueeItems].map((src, index) => (
+              {marqueeItems.slice(0, 6).map((src, index) => (
                 <div key={index} className="opacity-60 hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
                   {src === "/lovable-uploads/4883064e-c62b-46fc-88e4-ccb90130e07e.png" ? (
                     <a href="https://makementors.com" target="_blank" rel="noopener noreferrer">
@@ -370,7 +341,7 @@ const Index = () => {
                   ) : (
                     <img
                       src={src}
-                      alt={`Trusted brand ${((index % marqueeItems.length) + 1)}`}
+                      alt={`Trusted brand ${index + 1}`}
                       className="h-24 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                       loading="lazy"
                     />
@@ -387,14 +358,8 @@ const Index = () => {
         {/* Animated background with gradient waves */}
         <div className="absolute inset-0 bg-gradient-to-br from-deep-navy via-purple-900/20 to-electric-azure/10">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-electric-azure/5 to-transparent animate-pulse"></div>
-          <div className="absolute top-0 left-0 w-full h-full opacity-30 my-0 py-[32px]">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-electric-azure/20 rounded-full blur-3xl animate-bounce" style={{
-            animationDuration: '6s'
-          }}></div>
-            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-ultraviolet/20 rounded-full blur-3xl animate-bounce" style={{
-            animationDuration: '8s',
-            animationDelay: '2s'
-          }}></div>
+          <div className="absolute top-0 left-0 w-full h-full opacity-20">
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-electric-azure/20 rounded-full blur-2xl"></div>
           </div>
         </div>
 
@@ -618,21 +583,20 @@ const Index = () => {
               </motion.div>)}
           </div>
           
-          {/* Floating particles animation */}
+          {/* Simplified floating particles */}
           <div className="absolute inset-0 pointer-events-none">
             {Array.from({
-            length: 6
+            length: 2
           }).map((_, i) => <motion.div key={i} className="absolute w-2 h-2 bg-electric-azure/40 rounded-full" style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`
+            left: `${30 + i * 40}%`,
+            top: `${30 + i * 40}%`
           }} animate={{
             y: [-20, -100, -20],
-            opacity: [0, 1, 0],
-            scale: [0, 1, 0]
+            opacity: [0, 1, 0]
           }} transition={{
-            duration: 4 + Math.random() * 2,
+            duration: 6,
             repeat: Infinity,
-            delay: Math.random() * 3
+            delay: i * 3
           }} />)}
           </div>
         </div>
@@ -819,47 +783,28 @@ const Index = () => {
           }}>Our comprehensive website analysis delivers actionable insights to help you outperform your competition.</p>
           </div>
 
-          <div className="row">
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>🔍</div>
-                <h3>SEO Analysis</h3>
-                <p>Detailed review of your site's search engine optimization with clear recommendations for improvement.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+              <div className="df-gain-card text-center">
+                <div className="text-3xl mb-3">🔍</div>
+                <h3 className="text-lg font-semibold mb-2">SEO Analysis</h3>
+                <p className="text-sm text-slate-300">Detailed optimization recommendations</p>
+              </div>
+              <div className="df-gain-card text-center">
+                <div className="text-3xl mb-3">📈</div>
+                <h3 className="text-lg font-semibold mb-2">Conversion Insights</h3>
+                <p className="text-sm text-slate-300">Expert funnel optimization</p>
+              </div>
+              <div className="df-gain-card text-center">
+                <div className="text-3xl mb-3">🔄</div>
+                <h3 className="text-lg font-semibold mb-2">Competitor Analysis</h3>
+                <p className="text-sm text-slate-300">Market positioning insights</p>
+              </div>
+              <div className="df-gain-card text-center">
+                <div className="text-3xl mb-3">📋</div>
+                <h3 className="text-lg font-semibold mb-2">Action Plan</h3>
+                <p className="text-sm text-slate-300">Prioritized improvement steps</p>
               </div>
             </div>
-
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>📈</div>
-                <h3>Conversion Insights</h3>
-                <p>Expert evaluation of your conversion funnels with optimization tips to increase your sales.</p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>🔄</div>
-                <h3>Competitor Analysis</h3>
-                <p>See how you stack up against competitors and identify opportunities to gain market share.</p>
-              </div>
-            </div>
-
-            <div className="col-md-6 col-lg-3 mb-4">
-              <div className="df-gain-card">
-                <div className="icon" style={{
-                fontSize: "32px"
-              }}>📋</div>
-                <h3>Action Plan</h3>
-                <p>Receive a prioritized list of improvements with clear next steps to implement changes.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -889,83 +834,36 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-slate-100 mb-8">Explore Digital Frontier</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Digital Marketing Solutions */}
-            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-4">Digital Marketing Solutions</h3>
-              <div className="space-y-3">
-                <Link to="/ad-funnel-blueprint" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Ad Funnel Blueprint</h4>
-                  <p className="text-slate-300 text-sm">Optimize your advertising funnel from awareness to conversion with our proven blueprint.</p>
-                </Link>
-                
-                <Link to="/generative-engine-optimization" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Generative Engine Optimization</h4>
-                  <p className="text-slate-300 text-sm">Leverage AI-generated content to boost your visibility and engagement.</p>
-                </Link>
-                
-                <Link to="/answer-engine-optimization" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Answer Engine Optimization</h4>
-                  <p className="text-slate-300 text-sm">Optimize your content to appear in AI-driven answer boxes and voice search results.</p>
-                </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Key Services - Simplified structure */}
+            <div className="bg-slate-800/30 p-6 rounded-lg border border-slate-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">AI Marketing Solutions</h3>
+              <div className="space-y-3 text-slate-300">
+                <Link to="/ad-funnel-blueprint" className="block hover:text-blue-400 transition-colors">Ad Funnel Blueprint</Link>
+                <Link to="/answer-engine-optimization" className="block hover:text-blue-400 transition-colors">Answer Engine Optimization</Link>
+                <Link to="/generative-engine-optimization" className="block hover:text-blue-400 transition-colors">Generative Engine Optimization</Link>
               </div>
             </div>
             
-            {/* AI Marketing Foundations */}
-            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-4">AI Marketing Foundations</h3>
-              <div className="space-y-3">
-                <Link to="/technical" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Technical Breakdown</h4>
-                  <p className="text-slate-300 text-sm">Understand how modern AI marketing tools work and how they can transform your business.</p>
-                </Link>
-                
-                <Link to="/evolution" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Evolution of AI Marketing</h4>
-                  <p className="text-slate-300 text-sm">Trace the history of AI in marketing from early automation to today's sophisticated systems.</p>
-                </Link>
-                
-                <Link to="/regulations" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Regulations & Compliance</h4>
-                  <p className="text-slate-300 text-sm">Navigate the complex legal landscape of AI-powered marketing and advertising.</p>
-                </Link>
+            <div className="bg-slate-800/30 p-6 rounded-lg border border-slate-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">Resources</h3>
+              <div className="space-y-3 text-slate-300">
+                <Link to="/technical" className="block hover:text-blue-400 transition-colors">Technical Breakdown</Link>
+                <Link to="/evolution" className="block hover:text-blue-400 transition-colors">Evolution of AI Marketing</Link>
+                <Link to="/future" className="block hover:text-blue-400 transition-colors">Future Trends</Link>
               </div>
             </div>
             
-            {/* Industry Insights */}
-            <div className="bg-slate-800/30 p-4 rounded-lg border border-slate-700">
-              <h3 className="text-xl font-bold text-blue-400 mb-4">Industry Insights</h3>
-              <div className="space-y-3">
-                <Link to="/sectors" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Sector Spotlights</h4>
-                  <p className="text-slate-300 text-sm">See how different industries are leveraging AI marketing for competitive advantage.</p>
-                </Link>
-                
-                <Link to="/future" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">Future Trends</h4>
-                  <p className="text-slate-300 text-sm">Get ahead of the curve with insights into emerging AI marketing technologies.</p>
-                </Link>
-                
-                <Link to="/ai-bias-in-advertising" className="bg-slate-800/50 p-4 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all block">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-1">AI Bias in Advertising</h4>
-                  <p className="text-slate-300 text-sm">Understand the ethical implications of AI in advertising and how to address bias.</p>
-                </Link>
+            <div className="bg-slate-800/30 p-6 rounded-lg border border-slate-700">
+              <h3 className="text-xl font-bold text-blue-400 mb-4">Company</h3>
+              <div className="space-y-3 text-slate-300">
+                <Link to="/about-us" className="block hover:text-blue-400 transition-colors">About Us</Link>
+                <Link to="/sectors" className="block hover:text-blue-400 transition-colors">Industries</Link>
+                <Link to="/modern-contact-form" className="block hover:text-blue-400 transition-colors">Contact</Link>
               </div>
             </div>
           </div>
           
-          {/* Additional Resources Row */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link to="/about-us" className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all">
-              <h4 className="text-xl font-bold text-blue-300 mb-2">About Digital Frontier</h4>
-              <p className="text-slate-300">Learn more about our team, our mission, and how we're changing the digital marketing landscape.</p>
-            </Link>
-            
-            <Link to="/modern-contact-form" className="bg-blue-900/20 p-6 rounded-lg border border-blue-700/30 hover:border-blue-500/50 hover:bg-blue-900/30 transition-all">
-              <h4 className="text-xl font-bold text-blue-300 mb-2">Ready to Transform Your Marketing?</h4>
-              <p className="text-slate-300">Contact us today to discuss how we can help your business thrive in the digital frontier.</p>
-            </Link>
-          </div>
         </div>
       </section>
 
