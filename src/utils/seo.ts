@@ -541,8 +541,8 @@ export const ROUTE_CONFIGS: RouteConfig[] = [
 export function normalizeUrl(url: string): string {
   try {
     const urlObj = new URL(url, SITE_CONFIG.baseUrl);
-    // Remove trailing slash (except for root)
-    let pathname = urlObj.pathname === '/' ? '/' : urlObj.pathname.replace(/\/$/, '');
+    // Remove trailing slash for all paths including root
+    let pathname = urlObj.pathname.replace(/\/$/, '') || '';
     // Convert to lowercase
     pathname = pathname.toLowerCase();
     // Remove query parameters and fragments for canonical URLs
@@ -550,7 +550,7 @@ export function normalizeUrl(url: string): string {
   } catch {
     // If URL parsing fails, return the original URL cleaned up
     let cleanUrl = url.startsWith('/') ? url : `/${url}`;
-    cleanUrl = cleanUrl === '/' ? '/' : cleanUrl.replace(/\/$/, '');
+    cleanUrl = cleanUrl.replace(/\/$/, '') || '';
     return `${SITE_CONFIG.baseUrl}${cleanUrl.toLowerCase()}`;
   }
 }
