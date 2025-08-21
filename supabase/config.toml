@@ -43,3 +43,6 @@ port = 54326
 
 [functions.send-contact-email]
 verify_jwt = false
+
+[functions.prerender-ssr]
+verify_jwt = false
