@@ -125,6 +125,7 @@ function App() {
             <Route path="/ai-prompt-templates" element={<MainLayout><AIPromptTemplates /></MainLayout>} />
             <Route path="/information-architecture-prompts" element={<MainLayout><InformationArchitecturePrompts /></MainLayout>} />
             <Route path="/user-experience-prompts" element={<MainLayout><UserExperiencePrompts /></MainLayout>} />
+            <Route path="/ai-integration" element={<MainLayout><Suspense fallback={<PageLoader />}><AIIntegration /></Suspense></MainLayout>} />
             <Route path="/seo-vs-aeo-vs-geo" element={<MainLayout><SEOvsAEOvsGEO /></MainLayout>} />
             <Route path="/insights" element={<InsightsHub />} />
             <Route path="/browse-playbooks" element={<MainLayout><div className="pt-16"><BrowsePlaybooks /></div></MainLayout>} />
