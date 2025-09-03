@@ -32,6 +32,7 @@ const Regulations = lazy(() => import('@/pages/Regulations'));
 const Sectors = lazy(() => import('@/pages/Sectors'));
 const Future = lazy(() => import('@/pages/Future'));
 const AIBias = lazy(() => import('@/pages/AIBias'));
+const AIIntegration = lazy(() => import('@/pages/AIIntegration'));
 
 // Keep critical pages as immediate imports
 import AIAndDigitalMarketing from '@/pages/AIAndDigitalMarketing';
